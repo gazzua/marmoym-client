@@ -1,0 +1,31 @@
+{
+  "name": "tymsai-web",
+  "version": "0.0.1",
+  "description": "initial",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "@types/react": "^15.0.14",
+    "@types/react-dom": "^0.14.23",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.8",
+    "babel-cli": "^6.23.0",
+    "babel-loader": "^6.3.2",
+    "babel-preset-env": "^1.1.10",
+    "babel-preset-react": "^6.23.0",
+    "cross-env": "^3.1.4",
+    "source-map-loader": "^0.1.6",
+    "typescript": "^2.2.1"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.config.js --color -p --progress",
+    "test": ""
+  },
+  "author": "",
+  "license": "MIT"
+}
