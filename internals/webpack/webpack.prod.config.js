@@ -1,10 +1,11 @@
 var path = require('path');
+var webpack = require('webpack');
 
 var config = {
   entry: './app/index.js',
   output: {
     filename: "bundle.js",
-    path: './dist'
+    path: path.resolve('dist', 'bundle')
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -16,7 +17,12 @@ var config = {
   },
 
   module: {
-    loaders: [
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       {
         test: /\.tsx?$/,
@@ -32,11 +38,6 @@ var config = {
         loader: 'babel-loader',
         exclude: /node_modules/,
       }
-    ],
-
-    preLoaders: [
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { test: /\.js$/, loader: "source-map-loader" }
     ]
   },
 
