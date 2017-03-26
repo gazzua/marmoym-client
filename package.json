@@ -19,12 +19,16 @@
     "babel-preset-env": "^1.1.10",
     "babel-preset-react": "^6.23.0",
     "cross-env": "^3.1.4",
+    "express": "^4.15.0",
     "source-map-loader": "^0.1.6",
-    "typescript": "^2.2.1"
+    "typescript": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.17.1"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.config.js --color -p --progress",
-    "test": ""
+    "test": "",
+    "start": "node ./server"
   },
   "author": "",
   "license": "MIT"

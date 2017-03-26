@@ -9,7 +9,7 @@ class Power extends React.Component {
   render() {
     return (
       <div>
-        123
+        1231111
       </div>
     )
   }
