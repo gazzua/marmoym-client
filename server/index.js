@@ -5,13 +5,7 @@ var compiler = webpack(webpackConfig);
 var app = (require('express'))();
 var path = require('path');
 
-
 var ROOTPATH = path.resolve('dist')
-
-app.use(require("webpack-dev-middleware")(compiler, {
-  noInfo: true,
-  publicPath: webpackConfig.output.publicPath
-}));
 
 app.use(require("webpack-hot-middleware")(compiler, {
   log: console.log,
@@ -21,7 +15,7 @@ app.use(require("webpack-hot-middleware")(compiler, {
 
 app.use(require("webpack-dev-middleware")(compiler, {
   noInfo: true,
-  publicPath: webpackConfig.output.publicPath
+  // publicPath: '/'
 }));
 
 app.get("/", function(req, res) {

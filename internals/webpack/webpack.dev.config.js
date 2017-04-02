@@ -3,17 +3,18 @@ var webpack = require('webpack');
 
 var config = {
   entry: [
-    './app/index.js',
+    './src/index.js',
     'webpack-hot-middleware/client'
   ],
   output: {
     filename: "bundle.js",
     path: path.resolve('dist', 'bundle')
+    // publicPath: path.resolve('dist')
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 
   devtool: "source-map",
@@ -30,13 +31,12 @@ var config = {
         test: /\.js$/,
         loader: "source-map-loader"
       },
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader"
       },
       {
-        test: /\.js$/, // Transform all .js files required somewhere with Babel
+        test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
@@ -44,14 +44,33 @@ var config = {
         test: /\.jsx$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.scss/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              localIdentName: '[name]-[local]-[hash:base64:4]'
+            }
+          },
+          {
+            loader: "sass-loader"
+          }
+        ],
+        // include: path.resolve(__dirname, '..', '..', 'src')
       }
     ]
   },
 
-  // When importing a module whose path matches one of the following, just
-  // assume a corresponding global variable exists and use that instead.
-  // This is important because it allows us to avoid bundling all of our
-  // dependencies, which allows browsers to cache those libraries between builds.
   externals: {
     "react": "React",
     "react-dom": "ReactDOM"

@@ -1,8 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
-  entry: './app/index.js',
+  entry: './src/index.js',
   output: {
     filename: "bundle.js",
     path: path.resolve('dist', 'bundle')
@@ -15,6 +16,10 @@ var config = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".ts", ".tsx", ".js", '.jsx']
   },
+
+  plugins: [
+    new ExtractTextPlugin('../style.css')
+  ],
 
   module: {
     rules: [
@@ -37,6 +42,14 @@ var config = {
         test: /\.jsx$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.scss/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ]
   },
