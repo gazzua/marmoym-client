@@ -18,7 +18,7 @@ app.use(require("webpack-dev-middleware")(compiler, {
   // publicPath: '/'
 }));
 
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
   var index = path.resolve(ROOTPATH, 'index.html')
   res.sendFile(index);
 });

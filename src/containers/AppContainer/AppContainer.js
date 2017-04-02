@@ -1,6 +1,9 @@
-import * as React from "react";
+import * as React from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 
 import styles from './AppContainer.scss'
+
+import Power from '../../components/Power'
 
 console.log(1, styles)
 
@@ -13,9 +16,15 @@ console.log(1, styles)
 class AppContainer extends React.Component {
   render() {
     return (
-      <div>
+      <Router>
+        <div>
+          <Route exact path="/"><Power/></Route>
+          <Route path="/test"><div className={styles.temp}>p1ower23</div></Route>
+        </div>
+      </Router>
+      /*<div> 
         <div className={styles.temp}>p1ower23</div>
-      </div>
+      </div>*/
     )
   }
 }
