@@ -1,13 +1,18 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as React from "react"
+import * as ReactDOM from "react-dom"
 
-import AppContainer from './containers/AppContainer/AppContainer'
+import routes from './routes'
+
+// import AppContainer from './containers/AppContainer/AppContainer'
 
 if (module.hot) {
   module.hot.accept();
 }
 
 ReactDOM.render(
-  <AppContainer compiler="TypeScript" framework="React" />,
+  routes,
   document.getElementById("main")
 );
+
+
+// <AppContainer compiler="TypeScript" framework="React" />
