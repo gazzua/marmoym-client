@@ -2,14 +2,16 @@ import {
   BrowserRouter as Router,
   Route } from "react-router-dom"
 
+import AppContainer from './containers/AppContainer/AppContainer'
 
-const Foo = () => <div>foo</div>
-const Bar = () => <div>bar</div>
+
+const Foo = () => <div>foo0505</div>
+const Bar = () => <div>bar123</div>
 
 export default
   <Router>
     <div>
-      <Route exact path="/" component={Foo}/>
+      <Route exact path="/" component={AppContainer}/>
       <Route path="/about" component={Bar}/>
     </div>
   </Router>
