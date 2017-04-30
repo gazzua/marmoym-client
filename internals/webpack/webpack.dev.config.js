@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 var config = {
   entry: [
-    './src/index.js',
+    './src/app.js',
     'webpack-hot-middleware/client'
   ],
   output: {
