@@ -3,8 +3,7 @@ import CommonLayout from '../../components/CommonLayout/CommonLayout';
 
 class ErrorContainer extends React.Component {
 
-  render()
-  {
+  render() {
     return <CommonLayout></CommonLayout>;
   }
 }
