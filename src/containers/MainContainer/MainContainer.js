@@ -2,7 +2,8 @@ import React from 'react';
 
 import CommonLayout from '../../components/CommonLayout/CommonLayout';
 
-class MainContainer extends React.Component{
+class MainContainer extends React.Component {
+
   render() {
     return <CommonLayout/>
   }
