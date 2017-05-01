@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import routes from './routes'
+import routes from './routes';
 
 if (module.hot) {
   module.hot.accept();
