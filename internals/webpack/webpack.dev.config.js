@@ -1,48 +1,49 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var config = {
+module.exports = {
   entry: [
-    './src/app.js',
-    'webpack-hot-middleware/client'
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
+    './src/app.js'
   ],
   output: {
     filename: "bundle.js",
     path: path.resolve('dist', 'bundle')
     // publicPath: path.resolve('dist')
   },
-
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
-
-  devtool: "source-map",
-
-  resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", '.jsx']
-  },
-
+  devtool: 'cheap-module-eval-source-map',
+  // resolve: {
+  //   extensions: [".ts", ".tsx", ".js", '.jsx']
+  // },
   module: {
-    rules: [
+    // preLoaders: [
+    //   test: /\.js$/,
+    //   use: 'source-map-loader'
+    // ],
+    loaders: [
+      // {
+      //   test: [/\.ts?$/, /\.tsx?$/],
+      //   use: ["react-hot-loader/webpack", "awesome-typescript-loader"]
+      // },
+      // { 
+      //   enforce: "pre", 
+      //   test: /\.js$/, 
+      //   use: ["source-map-loader", "babel-loader"],
+      //   exclude: /node_modules/
+      // },
+      // {
+      //   test: /\.js$/,
+      //   use: ['react-hot-loader/webpack', 'babel-loader'],
+      //   exclude: /node_modules/,
+      // },
       {
-        enforce: 'pre',
         test: /\.js$/,
-        loader: "source-map-loader"
-      },
-      {
-        test: /\.tsx?$/,
-        loader: "awesome-typescript-loader"
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.jsx$/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
       {
@@ -66,15 +67,11 @@ var config = {
             loader: "sass-loader"
           }
         ],
-        // include: path.resolve(__dirname, '..', '..', 'src')
       }
     ]
   },
-
   externals: {
     "react": "React",
     "react-dom": "ReactDOM"
   },
 };
-
-module.exports = config;

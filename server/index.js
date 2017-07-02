@@ -14,8 +14,8 @@ app.use(require("webpack-hot-middleware")(compiler, {
 }));
 
 app.use(require("webpack-dev-middleware")(compiler, {
-  noInfo: true,
-  // publicPath: '/'
+  // noInfo: true,
+  publicPath: '/'
 }));
 
 app.get("*", function(req, res) {
