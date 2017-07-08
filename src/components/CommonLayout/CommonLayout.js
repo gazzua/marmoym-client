@@ -2,9 +2,13 @@ import React from 'react';
 import style from './CommonLayout.scss'
 
 class CommonLayout extends React.Component {
+
   render() {
-    console.log(1, style)
-    return <div className={style.blue}>HiH113</div>
+    return (
+      <div className={style.wrapper}>
+        {this.props.children}1
+      </div>
+    )
   }
 }
 

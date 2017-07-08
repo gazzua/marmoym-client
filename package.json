@@ -11,11 +11,14 @@
     "test": "",
     "dev": "webpack --progress --config internals/webpack/webpack.dev.config.js",
     "copy-asset": "cp ./assets/* ./dist",
-    "start": "npm run copy-asset && node ./server"
+    "start": "node ./server"
   },
   "dependencies": {
-    "@types/react": "^15.0.14",
-    "@types/react-dom": "^0.14.23",
+    "@types/node": "^8.0.8",
+    "@types/react": "^15.0.35",
+    "@types/react-dom": "^15.5.1",
+    "@types/react-hot-loader": "^3.0.3",
+    "@types/webpack-env": "^1.13.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^4.0.0",
@@ -39,7 +42,7 @@
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.1.6",
     "style-loader": "^0.16.1",
-    "typescript": "^2.2.1",
+    "typescript": "^2.4.1",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hot-middleware": "^2.17.1"
   },

@@ -1,28 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import routes from './routes';
 import Temp from './components/Temp'
 
-const render = Component => {
+/**
+ * Root html dom node on which React Application would render.
+ */
+const rootEl = document.getElementById('main');
+
+/**
+ * 
+ */
+import styles from './styles/common.scss'
+console.log(123, styles);
+
+
+
+/**
+ * ...
+ */
+const render = (Component) => {
   ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('main')
+    routes,
+    rootEl
   )
 }
 
-render(Temp)
+/**
+ * Initial rendering
+ */
+render(routes)
 
-// ReactDOM.render(
-//   routes, 
-//   document.getElementById("main"));
-
+/**
+ * ...
+ */
 if (module.hot) {
-  console.log(22)
-  module.hot.accept('./components/Temp.js', () => { 
-    render(Temp) 
+  module.hot.accept('./routes', () => { 
+    console.log('hot replace')
+    render(routes) 
   })
 }
