@@ -3,26 +3,26 @@ import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import routes from './routes';
+import Temp from './components/Temp'
 
-/**
- * Root html dom node on which React Application would render.
+/** 
+ * Root html dom node on which React Application is rendered.
  */
 const rootEl = document.getElementById('main');
 
 /**
- * 
+ * Initialize style
  */
-import styles from './styles/common.scss'
-console.log(123, styles);
-
-
+require('./styles/common.scss')
 
 /**
  * ...
  */
 const render = (Component) => {
   ReactDOM.render(
-    routes,
+    <AppContainer>
+      <Component/>
+    </AppContainer>,
     rootEl
   )
 }
@@ -37,6 +37,7 @@ render(routes)
  */
 if (module.hot) {
   module.hot.accept('./routes', () => { 
+    require("./routes")
     console.log('hot replace')
     render(routes) 
   })
