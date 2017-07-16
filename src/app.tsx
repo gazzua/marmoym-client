@@ -1,43 +1,31 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
 
-import routes from './routes';
-import Temp from './components/Temp'
+import routes from './routes/routes';
+import { configureStore } from './store';
 
-/** 
- * Root html dom node on which React Application is rendered.
- */
 const rootEl = document.getElementById('main');
 
-/**
- * Initialize style
- */
-require('./styles/common.scss')
+const store = configureStore()
 
-/**
- * ...
- */
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <Component/>
+      <Provider store={store}>
+        <Component/>
+      </Provider>
     </AppContainer>,
     rootEl
   )
 }
 
-/**
- * Initial rendering
- */
 render(routes)
 
-/**
- * ...
- */
 if (module.hot) {
-  module.hot.accept('./routes', () => { 
-    require("./routes")
+  module.hot.accept('./routes/routes', () => { 
+    require("./routes/routes")
     console.log('hot replace')
     render(routes) 
   })

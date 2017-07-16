@@ -1,0 +1,15 @@
+@mixin w320 {
+  @media (min-width: 320px) and (max-width: 479px) {
+    @content;
+  }
+}
+
+@mixin w480 {
+  
+}
+
+@mixin w1024 {
+  @media (min-width: 480px) {
+    @content;
+  }
+}

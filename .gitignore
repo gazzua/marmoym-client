@@ -144,5 +144,6 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/webstorm,node,macos
 
-dist/
+dist/bundle/
 .idea/
+.yarnclean
