@@ -7,7 +7,7 @@ class CommonLayout extends React.Component<{}, {}> {
   render() {
     return (
       <div className={style.wrapper}>
-        {this.props.children}123
+        {this.props.children}1
       </div>
     )
   }
