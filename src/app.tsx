@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { Router, Route, Switch } from 'react-router';
 
 import routes from './routes';
 import Temp from './components/Temp'
