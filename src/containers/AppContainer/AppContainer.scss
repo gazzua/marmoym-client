@@ -3,7 +3,7 @@
 
 .wrapper {
   @include w320 {
-    color: red;
+    color: blue;
     height: 100%;
     .inner {
       width: 320px;
