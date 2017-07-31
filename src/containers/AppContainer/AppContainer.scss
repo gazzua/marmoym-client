@@ -1,3 +1,20 @@
+@import '../../styles/media.scss';
+@import '../../styles/debug.scss';
+
 .wrapper {
-  
+  @include w320 {
+    color: red;
+    height: 100%;
+    .inner {
+      width: 320px;
+      margin: 0 auto;
+      min-height: 100%;
+    
+      @include borderGray;
+    }
+  }
+
+  @include w1024 {
+    color: green;
+  }
 }

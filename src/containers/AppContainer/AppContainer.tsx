@@ -7,15 +7,21 @@ import PageContainer from '../PageContainer/PageContainer';
 interface AppContainerProps {
     masthead?: typeof MastheadContainer,
     page?: typeof PageContainer,
-
 }
 
 class AppContainer extends React.Component<AppContainerProps, {}> {
+  componentWillMount() {
+    console.log("app container will mount");
+    require('../../styles/common.scss');
+  }
+
   render() {
     return (
       <div className={styles.wrapper}>
-        <MastheadContainer/>
-        <PageContainer/>
+        <div className={styles.inner}>
+          <MastheadContainer/>
+          <PageContainer/>  
+        </div>
       </div>
     )
   }
