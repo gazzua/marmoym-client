@@ -3,17 +3,11 @@ import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import routes from './routes';
-import Temp from './components/Temp'
 
 /** 
  * Root html dom node on which React Application is rendered.
  */
 const rootEl = document.getElementById('main');
-
-/**
- * Initialize style
- */
-require('./styles/common.scss')
 
 /**
  * ...

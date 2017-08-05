@@ -1,0 +1,10 @@
+@import '../../../styles/debug.scss';
+
+.wrapper {
+  display: flex;
+  margin-left: auto;
+
+  button {
+    @include borderGreen;
+  }
+}

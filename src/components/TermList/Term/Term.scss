@@ -1,0 +1,23 @@
+@import '../../../styles/debug.scss';
+
+.wrapper {
+  height: 160px;
+  @include borderGray;
+
+  .name {
+  
+  }
+
+  .def {
+
+  }
+
+  .usage {
+
+
+  }
+  
+  .bottomRow {
+    
+  }
+}
