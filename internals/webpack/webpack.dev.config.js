@@ -23,6 +23,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.PLATFORM': JSON.stringify('MOBILE')
+    })
   ],
   module: {
     loaders: [
@@ -35,35 +38,6 @@ module.exports = {
         test: /\.tsx?$/,
         use: ['react-hot-loader/webpack', 'awesome-typescript-loader']
       },
-      // {
-      //   test: /\.css$/,
-      //   use: ExtractTextPlugin.extract({
-      //     fallback: 'style-loader',
-      //     use: [
-      //       {
-      //         loader: 'css-loader',
-      //         query: {
-      //           modules: true,
-      //           sourceMap: true,
-      //           importLoaders: 1,
-      //           localIdentName: '[local]__[hash:base64:5]'
-      //         }
-      //       },
-      //       {
-      //         loader: 'postcss-loader',
-      //         // options: {
-      //         //   plugins: [
-      //         //     require('postcss-import')({ addDependencyTo: webpack }),
-      //         //     require('postcss-url')(),
-      //         //     require('postcss-cssnext')(),
-      //         //     require('postcss-reporter')(),
-      //         //     require('postcss-browser-reporter')({ disabled: isProduction }),
-      //         //   ]
-      //         // }
-      //       }
-      //     ]
-      //   })
-      // },
       {
         test: /\.css$/,
         use: {

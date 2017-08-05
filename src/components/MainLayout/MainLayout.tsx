@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 const styles = require("./MainLayout.scss");
-import MastheadContainer from '../../containers/MastheadContainer/MastheadContainer';
-import AppContainer from '../../containers/AppContainer/AppContainer';
-import PageContainer from '../../containers/PageContainer/PageContainer';
+import MastheadContainer from '../../containers/MastheadContainer';
+import AppContainer from '../../containers/AppContainer';
+import PageContainer from '../../containers/PageContainer';
 
 export default (props) => (
   <AppContainer

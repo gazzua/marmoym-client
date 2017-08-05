@@ -3,19 +3,19 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // import MainContainer from './containers/MainContainer/MainContainer';
 // import CommonLayout from './containers/MainContainer/MainContainer';
-import MainLayout from './components/MainLayout/MainLayout';
+// import MainLayout from '../components/MainLayout/MainLayout';
+import AppContainer from '../containers/AppContainer'
 
 export default () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={MainLayout}/>
-        <Route exact path='/term' component={MainLayout}/>  
+        <Route exact path='/' component={AppContainer}/>
+        <Route exact path='/term' component={AppContainer}/>  
         {/* <Route exact path='/addTerm' component={AddTermLayout}/>  */}
       </Switch>
    </BrowserRouter>
   )
 }
-
 
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const styles = require("./PageContainer.scss");
-import TermListContainer from '../TermListContainer/TermListContainer';
+const styles = require("./PageContainer.mobile.scss");
+import TermListContainer from '../TermListContainer';
 
 class PageContainer extends React.Component {
   render() {

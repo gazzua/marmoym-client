@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-const styles = require("./AppContainer.scss");
-import MastheadContainer from '../MastheadContainer/MastheadContainer';
-import PageContainer from '../PageContainer/PageContainer';
+const styles = require("./AppContainer.mobile.scss");
+import MastheadContainer from '../MastheadContainer';
+import PageContainer from '../PageContainer';
 
 interface AppContainerProps {
     masthead?: typeof MastheadContainer,

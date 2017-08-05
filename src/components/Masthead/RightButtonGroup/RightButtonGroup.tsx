@@ -5,9 +5,15 @@ const styles = require('./RightButtonGroup.scss');
 const RightButtonGroup = (props) => {
   return (
     <div className={styles.wrapper}>
-      <button>sch</button>
-      <button>add</button>
-      <button>ham</button>
+      <button onClick={props.handleClickAddTerm}>
+        sch
+      </button>
+      <button>
+        add
+        </button>
+      <button>
+        ham
+      </button>
     </div>
   )
 }
