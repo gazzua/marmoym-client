@@ -1,14 +1,16 @@
 import * as React from 'react';
 
-const styles = require('./Term.scss');
+const styles = require('./Term.mobile.scss');
 import DefinitionList from '../DefinitionList/DefinitionList';
 
-interface TermProps {
-  name: string,
-  defList: any
+export namespace Term {
+  export interface Props {
+    name: string,
+    defList: any
+  }
 }
 
-const Term: React.SFC<TermProps> = (props) => {
+const Term: React.SFC<Term.Props> = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.topRow}>

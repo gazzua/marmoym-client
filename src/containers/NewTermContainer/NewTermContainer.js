@@ -1,10 +1,8 @@
 import React from 'react';
 
-import CommonLayout from '../../components/CommonLayout/CommonLayout';
-
 class NewTermContainer extends React.Component {
   render() {
-    return <CommonLayout></CommonLayout>;
+    return <div>33</div>;
   }
 }
 

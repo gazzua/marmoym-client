@@ -1,0 +1,17 @@
+@import '../../styles/debug.scss';
+
+.wrapper {
+  height: 46px;
+  display: flex;
+  
+  @include borderYellow;
+
+  .rightButtonGroup {
+    display: flex;
+    margin-left: auto;
+
+    button {
+      @include borderGreen;
+    }
+  }
+}

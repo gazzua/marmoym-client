@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { injectGlobal } from 'styled-components';
 
-const styles = require("./AppContainer.scss");
+import commonStyle from '../../styles/common';
 import MastheadContainer from '../MastheadContainer/MastheadContainer';
 import PageContainer from '../PageContainer/PageContainer';
+import App from '../../components/App/App';
 
 interface AppContainerProps {
     masthead?: typeof MastheadContainer,
@@ -12,17 +14,20 @@ interface AppContainerProps {
 class AppContainer extends React.Component<AppContainerProps, {}> {
   componentWillMount() {
     console.log("app container will mount");
-    require('../../styles/common.scss');
+    commonStyle();
   }
 
   render() {
+    const innerClassName = 'inner';
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.inner}>
-          <MastheadContainer/>
-          <PageContainer/>  
+      <App innerClassName={innerClassName}>
+        <div className={innerClassName}>
+          <MastheadContainer
+            masthead={this.props.masthead}/>
+          <PageContainer
+            page={this.props.page}/>  
         </div>
-      </div>
+      </App>
     )
   }
 }
