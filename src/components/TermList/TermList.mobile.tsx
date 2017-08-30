@@ -1,6 +1,7 @@
 import * as React from 'react';
+import styled, { StyledFunction } from 'styled-components';
 
-const styles = require('./TermList.mobile.scss');
+import { border } from '../../styles/debug';
 import Term from './Term/Term';
 
 const renderTermList = (terms) => {
@@ -15,12 +16,14 @@ const renderTermList = (terms) => {
   })
 }
 
-const TermList = (props) => {
-  return (
-    <div className={styles.wrapper}>
-      {renderTermList(props.terms)}
-    </div>
-  )
-}
+const StyledTermList = styled.div`
+  ${border('black')}
+`;
+
+const TermList = (props) => (
+  <StyledTermList>
+    {renderTermList(props.terms)}
+  </StyledTermList>
+);
 
 export default TermList;

@@ -1,13 +1,16 @@
 import * as React from 'react';
+import styled, { StyledFunction } from 'styled-components';
 
-const styles = require("./QueryDisplay.scss");
+const StyledQueryDisplay = styled.div`
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+`;
 
-const QueryDisplay = (props) => {
-  return (
-    <div className={styles.wrapper}>
-      <span>query</span>
-    </div>
-  )
-}
+const QueryDisplay = (props) => (
+  <StyledQueryDisplay>
+    <span>query</span>
+  </StyledQueryDisplay>
+);
 
 export default QueryDisplay;

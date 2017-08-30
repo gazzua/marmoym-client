@@ -1,6 +1,6 @@
 import * as React from 'react';
+import styled, { StyledFunction } from 'styled-components';
 
-const styles = require('./DefinitionList.scss');
 import Definition from '../Definition/Definition';
 
 const renderDefinition = (definitions) => {
@@ -12,12 +12,12 @@ const renderDefinition = (definitions) => {
   );
 }
 
-const DefinitionList = (props) => {
-  return (
-    <div className={styles.wrapper}>
-      {renderDefinition(props.defList)}
-    </div>
-  )
-}
+const StyledDefinitionList = styled.div``;
+
+const DefinitionList = (props) => (
+  <StyledDefinitionList>
+    {renderDefinition(props.defList)}
+  </StyledDefinitionList>
+);
 
 export default DefinitionList;

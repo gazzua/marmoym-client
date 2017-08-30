@@ -13,9 +13,9 @@ export default () => {
           path='/' 
           render={() => 
             <AppContainer 
-              page={TermListContainer}/>}/>
+              pageContent={TermListContainer}/>}/>
         <Route path='/term' component={AppContainer}/>
-        <Route path='/addTerm' render={() => <AppContainer page={AddTermContainer}/>}/>
+        <Route path='/addTerm' render={() => <AppContainer pageContent={AddTermContainer}/>}/>
       </Switch>
    </BrowserRouter>
   );
