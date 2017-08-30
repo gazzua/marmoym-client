@@ -1,6 +1,8 @@
 import * as React from 'react';
+import styled, { StyledFunction } from 'styled-components';
 
-const styles = require('./Masthead.mobile.scss');
+import { withProps } from '../../utils/styleUtils';
+import { border } from '../../styles/debug';
 import MarmoymLogo from '../MarmoymLogo/MarmoymLogo';
 import QueryDisplay from './QueryDisplay/QueryDisplay';
 
@@ -12,42 +14,52 @@ export namespace Masthead {
   }
 }
 
-const MastheadBase = (props) => {
-  return (
-    <div className={styles.wrapper}>
-      <MarmoymLogo/>
-      <QueryDisplay/>
-      <div>
-        {props.children}
-      </div>
-      <div className={styles.rightButtonGroup}>
-        <button>
-          sch
-        </button>
-        <button onClick={props.handleClickAddTerm}>
-          add
-        </button>
-        <button>
-          ham
-        </button>
-      </div>
+const StyledMastheadBase = styled.div`
+  height: 46px;
+  display: flex;
+  ${border("yellow")}
+
+  .rightButtonGroup {
+    display: flex;
+    margin-left: auto;
+
+    button {
+      ${border('green')}
+    }
+  }
+`;
+
+const MastheadBase = (props) => (
+  <StyledMastheadBase>
+    <MarmoymLogo/>
+    <QueryDisplay/>
+    <div>
+      {props.children}
     </div>
-  );
-}
+    <div className={'rightButtonGroup'}>
+      <button>
+        sch
+      </button>
+      <button onClick={props.handleClickAddTerm}>
+        add
+      </button>
+      <button>
+        hbg
+      </button>
+    </div>
+  </StyledMastheadBase>
+);
 
-const MastheadOnAddTerm: React.SFC<Masthead.Props> = () => {
-  return (
-    <MastheadBase>
-      add term
-    </MastheadBase>
-  )
-}
+const MastheadOnAddTerm: React.SFC<Masthead.Props> = () => (
+  <MastheadBase>
+    add term
+  </MastheadBase>
+);
+    
 
-const MastheadDefault: React.SFC<Masthead.Props> = (props) => {
-  return (
-    <MastheadBase/>
-  )
-}
+const MastheadDefault: React.SFC<Masthead.Props> = (props) => (
+  <MastheadBase/>
+);
 
 const Masthead: React.SFC<Masthead.Props> = (props) => {
   let Component;
@@ -56,7 +68,7 @@ const Masthead: React.SFC<Masthead.Props> = (props) => {
       Component = <MastheadOnAddTerm {...props}/>;
     break;
     default:
-      Component = <MastheadBase {...props}/>;
+      Component = <MastheadDefault {...props}/>;
   }
   return Component;
 }

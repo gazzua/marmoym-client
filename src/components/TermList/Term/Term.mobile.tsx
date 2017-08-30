@@ -1,6 +1,7 @@
 import * as React from 'react';
+import styled, { StyledFunction } from 'styled-components';
 
-const styles = require('./Term.mobile.scss');
+import { border } from '../../../styles/debug';
 import DefinitionList from '../DefinitionList/DefinitionList';
 
 export namespace Term {
@@ -8,35 +9,38 @@ export namespace Term {
     name: string,
     defList: any
   }
-}
+};
 
-const Term: React.SFC<Term.Props> = (props) => {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.topRow}>
-        <div className={styles.labelList}>
+const StyledTerm = styled.div`
+  height: 160px;
+  ${border('gray')}
+`;
+
+const Term: React.SFC<Term.Props> = (props) => (
+  <StyledTerm>
+    <div className={'topRow'}>
+        <div className={'labelList'}>
           label list
         </div>
         <div>
           author and date
         </div>
+    </div>
+    <div className={'name'}>
+      <span>{props.name}</span>
+      <span>romanized</span>
+    </div>
+    <DefinitionList
+      defList={props.defList}/>
+    <div className={'bottomRow'}>
+      <div>
+        up and down
       </div>
-      <div className={styles.name}>
-        <span>{props.name}</span>
-        <span>romanized</span>
-      </div>
-      <DefinitionList
-        defList={props.defList}/>
-      <div className={styles.bottomRow}>
-        <div>
-          up and down
-        </div>
-        <div>
-          rightMenuGroup
-        </div>
+      <div>
+        rightMenuGroup
       </div>
     </div>
-  )
-}
+  </StyledTerm>
+);
 
 export default Term;

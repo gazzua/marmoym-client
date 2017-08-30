@@ -1,3 +1,4 @@
+import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '../../styles/debug';
@@ -9,8 +10,10 @@ export namespace App {
   }
 }
 
+// TODO: @media needs to be parameterized
 const App = withProps<App.Props>()(styled.div)`
-  @media (min-width: 320px) and (max-width: 479px) {
+  @media (max-width: 479px) {
+    min-width: 320px;
     color: blue;
     height: 100%;
     .${props => props.innerClassName} {

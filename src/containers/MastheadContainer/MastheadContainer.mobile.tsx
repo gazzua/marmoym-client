@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom'; 
 
-const styles = require("./MastheadContainer.mobile.scss");
 import Masthead from '../../components/Masthead/Masthead';
 
 export namespace MastheadContainer {

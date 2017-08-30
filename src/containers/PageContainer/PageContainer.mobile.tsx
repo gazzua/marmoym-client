@@ -1,21 +1,20 @@
 import * as React from 'react';
+import styled, { StyledFunction } from 'styled-components';
 
-const styles = require("./PageContainer.mobile.scss");
+import { border } from '../../styles/debug';
 import TermListContainer from '../TermListContainer/TermListContainer';
+import Page from '../../components/Page/Page';
 
 export namespace PageContainer {
   export interface Props {
-    page: any;
+    content: any;
   }
 }
 
 class PageContainer extends React.Component<PageContainer.Props> {
   render() {
-    const Page = this.props.page;
     return (
-      <div className={styles.wrapper}>
-        {this.props.page ? <Page/> : null}
-      </div>
+      <Page content={this.props.content}/>
     )
   }
 }

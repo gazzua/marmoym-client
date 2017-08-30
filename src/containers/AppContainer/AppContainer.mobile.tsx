@@ -1,20 +1,20 @@
 import * as React from 'react';
 import { injectGlobal } from 'styled-components';
 
-import commonStyle from '../../styles/common';
+import globalStyle from '../../styles/global';
 import MastheadContainer from '../MastheadContainer/MastheadContainer';
 import PageContainer from '../PageContainer/PageContainer';
 import App from '../../components/App/App';
 
 interface AppContainerProps {
     masthead?: typeof MastheadContainer,
-    page?: typeof PageContainer,
+    pageContent?: any,
 }
 
 class AppContainer extends React.Component<AppContainerProps, {}> {
   componentWillMount() {
     console.log("app container will mount");
-    commonStyle();
+    globalStyle();
   }
 
   render() {
@@ -25,7 +25,7 @@ class AppContainer extends React.Component<AppContainerProps, {}> {
           <MastheadContainer
             masthead={this.props.masthead}/>
           <PageContainer
-            page={this.props.page}/>  
+            content={this.props.pageContent}/>  
         </div>
       </App>
     )
