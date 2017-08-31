@@ -1,7 +1,7 @@
 import DefaultMobile from './DefinitionList.mobile';
 import * as mobile from './DefinitionList.mobile';
-// import DefaultWeb from './AddTerm.web';
-// import * as web from './AddTerm.web';
+// import DefaultWeb from './routes.web';
+// import * as web from './routes.web';
 
 declare var _test: typeof mobile;
 // declare var _test: typeof web;

@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '../../styles/debug';
-import TermListContainer from '../TermListContainer/TermListContainer';
 import Page from '../../components/Page/Page';
 
 export namespace PageContainer {

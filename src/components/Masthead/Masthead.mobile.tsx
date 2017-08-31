@@ -55,7 +55,6 @@ const MastheadOnAddTerm: React.SFC<Masthead.Props> = () => (
     add term
   </MastheadBase>
 );
-    
 
 const MastheadDefault: React.SFC<Masthead.Props> = (props) => (
   <MastheadBase/>

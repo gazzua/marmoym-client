@@ -1,5 +1,5 @@
-import DefaultMobile from './TermList.mobile';
-import * as mobile from './TermList.mobile';
+import DefaultMobile from './DefinitionListContainer.mobile';
+import * as mobile from './DefinitionListContainer.mobile';
 // import DefaultWeb from './routes.web';
 // import * as web from './routes.web';
 
@@ -9,5 +9,5 @@ declare var _test: typeof mobile;
 declare var _testDefault: typeof DefaultMobile;
 // declare var _testDefault: typeof DefaultWeb;
 
-export * from './TermList.mobile';
+export * from './DefinitionListContainer.mobile';
 export default DefaultMobile;
