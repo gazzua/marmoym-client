@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { withProps } from '../../utils/styleUtils';
+import { withProps } from '../../styles/utils';
 import { border } from '../../styles/debug';
 import MarmoymLogo from '../MarmoymLogo/MarmoymLogo';
 import QueryDisplay from './QueryDisplay/QueryDisplay';
@@ -17,7 +17,6 @@ export namespace Masthead {
 const StyledMastheadBase = styled.div`
   height: 46px;
   display: flex;
-  ${border("yellow")}
 
   .rightButtonGroup {
     display: flex;

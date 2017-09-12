@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     case ActionType.GET_TERMS_SUCCESS:
       return {
         ...state,
-        terms: action.payload
+        definitions: action.payload
       };  
     case ActionType.ADD_TERM: 
       return {

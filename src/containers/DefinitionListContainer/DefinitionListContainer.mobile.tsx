@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import DefinitionList from '../../components/common/DefinitionList/DefinitionList';
+import DefinitionList from '../../components/DefinitionList/DefinitionList';
 import { termActions } from '../../actions'
 
 export namespace DefinitionListContainer {
   export interface Props {
-    terms: any;
+    definitions: any;
     getTerms: any;
   }
 }
@@ -17,17 +17,16 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
   }
 
   render() {
-    console.log("render definitionList container", this.props.terms)
     return (
       <DefinitionList
-        definitions={this.props.terms}/>
+        definitions={this.props.definitions}/>
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
   return {
-    terms: state.termsReducer.terms
+    definitions: state.termsReducer.definitions
   }
 }
 

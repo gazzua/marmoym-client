@@ -1,13 +1,14 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { withProps } from '../../utils/styleUtils';
+import { withProps } from '../../styles/utils';
+import { w320 } from '../../styles/media'; 
 
 const MarmoymLogo = styled.div`
-  @media (min-width: 320px) and (max-width: 479px) {
+  ${w320(`
     display: flex;
     align-items: center;
-  }
+  `)}
 `;
 
 export default () => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '../../styles/debug';
-import { withProps } from '../../utils/styleUtils';
+import { withProps } from '../../styles/utils';
 
 const StyledPage = styled.div`
   ${border('blue')}

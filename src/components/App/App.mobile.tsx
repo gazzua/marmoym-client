@@ -2,28 +2,34 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '../../styles/debug';
-import { withProps } from '../../utils/styleUtils';
+import { Div } from '../../styles/elem';
+import { withProps, resolveNames } from '../../styles/utils';
+import { w320 } from '../../styles/media';
 
-export namespace App {
-  export interface Props {
-    innerClassName: string;
-  }
-}
+const styles: any = resolveNames(['inner']);
 
-// TODO: @media needs to be parameterized
-const App = withProps<App.Props>()(styled.div)`
-  @media (max-width: 479px) {
+const StyledApp = styled.div`
+  ${w320(`
     min-width: 320px;
-    color: blue;
     height: 100%;
-    .${props => props.innerClassName} {
+    color: blue;
+    .${styles.inner} {
       width: 320px;
       margin: 0 auto;
       min-height: 100%;
-      
       ${border('gray')}
-    }
+    }`)
   }
 `;
+
+const App = (props) => {
+  return (
+    <StyledApp>
+      <div className={styles.inner}>
+        {props.children}
+      </div>
+    </StyledApp>
+  );
+};
 
 export default App;

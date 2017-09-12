@@ -7,28 +7,22 @@ import PageContainer from '../PageContainer/PageContainer';
 import App from '../../components/App/App';
 
 interface AppContainerProps {
-    masthead?: typeof MastheadContainer,
-    pageContent?: any,
+    masthead?: typeof MastheadContainer;
+    pageContent?: any;
 }
 
 class AppContainer extends React.Component<AppContainerProps, {}> {
   componentWillMount() {
-    console.log("app container will mount");
     globalStyle();
+    console.log("app container will mount");
   }
 
   render() {
-    const innerClassName = 'inner';
     return (
-      <App innerClassName={innerClassName}>
-        <div className={innerClassName}>
-          <MastheadContainer
-            masthead={this.props.masthead}/>
-          <PageContainer
-            content={this.props.pageContent}/>  
-        </div>
+      <App>
+        {this.props.children}
       </App>
-    )
+    );
   }
 }
 
