@@ -6,16 +6,28 @@ const DefinitionRecord = Immutable.Record({
   pos: '',
   usage: '',
   media: '',
-  origin: ''
+  origin: '',
+  badges: ''
 });
 
+interface DefinitionType {
+  term?: string;
+  label?: string;
+  pos?: string;
+  usage?: string;
+  media?: string;
+  origin?: string;
+  badges?: string[];
+};
+
 class Definition extends DefinitionRecord {
-  term: string;
-  label: string;
-  pos: string;
-  usage: string;
-  media: string;
-  origin: string;
+  constructor(params?: DefinitionType) {
+      params ? super(params) : super();
+  }
+
+  with(values: DefinitionType) {
+      return this.merge(values) as this;
+  }
 }
 
 export default Definition;

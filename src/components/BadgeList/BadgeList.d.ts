@@ -1,5 +1,5 @@
-import DefaultMobile from './AddTerm.mobile';
-import * as mobile from './AddTerm.mobile';
+import DefaultMobile from './BadgeList.mobile';
+import * as mobile from './BadgeList.mobile';
 // import DefaultWeb from './AddTerm.web';
 // import * as web from './AddTerm.web';
 
@@ -9,5 +9,5 @@ declare var _test: typeof mobile;
 declare var _testDefault: typeof DefaultMobile;
 // declare var _testDefault: typeof DefaultWeb;
 
-export * from './AddTerm.mobile';
+export * from './BadgeList.mobile';
 export default DefaultMobile;

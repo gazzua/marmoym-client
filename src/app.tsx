@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 import routes from './routes/routes';
 import { configureStore } from './store';
+import globalStyle from './styles/global';
 
 const rootEl = document.getElementById('main');
 
@@ -18,15 +19,15 @@ const render = (Component) => {
       </Provider>
     </AppContainer>,
     rootEl
-  )
+  );
 }
 
-render(routes)
+render(routes);
 
 if (module.hot) {
   module.hot.accept('./routes/routes', () => { 
-    require("./routes/routes")
-    console.log('hot replace')
-    render(routes) 
+    require("./routes/routes");
+    console.log('hot replace');
+    render(routes);
   })
 }

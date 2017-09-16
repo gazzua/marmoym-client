@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { border } from '../../../styles/debug';
+import { border } from '../../styles/debug';
 import Definition from './Definition/Definition';
 
 const renderDefinitions = (definitions) => {
@@ -9,6 +9,7 @@ const renderDefinitions = (definitions) => {
     return null;
   }
 
+  console.log("definitions", definitions.toJS());
   return definitions.map((definition, i) => (
     <Definition
       key={i}
@@ -17,7 +18,8 @@ const renderDefinitions = (definitions) => {
       usage={definition.get('usage')}
       pos={definition.get('pos')}
       media={definition.get('media')}
-      origin={definition.get('origin')}/>
+      origin={definition.get('origin')}
+      badges={definition.get('badges')}/>
   ));
 }
 

@@ -1,24 +1,23 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom'; 
 
-import AddTerm from '../../components/AddTerm/AddTerm';
+import Define from '../../components/Define/Define';
 
-namespace AppContainer {
+namespace DefineContainer {
   export interface Props {
-    masthead?: typeof AddTermContainer,
     pageContent?: any,
   }
-
+  
   export interface State {
     usages: any
   }
 }
-interface AppContainerProps {
+
+interface DefineContainer {
   
 }
 
-class AddTermContainer extends React.Component<AppContainer.Props, AppContainer.State> {
-
+class DefineContainer extends React.Component<DefineContainer.Props, DefineContainer.State> {
   constructor() {
     super();
     this.state = {
@@ -27,18 +26,20 @@ class AddTermContainer extends React.Component<AppContainer.Props, AppContainer.
       ]
     };
   }
+
   handleClickAddUsage() {
     let { usages }=this.state;
     usages.push('');
     this.setState({usages: usages});
   }
+
   render() {
     return (
-      <AddTerm 
+      <Define 
         usages={this.state.usages} 
         handleClickAddUsage={this.handleClickAddUsage.bind(this)}/>
     )
   }
 }
 
-export default withRouter(AddTermContainer);
+export default withRouter(DefineContainer);

@@ -2,21 +2,18 @@ import * as React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import AppContainer from '../containers/AppContainer/AppContainer'
-import AddTermContainer from '../containers/AddTermContainer/AddTermContainer';
-import DefinitionListContainer from '../containers/DefinitionListContainer/DefinitionListContainer';
+import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout';
+import ErrorLayout from '../layouts/ErrorLayout/ErrorLayout';
 
 export default () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact
-          path='/' 
-          render={() => 
-            <AppContainer 
-              pageContent={DefinitionListContainer}/>}/>
-        <Route path='/term' component={AppContainer}/>
-        <Route path='/addTerm' render={() => <AppContainer pageContent={AddTermContainer}/>}/>
-      </Switch>
+      <AppContainer>
+        <Switch>
+          <Route path='/error' component={ErrorLayout}/>
+          <Route path='/' component={DefaultLayout}/>
+        </Switch>
+    </AppContainer>
    </BrowserRouter>
   );
 }
