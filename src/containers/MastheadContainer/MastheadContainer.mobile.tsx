@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom'; 
 
-import Masthead from '../../components/Masthead/Masthead';
+import Masthead from 'components/Masthead/Masthead';
 
 export namespace MastheadContainer {
   export interface Props {

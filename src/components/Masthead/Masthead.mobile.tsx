@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { withProps } from '../../styles/utils';
-import { border } from '../../styles/debug';
-import MarmoymLogo from '../MarmoymLogo/MarmoymLogo';
+import { withProps } from 'styles/utils';
+import { border } from 'styles/debug';
+import MarmoymLogo from 'components/MarmoymLogo/MarmoymLogo';
 import QueryDisplay from './QueryDisplay/QueryDisplay';
 
 export namespace Masthead {

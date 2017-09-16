@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { border } from '../../styles/debug';
-import { Div } from '../../styles/elem';
-import { withProps, resolveNames } from '../../styles/utils';
-import { w320 } from '../../styles/media';
+import { border } from 'styles/debug';
+import { Div } from 'styles/elem';
+import { withProps, resolveNames } from 'styles/utils';
+import { w320 } from 'styles/media';
 
 const styles: any = resolveNames(['inner']);
 

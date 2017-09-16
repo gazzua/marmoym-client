@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import DefinitionList from '../../components/DefinitionList/DefinitionList';
-import { termActions } from '../../actions'
+import DefinitionList from 'components/DefinitionList/DefinitionList';
+import { termActions } from 'actions'
 
 export namespace DefinitionListContainer {
   export interface Props {
