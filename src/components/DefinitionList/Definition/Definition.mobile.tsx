@@ -5,34 +5,9 @@ import { resolveNames, withProps } from 'styles/utils';
 import { border } from 'styles/debug';
 import BadgeList from '../../BadgeList/BadgeList';
 import * as DefinitionType from './DefinitionType';
+import Upper from './Upper/Upper';
 
-const styles = resolveNames(['']);
-
-const StyledTerm = styled.div`
-`;
-
-const Term = ({ term }) => (
-  <StyledTerm>
-    {term}
-  </StyledTerm>
-);
-
-const StyledUpper = styled.div`
-  ${border('black')}
-`;
-
-const Upper = (props) => {
-  return (
-    <StyledUpper>
-      
-      <BadgeList badges={props.badges}/>
-      <Term term={props.term}/>
-    </StyledUpper>
-  );
-};
-
-const StyledLabel = styled.div`
-`;
+const StyledLabel = styled.div``;
 
 const Label = ({ label }) => (
   <StyledLabel>
@@ -44,8 +19,7 @@ const StyledDefinition = styled.div`
   margin-top: 15px;
 `;
 
-const StyledUsage = styled.div`
-`
+const StyledUsage = styled.div``;
 
 const Usage = ({ usage }) => (
   <StyledUsage>
@@ -53,8 +27,7 @@ const Usage = ({ usage }) => (
   </StyledUsage>
 );
 
-const StyledPos = styled.div`
-`;
+const StyledPos = styled.div``;
 
 const Pos = ({ pos }) => (
   <StyledPos>
@@ -62,8 +35,7 @@ const Pos = ({ pos }) => (
   </StyledPos>
 );
 
-const StyledMedia = styled.div`
-`;
+const StyledMedia = styled.div``;
 
 const Media = ({ media }) => (
   <StyledMedia>

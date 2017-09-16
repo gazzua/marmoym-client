@@ -1,7 +1,8 @@
 import * as React from 'react';
+import styled, { StyledFunction } from 'styled-components';
 
-export const Div = (props) => <div className={props.className}>{props.children}</div>;
+export const Div = styled.div``;
 
-export const P = () => <p/>;
+export const P = styled.p``;
 
-export const Span = () => <span/>;
+export const Span = styled.span``;
