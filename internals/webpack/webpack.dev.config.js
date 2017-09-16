@@ -13,6 +13,10 @@ module.exports = {
     './src/app.tsx'
   ],
   resolve: {
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ],
     extensions: ['.js', '.ts', '.tsx'],
   },
   output: {

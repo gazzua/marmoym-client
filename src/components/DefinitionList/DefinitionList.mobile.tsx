@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { border } from '../../styles/debug';
+import { border } from 'styles/debug';
 import Definition from './Definition/Definition';
 
 const renderDefinitions = (definitions) => {

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { resolveNames, withProps } from '../../../styles/utils';
-import { border } from '../../../styles/debug';
+import { resolveNames, withProps } from 'styles/utils';
+import { border } from 'styles/debug';
 import BadgeList from '../../BadgeList/BadgeList';
 import * as DefinitionType from './DefinitionType';
 

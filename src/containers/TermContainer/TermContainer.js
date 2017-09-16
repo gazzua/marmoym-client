@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CommonLayout from '../../components/CommonLayout/CommonLayout';
+import CommonLayout from 'components/CommonLayout/CommonLayout';
 
 class ErrorContainer extends React.Component {
 
