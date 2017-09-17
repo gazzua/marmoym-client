@@ -1,6 +1,6 @@
-import * as keyMirror from 'keyMirror';
+import * as keymirror from 'keymirror';
 
-export default keyMirror({
+export default keymirror({
   GET_TERMS: '',
   GET_TERMS_SUCCESS: '',
   GET_TERMS_ERROR: '',
