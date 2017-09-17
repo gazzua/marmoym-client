@@ -35,7 +35,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.PLATFORM': JSON.stringify('MOBILE')
-    })
+    }),
   ],
   module: {
     loaders: [
@@ -50,13 +50,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: {
-          loader: "css-loader",
-          options: {
-            modules: true,
-            localIdentName: '[name]-[local]-[hash:base64:4]'
+        use: [
+          {
+            loader: "style-loader"
+          },  
+          {
+            loader: "css-loader",
           }
-        }
+        ]
       },
       {
         test: /\.scss/,
@@ -69,10 +70,21 @@ module.exports = {
             options: {
               modules: true,
               localIdentName: '[name]-[local]-[hash:base64:4]'
-            }
+            } 
           },
           {
             loader: "sass-loader"
+          },
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000
+            }
           }
         ],
       }

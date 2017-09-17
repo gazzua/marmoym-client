@@ -6,3 +6,5 @@ export const Div = styled.div``;
 export const P = styled.p``;
 
 export const Span = styled.span``;
+
+export const I = styled.i``;
