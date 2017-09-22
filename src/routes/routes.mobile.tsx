@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import AppContainer from '../containers/AppContainer/AppContainer'
-import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout';
-import ErrorLayout from '../layouts/ErrorLayout/ErrorLayout';
+import RootContainer from '@src/containers/RootContainer/RootContainer'
+import DefaultLayout from '@src/layouts/DefaultLayout/DefaultLayout';
+import ErrorLayout from '@src/layouts/ErrorLayout/ErrorLayout';
 
 export default () => {
   return (
     <BrowserRouter>
-      <AppContainer>
+      <RootContainer>
         <Switch>
           <Route path='/error' component={ErrorLayout}/>
           <Route path='/' component={DefaultLayout}/>
         </Switch>
-    </AppContainer>
+    </RootContainer>
    </BrowserRouter>
   );
 }

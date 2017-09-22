@@ -1,9 +1,9 @@
 import axios from 'axios';
 import * as Immutable from 'immutable';
 
-import apis from '../apis'
-import ActionType from '../constants/ActionType';
-import Definition from '../models/Definition';
+import apis from '@src/apis'
+import ActionType from './ActionType';
+import Definition from '@src/models/Definition';
 
 const definitions = Immutable.List([
   new Definition({ 
@@ -26,7 +26,7 @@ const definitions = Immutable.List([
   })
 ]);
 
-const requestGetTerms = () => (dispatch, getState) => {
+export const requestGetTerms = () => (dispatch, getState) => {
   dispatch({
     type: ActionType.GET_TERMS
   });
@@ -44,15 +44,11 @@ const requestGetTerms = () => (dispatch, getState) => {
   //   });
 };
 
-const requestGetTermsSuccess = (definitions) => ({
+export const requestGetTermsSuccess = (definitions) => ({
   type: ActionType.GET_TERMS_SUCCESS,
   payload: definitions
 });
 
-const requestGetTermsError = (err) => ({
+export const requestGetTermsError = (err) => ({
   type: ActionType.GET_TERMS_ERROR
 });
-
-export default {
-  requestGetTerms
-}

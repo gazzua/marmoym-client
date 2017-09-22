@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom'; 
 
-import Define from '../../components/Define/Define';
+import Define from '@src/components/app/Define/Define';
 
 namespace DefineContainer {
   export interface Props {
