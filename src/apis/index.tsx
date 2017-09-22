@@ -1,11 +1,18 @@
-const ROOT = 'http://10.16.29.127:4000/api/v1/'
+const API_ROOT = 'http://10.16.29.127:4000/api/v1/'
+const SS_ROOT = '/ss/';
 
-const resolveUrl = (str) => {
-  return ROOT + str
+const api = (str) => {
+  return API_ROOT + str;
+}
+
+const ss = (str) => {
+  return SS_ROOT + str;
 }
 
 export default {
-  GET_TERMS: resolveUrl('terms'),
-  ADD_TERM: resolveUrl('terms'),
-  UPDATE_TERM: resolveUrl('terms')
+  GET_TERMS: api('terms'),
+  ADD_TERM: api('terms'),
+  UPDATE_TERM: api('terms'),
+
+  GET_TRANSLATE: ss('i18n')
 }

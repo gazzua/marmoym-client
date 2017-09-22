@@ -5,6 +5,7 @@ var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpackHotMiddleware = require("webpack-hot-middleware");
 
 var getConfig = require('./getConfig').default;
+var i18n = require('./i18n').default;
 
 var app = express();
 var config = require(getConfig(process.env.PLATFORM, process.env.NODE_ENV));
@@ -21,10 +22,18 @@ app.use(webpackHotMiddleware(compiler, {
   heartbeat: 2000
 }));
 
+app.get('/ss/i18n/:locale', function(req, res) {
+  console.log('Returning i18n', req.params.locale);
+  
+  // todo: validation
+  res.status(200)
+    .send(i18n[req.params.locale]);
+});
+
 app.use('/', function (req, res) {
   var file = path.resolve(__dirname, '..', 'dist', 'index.html');
   res.sendFile(file);
-})
+});
 
 // app.use('*', function (req, res, next) {
 //   /**
