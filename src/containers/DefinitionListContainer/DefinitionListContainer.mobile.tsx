@@ -3,13 +3,8 @@ import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import { termActions } from '@src/actions'
-
-export namespace DefinitionListContainer {
-  export interface Props {
-    definitions: any;
-    getTerms: any;
-  }
-}
+import { DefinitionListContainer } from '@src/containers/ContainerTypes';
+import { selectDefinitions } from '@src/store/selectors/definitionSelector'
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {
   componentDidMount() {
@@ -26,7 +21,7 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
 
 const mapStateToProps = (state, props) => {
   return {
-    definitions: state.termsReducer.definitions
+    definitions: selectDefinitions(state)
   }
 }
 

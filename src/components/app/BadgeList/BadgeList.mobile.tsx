@@ -8,7 +8,6 @@ const StyledBadge = styled.span`
 `
 
 const renderBadges = (badges: string[]) => {
-  console.log(123, badges);
   return badges.map((badge, i) => {
     return <Badge key={i} label={badge}/>;
   });
@@ -21,7 +20,6 @@ const Badge = ({ label }) => (
 );
 
 const BadgeList = ({ badges }) => {
-  console.log(123, badges);
   const Badges = renderBadges(badges);
   return (
     <StyledBadgeList>

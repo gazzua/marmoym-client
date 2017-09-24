@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import termsReducer from './termReducer'
+import definitionReducer from './definitionReducer';
 import translateReducer from './translateReducer';
+import commentReducer from './commentReducer';
 
 export default combineReducers({
   translateReducer,
-  termsReducer
+  definitionReducer,
+  commentReducer
 })

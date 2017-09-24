@@ -2,15 +2,7 @@ import * as React from 'react';
 import { withRouter } from 'react-router-dom'; 
 
 import Masthead from '@src/components/app/Masthead/Masthead';
-
-export namespace MastheadContainer {
-  export interface Props {
-    history: any;
-    handleClickAddTerm: any;
-    masthead: any;
-    location: any;
-  }
-}
+import { MastheadContainer } from '@src/containers/ContainerTypes';
 
 class MastheadContainer extends React.Component<MastheadContainer.Props> {
   constructor() {
