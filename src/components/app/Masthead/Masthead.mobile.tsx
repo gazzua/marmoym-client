@@ -5,14 +5,8 @@ import { withProps } from '@src/styles/utils';
 import { border } from '@src/styles/debug';
 import MarmoymLogo from '@src/components/app/MarmoymLogo/MarmoymLogo';
 import QueryDisplay from './QueryDisplay/QueryDisplay';
+import { Masthead } from '@src/components/ComponentTypes'; 
 
-export namespace Masthead {
-  export interface Props {
-    handleClickAddTerm: any;
-    history: any;
-    pathname: any;
-  }
-}
 
 const StyledMastheadBase = styled.div`
   height: 46px;

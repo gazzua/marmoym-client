@@ -3,14 +3,14 @@ import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
 
-import { transSelector } from '@src/store/selectors';
+import * as translateSelector from '@src/store/selectors/translateSelector';
 
 const mapStateToProps = (state) => ({
-  trans: transSelector(state)
+  trans: translateSelector.getTranslate(state)
 });
 
 const T = connect(mapStateToProps)((props) => {
-  console.log("translate", props.label, props.trans);
+  // console.log("translate", props.label, props.trans);
   const label = _.get(props.trans, [props.label])
 
   return (

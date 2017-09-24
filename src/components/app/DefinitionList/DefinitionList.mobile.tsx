@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@src/styles/debug';
-import Definition from './Definition/Definition';
+import Definition from '@src/components/app/Definition/Definition';
 
 const renderDefinitions = (definitions) => {
   if (!definitions) {
