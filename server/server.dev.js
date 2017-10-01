@@ -5,7 +5,8 @@ var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpackHotMiddleware = require("webpack-hot-middleware");
 
 var getConfig = require('./getConfig').default;
-var i18n = require('./i18n').default;
+var i18n = require('./i18n/marmoym-i18n').default;
+console.log(123, i18n);
 
 var app = express();
 var config = require(getConfig(process.env.PLATFORM, process.env.NODE_ENV));
