@@ -145,7 +145,7 @@ fabric.properties
 # End of https://www.gitignore.io/api/webstorm,node,macos
 
 # Marmoym-i18n
-server/i18n/
+server/i18n/marmoym-i18n
 
 # Misc
 dist/bundle/
