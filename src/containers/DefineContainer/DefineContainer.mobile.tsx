@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import Define from '@src/components/app/Define/Define';
 
 class DefineContainer extends React.Component<any, any> {
-  constructor() {
+  public constructor() {
     super();
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.handleChangeUsage = this.handleChangeUsage.bind(this);
     this.state = {
       usages: [
         '',
@@ -14,8 +16,32 @@ class DefineContainer extends React.Component<any, any> {
     };
   }
 
+  private handleChangeInput(e, i) {
+    console.log(1)
+    let { usages } = this.state;
+    usages[i] = e.target.value;
+    console.log(usages[i]);
+
+    this.setState({
+      usages: usages
+    });
+  }
+
+  private handleChangeUsage(index, content) {
+    let { usages } = this.state;
+    usages[index] = content;
+    this.setState({usages: usages});
+  }
+
+  private handleDeleteUsage(index) {
+    let { usages } = this.state;
+    usages.splice(index, 1);
+    console.log(usages);
+    this.setState({usages: usages});
+  }
+
   private handleClickAddUsage() {
-    const { usages } = this.state;
+    let { usages } = this.state;
     usages.push('');
     this.setState({
       usages,
@@ -24,8 +50,11 @@ class DefineContainer extends React.Component<any, any> {
 
   public render() {
     return (
-      <Define
+      <Define 
         usages={this.state.usages}
+        handleChangeInput={this.handleChangeInput}
+        handleChangeUsage={this.handleChangeUsage.bind(this)}
+        handleDeleteUsage={this.handleDeleteUsage.bind(this)}
         handleClickAddUsage={this.handleClickAddUsage.bind(this)}/>
     );
   }

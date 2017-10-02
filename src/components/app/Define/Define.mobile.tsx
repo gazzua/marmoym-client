@@ -24,14 +24,17 @@ const UsageInputConatiner = styled.div``;
 const UsageDeleteButton = styled.button``;
 
 const renderUsage = (props) => {
+  console.log(11, props)
   const UsageList = props.usages.map((usage, i) => (
     <UsageInputConatiner key={i}>
       <UsageInput
-        defaultValue={usage}
+        value={props.usages[i]}
+        onChange={(e) => {props.handleChangeInput(e, i)}}
+        onBlur={(e) => {props.handleChangeUsage(i, e.target['value'])}}
         placeholder="말의 쓰임새를 써주세요(ex: 실화니;이거실화임?)"/>
-      <UsageDeleteButton>X</UsageDeleteButton>
+      <UsageDeleteButton onClick={e => {props.handleDeleteUsage(i)}}>X</UsageDeleteButton>
     </UsageInputConatiner>
-  ));
+  )); 
   return (
     <Usage>
       <UsageLabel>쓰임새</UsageLabel>
