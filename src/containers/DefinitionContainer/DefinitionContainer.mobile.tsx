@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import Definition from '@src/components/app/Definition/Definition';
-import { termActions } from '@src/actions'
+import * as definitionActions from '@src/actions/definitionActions';
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
 import { selectDefinition }  from '@src/store/selectors/definitionSelector';
 
@@ -11,32 +11,26 @@ class DefinitionContainer extends React.Component<DefinitionListContainer.Props>
   componentDidMount() {
   }
 
+  // shouldComponentUpdate(props) {
+  //   // console.log(123, 2);
+  //   // return true;
+  // }
+
   render() {
     return (
       <Definition
-        term={'a'}
-        label={'a'}
-        usage={'a'}
-        pos={'a'}
-        media={'a'}
-        origin={'a'}
-        badges={['a']}/>
+        defId={11}
+        handleClick={() => {this.props.dispatch(definitionActions.requestAddDefinition())}}
+        />
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
+  console.log(123, 1);
   return {
     definition: selectDefinition(state, props.defId)
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return  {
-    getTerms: () => {
-      dispatch(termActions.requestGetTerms())
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DefinitionContainer);
+export default connect(mapStateToProps)(DefinitionContainer);

@@ -2,25 +2,19 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@src/styles/debug';
+import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer';
 import Definition from '@src/components/app/Definition/Definition';
 
-const renderDefinitions = (definitions) => {
-  if (!definitions) {
-    return null;
-  }
-
-  console.log("definitions", definitions.toJS());
-  return definitions.map((definition, i) => (
-    <Definition
-      key={i}
-      term={definition.get('term')}
-      label={definition.get('label')}
-      usage={definition.get('usage')}
-      pos={definition.get('pos')}
-      media={definition.get('media')}
-      origin={definition.get('origin')}
-      badges={definition.get('badges')}/>
-  ));
+const renderDefinitions = (defIds) => {
+  console.log("defIds", defIds);
+  return defIds.map((defId, i) => {
+    return (
+      <DefinitionContainer
+        key={defId}
+        defId={defId}
+      />
+    );
+  });
 }
 
 const StyledDefinitionList = styled.div`
@@ -29,7 +23,7 @@ const StyledDefinitionList = styled.div`
 
 const DefinitionList = (props) => (
   <StyledDefinitionList>
-    {renderDefinitions(props.definitions)}
+    {renderDefinitions(props.defIds)}
   </StyledDefinitionList>
 );
 

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-const StyledBadgeList = styled.div`
-`;
-
-const StyledBadge = styled.span`
-`
+const StyledBadgeList = styled.div``;
+const StyledBadge = styled.span``
 
 const renderBadges = (badges: string[]) => {
+  if (!badges) {
+    return null;
+  }
   return badges.map((badge, i) => {
     return <Badge key={i} label={badge}/>;
   });

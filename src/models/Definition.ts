@@ -1,6 +1,8 @@
 import * as Immutable from 'immutable';
+import { DefinitionType } from './ModelTypes';
 
 const DefinitionRecord = Immutable.Record({
+  id: '',
   term: '',
   label: '',
   pos: '',
@@ -9,16 +11,6 @@ const DefinitionRecord = Immutable.Record({
   origin: '',
   badges: ''
 });
-
-interface DefinitionType {
-  term?: string;
-  label?: string;
-  pos?: string;
-  usage?: string;
-  media?: string;
-  origin?: string;
-  badges?: string[];
-};
 
 class Definition extends DefinitionRecord {
   constructor(params?: DefinitionType) {

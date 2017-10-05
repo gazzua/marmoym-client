@@ -4,17 +4,15 @@ import { connect } from 'react-redux';
 
 import globalStyle from '@src/styles/global';
 import Root from '@src/components/app/Root/Root';
-import { translateActions } from '@src/actions';
+import * as translateActions from '@src/actions/translateActions';
 import { RootContainer } from '@src/containers/ContainerTypes';
 
 class RootContainer extends React.Component<RootContainer.Props, {}> {
-  componentWillMount() {
+  componentDidMount() {
     globalStyle();
     require('font-awesome/css/font-awesome.css');
     this.props.dispatch(translateActions.requestGetTranslate('ko'));
-
     console.log("app container will mount");
-    
   }
 
   render() {

@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { withRouter } from 'react-router-dom'; 
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Masthead from '@src/components/app/Masthead/Masthead';
 import { MastheadContainer } from '@src/containers/ContainerTypes';
+import * as definitionActions from '@src/actions/definitionActions';
 
 class MastheadContainer extends React.Component<MastheadContainer.Props> {
   constructor() {
@@ -11,7 +13,8 @@ class MastheadContainer extends React.Component<MastheadContainer.Props> {
   }
 
   handleClickAddTerm() {
-    this.props.history.push("/addTerm")
+    console.log("add term click");
+    this.props.history.push("/define")
   }
 
   render() {
@@ -19,9 +22,10 @@ class MastheadContainer extends React.Component<MastheadContainer.Props> {
       <Masthead
         history={1}
         pathname={this.props.location.pathname}
-        handleClickAddTerm={this.handleClickAddTerm}/>
+        handleClickAddTerm={this.handleClickAddTerm}
+        handleClick={() => {this.props.dispatch(definitionActions.removeDefinition())}}/>
     );
   }
 }
 
-export default withRouter(MastheadContainer);
+export default withRouter(connect()(MastheadContainer));

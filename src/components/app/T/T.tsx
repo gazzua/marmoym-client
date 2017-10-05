@@ -5,9 +5,11 @@ import * as _ from 'lodash';
 
 import * as translateSelector from '@src/store/selectors/translateSelector';
 
-const mapStateToProps = (state) => ({
-  trans: translateSelector.getTranslate(state)
-});
+const mapStateToProps = (state) => {
+  return {
+    trans: translateSelector.getTranslate(state)
+  };
+};
 
 const T = connect(mapStateToProps)((props) => {
   // console.log("translate", props.label, props.trans);
