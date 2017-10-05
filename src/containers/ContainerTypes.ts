@@ -1,13 +1,15 @@
+interface ContainerPropsBase {
+  dispatch?: Function
+}
+
 export namespace DefinitionListContainer {
-  export interface Props {
-    definitions: any;
-    getTerms: any;
+  export interface Props extends ContainerPropsBase {
+    defIds: any;
   }
 }
 
 export namespace RootContainer {
-  export interface Props {
-    dispatch: Function;
+  export interface Props extends ContainerPropsBase {
   }
 }
 
@@ -17,5 +19,6 @@ export namespace MastheadContainer {
     handleClickAddTerm: any;
     masthead: any;
     location: any;
+    dispatch: any;
   }
 }

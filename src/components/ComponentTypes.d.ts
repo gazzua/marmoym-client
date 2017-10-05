@@ -1,5 +1,6 @@
 export namespace Definition {
   export interface Props {
+    defId?: number;
     badges?: string[];
     term?: string;
     label?: string;
@@ -7,6 +8,8 @@ export namespace Definition {
     pos?: string;
     media?: string;
     origin?: string;
+    dispatch?: any;
+    handleClick?: any;
   }
 }
 
@@ -15,5 +18,6 @@ export namespace Masthead {
     handleClickAddTerm: any;
     history: any;
     pathname: any;
+    handleClick: any;
   }
 }

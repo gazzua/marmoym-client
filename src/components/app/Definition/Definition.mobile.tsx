@@ -20,8 +20,10 @@ const StyledDefinition = Div.extend`
 `;
 
 const Definition: React.SFC<Definition.Props> = (props) => {
+  console.log('render definition', props);
   return (
-    <StyledDefinition>
+    <StyledDefinition
+      onClick={props.handleClick}>
       <Upper {...props}/>
       <Label>
         <T label={'power'}/>

@@ -23,7 +23,7 @@ const StyledMastheadBase = styled.div`
 `;
 
 const MastheadBase = (props) => (
-  <StyledMastheadBase>
+  <StyledMastheadBase onClick={props.handleClick}>
     <MarmoymLogo/>
     <QueryDisplay/>
     <div>
@@ -43,14 +43,14 @@ const MastheadBase = (props) => (
   </StyledMastheadBase>
 );
 
-const MastheadOnAddTerm: React.SFC<Masthead.Props> = () => (
-  <MastheadBase>
+const MastheadOnAddTerm: React.SFC<Masthead.Props> = (props) => (
+  <MastheadBase {...props}>
     add term
   </MastheadBase>
 );
 
 const MastheadDefault: React.SFC<Masthead.Props> = (props) => (
-  <MastheadBase/>
+  <MastheadBase {...props}/>
 );
 
 const Masthead: React.SFC<Masthead.Props> = (props) => {

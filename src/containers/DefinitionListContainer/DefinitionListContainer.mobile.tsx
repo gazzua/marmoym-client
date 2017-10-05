@@ -2,35 +2,33 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
-import { termActions } from '@src/actions'
+import * as definitionActions from '@src/actions/definitionActions'
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
-import { selectDefinitions } from '@src/store/selectors/definitionSelector'
+import { selectDefIds } from '@src/store/selectors/definitionSelector'
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {
+  constructor(...props) {
+    super(...props);
+  }
+
   componentDidMount() {
-    this.props.getTerms();  
+    this.props.dispatch(definitionActions.requestGetDefinitions());
   }
 
   render() {
+    console.log('DefinitionList render', this.props.defIds);
     return (
       <DefinitionList
-        definitions={this.props.definitions}/>
+        defIds={this.props.defIds}/>
     )
   }
 }
 
 const mapStateToProps = (state, props) => {
+  console.log(123, state);
   return {
-    definitions: selectDefinitions(state)
+    defIds: selectDefIds(state)
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return  {
-    getTerms: () => {
-      dispatch(termActions.requestGetTerms())
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DefinitionListContainer);
+export default connect(mapStateToProps)(DefinitionListContainer);

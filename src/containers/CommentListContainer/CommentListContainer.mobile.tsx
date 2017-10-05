@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { termActions } from '@src/actions'
 import { selectComments } from '@src/store/selectors/commentSelector';
 import CommentList from '@src/components/app/CommentList/CommentList';
 

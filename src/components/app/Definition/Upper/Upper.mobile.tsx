@@ -5,7 +5,7 @@ import { resolveNames, withProps } from '@src/styles/utils';
 import { Div, Span } from '@src/styles/elem';
 import { border } from '@src/styles/debug';
 import BadgeList from '@src/components/app/BadgeList/BadgeList';
-import Star from '@src/components/icons/Star/Star';
+import StarIcon from '@src/components/icons/Star/Star';
 
 const Meta = Div.extend``;
 const Term = Div.extend``;
@@ -39,7 +39,7 @@ const Upper = (props) => {
           <Pos>pos</Pos>
         </BottomMiddle>
         <BottomRight>
-          <Star/>
+          <StarIcon/>
         </BottomRight>
       </UpperBottom>
     </StyledUpper>

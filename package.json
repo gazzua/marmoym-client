@@ -9,9 +9,9 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.config.js --color -p --progress",
     "dev:mobile": "webpack --progress --config internals/webpack/webpack.mobile.dev.config.js",
-    "start:dev:mobile": "PLATFORM=mobile NODE_ENV=dev node ./server/server.dev.js",
-    "start:dev:web": "PLATFORM=web NODE_ENV=dev node ./server/server.dev.js",
-    "start:prod:mobile": "PLATFORM=mobile NODE_ENV=prod node ./server/server.prod.js",
+    "start:dev:mobile": "PLATFORM=mobile NODE_ENV=development node ./server/server.dev.js",
+    "start:dev:web": "PLATFORM=web NODE_ENV=development node ./server/server.dev.js",
+    "start:prod:mobile": "PLATFORM=mobile NODE_ENV=production node ./server/server.prod.js",
     "test": ""
   },
   "dependencies": {
@@ -34,7 +34,8 @@
     "typescript": "^2.5.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.6.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",

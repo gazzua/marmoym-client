@@ -3,13 +3,13 @@ import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import routes from './routes/routes';
-import { configureStore } from './store';
-import globalStyle from './styles/global';
+import routes from '@src/routes/routes';
+import { configureStore } from '@src/store';
+import globalStyle from '@src/styles/global';
 
 const rootEl = document.getElementById('main');
 
-const store = configureStore()
+const store = configureStore();
 
 const render = (Component) => {
   ReactDOM.render(
