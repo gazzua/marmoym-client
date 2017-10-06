@@ -2,9 +2,10 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
-import * as definitionActions from '@src/actions/definitionActions'
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
 import { selectDefIds } from '@src/store/selectors/definitionSelector'
+import { createAction } from '@src/actions/actionUtils';
+import ActionTypes from '@src/actions/ActionTypes';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {
   constructor(...props) {
@@ -12,7 +13,7 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
   }
 
   componentDidMount() {
-    this.props.dispatch(definitionActions.requestGetDefinitions());
+    this.props.dispatch(createAction(ActionTypes.GET_DEFINITIONS));
   }
 
   render() {

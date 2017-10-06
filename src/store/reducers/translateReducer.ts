@@ -1,4 +1,4 @@
-import ActionType from '@src/actions/ActionType';
+import ActionTypes from '@src/actions/ActionTypes';
 
 const initialState = {
 }
@@ -6,7 +6,7 @@ const initialState = {
 export default (state = initialState, action) => {
   // console.log('translateReducer', action.type, action)
   switch (action.type) {
-    case ActionType.GET_TRANSLATE_SUCCESS:
+    case ActionTypes.GET_TRANSLATE_SUCCESS:
       return {
         ...state,
         trans: action.payload

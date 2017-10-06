@@ -15,9 +15,9 @@ export namespace Definition {
 
 export namespace Masthead {
   export interface Props {
-    handleClickAddTerm: any;
+    handleClickAddTerm?: any;
     history: any;
     pathname: any;
-    handleClick: any;
+    handleClick?: any;
   }
 }

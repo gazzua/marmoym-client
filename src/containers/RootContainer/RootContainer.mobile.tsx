@@ -11,7 +11,7 @@ class RootContainer extends React.Component<RootContainer.Props, {}> {
   componentDidMount() {
     globalStyle();
     require('font-awesome/css/font-awesome.css');
-    this.props.dispatch(translateActions.requestGetTranslate('ko'));
+    // this.props.dispatch(translateActions.requestGetTranslate('ko'));
     console.log("app container will mount");
   }
 

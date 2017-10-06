@@ -1,6 +1,6 @@
-import ActionType from '@src/actions/ActionType';
-
 import { List } from 'immutable';
+
+import ActionTypes from '@src/actions/ActionTypes';
 import Definition from '@src/models/Definition';
 import { DefinitionType } from './StoreStateTypes'; 
 
@@ -15,31 +15,31 @@ export default (state: DefinitionType = initialState, action) => {
 
   let newDefinitions;
   switch (action.type) {
-    case ActionType.GET_DEFINITIONS:
+    case ActionTypes.GET_DEFINITIONS:
       return {
         ...state,
       };
-    case ActionType.GET_DEFINITIONS_SUCCESS:
+    case ActionTypes.GET_DEFINITIONS_SUCCESS:
       newDefinitions = List(action.payload.map(definition => new Definition(definition)))
       return {
         ...state,
         definitions: newDefinitions
       };  
-    case ActionType.ADD_DEFINITION: 
+    case ActionTypes.ADD_DEFINITION: 
       return {
         ...state,
         termAdded: action.payload
       }
-    case ActionType.ADD_DEFINITION_SUCCESS: 
+    case ActionTypes.ADD_DEFINITION_SUCCESS: 
       return {
         ...state,
         termAdded: action.payload
       }
-    case ActionType.REMOVE_DEFINITION:
+    case ActionTypes.REMOVE_DEFINITION:
       return {
         ...state
       }
-    case ActionType.TEMP:
+    case ActionTypes.TEMP:
       const newDefinition = new Definition(action.payload);
       newDefinitions = state.definitions.push(newDefinition);
       return {
