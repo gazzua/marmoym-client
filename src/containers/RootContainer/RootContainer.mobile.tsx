@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import globalStyle from '@src/styles/global';
 import Root from '@src/components/app/Root/Root';
-import * as translateActions from '@src/actions/translateActions';
+import * as translateActions from '@src/store/actions/translateActions';
 import { RootContainer } from '@src/containers/ContainerTypes';
 
 class RootContainer extends React.Component<RootContainer.Props, {}> {

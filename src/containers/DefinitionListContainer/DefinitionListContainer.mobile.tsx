@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
 import { selectDefIds } from '@src/store/selectors/definitionSelector'
-import { createAction } from '@src/actions/actionUtils';
-import ActionTypes from '@src/actions/ActionTypes';
+import { createAction } from '@src/store/actions/actionUtils';
+import ActionTypes from '@src/store/actions/ActionTypes';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {
   constructor(...props) {

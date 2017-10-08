@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 
-import ActionTypes from '@src/actions/ActionTypes';
+import ActionTypes from '@src/store/actions/ActionTypes';
 import Definition from '@src/models/Definition';
 import { DefinitionType } from './StoreStateTypes'; 
 
@@ -20,6 +20,11 @@ export default (state: DefinitionType = initialState, action) => {
         ...state,
       };
     case ActionTypes.GET_DEFINITIONS_SUCCESS:
+      if (!action.payload.map) {
+        return {
+          ...state
+        }
+      }
       newDefinitions = List(action.payload.map(definition => new Definition(definition)))
       return {
         ...state,

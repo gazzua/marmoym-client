@@ -19,6 +19,9 @@
     "paths": {
       "@src/*": [
         "src/*"
+      ],
+      "@actions/*": [
+        "src/store/actions/*"
       ]
     }
   }
