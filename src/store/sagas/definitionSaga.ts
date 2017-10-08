@@ -4,8 +4,12 @@ import ActionTypes from '@src/store/actions/ActionTypes';
 import * as MarmoymApis from '@src/apis/MarmoymApis';
 
 export function* getDefinitions(action) {
-  const payload = yield MarmoymApis.getDefinitions();
-  yield put({ type: ActionTypes.GET_DEFINITIONS_SUCCESS, payload });
+  try {
+    const payload = yield MarmoymApis.getDefinitions();
+    yield put({ type: ActionTypes.GET_DEFINITIONS_SUCCESS, payload });
+  } catch (err) {
+    // todos
+  }
 }
 
 export default function* definitionSaga () {  

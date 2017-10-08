@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
 import { selectDefIds } from '@src/store/selectors/definitionSelector'
-import { createAction } from '@src/store/actions/actionUtils';
-import ActionTypes from '@src/store/actions/ActionTypes';
+import { action, ActionTypes } from '@actions/index';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {
   constructor(...props) {
@@ -13,7 +12,7 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
   }
 
   componentDidMount() {
-    this.props.dispatch(createAction(ActionTypes.GET_DEFINITIONS));
+    this.props.dispatch(action(ActionTypes.GET_DEFINITIONS));
   }
 
   render() {
@@ -21,12 +20,11 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
     return (
       <DefinitionList
         defIds={this.props.defIds}/>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state, props) => {
-  console.log(123, state);
   return {
     defIds: selectDefIds(state)
   }

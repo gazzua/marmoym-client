@@ -9,6 +9,6 @@ export default function* rootSaga() {
 
   yield [
     definitionSaga(),
-    // translateSaga()
+    translateSaga()
   ]
 }

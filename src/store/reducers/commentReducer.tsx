@@ -1,6 +1,6 @@
 import ActionTypes from '@src/store/actions/ActionTypes';
 
-const initialState = {}
+const initialState = {};
 
 export default (state = initialState, action) => {
   console.log(action.type, action)

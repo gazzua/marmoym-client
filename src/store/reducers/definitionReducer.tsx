@@ -11,7 +11,6 @@ const initialState = {
 export default (state: DefinitionType = initialState, action) => {
   console.log(action.type, action)
   const a: DefinitionType = action.payload;
-  List()
 
   let newDefinitions;
   switch (action.type) {

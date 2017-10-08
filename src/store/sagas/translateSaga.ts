@@ -1,15 +1,19 @@
 import { all, put, call, take, takeEvery } from 'redux-saga/effects';
 
-import ActionTypes from '@src/store/actions/ActionTypes';
-import * as MarmoymApis from '@src/apis/MarmoymApis';
+import { ActionTypes } from '@actions/index';
+import * as ServerSideApis from '@src/apis/ServerSideApis';
 
-export function* getDefinitions(action) {
-  const payload = yield MarmoymApis.getDefinitions();
-  yield put({ type: ActionTypes.GET_DEFINITIONS_SUCCESS, payload });
+export function* getTranslate(action) {
+  try {
+    const payload = yield ServerSideApis.getTranslate(action.payload.locale);
+    yield put({ type: ActionTypes.GET_TRANSLATE_SUCCESS, payload });
+  } catch (err) {
+    // todos
+  }
 }
 
-export default function* definitionSaga () {  
+export default function* translateSaga () {  
   yield all([
-    takeEvery(ActionTypes.GET_DEFINITIONS, getDefinitions)
+    takeEvery(ActionTypes.GET_TRANSLATE, getTranslate)
   ]);
 }
