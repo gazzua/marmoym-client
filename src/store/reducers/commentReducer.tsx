@@ -1,25 +1,25 @@
-import ActionType from '@src/actions/ActionType';
+import ActionTypes from '@src/store/actions/ActionTypes';
 
-const initialState = {}
+const initialState = {};
 
 export default (state = initialState, action) => {
   console.log(action.type, action)
   switch (action.type) {
-    case ActionType.GET_TERMS:
+    case ActionTypes.GET_TERMS:
       return {
         ...state,
       };
-    case ActionType.GET_TERMS_SUCCESS:
+    case ActionTypes.GET_TERMS_SUCCESS:
       return {
         ...state,
         definitions: action.payload
       };  
-    case ActionType.ADD_TERM: 
+    case ActionTypes.ADD_TERM: 
       return {
         ...state,
         termAdded: action.payload
       }
-    case ActionType.ADD_TERM_SUCCESS: 
+    case ActionTypes.ADD_TERM_SUCCESS: 
       return {
         ...state,
         termAdded: action.payload

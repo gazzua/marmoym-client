@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import Definition from '@src/components/app/Definition/Definition';
-import * as definitionActions from '@src/actions/definitionActions';
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
 import { selectDefinition }  from '@src/store/selectors/definitionSelector';
 
@@ -19,9 +18,7 @@ class DefinitionContainer extends React.Component<DefinitionListContainer.Props>
   render() {
     return (
       <Definition
-        defId={11}
-        handleClick={() => {this.props.dispatch(definitionActions.requestAddDefinition())}}
-        />
+        defId={11}/>
     )
   }
 }

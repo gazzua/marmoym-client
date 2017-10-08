@@ -1,8 +1,7 @@
 import axios from 'axios';
 import * as Immutable from 'immutable';
 
-import apis from '@src/apis'
-import ActionType from './ActionType';
+import ActionTypes from './ActionTypes';
 import Definition from '@src/models/Definition';
 
 const definitions = [
@@ -38,42 +37,48 @@ const def = {
   badges: ['hot', 'top']
 };
 
-export const requestGetDefinitions = () => (dispatch, getState) => {
-  dispatch({
-    type: ActionType.GET_DEFINITIONS
-  });
+export function requestGetDefinitions() {
+  return {
+    type: ActionTypes.GET_DEFINITIONS
+  }
+}
 
-  dispatch(requestGetDefinitionsSuccess(definitions));
+// export const requestGetDefinitions = () => (dispatch, getState) => {
+//   dispatch({
+//     type: ActionTypes.GET_DEFINITIONS
+//   });
+
+//   dispatch(requestGetDefinitionsSuccess(definitions));
   
-  // TODO: later we transfer data via axios when API is ready.
-  // axios.put(apis.ADD_TERM)
-  //   .then(res => {
-  //     console.log(1, res)
-  //     dispatch(requestGetTermsSuccess(res.data))
-  //   })
-  //   .catch(err => {
-  //     dispatch(requestGetTermsError(err))
-  //   });
-};
+//   // TODO: later we transfer data via axios when API is ready.
+//   // axios.put(apis.ADD_TERM)
+//   //   .then(res => {
+//   //     console.log(1, res)
+//   //     dispatch(requestGetTermsSuccess(res.data))
+//   //   })
+//   //   .catch(err => {
+//   //     dispatch(requestGetTermsError(err))
+//   //   });
+// };
 
 export const requestGetDefinitionsSuccess = (definitions) => ({
-  type: ActionType.GET_DEFINITIONS_SUCCESS,
+  type: ActionTypes.GET_DEFINITIONS_SUCCESS,
   payload: definitions
 });
 
 export const requestGetDefinitionsError = (err) => ({
-  type: ActionType.GET_DEFINITIONS_ERROR
+  type: ActionTypes.GET_DEFINITIONS_ERROR
 });
 
 export const requestAddDefinition = () => (dispatch, getState) => {
   dispatch({
-    type: ActionType.TEMP,
+    type: ActionTypes.TEMP,
     payload: def
   });
 }
 
 export const removeDefinition = () => (dispatch, getState) => {
   dispatch({
-    type: ActionType.REMOVE_DEFINITION
+    type: ActionTypes.REMOVE_DEFINITION
   });
 };

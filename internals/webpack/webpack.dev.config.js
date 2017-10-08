@@ -19,7 +19,8 @@ module.exports = {
     ],
     extensions: ['.js', '.ts', '.tsx'],
     alias: {
-      '@src': path.resolve('./src')
+      '@src': path.resolve('./src'),
+      '@actions': path.resolve('./src', 'store', 'actions')
     }
   },
   output: {
