@@ -26,10 +26,10 @@ const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
       <Upper {...props}/>
       <Label>
         <T label={'power'}/>
-        <Span>{props.label}</Span>
+        <Span>{props.def.get('defs').get(0).get('label')}</Span>
       </Label>
-      <Usage>{props.usage}</Usage>
-      <Pos>{props.pos}</Pos>
+      <Usage>{props.def.get('defs').get(0).get('usages')}</Usage>
+      <Pos>{props.def.get('defs').get(0).get('poss')}</Pos>
       <Media>{props.media}</Media>
       <Lower {...props}/>
     </StyledDefinitionPane>
