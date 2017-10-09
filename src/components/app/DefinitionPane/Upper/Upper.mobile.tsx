@@ -23,6 +23,7 @@ const StyledUpper = Div.extend`
 `;
 
 const Upper = (props) => {
+  console.log(123, props.def.get('term'));
   return (
     <StyledUpper>
       <UpperTop>
@@ -33,7 +34,7 @@ const Upper = (props) => {
         </Meta>
       </UpperTop>
       <UpperBottom>
-        <Term>{props.term}</Term>
+        <Term>{props.def.get('term')}</Term>
         <BottomMiddle>
           <Roman>roman</Roman>
           <Pos>pos</Pos>

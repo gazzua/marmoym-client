@@ -1,34 +1,25 @@
-import { List } from 'immutable';
+import * as Immutable from 'immutable';
 
 import ActionTypes from '@src/store/actions/ActionTypes';
 import Definition from '@src/models/Definition';
 import { DefinitionType } from './StoreStateTypes'; 
 
 const initialState = {
-  definitions: List()
+  definitions: Immutable.List()
 };
 
 export default (state: DefinitionType = initialState, action) => {
   console.log(action.type, action)
-  const a: DefinitionType = action.payload;
-
   let newDefinitions;
   switch (action.type) {
-    case ActionTypes.GET_DEFINITIONS:
-      return {
-        ...state,
-      };
     case ActionTypes.GET_DEFINITIONS_SUCCESS:
       if (!action.payload.map) {
-        return {
-          ...state
-        }
+        throw new Error();
       }
-      newDefinitions = List(action.payload.map(definition => new Definition(definition)))
       return {
         ...state,
-        definitions: newDefinitions
-      };  
+        definitions: Immutable.fromJS(action.payload)
+      };
     case ActionTypes.ADD_DEFINITION: 
       return {
         ...state,

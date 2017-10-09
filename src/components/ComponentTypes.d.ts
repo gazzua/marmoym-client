@@ -1,4 +1,4 @@
-export namespace Definition {
+export namespace DefinitionPane {
   export interface Props {
     defId?: number;
     badges?: string[];
@@ -10,6 +10,7 @@ export namespace Definition {
     origin?: string;
     dispatch?: any;
     handleClick?: any;
+    def?: any;
   }
 }
 

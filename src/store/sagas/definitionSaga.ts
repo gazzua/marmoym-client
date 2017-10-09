@@ -5,8 +5,8 @@ import * as MarmoymApis from '@src/apis/MarmoymApis';
 
 export function* getDefinitions(action) {
   try {
-    const payload = yield MarmoymApis.getDefinitions();
-    yield put({ type: ActionTypes.GET_DEFINITIONS_SUCCESS, payload });
+    const payload = yield MarmoymApis.getDefinitions(action.payload.termLabel);
+    yield put({ type: ActionTypes.GET_DEFINITIONS_SUCCESS, ...payload });
   } catch (err) {
     // todos
   }

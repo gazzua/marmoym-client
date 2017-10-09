@@ -15,7 +15,6 @@ const DefaultLayout = (props) => {
     <StyledDefaultLayout>
       <MastheadContainer/>
       <Switch>
-        <Route path="/term" component={DefinitionLayout}/>
         <Route path="/define" component={DefineContainer}/>
         <Route component={DefinitionLayout}/>
       </Switch>

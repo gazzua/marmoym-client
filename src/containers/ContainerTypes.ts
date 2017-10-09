@@ -1,10 +1,11 @@
 interface ContainerPropsBase {
-  dispatch?: Function
+  dispatch?: Function,
+  match?: any;
 }
 
 export namespace DefinitionListContainer {
   export interface Props extends ContainerPropsBase {
-    defIds: any;
+    definitions: any;
   }
 }
 
