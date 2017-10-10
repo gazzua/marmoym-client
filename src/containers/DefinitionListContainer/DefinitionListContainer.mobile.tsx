@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
-import { selectDefinitions } from '@src/store/selectors/definitionSelector'
+import { selectCombinedDefinitionsInDisplay } from '@src/store/selectors/definitionSelector'
 import { action, ActionTypes } from '@actions/index';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {
@@ -13,13 +13,14 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
 
   componentDidMount() {
     const { termLabel } = this.props.match.params;
-    this.props.dispatch(action(ActionTypes.GET_DEFINITIONS, {
+    
+    this.props.dispatch(action(ActionTypes.GET_DEFINITION_IDS, {
       termLabel
     }));
   }
 
   render() {
-    console.log('DefinitionList render123123', this.props);
+    console.log('DefinitionList render123123', this.props.definitions);
     return (
       <DefinitionList
         definitions={this.props.definitions}/>
@@ -28,9 +29,9 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
 }
 
 const mapStateToProps = (state, props) => {
-  console.log(123123, state);
+  // console.log(123123, state);
   return {
-    definitions: selectDefinitions(state)
+    definitions: selectCombinedDefinitionsInDisplay(state)
   }
 }
 

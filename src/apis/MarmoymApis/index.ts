@@ -1,14 +1,19 @@
 import axios from 'axios';
 
 import * as URL from './MarmoymApiURL';
+import { getData } from '../apiUtils';
 
-export function getDefinitions(termLabel) {
-  return axios.get(URL.GET_DEFINITIONS, {
+export function getDefinitions(request) {
+  return axios.post(URL.GET_DEFINITIONS, {
+    ...request
+  })
+    .then(getData);
+}
+
+export function getDefinitionIds(obj) {
+  return axios.get(URL.GET_DEFINITION_IDS, {
     params: {
-      termLabel
     }
   })
-    .then(res => {
-      return res.data;
-    })
+    .then(getData);
 }

@@ -23,7 +23,7 @@ const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
   console.log('render definition', props);
   return (
     <StyledDefinitionPane>
-      <Upper {...props}/>
+      {/* <Upper {...props}/>
       <Label>
         <T label={'power'}/>
         <Span>{props.def.get('defs').get(0).get('label')}</Span>
@@ -31,7 +31,7 @@ const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
       <Usage>{props.def.get('defs').get(0).get('usages')}</Usage>
       <Pos>{props.def.get('defs').get(0).get('poss')}</Pos>
       <Media>{props.media}</Media>
-      <Lower {...props}/>
+      <Lower {...props}/> */}
     </StyledDefinitionPane>
   );
 };
