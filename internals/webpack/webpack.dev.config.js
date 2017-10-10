@@ -20,7 +20,8 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx'],
     alias: {
       '@src': path.resolve('./src'),
-      '@actions': path.resolve('./src', 'store', 'actions')
+      '@actions': path.resolve('./src', 'store', 'actions'),
+      '@selectors': path.resolve('./src', 'store', 'selectors')
     }
   },
   output: {
