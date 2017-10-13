@@ -4,6 +4,15 @@ import ActionTypes from '@src/store/actions/ActionTypes';
 import Definition from '@src/models/Definition';
 import { DefinitionType } from './StoreStateTypes';
 
+const terms = {
+  1: {
+    id: '1',
+    label: '김민섭',
+    termRoman: 'gimminseb',
+    updatedAt: 9999999999999
+  }
+}
+
 const definitions = {
   1: {
     id: 1,
@@ -30,7 +39,7 @@ const definitions = {
 };
 
 const initialState = {
-  terms: Immutable.Map(),
+  terms: Immutable.fromJS(terms),
   definitions: Immutable.fromJS(definitions),
   fetchNeeded: Immutable.List<number>(),
   renderRequested: Immutable.List<number>(),
@@ -90,16 +99,27 @@ function getDefinitionIdsDidSucceed(state, action) {
  */
 function getDefinitionsDidSucceed(state, action) {
   const { terms, definitions } = action.payload;
-  let newDefinitions = {};
-
+  let newDefinitions = state.definitions;
+  let newTerms = state.terms;
+  
   definitions.map(definition => {
-    newDefinitions = state.definitions.set(definition.id.toString(), Immutable.fromJS(definition));
+    newDefinitions = newDefinitions.set(
+      definition.id.toString(), 
+      Immutable.fromJS(definition));
+  });
+
+  terms.map(term => {
+    if (!state.terms.get(term.id.toString())) {
+      newTerms = newTerms.set(term.id.toString(), Immutable.fromJS(term));
+    }
   });
 
   return {
     ...state,
+    terms: newTerms,
+    definitions: newDefinitions,
     fetchNeeded: Immutable.List(),
-    inDisplay: state.renderRequested,
-    renderRequested: Immutable.List()
+    renderRequested: Immutable.List(),
+    inDisplay: state.renderRequested
   };
 }

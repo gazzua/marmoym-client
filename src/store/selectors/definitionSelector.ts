@@ -18,6 +18,7 @@ export function selectCombinedDefinitionsInDisplay(state) {
   const selector = createSelector(
     [selectDefinitionsInDisplay, selectDefinitions, selectTerms],
     (inDisplay, definitions, terms) => {
+      
       console.log(123, inDisplay, definitions, terms);
       return 'power';
     }
