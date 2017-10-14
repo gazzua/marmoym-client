@@ -7,11 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
+    "setup:dev": "./internals/shell/setup.sh",
     "dev:mobile": "./node_modules/.bin/webpack --progress --config internals/webpack/webpack.mobile.dev.config.js",
     "start:dev:mobile": "PLATFORM=mobile NODE_ENV=development node ./server/server.dev.js",
     "start:dev:web": "PLATFORM=web NODE_ENV=development node ./server/server.dev.js",
     "start:prod:mobile": "PLATFORM=mobile NODE_ENV=production node ./server/server.prod.js",
     "build:prod:mobile": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --config internals/webpack/webpack.prod.mobile.config.js --color -p --progress",
+    "deploy:dev": "pm2 deploy ./internals/pm2/pm2.config.js development",
     "test": ""
   },
   "dependencies": {
