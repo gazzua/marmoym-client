@@ -3,16 +3,20 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@src/styles/debug';
 import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer';
-import Definition from '@src/components/app/Definition/Definition';
+import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
 
-const renderDefinitions = (defIds) => {
-  console.log("defIds", defIds);
-  return defIds.map((defId, i) => {
+const renderDefinitions = (definitions) => {
+  console.log("definitions", definitions); //immutable list
+  
+  for (var i = 0; i < definitions.length; i++) {
+    definitions[i]
+  }
+  return definitions.map((def, i) => {
+    // console.log(123, def.get('term'));
     return (
-      <DefinitionContainer
-        key={defId}
-        defId={defId}
-      />
+      <DefinitionPane 
+        key={def.get('term')}
+        def={def}/>
     );
   });
 }
@@ -23,7 +27,7 @@ const StyledDefinitionList = styled.div`
 
 const DefinitionList = (props) => (
   <StyledDefinitionList>
-    {renderDefinitions(props.defIds)}
+    {''}
   </StyledDefinitionList>
 );
 

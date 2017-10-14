@@ -1,8 +1,14 @@
 import ActionTypes from './ActionTypes';
 
-export default function createAction(type, payload?) {
+import { Payload } from './ActionTypeDefinitions';
+
+export default function createAction(type: ActionTypes, payload?: Payload) {
+  if (typeof(payload) !== 'object') {
+    throw new Error();
+  }
+
   return {
-    type: ActionTypes[type],
+    type,
     payload: payload
   };
 }

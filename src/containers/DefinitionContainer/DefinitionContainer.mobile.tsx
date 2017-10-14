@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
-import Definition from '@src/components/app/Definition/Definition';
+import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
 import { selectDefinition }  from '@src/store/selectors/definitionSelector';
 
@@ -10,14 +10,9 @@ class DefinitionContainer extends React.Component<DefinitionListContainer.Props>
   componentDidMount() {
   }
 
-  // shouldComponentUpdate(props) {
-  //   // console.log(123, 2);
-  //   // return true;
-  // }
-
   render() {
     return (
-      <Definition
+      <DefinitionPane
         defId={11}/>
     )
   }

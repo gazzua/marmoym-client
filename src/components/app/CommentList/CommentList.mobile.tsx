@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@src/styles/debug';
-import Definition from '@src/components/app/Definition/Definition';
+import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
 import Comment from '@src/components/app/Comment/Comment';
 
 const renderComments = (comments) => {
