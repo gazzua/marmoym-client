@@ -7,3 +7,11 @@ export interface DefinitionType {
   origin?: string;
   badges?: string[];
 };
+
+export interface TermType {
+  id?: string;
+  labe?: string;
+  roman?: string;
+  created_at?: number;
+  updated_at?: number;
+}

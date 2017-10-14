@@ -2,7 +2,9 @@ import * as Immutable from 'immutable';
 
 import ActionTypes from '@src/store/actions/ActionTypes';
 import Definition from '@src/models/Definition';
+import Term from '@src/models/Term';
 import { DefinitionType } from './StoreStateTypes';
+import { TermType } from './StoreStateTypes';
 
 const terms = {
   1: {
@@ -52,7 +54,7 @@ const definitions = {
 };
 
 const initialState = {
-  terms: Immutable.fromJS(terms),
+  terms: Term.ofMany(terms),
   definitions: Definition.ofMany(definitions),
   fetchNeeded: Immutable.List<number>(),
   renderRequested: Immutable.List<number>(),
@@ -117,15 +119,9 @@ function getDefinitionsDidSucceed(state, action) {
   let newDefinitions = state.definitions;
   let newTerms = state.terms;
   
-  terms.map(term => {
-    if (!state.terms.get(term.id.toString())) {
-      newTerms = newTerms.set(term.id.toString(), Immutable.fromJS(term));
-    }
-  });
-
   return {
     ...state,
-    terms: newTerms,
+    terms: Term.softMerge(terms).into(state.terms),
     definitions: Definition.merge(definitions).into(state.definitions),
     fetchNeeded: state.fetchNeeded.clear(),
     renderRequested: state.renderRequested.clear(),
