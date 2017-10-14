@@ -9,8 +9,6 @@ module.exports = {
   },
   entry: [
     "babel-polyfill",
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
     './src/app.tsx'
   ],
   resolve: {
@@ -43,14 +41,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        use: [
-          {
-            loader: 'react-hot-loader/webpack'
-          },
-          {
-            loader: 'babel-loader',
-          }
-        ],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
@@ -60,7 +51,7 @@ module.exports = {
             loader: 'react-hot-loader/webpack'
           },
           {
-            loader: 'babel-loader',
+            loader: 'babel-loader'
           },
           {
             loader: 'awesome-typescript-loader',

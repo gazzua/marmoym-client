@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import * as winston from 'winston';
+import styled from 'styled-components';
 
 import routes from '@src/routes/routes';
 import { configureStore } from '@src/store';
