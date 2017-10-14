@@ -17,7 +17,7 @@ const definitions = {
   1: {
     id: 1,
     label: '실화니?의 뜻',
-    term_id: 0,
+    term_id: 1,
     user_id: 0,
     poss: [
       '명사', 

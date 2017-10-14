@@ -29,7 +29,6 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
 }
 
 const mapStateToProps = (state, props) => {
-  // console.log(123123, state);
   return {
     definitions: selectCombinedDefinitionsInDisplay(state)
   }
