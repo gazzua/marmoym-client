@@ -33,7 +33,7 @@ const definitions = {
     updated_at: 9999999999999
   },
   21: {
-    id: 1,
+    id: 21,
     label: '실화니?의 뜻',
     term_id: 0,
     user_id: 0,
@@ -46,8 +46,8 @@ const definitions = {
     origins: [
       '아프리카 철구 방송'
     ],
-    created_at: 9999999999999,
-    updated_at: 9999999999999
+    created_at: 9,
+    updated_at: 0
   },
 };
 
@@ -83,7 +83,7 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-};
+}
 
 /**
  * ...
@@ -95,8 +95,10 @@ function getDefinitionIdsDidSucceed(state, action) {
 
   defIds.forEach(defId => {
     const Definition = state.definitions.get(defId.id.toString());
-    if (Definition && Definition.get('updatedAt') >= defId.updatedAt) return;
-    fetchNeeded.push(defId.id);
+    if (Definition && Definition.get('updated_at') >= defId.updated_at) {
+    } else {
+      fetchNeeded.push(defId.id);
+    }
     newRenderRequested = newRenderRequested.push(defId.id);
   });
 

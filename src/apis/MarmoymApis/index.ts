@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 import * as URL from './MarmoymApiURL';
-import { getData } from '../apiUtils';
+import { getPayload } from '../apiUtils';
 
 export function getDefinitions(request) {
   return axios.post(URL.GET_DEFINITIONS, {
     ...request
   })
-    .then(getData);
+    .then(getPayload);
 }
 
 export function getDefinitionIds(obj) {
@@ -15,5 +15,5 @@ export function getDefinitionIds(obj) {
     params: {
     }
   })
-    .then(getData);
+    .then(getPayload);
 }

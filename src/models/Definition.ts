@@ -41,14 +41,15 @@ const Definition = (function() {
     return new DefinitionRecord({
       id: definition.id,
       label: definition.label,
-      termId: definition.termId,
+      term_id: definition.term_id,
+      user_id: definition.user_id,
       poss: Immutable.List(definition.poss),
       usages: Immutable.List(definition.usages),
       origins: Immutable.List(definition.origins),
       upvote: definition.upvote,
       downvote: definition.downvote,
-      createdAt: definition.createdAt,
-      updatedAt: definition.updatedAt
+      created_at: definition.created_at,
+      updated_at: definition.updated_at
     })
   }
 

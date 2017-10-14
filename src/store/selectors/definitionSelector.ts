@@ -19,16 +19,15 @@ export function selectCombinedDefinitionsInDisplay(state) {
   const selector = createSelector(
     [selectDefinitionsInDisplay, selectDefinitions, selectTerms],
     (inDisplay, Definitions, Terms) => {
-      console.log(123, inDisplay, Definitions, Terms);
-      const a = Terms.get("1")
-      console.log(123111, a);
+      // console.log(123, inDisplay, Definitions, Terms);
+      // console.log(123111, a);
       // console.log(123, newDefinitions);
       let newDefinitions = Definitions.filter((Definition, id) => {
         return inDisplay.includes(+id);
       }).map((Definition, id) => {
-        return Definition.set('$term', Terms.get(+Definition.get('termId')))
+        return Definition.set('$term', Terms.get(+Definition.get('term_id')))
       });
-      console.log(12311, newDefinitions.toJS());
+      // console.log(12311, newDefinitions.toJS());
     }
   )
   return selector(state);

@@ -8,7 +8,7 @@ export function* getDefinitionIds(action) {
   try {
     const data = yield MarmoymApis.getDefinitionIds(action.payload)
     yield put(createAction(ActionTypes.GET_DEFINITION_IDS_SUCCESS, {
-      defIds: data.payload.defIds
+      defIds: data.defIds
     }));
     
     const fetchNeeded = yield select(selectFetchNeeded);
@@ -26,10 +26,9 @@ export function* getDefinitions(action) {
     const data = yield MarmoymApis.getDefinitions({
       defIds: fetchNeeded.toJS()
     });
-    console.log(123, data);
 
     yield put(createAction(ActionTypes.GET_DEFINITIONS_SUCCESS, {
-      ...data.payload
+      ...data
     }));
   } catch (err) {
     // todos
