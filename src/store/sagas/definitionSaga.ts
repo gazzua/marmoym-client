@@ -13,7 +13,7 @@ export function* getDefinitionIds(action) {
     
     const fetchNeeded = yield select(selectFetchNeeded);
     yield put(createAction(ActionTypes.GET_DEFINITIONS, {
-      fetchNeeded 
+      fetchNeeded
     }));
   } catch (err) {
     // todo
@@ -26,6 +26,7 @@ export function* getDefinitions(action) {
     const data = yield MarmoymApis.getDefinitions({
       defIds: fetchNeeded.toJS()
     });
+    console.log(123, data);
 
     yield put(createAction(ActionTypes.GET_DEFINITIONS_SUCCESS, {
       ...data.payload

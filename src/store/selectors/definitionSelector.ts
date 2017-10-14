@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import * as Immutable from 'immutable';
 
 export const selectDefinitions = state => state.definitionReducer.definitions;
 
@@ -17,10 +18,17 @@ export function selectDefIds(state) {
 export function selectCombinedDefinitionsInDisplay(state) {
   const selector = createSelector(
     [selectDefinitionsInDisplay, selectDefinitions, selectTerms],
-    (inDisplay, definitions, terms) => {
-      
-      console.log(123, inDisplay, definitions, terms);
-      return 'power';
+    (inDisplay, Definitions, Terms) => {
+      console.log(123, inDisplay, Definitions, Terms);
+      const a = Terms.get("1")
+      console.log(123111, a);
+      // console.log(123, newDefinitions);
+      let newDefinitions = Definitions.filter((Definition, id) => {
+        return inDisplay.includes(+id);
+      }).map((Definition, id) => {
+        return Definition.set('$term', Terms.get(+Definition.get('termId')))
+      });
+      console.log(12311, newDefinitions.toJS());
     }
   )
   return selector(state);
@@ -30,7 +38,7 @@ export function selectDefinition(state, defId) {
   return createSelector(
     [selectDefinitions],
     (definitions) => {
-      console.log(12300, definitions);
+      // console.log(12300, definitions);
       return "getDefinition"
     });
 };

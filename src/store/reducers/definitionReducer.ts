@@ -16,31 +16,44 @@ const terms = {
 const definitions = {
   1: {
     id: 1,
-    term: '실화니1',
     label: '실화니?의 뜻',
-    pos: '명사',
-    usage: '민수 차 산거 실화니?',
-    media: 'link/to/image',
-    origin: '아프리카 철구 방송',
-    badges: ['hot', 'top'],
-    updatedAt: 9999999999999
+    term_id: 0,
+    user_id: 0,
+    poss: [
+      '명사', 
+      '표현'
+    ],
+    usages: [
+      '민수 차 산거 실화니?'
+    ],
+    origins: [
+      '아프리카 철구 방송'
+    ],
+    created_at: 9999999999999,
+    updated_at: 9999999999999
   },
   21: {
-    id: 21,
-    term: '실화니2',
+    id: 1,
     label: '실화니?의 뜻',
-    pos: '명사',
-    usage: '민수 차 산거 실화니?',
-    media: 'link/to/image',
-    origin: '아프리카 철구 방송',
-    badges: ['hot', 'top'],
-    updatedAt: 9999999999999
-  }
+    term_id: 0,
+    user_id: 0,
+    poss: [
+      '명사', '표현'
+    ],
+    usages: [
+      '민수 차 산거 실화니?'
+    ],
+    origins: [
+      '아프리카 철구 방송'
+    ],
+    created_at: 9999999999999,
+    updated_at: 9999999999999
+  },
 };
 
 const initialState = {
   terms: Immutable.fromJS(terms),
-  definitions: Immutable.fromJS(definitions),
+  definitions: Definition.ofMany(definitions),
   fetchNeeded: Immutable.List<number>(),
   renderRequested: Immutable.List<number>(),
   inDisplay: Immutable.List<number>()
@@ -78,19 +91,19 @@ export default (state = initialState, action) => {
 function getDefinitionIdsDidSucceed(state, action) {
   const { defIds } = action.payload;
   const fetchNeeded: number[] = [];
+  let newRenderRequested = Immutable.List();
 
   defIds.forEach(defId => {
     const Definition = state.definitions.get(defId.id.toString());
-    if (Definition && Definition.get('updatedAt') >= defId.updatedAt) {
-      return;
-    }
+    if (Definition && Definition.get('updatedAt') >= defId.updatedAt) return;
     fetchNeeded.push(defId.id);
+    newRenderRequested = newRenderRequested.push(defId.id);
   });
 
   return {
     ...state,
     fetchNeeded: Immutable.List(fetchNeeded),
-    renderRequested: Immutable.List(defIds)
+    renderRequested: newRenderRequested
   }
 }
 
@@ -102,12 +115,6 @@ function getDefinitionsDidSucceed(state, action) {
   let newDefinitions = state.definitions;
   let newTerms = state.terms;
   
-  definitions.map(definition => {
-    newDefinitions = newDefinitions.set(
-      definition.id.toString(), 
-      Immutable.fromJS(definition));
-  });
-
   terms.map(term => {
     if (!state.terms.get(term.id.toString())) {
       newTerms = newTerms.set(term.id.toString(), Immutable.fromJS(term));
@@ -117,9 +124,9 @@ function getDefinitionsDidSucceed(state, action) {
   return {
     ...state,
     terms: newTerms,
-    definitions: newDefinitions,
-    fetchNeeded: Immutable.List(),
-    renderRequested: Immutable.List(),
+    definitions: Definition.merge(definitions).into(state.definitions),
+    fetchNeeded: state.fetchNeeded.clear(),
+    renderRequested: state.renderRequested.clear(),
     inDisplay: state.renderRequested
   };
 }
