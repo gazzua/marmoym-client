@@ -4,7 +4,6 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  // console.log('translateReducer', action.type, action)
   switch (action.type) {
     case ActionTypes.GET_TRANSLATE_SUCCESS:
       return {

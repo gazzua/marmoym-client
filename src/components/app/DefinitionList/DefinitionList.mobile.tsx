@@ -12,7 +12,7 @@ const renderDefinitions = (definitions) => {
     definitions[i]
   }
   return definitions.map((def, i) => {
-    console.log(123, def.get('term'));
+    // console.log(123, def.get('term'));
     return (
       <DefinitionPane 
         key={def.get('term')}
@@ -27,7 +27,7 @@ const StyledDefinitionList = styled.div`
 
 const DefinitionList = (props) => (
   <StyledDefinitionList>
-    {renderDefinitions(props.definitions)}
+    {''}
   </StyledDefinitionList>
 );
 

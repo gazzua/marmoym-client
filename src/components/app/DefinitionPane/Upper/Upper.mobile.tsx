@@ -23,21 +23,20 @@ const StyledUpper = Div.extend`
 `;
 
 const Upper = (props) => {
-  console.log(123, props.def.get('term'));
   return (
     <StyledUpper>
       <UpperTop>
         <BadgeList badges={props.badges}/>
         <Meta>
-          <Author>홍길동</Author>
-          <Time>3주전</Time>
+          <Author>author=user_id : {props.def.get('defs').get(0).get('user_id')}/</Author>
+          <Time>작성시간 : 'something'</Time>
         </Meta>
       </UpperTop>
       <UpperBottom>
         <Term>{props.def.get('term')}</Term>
         <BottomMiddle>
-          <Roman>roman</Roman>
-          <Pos>pos</Pos>
+          <Roman>{props.def.get('termRoman')}</Roman>
+          <Pos>{props.def.get('defs').get(0).get('poss')}</Pos>
         </BottomMiddle>
         <BottomRight>
           <StarIcon/>
