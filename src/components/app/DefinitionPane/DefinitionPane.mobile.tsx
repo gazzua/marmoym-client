@@ -8,7 +8,7 @@ import BadgeList from '@src/components/app/BadgeList/BadgeList';
 import { DefinitionPane } from '@src/components/ComponentTypes';
 import Upper from './Upper/Upper';
 import Lower from './Lower/Lower';
-import T from '@src/components/app/T/T';
+import Locale from '@src/components/app/Locale/Locale';
 
 const Label = Div.extend``;
 const Usage = Div.extend``;
@@ -20,7 +20,7 @@ const StyledDefinitionPane = Div.extend`
 `;
 
 const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
-  console.log('render definition', props);
+  // console.log('render definition', props);
   return (
     <StyledDefinitionPane>
       {/* <Upper {...props}/>

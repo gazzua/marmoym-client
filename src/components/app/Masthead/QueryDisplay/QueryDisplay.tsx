@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { Div, Span, Input } from '@src/styles/elems';
 import { withProps } from '@src/styles/styleUtils';
-import { selectTranslate } from '@selectors/translateSelector';
+import { selectLocale } from '@selectors/localeSelector';
 import { black2 } from '@styles/colors';
 
 const StyledQueryDisplay = styled.div`
@@ -22,18 +22,18 @@ const QueryInput = Input.extend`
 `;
 
 const QueryDisplay = (props) => {
-  console.log(123, props.translate);
+  console.log(123, props.locale);
   return (
     <StyledQueryDisplay>
       <QueryInput
         onKeyDown={props.handleKeyDown}
-        placeholder={props.translate['queryDisplay.placeholder']}/>
+        placeholder={props.locale['queryDisplay.placeholder']}/>
     </StyledQueryDisplay>
   )
 };
 
 const mapStateToProps = (state) => ({
-  translate: selectTranslate(state) 
+  locale: selectLocale(state) 
 });
 
 export default connect(mapStateToProps)(QueryDisplay);

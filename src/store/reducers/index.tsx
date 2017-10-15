@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
 import definitionReducer from './definitionReducer';
-import translateReducer from './translateReducer';
+import localeReducer from './localeReducer';
 import commentReducer from './commentReducer';
 import userReducer from './userReducer';
 
 export default combineReducers({
-  translateReducer,
+  localeReducer,
   definitionReducer,
   commentReducer,
   userReducer
