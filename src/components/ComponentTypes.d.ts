@@ -16,9 +16,8 @@ export namespace DefinitionPane {
 
 export namespace Masthead {
   export interface Props {
+    pathname?: any;
     handleClickAddTerm?: any;
-    history: any;
-    pathname: any;
-    handleClick?: any;
+    handleClickMarmoymLogo?: any;
   }
 }

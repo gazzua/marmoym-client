@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { withRouter } from 'react-router-dom'
 import { injectGlobal } from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -18,6 +19,11 @@ class RootContainer extends React.Component<RootContainer.Props, {}> {
     console.log("app container will mount");
   }
 
+  shouldComponentUpdate() {
+    console.log(123, 1);
+    return true;
+  }
+
   render() {
     return (
       <Root>
@@ -27,4 +33,4 @@ class RootContainer extends React.Component<RootContainer.Props, {}> {
   }
 }
 
-export default connect()(RootContainer);
+export default withRouter(connect()(RootContainer));

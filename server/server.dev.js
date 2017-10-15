@@ -24,10 +24,16 @@ app.use(webpackHotMiddleware(compiler, {
 
 app.get('/ss/i18n/:locale', function(req, res) {
   console.log('Returning i18n', req.params.locale);
+  const ret = {
+    code: 200000,
+    payload: {
+      translate: i18n[req.params.locale]
+    }
+  }
   
   // todo: validation
   res.status(200)
-    .send(i18n[req.params.locale]);
+    .send(ret);
 });
 
 app.use('/', function (req, res) {

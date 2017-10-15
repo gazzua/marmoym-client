@@ -1,6 +1,7 @@
 import ActionTypes from '@actions/ActionTypes';
 
 const initialState = {
+  translate: {}
 }
 
 export default (state = initialState, action) => {
@@ -8,7 +9,7 @@ export default (state = initialState, action) => {
     case ActionTypes.GET_TRANSLATE_SUCCESS:
       return {
         ...state,
-        trans: action.payload
+        translate: action.payload.translate
       }
       
     default:

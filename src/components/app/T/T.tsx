@@ -7,7 +7,7 @@ import * as translateSelector from '@src/store/selectors/translateSelector';
 
 const mapStateToProps = (state) => {
   return {
-    trans: translateSelector.getTranslate(state)
+    trans: translateSelector.selectTranslate(state)
   };
 };
 
