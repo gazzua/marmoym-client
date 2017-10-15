@@ -3,17 +3,17 @@ import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
 
-import * as translateSelector from '@src/store/selectors/translateSelector';
+import { selectLocale } from '@selectors/localeSelector';
 
 const mapStateToProps = (state) => {
   return {
-    trans: translateSelector.selectTranslate(state)
+    locale: selectLocale(state)
   };
 };
 
-const T = connect(mapStateToProps)((props) => {
+const Locale = connect(mapStateToProps)((props) => {
   // console.log("translate", props.label, props.trans);
-  const label = _.get(props.trans, [props.label])
+  const label = _.get(props.locale, [props.label])
 
   return (
     <span className={props.className}>
@@ -22,4 +22,4 @@ const T = connect(mapStateToProps)((props) => {
   );
 });
 
-export default T;
+export default Locale;

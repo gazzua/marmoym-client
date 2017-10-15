@@ -1,6 +1,8 @@
 import ActionTypes from './ActionTypes';
 
-import { Payload } from './ActionTypeDefinitions';
+export interface Payload {
+  [key: string]: any
+}
 
 export default function createAction(type: ActionTypes, payload?: Payload) {
   if (typeof(payload) !== 'object') {

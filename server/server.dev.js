@@ -27,7 +27,7 @@ app.get('/ss/i18n/:locale', function(req, res) {
   const ret = {
     code: 200000,
     payload: {
-      translate: i18n[req.params.locale]
+      locale: i18n[req.params.locale]
     }
   }
   

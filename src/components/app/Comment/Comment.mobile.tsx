@@ -4,7 +4,6 @@ import styled, { StyledFunction } from 'styled-components';
 import { resolveNames, withProps } from '@src/styles/styleUtils';
 import { Div, P, Span } from '@src/styles/elems';
 import { border } from '@src/styles/debug';
-import T from '@src/components/app/T/T';
 
 const Label = Div.extend``;
 const Usage = Div.extend``;
