@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import styled, { StyledFunction } from 'styled-components';
 
 import DefinitionListContainer from '@src/containers/DefinitionListContainer/DefinitionListContainer';
-import MastheadContainer from '@src/containers/MastheadContainer/MastheadContainer';
 import DefineContainer from '@src/containers/DefineContainer/DefineContainer';
 import DefinitionDetailLayout from '@src/layouts/DefinitionDetailLayout/DefinitionDetailLayout';
 

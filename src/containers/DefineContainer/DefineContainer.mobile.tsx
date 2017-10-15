@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom'; 
+import { connect } from 'react-redux';
 
 import Define from '@src/components/app/Define/Define';
 
@@ -42,4 +43,4 @@ class DefineContainer extends React.Component<DefineContainer.Props, DefineConta
   }
 }
 
-export default withRouter(DefineContainer);
+export default withRouter(connect()(DefineContainer));

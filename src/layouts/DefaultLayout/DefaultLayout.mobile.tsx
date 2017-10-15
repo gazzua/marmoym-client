@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import styled, { StyledFunction } from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 import DefinitionListContainer from '@src/containers/DefinitionListContainer/DefinitionListContainer';
 import MastheadContainer from '@src/containers/MastheadContainer/MastheadContainer';
@@ -22,4 +23,4 @@ const DefaultLayout = (props) => {
   );
 };
 
-export default DefaultLayout;
+export default withRouter(DefaultLayout);

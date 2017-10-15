@@ -14,6 +14,7 @@ export default () => {
       margin: 0;
       height: 100%;
       font-size: 13px;
+      font-family: sans-serif;
     }
 
     p {

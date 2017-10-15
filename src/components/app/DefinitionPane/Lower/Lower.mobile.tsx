@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { resolveNames, withProps } from '@src/styles/utils';
-import { Div, Span } from '@src/styles/elem';
+import { resolveNames, withProps } from '@src/styles/styleUtils';
+import { Div, Span } from '@src/styles/elems';
 import { border } from '@src/styles/debug';
 import BadgeList from '@src/components/app/BadgeList/BadgeList';
 import UpvoteIcon from '@src/components/icons/Upvote/Upvote';

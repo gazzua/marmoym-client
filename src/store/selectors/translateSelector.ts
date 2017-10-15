@@ -1,3 +1,3 @@
-export const getTranslate = (state) => {
-  return state.translateReducer.trans;
+export const selectTranslate = (state) => {
+  return state.translateReducer.translate;
 };

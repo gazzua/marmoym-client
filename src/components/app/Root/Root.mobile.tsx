@@ -2,8 +2,8 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@src/styles/debug';
-import { Div } from '@src/styles/elem';
-import { withProps, resolveNames } from '@src/styles/utils';
+import { Div } from '@src/styles/elems';
+import { withProps, resolveNames } from '@src/styles/styleUtils';
 import { w320 } from '@src/styles/media';
 
 const styles: any = resolveNames(['inner']);
@@ -12,12 +12,11 @@ const StyledRoot = styled.div`
   ${w320(`
     min-width: 320px;
     height: 100%;
-    color: blue;
     .${styles.inner} {
       width: 320px;
       margin: 0 auto;
       min-height: 100%;
-      ${border('gray')}
+      ${border('coral')}
     }`)
   }
 `;
@@ -32,4 +31,4 @@ const Root = (props) => {
   );
 };
 
-export default Root;
+export default (Root);

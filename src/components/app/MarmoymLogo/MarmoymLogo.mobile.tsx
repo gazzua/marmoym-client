@@ -1,20 +1,32 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { withProps } from '@src/styles/utils';
-import { w320 } from '@src/styles/media'; 
+import { withProps } from '@src/styles/styleUtils';
+import { Div, Span } from '@src/styles/elems';
+import { black2 } from '@src/styles/colors';
+import { border } from '@src/styles/debug';
 
-const MarmoymLogo = styled.div`
-  ${w320(`
-    display: flex;
-    align-items: center;
-  `)}
+const StyledMarmoymLogo = Div.extend`
+  width: 55px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    color: ${black2};
+    cursor: pointer;
+  }
 `;
 
-export default () => {
+const MarmoymLogo= (props) => {
   return (
-    <MarmoymLogo>
-      <span>말모음</span>
-    </MarmoymLogo>
+    <StyledMarmoymLogo>
+      <Span onClick={props.handleClickMarmoymLogo}>말모음</Span>
+    </StyledMarmoymLogo>
   )
 };
+
+
+export default MarmoymLogo;
+
