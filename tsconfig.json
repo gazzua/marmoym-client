@@ -25,6 +25,9 @@
       ],
       "@selectors/*": [
         "src/store/selectors/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
       ]
     }
   }

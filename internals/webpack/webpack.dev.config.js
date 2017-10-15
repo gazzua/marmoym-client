@@ -21,7 +21,8 @@ module.exports = {
     alias: {
       '@src': path.resolve('./src'),
       '@actions': path.resolve('./src', 'store', 'actions'),
-      '@selectors': path.resolve('./src', 'store', 'selectors')
+      '@selectors': path.resolve('./src', 'store', 'selectors'),
+      '@styles': path.resolve('./src', 'styles'),
     }
   },
   output: {
