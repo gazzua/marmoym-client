@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import IconBase from '@src/components/icons/IconBase/IconBase'
+import FontAwesomeIcon from '@src/components/icons/FontAwesomeIcon/FontAwesomeIcon'
 
-const HamburgerIcon = (props) => <IconBase {...props} icon="fa-bars"/>;
+const HamburgerIcon = (props) => <FontAwesomeIcon {...props} icon="fa-bars"/>;
 
 export default HamburgerIcon;

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import IconBase from '@src/components/icons/IconBase/IconBase'
+import FontAwesomeIcon from '@src/components/icons/FontAwesomeIcon/FontAwesomeIcon'
 
-const Downvote = () => <IconBase icon="fa-thumbs-down"/>;
+const Downvote = () => <FontAwesomeIcon icon="fa-thumbs-down"/>;
 
 export default Downvote;

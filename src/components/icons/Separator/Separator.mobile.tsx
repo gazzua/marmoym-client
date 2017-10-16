@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import IconBase from '../IconBase/IconBase';
+import FontAwesomeIcon from '../FontAwesomeIcon/FontAwesomeIcon';
 
-const Separator = () => <IconBase icon="fa-star"/>;
+const Separator = () => <FontAwesomeIcon icon="fa-star"/>;
 
 export default Separator;
