@@ -34,7 +34,7 @@ const Term = (function() {
     return {
       into: function(Terms) {
         let newTerms = Terms;
-        Terms.map(term => {
+        terms.map(term => {
           newTerms = newTerms.set(
             term.id.toString(), 
             Immutable.fromJS(term));
