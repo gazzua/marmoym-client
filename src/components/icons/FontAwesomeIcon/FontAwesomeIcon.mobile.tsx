@@ -3,8 +3,8 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { Span, I } from '@src/styles/elems'; 
 
-export default ({ icon }) => {
-  const className = `fa ${icon}`
+export default (props) => {
+  const className = `${props.className} fa ${props.icon}`
   return (
     <I 
       className={className}
