@@ -11,6 +11,7 @@ export namespace DefinitionPane {
     dispatch?: any;
     handleClick?: any;
     def?: any;
+    Definition?: any;
   }
 }
 

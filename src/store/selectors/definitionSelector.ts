@@ -23,7 +23,7 @@ export function selectCombinedDefinitionsInDisplay(state) {
         return inDisplay.includes(+id);
       }).map((Definition, id) => {
         return Definition.set('$term', Terms.get(Definition.get('term_id').toString()))
-      });    
+      });
       return newDefinitions;
     }
   );

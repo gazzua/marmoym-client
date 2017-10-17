@@ -3,8 +3,7 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { withProps } from '@src/styles/styleUtils';
 import { Div, Span } from '@src/styles/elems';
-import { black2 } from '@src/styles/colors';
-import { border } from '@src/styles/debug';
+import { Colors, styles } from '@styles/index';
 
 const StyledMarmoymLogo = Div.extend`
   width: 55px;
@@ -14,7 +13,7 @@ const StyledMarmoymLogo = Div.extend`
   span {
     font-size: 16px;
     font-weight: bold;
-    color: ${black2};
+    color: ${Colors.BLACK5};
     cursor: pointer;
   }
 `;

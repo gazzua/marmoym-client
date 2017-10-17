@@ -3,14 +3,12 @@ import * as Immutable from 'immutable';
 import ActionTypes from '@src/store/actions/ActionTypes';
 import Definition from '@src/models/Definition';
 import Term from '@src/models/Term';
-import { DefinitionType } from './StoreStateTypes';
-import { TermType } from './StoreStateTypes';
 
 const terms = {
   1: {
     id: '1',
     label: '김민섭',
-    termRoman: 'gimminseb',
+    roman: 'gimminseb',
     updatedAt: 9999999999999
   }
 }
@@ -25,9 +23,10 @@ const definitions = {
       '명사', 
       '표현'
     ],
-    usages: [
-      '민수 차 산거 실화니?'
-    ],
+    usages: [{
+      id: 1212,
+      label: '민수 차 산거 실화니?'
+    }],
     origins: [
       '아프리카 철구 방송'
     ],
@@ -42,9 +41,10 @@ const definitions = {
     poss: [
       '명사', '표현'
     ],
-    usages: [
-      '민수 차 산거 실화니?'
-    ],
+    usages: [{
+      id: 999,
+      label: '민수 차 산거 실화니?'
+    }],
     origins: [
       '아프리카 철구 방송'
     ],
@@ -95,6 +95,7 @@ function getDefinitionIdsDidSucceed(state, action) {
   const fetchNeeded: number[] = [];
   let newRenderRequested = Immutable.List();
 
+  // todo Refactor needed
   defIds.forEach(defId => {
     const Definition = state.definitions.get(defId.id.toString());
     if (Definition && Definition.get('updated_at') >= defId.updated_at) {
@@ -116,13 +117,11 @@ function getDefinitionIdsDidSucceed(state, action) {
  */
 function getDefinitionsDidSucceed(state, action) {
   const { terms, definitions } = action.payload;
-  let newDefinitions = state.definitions;
-  let newTerms = state.terms;
   
   return {
     ...state,
     terms: Term.softMerge(terms).into(state.terms),
-    definitions: Definition.merge(definitions).into(state.definitions),
+    definitions: Definition.hardMerge(definitions).into(state.definitions),
     fetchNeeded: state.fetchNeeded.clear(),
     renderRequested: state.renderRequested.clear(),
     inDisplay: state.renderRequested
