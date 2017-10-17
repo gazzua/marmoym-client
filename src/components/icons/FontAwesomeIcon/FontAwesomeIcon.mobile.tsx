@@ -4,7 +4,7 @@ import styled, { StyledFunction } from 'styled-components';
 import { Span, I } from '@src/styles/elems'; 
 
 export default (props) => {
-  const className = `${props.className} fa ${props.icon}`
+  const className = `${props.className ? props.className : ''} fa ${props.icon}`
   return (
     <I 
       className={className}

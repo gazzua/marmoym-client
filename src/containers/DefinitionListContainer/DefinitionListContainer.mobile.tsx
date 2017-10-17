@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import { DefinitionListContainer } from '@src/containers/ContainerTypes';
-import { selectCombinedDefinitionsInDisplay } from '@src/store/selectors/definitionSelector'
+import { 
+  selectCombinedDefinitionsInDisplay,
+  selectDefinitionsInDisplay
+} from '@src/store/selectors/definitionSelector';
 import { action, ActionTypes } from '@actions/index';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Div, Span, Input } from '@src/styles/elems';
 import { withProps } from '@src/styles/styleUtils';
 import { selectLocale } from '@selectors/localeSelector';
-import { black2 } from '@styles/colors';
+import { Colors } from '@styles/index';
 
 const StyledQueryDisplay = styled.div`
   margin-left: 5px;
@@ -18,7 +18,7 @@ const QueryInput = Input.extend`
   background-color: transparent;
   outline: none;
   border: none;
-  color: ${black2}
+  color: ${Colors.BLACK5}
 `;
 
 const QueryDisplay = (props) => {

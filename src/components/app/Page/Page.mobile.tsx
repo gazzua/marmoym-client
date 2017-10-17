@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { border } from '@src/styles/debug';
+import { styles } from '@styles/index';
 import { withProps } from '@src/styles/styleUtils';
 
 const StyledPage = styled.div`
-  ${border('blue')}
+  ${styles.border('blue')}
 `;
 
 const Page = (props) => {
