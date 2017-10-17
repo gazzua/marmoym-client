@@ -2,7 +2,6 @@ import * as Immutable from 'immutable';
 
 import { ActionTypes }from '@actions/index';
 import Definition from '@src/models/Definition';
-import { DefinitionType } from './StoreStateTypes';
 
 const initialState = {
   users: Immutable.Map()

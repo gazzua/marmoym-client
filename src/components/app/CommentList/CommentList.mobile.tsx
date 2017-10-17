@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { border } from '@src/styles/debug';
+import { styles } from '@styles/index';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
 import Comment from '@src/components/app/Comment/Comment';
 
@@ -16,7 +16,7 @@ const renderComments = (comments) => {
 }
 
 const StyledCommentList = styled.div`
-  ${border('black')}
+  ${styles.border('black')}
 `;
 
 const CommentList = (props) => (

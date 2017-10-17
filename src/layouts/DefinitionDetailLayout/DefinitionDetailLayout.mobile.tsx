@@ -2,8 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 import * as _ from 'lodash';
 
-import { Div, P, Span } from '@src/styles/elems';
-import { border } from '@src/styles/debug';
+import { Div, P, Span } from '@styles/elems';
 import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer';
 import CommentListContainer from '@src/containers/CommentListContainer/CommentListContainer';
 

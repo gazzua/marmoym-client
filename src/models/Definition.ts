@@ -7,9 +7,9 @@ const DefinitionRecord = Immutable.Record({
   term_id: 0,
   user_id: 0,
   username: 'username',
-  poss: Immutable.List(),
-  usages: Immutable.List(),
-  origins: Immutable.List(),
+  Poss: Immutable.List(),
+  Usages: Immutable.List(),
+  Origins: Immutable.List(),
   upvote: 0,
   downvote: 0,
   created_at: 0,
@@ -38,29 +38,23 @@ const Definition = (function() {
   }
   
   function of(definition) {
+    const { poss, usages, origins, ...rest } = definition;
     return new DefinitionRecord({
-      id: definition.id,
-      label: definition.label,
-      term_id: definition.term_id,
-      user_id: definition.user_id,
-      poss: Immutable.List(definition.poss),
-      usages: Immutable.List(definition.usages),
-      origins: Immutable.List(definition.origins),
-      upvote: definition.upvote,
-      downvote: definition.downvote,
-      created_at: definition.created_at,
-      updated_at: definition.updated_at
+      ...rest,
+      Poss: Immutable.List(poss),
+      Usages: Immutable.List(usages),
+      Origins: Immutable.List(origins),
     })
   }
 
-  function merge(definitions) {
+  function hardMerge(definitions) {
     return {
       into: function(Definitions) {
         let newDefinitions = Definitions;
         definitions.map(definition => {
           newDefinitions = newDefinitions.set(
             definition.id.toString(), 
-            Immutable.fromJS(definition));
+            of(definition));
         });
         return newDefinitions;
       }
@@ -70,7 +64,7 @@ const Definition = (function() {
   return {
     of,
     ofMany,
-    merge
+    hardMerge
   }
 })();
 

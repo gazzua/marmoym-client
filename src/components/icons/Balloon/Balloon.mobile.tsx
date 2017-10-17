@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import IconBase from '@src/components/icons/IconBase/IconBase'
+import FontAwesomeIcon from '@src/components/icons/FontAwesomeIcon/FontAwesomeIcon'
 
-const Balloon = () => <IconBase icon="fa-comment"/>;
+const Balloon = () => <FontAwesomeIcon icon="fa-comment"/>;
 
 export default Balloon;

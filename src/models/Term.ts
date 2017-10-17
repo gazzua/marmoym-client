@@ -22,11 +22,7 @@ const Term = (function() {
   
   function of(term) {
     return new TermRecord({
-      id: term.id,
-      label: term.label,
-      roman: term.roman,
-      created_at: term.created_at,
-      updated_at: term.updated_at
+      ...term
     })
   }
 
@@ -34,7 +30,7 @@ const Term = (function() {
     return {
       into: function(Terms) {
         let newTerms = Terms;
-        Terms.map(term => {
+        terms.map(term => {
           newTerms = newTerms.set(
             term.id.toString(), 
             Immutable.fromJS(term));

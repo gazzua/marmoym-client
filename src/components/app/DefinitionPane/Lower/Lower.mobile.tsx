@@ -1,38 +1,56 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { Div, Span } from '@src/styles/elems';
-import { border } from '@src/styles/debug';
-import BadgeList from '@src/components/app/BadgeList/BadgeList';
+import { styles, styleUtils, Elems } from '@styles/index';
 import UpvoteIcon from '@src/components/icons/Upvote/Upvote';
-import DownvoteIcon from '@src/components/icons/Downvote/Downvote';
-import SeparatorIcon from '@src/components/icons/Separator/Separator';
+import _DownvoteIcon from '@src/components/icons/Downvote/Downvote';
+import _SeparatorIcon from '@src/components/icons/SeparatorIcon/SeparatorIcon';
 import ThreeDot from '@src/components/icons/ThreeDot/ThreeDot';
 import Balloon from '@src/components/icons/Balloon/Balloon';
 
-const Left = Div.extend``;
-const Right = Div.extend``;
+const StyledLower = styled.div`
+  padding: 4px 12px 0;
+  display: flex;
+  justify-content: space-between;`;
 
-const StyledLower = Div.extend`
-  ${border('black')}
+const LowerLeft = styled.div``;
+
+const LowerRight = styled.div`
+  display: flex;
+  align-items: center;`;
+
+const VoteCount = styled.span`
+  margin-left: 4px;`
+
+const UpvoteCount = styled(VoteCount)``;
+
+const DownvoteCount = styled(VoteCount)``;
+
+const DownvoteIcon = styled(_DownvoteIcon)`
+  margin-left: 10px;`;
+
+const CommentCount = styled.span`
+  margin-left: 4px;`;
+
+const SeparatorIcon = styled(_SeparatorIcon)`
+  margin: 0 10px;
 `;
 
 const Lower = (props) => {
   return (
     <StyledLower>
-      <Left>
+      <LowerLeft>
         <UpvoteIcon/>
-        <Span>23</Span>
+        <UpvoteCount>23</UpvoteCount>
         <DownvoteIcon/>
-        <Span>44</Span>
-      </Left>
-      <Right>
+        <DownvoteCount>44</DownvoteCount>
+      </LowerLeft>
+      <LowerRight>
         <ThreeDot/>
         <SeparatorIcon/>
         <Balloon/>
-        <Span>26</Span>
-      </Right>
+        <CommentCount>26</CommentCount>
+      </LowerRight>
     </StyledLower>
   );
 };

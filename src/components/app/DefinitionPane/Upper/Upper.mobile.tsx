@@ -3,44 +3,58 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { resolveNames, withProps } from '@src/styles/styleUtils';
 import { Div, Span } from '@src/styles/elems';
-import { border } from '@src/styles/debug';
-import BadgeList from '@src/components/app/BadgeList/BadgeList';
+import { styles, Colors } from '@styles/index';
 import StarIcon from '@src/components/icons/Star/Star';
 
+const StyledUpper = Div.extend`
+  padding: 0 12px;
+  border-bottom: 1px solid ${Colors.GRAY4};
+`;
+
+const UpperTop = Div.extend`
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+`;
+
 const Meta = Div.extend``;
-const Term = Div.extend``;
 const Author = Span.extend``;
-const Time = Span.extend``;
-const UpperTop = Div.extend``;
-const UpperBottom = Div.extend``;
-const Roman = Span.extend``;
+const Time = Span.extend`
+  margin-left: 5px;`;
+
+const UpperBottom = Div.extend`
+ padding: 3px 0px 4px`;
+
+const Term = Span.extend`
+  font-size: 16px;
+  font-weight: bold;
+  color: ${Colors.BLACK4};
+  overflow-wrap: break-word;
+  `;
+
+const Roman = Span.extend`
+  margin-left: 3px;
+  font-size: 12px;
+  color: ${Colors.BLACK6};`;
+
+const StyledStarIcon = styled(StarIcon)``;
 const Pos = Span.extend``;
 const BottomMiddle = Div.extend``;
 const BottomRight = Div.extend``;
   
-const StyledUpper = Div.extend`
-  ${border('black')}
-`;
-
 const Upper = (props) => {
   return (
     <StyledUpper>
       <UpperTop>
-        <BadgeList badges={props.badges}/>
+        <Div>{'badges'}</Div>
         <Meta>
-          <Author>author=user_id : {props.def.get('defs').get(0).get('user_id')}/</Author>
-          <Time>작성시간 : 'something'</Time>
+          <Author>{props.author}</Author>
+          <Time>{'time'}</Time>
         </Meta>
       </UpperTop>
       <UpperBottom>
-        <Term>{props.def.get('term')}</Term>
-        <BottomMiddle>
-          <Roman>{props.def.get('termRoman')}</Roman>
-          <Pos>{props.def.get('defs').get(0).get('poss')}</Pos>
-        </BottomMiddle>
-        <BottomRight>
-          <StarIcon/>
-        </BottomRight>
+        <Term>{props.Term.get('label')}</Term>
+        <Roman>{props.Term.get('roman')}</Roman>
       </UpperBottom>
     </StyledUpper>
   );
