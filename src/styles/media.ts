@@ -1,16 +1,17 @@
 import { css } from 'styled-components'; 
 
-export default {
-  w320: (content) => {
-    return css`
-      @media (max-width: 479px) {
-        ${css(content)}
-      }`
-  },
-  w480: (content) => {
-    return css`
+export const w320 = function(strings, ...args) {
+  return css`
+    @media (max-width: 479px) {
+      ${css(strings, ...args)}
+    }
+  `;
+}
+
+export const w480 = function(strings, ...args) {
+  return css`
     @media (min-width: 480px) {
-      ${css(content)}
-    }`
-  }
+      ${css(strings, ...args)}
+    }
+  `;
 }
