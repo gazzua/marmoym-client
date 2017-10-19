@@ -1,7 +1,7 @@
 import ActionTypes from './ActionTypes';
-import action from './createAction';
+import createAction from './createAction';
 
 export {
   ActionTypes,
-  action
+  createAction
 }
