@@ -35,9 +35,23 @@ export function* getDefinitions(action) {
   }
 }
 
+export function* search(action) {
+  try {
+    const { query } = action.payload;
+    console.log('query', query);
+    const data = yield MarmoymApis.search({
+      query
+    });
+    console.log('data', data);
+  } catch (err) {
+    //
+  }
+}
+
 export default function* definitionSaga () {  
   yield all([
     takeEvery(ActionTypes.GET_DEFINITION_IDS, getDefinitionIds),
-    takeEvery(ActionTypes.GET_DEFINITIONS, getDefinitions)
+    takeEvery(ActionTypes.GET_DEFINITIONS, getDefinitions),
+    takeEvery(ActionTypes.SEARCH, search)
   ]);
 }
