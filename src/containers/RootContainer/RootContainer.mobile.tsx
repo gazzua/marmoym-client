@@ -9,8 +9,9 @@ import { createAction, ActionTypes } from '@actions/index';
 
 class RootContainer extends React.Component<RootContainer.Props, {}> {
   componentDidMount() {
-    console.log("app container will mount");
-    globalStyle();
+    this.props.dispatch(createAction(ActionTypes.GET_LOCALE, {
+      locale: 'ko'
+    }));
   }
 
   render() {
