@@ -45,8 +45,8 @@ const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
     <StyledDefinitionPane>
       <Upper
         badges={''}
-        author={Definition.get('username')}
-        Term={Definition.get('$term')}/>
+        User={Definition.get('$User')}
+        Term={Definition.get('$Term')}/>
       <Body>
         <Div>{renderPoss(Definition.get('Poss'))}</Div>
         <Label>

@@ -2,7 +2,7 @@ import * as Immutable from 'immutable';
 import { DefinitionType } from './ModelTypes';
 
 const DefinitionRecord = Immutable.Record({
-  id: '0',
+  id: 0,
   label: 'label',
   term_id: 0,
   user_id: 0,
@@ -18,12 +18,12 @@ const DefinitionRecord = Immutable.Record({
   /**
    * ...
    */
-  $term: {},
+  $Term: {},
 
   /**
    * ...
    */
-  $user: {}
+  $User: {}
 });
 
 const Definition = (function() {

@@ -2,7 +2,7 @@ import * as Immutable from 'immutable';
 import { TermType } from './ModelTypes';
 
 const TermRecord = Immutable.Record({
-  id: '0',
+  id: 0,
   label: 'label',
   roman: 'roman',
   created_at: 0,
@@ -26,14 +26,14 @@ const Term = (function() {
     })
   }
 
-  function softMerge(terms) {
+  function hardMerge(terms) {
     return {
       into: function(Terms) {
         let newTerms = Terms;
         terms.map(term => {
           newTerms = newTerms.set(
             term.id.toString(), 
-            Immutable.fromJS(term));
+            of(term));
         });
         return newTerms;
       }
@@ -43,7 +43,7 @@ const Term = (function() {
   return {
     of,
     ofMany,
-    softMerge
+    hardMerge
   }
 })();
 
