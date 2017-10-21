@@ -19,6 +19,7 @@ export default () => {
       font-size: 13px;
       font-family: sans-serif;
       background-color: ${Colors.GRAY5};
+      line-height: 1.15;
     }
 
     p {
@@ -36,6 +37,10 @@ export default () => {
       &:focus {
         outline: 0;
       }
+    }
+
+    select, textarea, button, input {
+      line-height: 1;
     }
   `
 };
