@@ -3,7 +3,7 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { styles, media } from '@styles/index';
 import { Div } from '@styles/elems';
-import { withProps, resolveNames } from '@src/styles/styleUtils';
+import globalStyle from '@src/styles/global';
 
 const StyledRoot = styled.div`
   ${media.w320`
@@ -15,6 +15,11 @@ const StyledRoot = styled.div`
     opacity: 0.5;  
   `}
 `;
+
+/**
+ * ...
+ */
+globalStyle();
 
 const Root = (props) => {
   return (

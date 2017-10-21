@@ -7,7 +7,7 @@ import {
   selectCombinedDefinitionsInDisplay,
   selectDefinitionsInDisplay
 } from '@src/store/selectors/definitionSelector';
-import { action, ActionTypes } from '@actions/index';
+import { createAction, ActionTypes } from '@actions/index';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainer.Props> {
   constructor(...props) {
@@ -15,11 +15,6 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
   }
 
   componentDidMount() {
-    const { termLabel } = this.props.match.params;
-    
-    this.props.dispatch(action(ActionTypes.GET_DEFINITION_IDS, {
-      termLabel
-    }));
   }
 
   render() {

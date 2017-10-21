@@ -22,7 +22,6 @@ const QueryInput = Input.extend`
 `;
 
 const QueryDisplay = (props) => {
-  console.log(123, props.locale);
   return (
     <StyledQueryDisplay>
       <QueryInput

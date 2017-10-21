@@ -1,6 +1,6 @@
 import { all, put, call, take, takeEvery, select } from 'redux-saga/effects';
 
-import { ActionTypes, action as createAction } from '@actions/index';
+import { ActionTypes, createAction } from '@actions/index';
 import * as MarmoymApis from '@src/apis/MarmoymApis';
 import { selectFetchNeeded } from '@selectors/definitionSelector';
 

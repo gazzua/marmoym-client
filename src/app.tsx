@@ -5,9 +5,8 @@ import { Provider } from 'react-redux';
 import * as winston from 'winston';
 import styled from 'styled-components';
 
-import routes from '@src/routes/routes';
+import Routes from '@src/routes/Routes';
 import { configureStore } from '@src/store';
-import globalStyle from '@src/styles/global';
 
 const rootEl = document.getElementById('main');
 const store = configureStore();
@@ -23,12 +22,12 @@ const render = (Component) => {
   );
 }
 
-render(routes);
+render(Routes);
 
 if (module.hot) {
-  module.hot.accept('./routes/routes', () => { 
-    require("./routes/routes");
+  module.hot.accept('./routes/Routes', () => { 
+    require("./routes/Routes");
     console.log('hot replace');
-    render(routes);
+    render(Routes);
   })
 }
