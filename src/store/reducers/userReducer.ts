@@ -2,9 +2,22 @@ import * as Immutable from 'immutable';
 
 import { ActionTypes }from '@actions/index';
 import Definition from '@src/models/Definition';
+import User from '@src/models/User';
+
+const users = {
+  0: {
+    id: '0',
+    username: '정원영',
+    password: 'mypass',
+    email: 'wonyeong91@gmail.com',
+    karma: 30,
+    created_at: 9999999999999,
+    updated_at: 9999999999999,
+  }
+}
 
 const initialState = {
-  users: Immutable.Map()
+  users: User.ofMany(users)
 };
 
 export default (state = initialState, action) => {
@@ -18,8 +31,8 @@ export default (state = initialState, action) => {
 
 function getDefinitionDidSucceed(state, action) {
   const { users } = action.payload;
-
   return {
     ...state,
+    users: User.hardMerge(users).into(state.users)  // todo implement softMerge needed
   };
 }

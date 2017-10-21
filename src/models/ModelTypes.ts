@@ -1,5 +1,5 @@
 export interface DefinitionType {
-  term?: string;
+  term?: number;
   label?: string;
   pos?: string;
   usage?: string;
@@ -9,9 +9,19 @@ export interface DefinitionType {
 };
 
 export interface TermType {
-  id?: string;
-  labe?: string;
+  id?: number;
+  label?: string;
   roman?: string;
   created_at?: number;
   updated_at?: number;
+}
+
+export interface UserType {
+  id? : number;
+  username? : string;
+  password? : string;
+  email? : string;
+  karma? : number;
+  created_at? : number;
+  updated_at? : number;
 }

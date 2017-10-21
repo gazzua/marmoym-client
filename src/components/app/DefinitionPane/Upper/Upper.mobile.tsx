@@ -48,7 +48,7 @@ const Upper = (props) => {
       <UpperTop>
         <Div>{'badges'}</Div>
         <Meta>
-          <Author>{props.author}</Author>
+          <Author>{props.User.get('username')}</Author>
           <Time>{'time'}</Time>
         </Meta>
       </UpperTop>

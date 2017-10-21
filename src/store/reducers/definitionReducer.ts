@@ -120,7 +120,7 @@ function getDefinitionsDidSucceed(state, action) {
   
   return {
     ...state,
-    terms: Term.softMerge(terms).into(state.terms),
+    terms: Term.hardMerge(terms).into(state.terms),  // todo implement softMerge needed
     definitions: Definition.hardMerge(definitions).into(state.definitions),
     fetchNeeded: state.fetchNeeded.clear(),
     renderRequested: state.renderRequested.clear(),
