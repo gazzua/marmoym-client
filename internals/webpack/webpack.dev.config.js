@@ -20,6 +20,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@src': path.resolve('./src'),
+      '@components': path.resolve('./src', 'components'),
       '@actions': path.resolve('./src', 'store', 'actions'),
       '@selectors': path.resolve('./src', 'store', 'selectors'),
       '@styles': path.resolve('./src', 'styles'),
