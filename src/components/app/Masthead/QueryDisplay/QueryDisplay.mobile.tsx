@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
 
-import { Div, Span, Input } from '@src/styles/elems';
 import { withProps } from '@src/styles/styleUtils';
 import { selectLocale } from '@selectors/localeSelector';
 import { Colors } from '@styles/index';
@@ -13,7 +12,7 @@ const StyledQueryDisplay = styled.div`
   align-items: center;
 `;
 
-const QueryInput = Input.extend`
+const QueryInput = styled.input`
   width: 150px;
   background-color: transparent;
   outline: none;
@@ -24,9 +23,9 @@ const QueryInput = Input.extend`
 const QueryDisplay = (props) => {
   return (
     <StyledQueryDisplay>
-      <QueryInput
-        onKeyDown={props.handleKeyDown}
-        placeholder={props.locale['queryDisplay.placeholder']}/>
+      <span>
+        query
+      </span>
     </StyledQueryDisplay>
   )
 };

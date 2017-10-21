@@ -22,4 +22,9 @@ export namespace MastheadContainer {
     location: any;
     dispatch: any;
   }
+
+  export interface State {
+    name: string;
+    query: string;
+  }
 }

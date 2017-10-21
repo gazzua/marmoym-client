@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { Span, I } from '@src/styles/elems'; 
-
 export default (props) => {
-  const className = `${props.className ? props.className : ''} fa ${props.icon}`
+  const { className, icon, ...rest } = props;
+  const _className = `${className ? className : ''} fa ${icon}`
   return (
-    <I 
-      className={className}
+    <i
+      {...rest}
+      className={_className}
       aria-hidden='true'/>
   );
 }
