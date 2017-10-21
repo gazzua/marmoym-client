@@ -16,7 +16,6 @@ const renderDefinitions = (definitions, inDisplay) => {
 }
 
 const StyledDefinitionList = styled.div`
-  ${styles.border('black')}
 `;
 
 const DefinitionList = (props) => (
