@@ -17,7 +17,7 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
     this.state = {
-      name: '',
+      displayName: '',
       query: ''
     }
   }
@@ -27,14 +27,14 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
   }
 
   handleClickAddTerm() {
-    this.props.history.push("/define");
+    this.props.history.push('/define');
   }
 
   handleClickSearchIcon() {
     this.setState((state, props) => {
       return {
         ...state,
-        name: '/search'
+        displayName: 'SEARCH'
       }
     })
   }
@@ -49,11 +49,15 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     });
   }
 
-  handleKeyDown(e) {
+  handleKeyDown(e) {  
     if (e.keyCode === KeyCode.RETURN) {
-      this.props.dispatch(createAction(ActionTypes.SEARCH, {
-        query: this.state.query
-      }));
+      this.setState((state, props) => {
+        return {
+          displayName: '',
+          query: ''
+        }
+      })
+      this.props.history.push(`/?search=${this.state.query}`);
     }
   }
 
@@ -61,13 +65,13 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     this.setState((state, props) => {
       return {
         ...state,
-        name: ''
+        displayName: ''
       }
     })
   }
 
-  resolveName(pathname, name) {
-    return name.length ? name : pathname;
+  resolveName(pathname, displayName) {
+    return displayName.length ? displayName : pathname;
   }
 
   render() {
@@ -75,7 +79,8 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     
     return (
       <Masthead
-        name={this.resolveName(this.props.location.pathname, this.state.name)}
+        displayName={this.resolveName(this.props.location.pathname, this.state.displayName)}
+        searchRequested={this.props.searchRequested}
         query={this.state.query}
         handleChange={this.handleChange}
         handleKeyDown={this.handleKeyDown}

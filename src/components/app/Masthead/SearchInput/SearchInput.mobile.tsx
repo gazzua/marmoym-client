@@ -23,7 +23,7 @@ const Input = styled.input`
 const QueryDisplay = (props) => {
   return (
     <StyledSearchInput>
-      <Input 
+      <Input
         value={props.query}
         onChange={props.handleChange}
         onKeyDown={props.handleKeyDown}

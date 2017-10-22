@@ -7,12 +7,12 @@ import DefaultMasthead from './DefaultMasthead/DefaultMasthead';
 import SearchMasthead from './SearchMasthead/SearchMasthead';
 
 const Masthead = (props) => {
-  const { name } = props;
+  const { displayName } = props;
 
-  switch (name) {
-    case '/': 
+  switch (displayName) {
+    case '/':
       return <DefaultMasthead {...props}/>
-    case '/search':
+    case 'SEARCH':
       return <SearchMasthead {...props}/>
     default: return <DefaultMasthead {...props}/>;
   }

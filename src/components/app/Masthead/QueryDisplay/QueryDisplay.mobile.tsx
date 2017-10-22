@@ -24,7 +24,7 @@ const QueryDisplay = (props) => {
   return (
     <StyledQueryDisplay>
       <span>
-        query
+        {props.searchRequested}
       </span>
     </StyledQueryDisplay>
   )

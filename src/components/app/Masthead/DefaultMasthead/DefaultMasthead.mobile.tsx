@@ -31,6 +31,7 @@ const DefaultMasthead = (props) => {
       <MarmoymLogo
         handleClickMarmoymLogo={props.handleClickMarmoymLogo}/>
       <QueryDisplay
+        searchRequested={props.searchRequested}
         handleKeyDown={props.handleKeyDown}/>
       <RightButtonGroup>
         <button onClick={props.handleClickSearchIcon}>
