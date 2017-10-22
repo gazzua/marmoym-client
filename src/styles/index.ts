@@ -3,7 +3,6 @@ import * as styles from './styles';
 import global from './global';
 import * as media from './media';
 import * as styleUtils from './styleUtils';
-import * as Elems from './elems';
 
 export {
   Colors,
@@ -11,5 +10,4 @@ export {
   global,
   media,
   styleUtils,
-  Elems
 }

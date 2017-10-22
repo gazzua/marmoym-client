@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { styles, media } from '@styles/index';
-import { Div } from '@styles/elems';
 import globalStyle from '@src/styles/global';
 
 const StyledRoot = styled.div`
