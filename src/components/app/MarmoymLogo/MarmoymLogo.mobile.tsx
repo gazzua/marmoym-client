@@ -2,10 +2,9 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { withProps } from '@src/styles/styleUtils';
-import { Div, Span } from '@src/styles/elems';
 import { Colors, styles } from '@styles/index';
 
-const StyledMarmoymLogo = Div.extend`
+const StyledMarmoymLogo = styled.div`
   width: 55px;
   display: flex;
   align-items: center;
@@ -21,7 +20,7 @@ const StyledMarmoymLogo = Div.extend`
 const MarmoymLogo= (props) => {
   return (
     <StyledMarmoymLogo>
-      <Span onClick={props.handleClickMarmoymLogo}>말모음</Span>
+      <span onClick={props.handleClickMarmoymLogo}>말모음</span>
     </StyledMarmoymLogo>
   )
 };

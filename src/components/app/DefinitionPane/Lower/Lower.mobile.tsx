@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { styles, styleUtils, Elems } from '@styles/index';
+import { styles, styleUtils } from '@styles/index';
 import UpvoteIcon from '@src/components/icons/Upvote/Upvote';
 import _DownvoteIcon from '@src/components/icons/Downvote/Downvote';
 import _SeparatorIcon from '@src/components/icons/SeparatorIcon/SeparatorIcon';

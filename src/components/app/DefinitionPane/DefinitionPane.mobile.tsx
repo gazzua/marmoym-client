@@ -2,19 +2,18 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { Div, P, Span } from '@src/styles/elems';
 import { styles, Colors } from '@styles/index';
 import { DefinitionPane } from '@src/components/ComponentTypes';
 import Upper from './Upper/Upper';
 import Lower from './Lower/Lower';
 import Locale from '@src/components/app/Locale/Locale';
 
-const Label = Div.extend``;
-const Usage = Div.extend``;
-const Pos = Div.extend``;
-const ExtResource = Div.extend``;
+const Label = styled.div``;
+const Usage = styled.div``;
+const Pos = styled.div``;
+const ExtResource = styled.div``;
 
-const StyledDefinitionPane = Div.extend`
+const StyledDefinitionPane = styled.div`
   margin-top: 5px;
   padding: 8px 0px;
   color: ${Colors.BLACK5};
@@ -22,7 +21,7 @@ const StyledDefinitionPane = Div.extend`
   border: 1px solid #c5b9ce;
 `;
 
-const Body = Div.extend`
+const Body = styled.div`
   padding: 9px 12px;
 `;
 
@@ -47,13 +46,13 @@ const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
         User={Definition.get('$User')}
         Term={Definition.get('$Term')}/>
       <Body>
-        <Div>{renderPoss(Definition.get('Poss'))}</Div>
+        <div>{renderPoss(Definition.get('Poss'))}</div>
         <Label>
-          <Span>{Definition.get('label')}</Span>
+          <span>{Definition.get('label')}</span>
         </Label>
-        <Div>
+        <div>
           {renderUsages(Definition.get('Usages'))}
-        </Div>
+        </div>
         <ExtResource>{''}</ExtResource>
       </Body>
       <Lower 

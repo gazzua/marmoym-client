@@ -2,27 +2,26 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { withProps } from '@src/styles/styleUtils';
-import { Div, Span, Input, P, Button } from '@src/styles/elems';
 
 const StyledDefine = styled.div`
   padding : 10px;  
 `;
-const Usage = Div.extend``;
-const UsageInput = Input.extend`
+const Usage = styled.div``;
+const UsageInput = styled.input`
   width: 90%;
   height: 40px;
   border : 1px solid black;
 `;
-const UsageLabel = P.extend``;
-const UsageAddButton = Button.extend`
+const UsageLabel = styled.p``;
+const UsageAddButton = styled.button`
   width : 100%;
   border : none;
   height : 40px;
   outline : none;
   cursor : pointer;
 `;
-const UsageInputConatiner = Div.extend``;
-const UsageDeleteButton = Button.extend``;
+const UsageInputConatiner = styled.div``;
+const UsageDeleteButton = styled.button``;
 
 const renderUsage = (props) => {
   const UsageList = props.usages.map((usage, i) => (
@@ -42,17 +41,17 @@ const renderUsage = (props) => {
   );
 };
 
-const StyledTerm = Div.extend``;
-const TermLabel = P.extend``;
-const TermInput = Input.extend`
+const StyledTerm = styled.div``;
+const TermLabel = styled.p``;
+const TermInput = styled.input`
   width: 100%;
   height: 40px;
   border : 1px solid black;
 `;
 
-const StyledDefinition = Div.extend``;
-const DefinitionLabel = P.extend``;
-const DefinitionInput = Input.extend`
+const StyledDefinition = styled.div``;
+const DefinitionLabel = styled.p``;
+const DefinitionInput = styled.input`
   width: 100%;
   height: 40px;
   border : 1px solid black;

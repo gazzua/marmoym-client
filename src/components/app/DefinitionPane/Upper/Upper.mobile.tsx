@@ -2,51 +2,50 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { Div, Span } from '@src/styles/elems';
 import { styles, Colors } from '@styles/index';
 import StarIcon from '@src/components/icons/Star/Star';
 
-const StyledUpper = Div.extend`
+const StyledUpper = styled.div`
   padding: 0 12px;
   border-bottom: 1px solid ${Colors.GRAY4};
 `;
 
-const UpperTop = Div.extend`
+const UpperTop = styled.div`
   display: flex;
   font-size: 12px;
   justify-content: space-between;
 `;
 
-const Meta = Div.extend``;
-const Author = Span.extend``;
-const Time = Span.extend`
+const Meta = styled.div``;
+const Author = styled.span``;
+const Time = styled.span`
   margin-left: 5px;`;
 
-const UpperBottom = Div.extend`
+const UpperBottom = styled.div`
  padding: 3px 0px 4px`;
 
-const Term = Span.extend`
+const Term = styled.span`
   font-size: 16px;
   font-weight: bold;
   color: ${Colors.BLACK4};
   overflow-wrap: break-word;
   `;
 
-const Roman = Span.extend`
+const Roman = styled.span`
   margin-left: 3px;
   font-size: 12px;
   color: ${Colors.BLACK6};`;
 
 const StyledStarIcon = styled(StarIcon)``;
-const Pos = Span.extend``;
-const BottomMiddle = Div.extend``;
-const BottomRight = Div.extend``;
+const Pos = styled.span``;
+const BottomMiddle = styled.div``;
+const BottomRight = styled.div``;
   
 const Upper = (props) => {
   return (
     <StyledUpper>
       <UpperTop>
-        <Div>{'badges'}</Div>
+        <div>{'badges'}</div>
         <Meta>
           <Author>{props.User.get('username')}</Author>
           <Time>{'time'}</Time>

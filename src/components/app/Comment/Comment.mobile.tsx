@@ -2,14 +2,13 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { Div, P, Span } from '@src/styles/elems';
 
-const Label = Div.extend``;
-const Usage = Div.extend``;
-const Pos = Div.extend``;
-const Media = Div.extend``;
+const Label = styled.div``;
+const Usage = styled.div``;
+const Pos = styled.div``;
+const Media = styled.div``;
 
-const StyledComment = Div.extend`
+const StyledComment = styled.div`
   margin-top: 15px;
 `;
 
