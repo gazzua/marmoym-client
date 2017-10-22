@@ -38,11 +38,18 @@ export function* getDefinitions(action) {
 export function* search(action) {
   try {
     const { query } = action.payload;
-    console.log('query', query);
     const data = yield MarmoymApis.search({
       query
     });
-    console.log('data', data);
+
+    yield put(createAction(ActionTypes.GET_DEFINITION_IDS_SUCCESS, {
+      defIds: data.defIds
+    }));
+
+    const fetchNeeded = yield select(selectFetchNeeded);
+    yield put(createAction(ActionTypes.GET_DEFINITIONS, {
+      fetchNeeded
+    }));
   } catch (err) {
     //
   }
