@@ -35,9 +35,30 @@ export function* getDefinitions(action) {
   }
 }
 
+export function* search(action) {
+  try {
+    const { query } = action.payload;
+    const data = yield MarmoymApis.search({
+      query
+    });
+
+    yield put(createAction(ActionTypes.GET_DEFINITION_IDS_SUCCESS, {
+      defIds: data.defIds
+    }));
+
+    const fetchNeeded = yield select(selectFetchNeeded);
+    yield put(createAction(ActionTypes.GET_DEFINITIONS, {
+      fetchNeeded
+    }));
+  } catch (err) {
+    //
+  }
+}
+
 export default function* definitionSaga () {  
   yield all([
     takeEvery(ActionTypes.GET_DEFINITION_IDS, getDefinitionIds),
-    takeEvery(ActionTypes.GET_DEFINITIONS, getDefinitions)
+    takeEvery(ActionTypes.GET_DEFINITIONS, getDefinitions),
+    takeEvery(ActionTypes.SEARCH, search)
   ]);
 }

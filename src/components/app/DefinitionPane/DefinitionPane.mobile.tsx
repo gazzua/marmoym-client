@@ -39,7 +39,6 @@ const renderPoss = (Poss) => {
 }
 
 const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
-  console.log('render definition', props.Definition.toJS());
   const { Definition } = props;
   return (
     <StyledDefinitionPane>

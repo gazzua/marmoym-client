@@ -20,6 +20,9 @@
       "@src/*": [
         "src/*"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
       "@actions/*": [
         "src/store/actions/*"
       ],

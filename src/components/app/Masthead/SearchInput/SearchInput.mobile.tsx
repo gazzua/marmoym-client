@@ -2,32 +2,33 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
 
-import { Div, Span, Input } from '@src/styles/elems';
-import { withProps } from '@src/styles/styleUtils';
 import { selectLocale } from '@selectors/localeSelector';
-import { Colors } from '@styles/index';
+import { Colors, styles } from '@styles/index';
+import FontAwesomeIcon from '@components/icons/FontAwesomeIcon/FontAwesomeIcon';
 
-const StyledQueryDisplay = styled.div`
-  margin-left: 5px;
+const StyledSearchInput = styled.div`
   display: flex;
   align-items: center;
+  height: 100%;
 `;
 
-const QueryInput = Input.extend`
-  width: 150px;
+const Input = styled.input`
+  width: 250px;
   background-color: transparent;
   outline: none;
   border: none;
-  color: ${Colors.BLACK5}
+  color: ${Colors.BLACK5};
 `;
 
 const QueryDisplay = (props) => {
   return (
-    <StyledQueryDisplay>
-      <QueryInput
+    <StyledSearchInput>
+      <Input
+        value={props.query}
+        onChange={props.handleChange}
         onKeyDown={props.handleKeyDown}
         placeholder={props.locale['queryDisplay.placeholder']}/>
-    </StyledQueryDisplay>
+    </StyledSearchInput>
   )
 };
 

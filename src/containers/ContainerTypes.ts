@@ -21,5 +21,11 @@ export namespace MastheadContainer {
     masthead: any;
     location: any;
     dispatch: any;
+    searchRequested?: any;
+  }
+
+  export interface State {
+    displayName: string;
+    query: string;
   }
 }

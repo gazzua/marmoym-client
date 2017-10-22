@@ -18,7 +18,6 @@ class DefinitionListContainer extends React.Component<DefinitionListContainer.Pr
   }
 
   render() {
-    console.log('DefinitionList render123123', this.props.definitions);
     return (
       <DefinitionList
         definitions={this.props.definitions}/>
