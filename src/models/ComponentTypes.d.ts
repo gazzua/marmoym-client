@@ -15,6 +15,12 @@ export namespace DefinitionPane {
   }
 }
 
+export namespace SignInPane {
+  export interface Props {
+    
+  }
+}
+
 export namespace Masthead {
   export interface Props {
     pathname?: any;
