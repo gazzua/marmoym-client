@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import Routes from '@src/routes/Routes';
 import { configureStore } from '@src/store';
 
-const rootEl = document.getElementById('main');
+const rootEl = document.getElementById('marmoym-app');
 const store = configureStore();
 
 const render = (Component) => {
