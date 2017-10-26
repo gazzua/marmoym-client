@@ -1,15 +1,30 @@
-var path = require('path');
-var webpack = require('webpack');
-var express = require('express')
-var webpackDevMiddleware = require("webpack-dev-middleware");
-var webpackHotMiddleware = require("webpack-hot-middleware");
+const path = require('path');
+const webpack = require('webpack');
+const express = require('express')
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpackHotMiddleware = require("webpack-hot-middleware");
 
-var getConfig = require('./getConfig');
-var i18n = require('./i18n/marmoym-i18n');
+const logger = require('./logger');
+const getConfig = require('./getConfig');
 
-var app = express();
-var config = require(getConfig(process.env.PLATFORM, process.env.NODE_ENV));
-var compiler = webpack(config);
+/**
+ * Marmoym-i18n sanity check.
+ * If error occurs, logging into file will fail. Only console logging is expected then.
+ */
+logger.error('power')
+let i18n;
+try {
+  i18n = require('./marmoym-i18n');
+} catch (e) {
+  logger.warn(
+    `server/marmoym-i18n does not exist. You need to manually download the module from repository
+    (git@github.com:tymsai/marmoym-i18n.git) or in command line, run 'npm run setup:dev'.`)
+  process.exit(-1);
+}
+
+const app = express();
+const config = require(getConfig(process.env.PLATFORM, process.env.NODE_ENV));
+const compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
@@ -23,7 +38,7 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 app.get('/ss/i18n/:locale', function(req, res) {
-  console.log('Returning i18n', req.params.locale);
+  logger.debug('Returning i18n', req.params.locale);
   const ret = {
     code: 200000,
     payload: {
