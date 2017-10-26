@@ -11,7 +11,6 @@ const getConfig = require('./getConfig');
  * Marmoym-i18n sanity check.
  * If error occurs, logging into file will fail. Only console logging is expected then.
  */
-logger.error('power')
 let i18n;
 try {
   i18n = require('./marmoym-i18n');
