@@ -4,7 +4,7 @@ import styled, { StyledFunction } from 'styled-components';
 
 import DefaultModalContainer from '@containers/modals/DefaultModalContainer/DefaultModalContainer';
 import { Colors, styles } from '@styles/index';
-import Locale from '@components/app/Locale/Locale';
+import Locale from '@containers/LocaleContainer/LocaleContainer';
 
 const StyledGlobalMenuModal = styled.div`
   position: fixed;
