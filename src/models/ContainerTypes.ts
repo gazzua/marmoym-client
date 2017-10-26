@@ -1,26 +1,27 @@
-interface ContainerPropsBase {
-  dispatch?: Function,
-  match?: any;
+namespace ContainerBase {
+  export interface Props {
+    dispatch?: Function,
+    match?: any;
+    history?: any;
+    location?: any;
+  }
 }
 
 export namespace DefinitionListContainer {
-  export interface Props extends ContainerPropsBase {
+  export interface Props extends ContainerBase.Props {
     definitions: any;
   }
 }
 
 export namespace RootContainer {
-  export interface Props extends ContainerPropsBase {
+  export interface Props extends ContainerBase.Props {
   }
 }
 
 export namespace MastheadContainer {
-  export interface Props {
-    history?: any;
+  export interface Props extends ContainerBase.Props {
     handleClickAddTerm: any;
     masthead: any;
-    location?: any;
-    dispatch?: any;
     searchRequested?: string;
   }
 
@@ -33,13 +34,12 @@ export namespace MastheadContainer {
 
 export namespace DefaultModalContainer {
   export interface Props {
-    isVisible?: any;
     handleClickBackdrop: any;
   }
 }
 
 export namespace GlobalMenuModalContainer {
-  export interface Props {
+  export interface Props extends DefaultModalContainer.Props, ContainerBase.Props {
     handleClickHamburgerIcon: any;
     handleClickBackdrop: any;
   }
