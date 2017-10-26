@@ -13,23 +13,24 @@ const DefaultRoute = (_props) => {
   const { dispatch } = _props;
 
   const queryString = new URLSearchParams(_props.location.search);
-  const search = queryString.get('search');
+  const query = queryString.get('q');
 
   return (
     <div>
-      <MastheadContainer searchRequested={search}/>
+      <MastheadContainer searchRequested={query}/>
       <Switch>
         <Route path="/" exact render={(props) => {
-          if (search && search.length > 0) {
-            dispatch(createAction(ActionTypes.SEARCH, {
-              query: search
-            }));
-          } else {
-            const { termLabel } = props.match.params;
-            dispatch(createAction(ActionTypes.GET_DEFINITION_IDS, {
-              termLabel
-            }));
-          }
+          const { termLabel } = props.match.params;
+          dispatch(createAction(ActionTypes.GET_DEFINITION_IDS, {
+            termLabel
+          }));
+          return <DefinitionListContainer/>
+        }}/>
+        
+        <Route path="/search" exact render={(props) => {
+          dispatch(createAction(ActionTypes.SEARCH, {
+            query: query
+          }));
           return <DefinitionListContainer/>
         }}/>
 

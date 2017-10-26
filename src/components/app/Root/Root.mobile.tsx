@@ -5,9 +5,11 @@ import { styles, media } from '@styles/index';
 import globalStyle from '@src/styles/global';
 
 const StyledRoot = styled.div`
+  position: absolute;
+  min-height: 100%;
   ${media.w320`
     min-width: 320px;
-    height: 100%;
+    width: 100%;
   `};
 
   ${media.w480`
@@ -22,7 +24,7 @@ globalStyle();
 
 const Root = (props) => {
   return (
-    <StyledRoot>
+    <StyledRoot id={props.id}>
       {props.children}
     </StyledRoot>
   );

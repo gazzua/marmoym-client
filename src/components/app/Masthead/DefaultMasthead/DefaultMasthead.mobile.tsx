@@ -9,6 +9,7 @@ import QueryDisplay from '../QueryDisplay/QueryDisplay';
 import SearchIcon from '@src/components/icons/SearchIcon/SearchIcon';
 import PencilIcon from '@src/components/icons/PencilIcon/PencilIcon';
 import HamburgerIcon from '@src/components/icons/HamburgerIcon/HamburgerIcon';
+import GlobalMenuModalContainer from '@containers/modals/GlobalMenuModalContainer/GlobalMenuModalContainer';
 
 const RightButtonGroup = styled.div`
   display: flex;
@@ -25,23 +26,36 @@ const RightButtonGroup = styled.div`
   }
 `;
 
+const renderGlobalMenuModal = (props) => {
+  if (props.modalIsVisible) {
+    return (
+      <GlobalMenuModalContainer
+        handleClickBackdrop={props.handleClickBackdrop}
+        handleClickHamburgerIcon={props.handleClickHamburgerIcon}/>
+    );
+  } else {
+    return null;
+  }
+}
+
 const DefaultMasthead = (props) => {
   return (
     <MastheadBase>
+      {renderGlobalMenuModal(props)}
       <MarmoymLogo
         handleClickMarmoymLogo={props.handleClickMarmoymLogo}/>
       <QueryDisplay
         searchRequested={props.searchRequested}
         handleKeyDown={props.handleKeyDown}/>
       <RightButtonGroup>
-        <button onClick={props.handleClickSearchIcon}>
-          <SearchIcon/>
-        </button>
-        <button onClick={props.handleClickAddTerm}>
-          <PencilIcon/>
+        <button>
+          <SearchIcon onClick={props.handleClickSearchIcon}/>
         </button>
         <button>
-          <HamburgerIcon/>
+          <PencilIcon onClick={props.handleClickPencilIcon}/>
+        </button>
+        <button>
+          <HamburgerIcon onClick={props.handleClickHamburgerIcon}/>
         </button>
       </RightButtonGroup>      
     </MastheadBase>

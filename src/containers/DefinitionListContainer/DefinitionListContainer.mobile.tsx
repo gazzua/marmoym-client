@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
-import { DefinitionListContainer } from '@src/containers/ContainerTypes';
+import { DefinitionListContainer } from '@src/models/ContainerTypes';
 import { 
   selectCombinedDefinitionsInDisplay,
   selectDefinitionsInDisplay
