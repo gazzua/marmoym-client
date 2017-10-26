@@ -7,6 +7,8 @@ import SignInContainer from '@src/containers/SignInContainer/SignInContainer';
 const Email = styled.div``;
 const Password = styled.div``;
 
+const Input = styled.input``;
+
 const Body = styled.div`
   margin-top: 3px;
   padding: 9px 12px;
@@ -31,31 +33,38 @@ const StyledSignIn = styled.div`
 const SignIn = (props) => (
   <StyledSignIn>
     <Body>
-        아이디
-      </Body>
-      <Body>
-        비밀번호
-      </Body>
-      <Body>
-        로그인
-      </Body>
-      <CheckBoxText>
-        <div>
-          아이디 저장
-        </div>
-        <div>
-          로그인상태 유지
-        </div>
-      </CheckBoxText>
-      <ThirdPartyLogin>
-        구글 계정으로 로그인
-      </ThirdPartyLogin>
-      <ThirdPartyLogin>
-        페이스북 계정으로 로그인
-      </ThirdPartyLogin>
-      <ThirdPartyLogin>
-        카카오 계정으로 로그인
-      </ThirdPartyLogin>
+      이메일
+    </Body>
+    <Input
+      value={props.username}
+      onChange={props.handleChangeEmail}/>
+    <Body>
+      비밀번호
+    </Body>
+    <Input type = 'password'
+      value={props.password}
+      onChange={props.handleChangePassword}
+      onKeyDown={props.handleKeyDown}/>
+    <Body onClick={props.handleClick}>
+      로그인
+    </Body>
+    <CheckBoxText>
+      <div>
+        아이디 저장
+      </div>
+      <div>
+        로그인상태 유지
+      </div>
+    </CheckBoxText>
+    <ThirdPartyLogin>
+      구글 계정으로 로그인
+    </ThirdPartyLogin>
+    <ThirdPartyLogin>
+      페이스북 계정으로 로그인
+    </ThirdPartyLogin>
+    <ThirdPartyLogin>
+      카카오 계정으로 로그인
+    </ThirdPartyLogin>
   </StyledSignIn>
 );
 

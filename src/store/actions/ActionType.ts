@@ -21,6 +21,9 @@ const ActionType = {
 
   SEARCH: 'SEARCH',
 
+  SIGN_IN_USER: 'SIGN_IN_USER',
+  SIGN_IN_USER_SUCCESS: 'SIGN_IN_USER_SUCCESS',
+
   TEMP: '',
 }
 
