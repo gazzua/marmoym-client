@@ -20,14 +20,18 @@ const StyledEntry = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 26px;
+  height: 28px;
   ${styles.border('black')}
+
+  span {
+    cursor: pointer;
+  }
 `;
 
 const Entry = (props) => {
   return (
     <StyledEntry>
-      <span>
+      <span onClick={props.handleClick}>
         {props.children}
       </span>
     </StyledEntry>
@@ -37,11 +41,11 @@ const Entry = (props) => {
 const GlobalMenuModal = (props) => {
   return (
     <StyledGlobalMenuModal>
-      <Entry>로그인</Entry>
+      <Entry handleClick={props.handleClickSignIn}>로그인</Entry>
       <Entry>내 계정</Entry>
-      <Entry>사용자의견</Entry>
+      <Entry>사용자 의견</Entry>
       <Entry>데스크톱</Entry>
-      <Entry>취소</Entry>
+      <Entry handleClick={props.handleClickBackdrop}>취소</Entry>
     </StyledGlobalMenuModal>
   );
 };
