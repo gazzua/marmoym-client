@@ -3,7 +3,6 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { styles, Colors } from '@styles/index';
 import SignInContainer from '@src/containers/SignInContainer/SignInContainer';
-import Locale from '@src/components/app/Locale/Locale';
 
 const Email = styled.div``;
 const Password = styled.div``;
