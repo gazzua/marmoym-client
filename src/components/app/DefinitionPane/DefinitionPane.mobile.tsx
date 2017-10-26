@@ -6,7 +6,7 @@ import { styles, Colors } from '@styles/index';
 import { DefinitionPane } from '@src/models/ComponentTypes';
 import Upper from './Upper/Upper';
 import Lower from './Lower/Lower';
-import Locale from '@src/components/app/Locale/Locale';
+import Locale from '@containers/LocaleContainer/LocaleContainer';
 
 const Label = styled.div``;
 const Usage = styled.div``;

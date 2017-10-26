@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const Locale = connect(mapStateToProps)((props) => {
+const LocaleContainer = connect(mapStateToProps)((props) => {
   // console.log("translate", props.label, props.trans);
   const label = props.locale[props.label];
 
@@ -21,4 +21,4 @@ const Locale = connect(mapStateToProps)((props) => {
   );
 });
 
-export default Locale;
+export default LocaleContainer;
