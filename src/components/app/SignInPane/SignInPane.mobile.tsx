@@ -3,7 +3,7 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { resolveNames, withProps } from '@src/styles/styleUtils';
 import { styles, Colors } from '@styles/index';
-import { SignInPane } from '@src/components/ComponentTypes';
+import { SignInPane } from '@src/models/ComponentTypes';
 // import Upper from './Upper/Upper';
 // import Lower from './Lower/Lower';
 import Locale from '@src/components/app/Locale/Locale';
