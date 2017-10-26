@@ -8,6 +8,7 @@ import { createAction, ActionTypes } from '@actions/index';
 import DefinitionListContainer from '@src/containers/DefinitionListContainer/DefinitionListContainer';
 import MastheadContainer from '@src/containers/MastheadContainer/MastheadContainer';
 import DefineContainer from '@src/containers/DefineContainer/DefineContainer';
+import SignInContaienr from '@src/containers/SignInContainer/SignInContainer';
 
 const DefaultRoute = (_props) => {
   const { dispatch } = _props;
@@ -38,6 +39,8 @@ const DefaultRoute = (_props) => {
         <Route path="/term/:termLabel" component={DefinitionListContainer}/>
         <Route path="/term/:termLabel/defId/:defId" component={DefinitionListContainer}/>
         <Route path="/define" component={DefineContainer}/>
+        <Route path="/signin" component={SignInContaienr}/>
+
       </Switch>
     </div>
   );
