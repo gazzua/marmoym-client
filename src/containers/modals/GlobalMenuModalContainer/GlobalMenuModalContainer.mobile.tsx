@@ -16,6 +16,7 @@ class GlobalMenuModalContainer extends React.Component<GlobalMenuModalContainer.
   }
 
   handleClickSignIn(e) {
+    this.props.handleClickBackdrop(e);
     this.props.history.push('/signin');
   }
 
