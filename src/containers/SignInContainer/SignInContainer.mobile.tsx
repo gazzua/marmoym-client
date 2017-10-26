@@ -5,14 +5,9 @@ import SignIn from '@src/components/app/SignIn/SignIn';
 import { SignInContainer } from '@src/containers/ContainerTypes';
 import { createAction, ActionTypes } from '@actions/index';
 
-
 class SignInContainer extends React.Component<SignInContainer.Props> {
   constructor(...props) {
     super(...props);
-  }
-
-  componentDidMount() {
-
   }
 
   render() {

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { resolveNames, withProps } from '@src/styles/styleUtils';
 import { styles, Colors } from '@styles/index';
 import { SignInPane } from '@src/models/ComponentTypes';
 // import Upper from './Upper/Upper';
@@ -28,7 +27,6 @@ const CheckBoxText = styled.div`
   padding: 9px 12px;
   border: 1px solid #c5b9ce;
 `;
-
 
 const ThirdPartyLogin = styled.div`
   margin-top: 5px;

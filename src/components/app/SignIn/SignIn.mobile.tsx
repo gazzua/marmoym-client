@@ -7,8 +7,7 @@ import SignInPane from '@src/components/app/SignInPane/SignInPane';
 
 const renderSignIn = (signin) => {
   return (
-    <SignInPane
-    />
+    <SignInPane/>
   );
 }
 
