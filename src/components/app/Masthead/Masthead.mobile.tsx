@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { Colors, styles } from '@styles/index';
-import { Masthead } from '@src/components/ComponentTypes'; 
+import { Masthead } from '@src/models/ComponentTypes'; 
 import DefaultMasthead from './DefaultMasthead/DefaultMasthead';
 import SearchMasthead from './SearchMasthead/SearchMasthead';
 

@@ -5,7 +5,7 @@ import styled, { StyledFunction } from 'styled-components';
 import DefaultModal from '@components/modals/DefaultModal/DefaultModal';
 import DefaultModalContainer from '@containers/modals/DefaultModalContainer/DefaultModalContainer';
 import GlobalMenuModal from '@components/modals/GlobalMenuModal/GlobalMenuModal';
-import { GlobalMenuModalContainer } from '@containers/ContainerTypes';
+import { GlobalMenuModalContainer } from '@src/models/ContainerTypes';
 
 class GlobalMenuModalContainer extends React.Component<GlobalMenuModalContainer.Props> {
   render() {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import styled, { StyledFunction } from 'styled-components';
 
-import { DefaultModalContainer } from '@src/containers/ContainerTypes';
+import { DefaultModalContainer } from '@src/models/ContainerTypes';
 import DefaultModal from '@components/modals/DefaultModal/DefaultModal';
 
 class DefaultModalContainer extends React.Component<DefaultModalContainer.Props, any> {

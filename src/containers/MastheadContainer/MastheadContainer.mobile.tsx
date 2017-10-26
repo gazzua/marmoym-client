@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Masthead from '@src/components/app/Masthead/Masthead';
-import { MastheadContainer } from '@src/containers/ContainerTypes';
+import { MastheadContainer } from '@src/models/ContainerTypes';
 import KeyCode from '@src/models/KeyCode';
 import { createAction, ActionTypes } from '@actions/index';
 import DefaultMasthead from '@components/app/Masthead/DefaultMasthead/DefaultMasthead';
