@@ -13,6 +13,10 @@ export namespace SignInContainer {
   export interface Props extends ContainerPropsBase {
     member: any;
   }
+
+  export interface State {
+    username: string;
+  }
 }
 
 export namespace RootContainer {

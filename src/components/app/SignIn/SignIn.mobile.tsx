@@ -7,6 +7,8 @@ import SignInContainer from '@src/containers/SignInContainer/SignInContainer';
 const Email = styled.div``;
 const Password = styled.div``;
 
+const Input = styled.input``;
+
 const Body = styled.div`
   margin-top: 3px;
   padding: 9px 12px;
@@ -30,9 +32,9 @@ const StyledSignIn = styled.div`
 
 const SignIn = (props) => (
   <StyledSignIn>
-    <Body>
-        아이디
-      </Body>
+    <Input
+      value={props.username}
+      onChange={props.handleChangeUsername}/>
       <Body>
         비밀번호 
       </Body>
