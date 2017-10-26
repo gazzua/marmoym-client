@@ -25,7 +25,7 @@ const QueryDisplay = (props) => {
     <StyledSearchInput>
       <Input
         value={props.query}
-        onChange={props.handleChange}
+        onChange={props.handleChangeQuery}
         onKeyDown={props.handleKeyDown}
         placeholder={props.locale['queryDisplay.placeholder']}/>
     </StyledSearchInput>

@@ -6,19 +6,24 @@ import Masthead from '@src/components/app/Masthead/Masthead';
 import { MastheadContainer } from '@src/containers/ContainerTypes';
 import KeyCode from '@src/models/KeyCode';
 import { createAction, ActionTypes } from '@actions/index';
+import DefaultMasthead from '@components/app/Masthead/DefaultMasthead/DefaultMasthead';
+import SearchMasthead from '@components/app/Masthead/SearchMasthead/SearchMasthead';
 
 class MastheadContainer extends React.Component<MastheadContainer.Props, MastheadContainer.State> {
   constructor() {
     super();
-    this.handleClickAddTerm = this.handleClickAddTerm.bind(this);
+    this.handleClickHamburgerIcon = this.handleClickHamburgerIcon.bind(this);
+    this.handleClickPencilIcon = this.handleClickPencilIcon.bind(this);
     this.handleClickMarmoymLogo = this.handleClickMarmoymLogo.bind(this);
     this.handleClickSearchIcon = this.handleClickSearchIcon.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeQuery = this.handleChangeQuery.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
+    this.handleClickLeftArrowIcon = this.handleClickLeftArrowIcon.bind(this);
+    this.handleClickBackdrop = this.handleClickBackdrop.bind(this);
     this.state = {
       displayName: '',
-      query: ''
+      query: '',
+      modalIsVisible: false
     }
   }
 
@@ -26,7 +31,7 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     this.props.history.push('/');
   }
 
-  handleClickAddTerm() {
+  handleClickPencilIcon() {
     this.props.history.push('/define');
   }
 
@@ -39,7 +44,7 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     })
   }
 
-  handleChange(e) {
+  handleChangeQuery(e) {
     const query = e.target.value;
     this.setState((state, props) => {
       return {
@@ -57,11 +62,11 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
           query: ''
         }
       })
-      this.props.history.push(`/?search=${this.state.query}`);
+      this.props.history.push(`/search?q=${this.state.query}`);
     }
   }
 
-  handleClickLeftArrow() {
+  handleClickLeftArrowIcon() {
     this.setState((state, props) => {
       return {
         ...state,
@@ -70,25 +75,44 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     })
   }
 
+  handleClickHamburgerIcon(e) {
+    this.setState((state, props) => {
+      return {
+        modalIsVisible: true
+      }
+    })
+  }
+
+  handleClickBackdrop(e) {
+    this.setState((state, props) => {
+      return {
+        modalIsVisible: false
+      }
+    });
+  }
+
   resolveName(pathname, displayName) {
     return displayName.length ? displayName : pathname;
   }
 
   render() {
     const { pathname } = this.props.location;
-    
+    const displayName = this.resolveName(this.props.location.pathname, this.state.displayName);
+
     return (
       <Masthead
-        displayName={this.resolveName(this.props.location.pathname, this.state.displayName)}
-        searchRequested={this.props.searchRequested}
+        displayName={displayName}
         query={this.state.query}
-        handleChange={this.handleChange}
+        handleChangeQuery={this.handleChangeQuery}
+        handleClickLeftArrowIcon={this.handleClickLeftArrowIcon}
         handleKeyDown={this.handleKeyDown}
+        searchRequested={this.props.searchRequested}
+        modalIsVisible={this.state.modalIsVisible}
         handleClickSearchIcon={this.handleClickSearchIcon}
         handleClickMarmoymLogo={this.handleClickMarmoymLogo}
-        handleClickLeftArrow={this.handleClickLeftArrow}
-        handleClickAddTerm={this.handleClickAddTerm}
-        />
+        handleClickPencilIcon={this.handleClickPencilIcon}
+        handleClickHamburgerIcon={this.handleClickHamburgerIcon}
+        handleClickBackdrop={this.handleClickBackdrop}/>
     );
   }
 }

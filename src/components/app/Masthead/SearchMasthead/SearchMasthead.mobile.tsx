@@ -32,10 +32,10 @@ const SearchMasthead = (props) => {
     <ExtendedMastheadBase>
       <LeftArrowIcon
         icon={'fa-arrow-left'}
-        onClick={props.handleClickLeftArrow}/>
+        onClick={props.handleClickLeftArrowIcon}/>
       <SearchInput
         query={props.query}
-        handleChange={props.handleChange}
+        handleChangeQuery={props.handleChangeQuery}
         handleKeyDown={props.handleKeyDown}/>
       <RemoveIcon query={props.query}/>
     </ExtendedMastheadBase>
