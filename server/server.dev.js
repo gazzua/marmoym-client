@@ -1,23 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
 const express = require('express')
-const webpackDevMiddleware = require("webpack-dev-middleware");
-const webpackHotMiddleware = require("webpack-hot-middleware");
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const i18n = require('marmoym-i18n');
 
 const logger = require('./logger');
 const getConfig = require('./getConfig');
 
 /**
  * Marmoym-i18n sanity check.
- * If error occurs, logging into file will fail. Only console logging is expected then.
+ * On error, logs into console.
  */
-let i18n;
-try {
-  i18n = require('./marmoym-i18n');
-} catch (e) {
+const I18N_VERSION = '0.0.1';
+if (i18n.version != I18N_VERSION) {
   logger.warn(
-    `server/marmoym-i18n does not exist. You need to manually download the module from repository
-    (git@github.com:tymsai/marmoym-i18n.git) or in command line, run 'npm run setup:dev'.`)
+    `marmoym-i18n is an incompatible version. Check the version or 'npm install'.`);
   process.exit(-1);
 }
 

@@ -2916,6 +2916,12 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
+"marmoym-i18n@git+ssh://git@github.com:tymsai/marmoym-i18n.git#dev":
+  version "0.0.1"
+  resolved "git+ssh://git@github.com:tymsai/marmoym-i18n.git#a1dac5d422b77196bd7209b79761b4ecebd4b31c"
+  dependencies:
+    typescript "^2.5.3"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
