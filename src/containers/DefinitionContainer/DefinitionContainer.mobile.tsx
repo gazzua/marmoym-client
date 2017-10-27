@@ -13,7 +13,7 @@ class DefinitionContainer extends React.Component<DefinitionListContainer.Props>
   render() {
     return (
       <DefinitionPane
-        defId={11}/>
+        />
     )
   }
 }
