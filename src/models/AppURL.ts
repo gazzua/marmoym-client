@@ -5,7 +5,7 @@ export const DEFINITIONS_ID = `/definitions/:defId`;
 export const DEFINE = `/define`;
 export const SIGNIN = `/signin`;
 
-export function build(URL: string, ...tokens) {
+export function build(URL: string, ...tokens: string[]) {
   switch (URL) {
     case DEFINITIONS_ID:
     return `/definitions/${tokens[0]}`;
