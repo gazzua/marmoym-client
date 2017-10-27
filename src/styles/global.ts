@@ -42,5 +42,14 @@ export default () => {
     select, textarea, button, input {
       line-height: 1;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:focus, &:hover {
+        cursor: pointer;
+        color: ${Colors.BLUISH5};
+      }
+    }
   `
 };

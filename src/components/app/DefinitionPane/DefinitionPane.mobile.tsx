@@ -37,14 +37,16 @@ const renderPoss = (Poss) => {
   });
 }
 
-const DefinitionPane: React.SFC<DefinitionPane.Props> = (props) => {
+const DefinitionPane = (props) => {
   const { Definition } = props;
   return (
     <StyledDefinitionPane>
       <Upper
+        defId={Definition.get('id')}
         badges={''}
         User={Definition.get('$User')}
-        Term={Definition.get('$Term')}/>
+        Term={Definition.get('$Term')}
+        handleClickTerm={props.handleClickTerm}/>
       <Body>
         <div>{renderPoss(Definition.get('Poss'))}</div>
         <Label>
