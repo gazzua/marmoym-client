@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { styles, media } from '@styles/index';
 import globalStyle from '@src/styles/global';
+import { media, styles } from '@styles/index';
 
 const StyledRoot = styled.div`
   position: absolute;
@@ -13,7 +13,7 @@ const StyledRoot = styled.div`
   `};
 
   ${media.w480`
-    opacity: 0.5;  
+    opacity: 0.5;
   `}
 `;
 

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { styles, Colors } from '@styles/index';
 import StarIcon from '@src/components/icons/Star/Star';
 import * as AppURL from '@src/models/AppURL';
+import { resolveNames, withProps } from '@src/styles/styleUtils';
+import { Colors, styles } from '@styles/index';
 
 const StyledUpper = styled.div`
   padding: 0 12px;
@@ -31,18 +31,18 @@ const StyledTerm = styled.span`
   color: ${Colors.BLACK4};
   overflow-wrap: break-word;
   `;
-  
+
 const Term = (props) => {
   return (
     <StyledTerm>
       <a
         href={''}
-        onClick={(e) => {props.handleClickTerm(e, getUrl(props.defId))}}>
+        onClick={(e) => { props.handleClickTerm(e, getUrl(props.defId)); }}>
         {props.label}
       </a>
     </StyledTerm>
   );
-}
+};
 
 const Roman = styled.span`
   margin-left: 3px;
@@ -60,7 +60,7 @@ const Upper = (props) => {
       <UpperTop>
         <div>{'badges'}</div>
         <Meta>
-          <Author>{props.User.get('username')}</Author>
+          <Author>{props.user.get('username')}</Author>
           <Time>{'time'}</Time>
         </Meta>
       </UpperTop>
@@ -68,8 +68,8 @@ const Upper = (props) => {
         <Term
           defId={props.defId}
           handleClickTerm={props.handleClickTerm}
-          label={props.Term.get('label')}/>
-        <Roman>{props.Term.get('roman')}</Roman>
+          label={props.term.get('label')}/>
+        <Roman>{props.term.get('roman')}</Roman>
       </UpperBottom>
     </StyledUpper>
   );

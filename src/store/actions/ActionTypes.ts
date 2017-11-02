@@ -21,7 +21,7 @@ const enum ActionTypes {
 
   SEARCH = 'SEARCH',
 
-  TEMP = ''
+  TEMP = '',
 }
 
 export default ActionTypes;

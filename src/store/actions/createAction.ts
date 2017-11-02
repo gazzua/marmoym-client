@@ -1,7 +1,7 @@
 import ActionTypes from './ActionTypes';
 
 export interface Payload {
-  [key: string]: any
+  [key: string]: any;
 }
 
 export default function createAction(type: ActionTypes, payload?: Payload) {
@@ -10,7 +10,7 @@ export default function createAction(type: ActionTypes, payload?: Payload) {
   }
 
   return {
+    payload,
     type,
-    payload: payload
   };
 }

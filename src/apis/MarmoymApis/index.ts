@@ -1,19 +1,18 @@
 import axios from 'axios';
 
-import * as URL from './MarmoymApiURL';
 import { getPayload } from '../apiUtils';
+import * as URL from './MarmoymApiURL';
 
 export function getDefinitions(args) {
   return axios.post(URL.GET_DEFINITIONS, {
-    ...args
+    ...args,
   })
     .then(getPayload);
 }
 
 export function getDefinitionIds(args) {
   return axios.get(URL.GET_DEFINITION_IDS, {
-    params: {
-    }
+    params: {},
   })
     .then(getPayload);
 }
@@ -21,8 +20,8 @@ export function getDefinitionIds(args) {
 export function search(args) {
   return axios.get(URL.SEARCH, {
     params: {
-      query: args.query
-    }
+      query: args.query,
+    },
   })
     .then(getPayload);
 }

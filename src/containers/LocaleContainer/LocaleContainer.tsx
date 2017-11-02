@@ -1,12 +1,12 @@
 import * as React from 'react';
-import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
+import styled, { StyledFunction } from 'styled-components';
 
 import { selectLocale } from '@selectors/localeSelector';
 
 const mapStateToProps = (state) => {
   return {
-    locale: selectLocale(state)
+    locale: selectLocale(state),
   };
 };
 

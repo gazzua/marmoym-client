@@ -9,5 +9,5 @@
 // const _Definition = Immutable.Record({
 //   label: ''
 //   usages: [],
-  
+
 // })

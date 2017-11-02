@@ -3,13 +3,13 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Masthead from '@src/components/app/Masthead/Masthead';
-import { MastheadContainer } from '@src/models/ContainerTypes';
+import { MastheadContainerProps, MastheadContainerState } from '@src/models/ContainerTypes';
 import KeyCode from '@src/models/KeyCode';
 import { createAction, ActionTypes } from '@actions/index';
 import DefaultMasthead from '@components/app/Masthead/DefaultMasthead/DefaultMasthead';
 import SearchMasthead from '@components/app/Masthead/SearchMasthead/SearchMasthead';
 
-class MastheadContainer extends React.Component<MastheadContainer.Props, MastheadContainer.State> {
+class MastheadContainer extends React.Component<MastheadContainerProps, MastheadContainerState> {
   constructor() {
     super();
     this.handleClickHamburgerIcon = this.handleClickHamburgerIcon.bind(this);
@@ -22,80 +22,80 @@ class MastheadContainer extends React.Component<MastheadContainer.Props, Masthea
     this.handleClickBackdrop = this.handleClickBackdrop.bind(this);
     this.state = {
       displayName: '',
+      modalIsVisible: false,
       query: '',
-      modalIsVisible: false
-    }
+    };
   }
 
-  handleClickMarmoymLogo() {
+  private handleClickMarmoymLogo() {
     this.props.history.push('/');
   }
 
-  handleClickPencilIcon() {
+  private handleClickPencilIcon() {
     this.props.history.push('/define');
   }
 
-  handleClickSearchIcon() {
+  private handleClickSearchIcon() {
     this.setState((state, props) => {
       return {
         ...state,
-        displayName: 'SEARCH'
-      }
-    })
+        displayName: 'SEARCH',
+      };
+    });
   }
 
-  handleChangeQuery(e) {
+  private handleChangeQuery(e) {
     const query = e.target.value;
     this.setState((state, props) => {
       return {
         ...state,
-        query: query
-      }
+        query,
+      };
     });
   }
 
-  handleKeyDown(e) {  
+  private handleKeyDown(e) {
     if (e.keyCode === KeyCode.RETURN) {
       this.setState((state, props) => {
         return {
           displayName: '',
-          query: ''
-        }
-      })
+          query: '',
+        };
+      });
       this.props.history.push(`/search?q=${this.state.query}`);
     }
   }
 
-  handleClickLeftArrowIcon() {
+  private handleClickLeftArrowIcon() {
     this.setState((state, props) => {
       return {
         ...state,
-        displayName: ''
-      }
-    })
-  }
-
-  handleClickHamburgerIcon(e) {
-    this.setState((state, props) => {
-      return {
-        modalIsVisible: true
-      }
-    })
-  }
-
-  handleClickBackdrop(e) {
-    this.setState((state, props) => {
-      return {
-        modalIsVisible: false
-      }
+        displayName: '',
+      };
     });
   }
 
-  resolveName(pathname, displayName) {
+  private handleClickHamburgerIcon(e) {
+    this.setState((state, props) => {
+      return {
+        modalIsVisible: true,
+      };
+    });
+  }
+
+  private handleClickBackdrop(e) {
+    this.setState((state, props) => {
+      return {
+        modalIsVisible: false,
+      };
+    });
+  }
+
+  private resolveName(pathname, displayName) {
     return displayName.length ? displayName : pathname;
   }
 
-  render() {
+  public render() {
     const { pathname } = this.props.location;
     const displayName = this.resolveName(this.props.location.pathname, this.state.displayName);
 

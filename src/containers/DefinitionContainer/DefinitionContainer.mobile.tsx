@@ -3,26 +3,25 @@ import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
-import { DefinitionListContainer } from '@src/models/ContainerTypes';
-import { selectDefinition }  from '@src/store/selectors/definitionSelector';
+import { DefinitionListContainerProps } from '@src/models/ContainerTypes';
+import { selectDefinition } from '@src/store/selectors/definitionSelector';
 
-class DefinitionContainer extends React.Component<DefinitionListContainer.Props> {
-  componentDidMount() {
+class DefinitionContainer extends React.Component<DefinitionListContainerProps> {
+  public componentDidMount() {
+    //
   }
 
-  render() {
+  public render() {
     return (
-      <DefinitionPane
-        />
-    )
+      <DefinitionPane/>
+    );
   }
 }
 
 const mapStateToProps = (state, props) => {
-  console.log(123, 1);
   return {
-    definition: selectDefinition(state, props.defId)
-  }
-}
+    definition: selectDefinition(state, props.defId),
+  };
+};
 
 export default connect(mapStateToProps)(DefinitionContainer);

@@ -5,10 +5,10 @@ import definitionSaga from './definitionSaga';
 import localeSaga from './localeSaga';
 
 export default function* rootSaga() {
-  console.log("Starting up the root saga!");
+  console.log('Starting up the root saga!');
 
   yield [
     definitionSaga(),
-    localeSaga()
-  ]
+    localeSaga(),
+  ];
 }

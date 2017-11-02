@@ -5,27 +5,22 @@ import { selectComments } from '@src/store/selectors/commentSelector';
 import CommentList from '@src/components/app/CommentList/CommentList';
 
 class CommentListContainer extends React.Component {
-  componentDidMount() {
+  public componentDidMount() {
     // todo: get comment
   }
 
-  render() {
+  public render() {
     return (
       <CommentList
         comments={''}/>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state, props) => {
   return {
-    comments: selectComments(state)
-  }
-}
+    comments: selectComments(state),
+  };
+};
 
-const mapDispatchToProps = dispatch => {
-  return  {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CommentListContainer);
+export default connect(mapStateToProps)(CommentListContainer);

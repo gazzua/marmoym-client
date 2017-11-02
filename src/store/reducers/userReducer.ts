@@ -1,23 +1,23 @@
 import * as Immutable from 'immutable';
 
-import { ActionTypes }from '@actions/index';
+import { ActionTypes } from '@actions/index';
 import Definition from '@src/models/Definition';
 import User from '@src/models/User';
 
-const users = {
+const _users = {
   0: {
-    id: '0',
-    username: '정원영',
-    password: 'mypass',
-    email: 'wonyeong91@gmail.com',
-    karma: 30,
     created_at: 9999999999999,
+    email: 'wonyeong91@gmail.com',
+    id: '0',
+    karma: 30,
+    password: 'mypass',
     updated_at: 9999999999999,
-  }
-}
+    username: '정원영',
+  },
+};
 
 const initialState = {
-  users: User.ofMany(users)
+  users: User.ofMany(_users),
 };
 
 export default (state = initialState, action) => {
@@ -33,6 +33,6 @@ function getDefinitionDidSucceed(state, action) {
   const { users } = action.payload;
   return {
     ...state,
-    users: User.hardMerge(users).into(state.users)  // todo implement softMerge needed
+    users: User.hardMerge(users).into(state.users),  // todo implement softMerge needed
   };
 }

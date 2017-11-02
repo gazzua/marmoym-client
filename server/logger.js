@@ -8,28 +8,28 @@ winston.setLevels(winston.config.npm.levels);
 winston.addColors(winston.config.npm.colors);
 
 if (!fs.existsSync(logDir)) {
-  winston.warn(`Create log directory ${logDir}`)
+  winston.warn(`Create log directory ${logDir}`);
   // Create the directory if it does not exist
   fs.mkdirSync(logDir);
 }
 
 const logger = new(winston.Logger)({
-  transports: [
-    new winston.transports.Console({
-      level: 'debug', 
-      colorize: true
-    }),
-    new winston.transports.File({
-      level: 'error', // Only write logs of error level or higher
-      filename: path.resolve(logDir, `${_getDate()}.log.json`),
-      maxsize: 1024 * 1024 * 10 // 10MB
-    })
-  ],
   exceptionHandlers: [
     new winston.transports.File({
-      filename: 'log/exceptions.log'
-    })
-  ]
+      filename: 'log/exceptions.log',
+    }),
+  ],
+  transports: [
+    new winston.transports.Console({
+      colorize: true,
+      level: 'debug',
+    }),
+    new winston.transports.File({
+      filename: path.resolve(logDir, `${_getDate()}.log.json`),
+      level: 'error', // Only write logs of error level or higher
+      maxsize: 1024 * 1024 * 10, // 10MB
+    }),
+  ],
 });
 
 function _getDate() {

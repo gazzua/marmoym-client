@@ -3,100 +3,67 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  node: {
-    __dirname: true,
-    __filename: true
-  },
   entry: [
-    "babel-polyfill",
+    'babel-polyfill',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    './src/app.tsx'
-  ],
-  resolve: {
-    modules: [
-      path.resolve('./node_modules')
-    ],
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    alias: {
-      '@src': path.resolve('./src'),
-      '@components': path.resolve('./src', 'components'),
-      '@containers': path.resolve('./src', 'containers'),
-      '@actions': path.resolve('./src', 'store', 'actions'),
-      '@selectors': path.resolve('./src', 'store', 'selectors'),
-      '@styles': path.resolve('./src', 'styles'),
-    }
-  },
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, '..', '..', 'dist', 'bundle'),
-    publicPath: '/'
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'PLATFORM': '"MOBILE"'
-      }
-    })
+    './src/app.tsx',
   ],
   module: {
     rules: [
       {
+        exclude: /node_modules/,
         test: /\.jsx?$/,
         use: [
           {
-            loader: 'react-hot-loader/webpack'
+            loader: 'react-hot-loader/webpack',
           },
           {
             loader: 'babel-loader',
-          }
+          },
         ],
-        exclude: /node_modules/,
       },
       {
+        exclude: [/node_modules/],
         test: /\.tsx?$/,
         use: [
           {
-            loader: 'react-hot-loader/webpack'
+            loader: 'react-hot-loader/webpack',
           },
           {
             loader: 'babel-loader',
           },
           {
             loader: 'awesome-typescript-loader',
-          }
+          },
         ],
-        exclude: [/node_modules/]
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
-          },  
+            loader: 'style-loader',
+          },
           {
-            loader: "css-loader",
-          }
-        ]
+            loader: 'css-loader',
+          },
+        ],
       },
       {
         test: /\.scss/,
         use: [
           {
-            loader: "style-loader"
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
+              localIdentName: '[name]-[local]-[hash:base64:4]',
               modules: true,
-              localIdentName: '[name]-[local]-[hash:base64:4]'
-            } 
+            },
           },
           {
-            loader: "sass-loader"
+            loader: 'sass-loader',
           },
         ],
       },
@@ -106,11 +73,44 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 10000
-            }
-          }
+              limit: 10000,
+            },
+          },
         ],
-      }
-    ]
+      },
+    ],
+  },
+  node: {
+    __dirname: true,
+    __filename: true,
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, '..', '..', 'dist', 'bundle'),
+    publicPath: '/',
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'PLATFORM': '"MOBILE"',
+      },
+    }),
+  ],
+  resolve: {
+    alias: {
+      '@actions': path.resolve('./src', 'store', 'actions'),
+      '@components': path.resolve('./src', 'components'),
+      '@containers': path.resolve('./src', 'containers'),
+      '@selectors': path.resolve('./src', 'store', 'selectors'),
+      '@src': path.resolve('./src'),
+      '@styles': path.resolve('./src', 'styles'),
+    },
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    modules: [
+      path.resolve('./node_modules'),
+    ],
   },
 };

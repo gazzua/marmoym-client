@@ -1,20 +1,20 @@
 import * as React from 'react';
-import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import globalStyle from '@src/styles/global';
+import { ActionTypes, createAction } from '@actions/index';
 import Root from '@src/components/app/Root/Root';
-import { RootContainer } from '@src/models/ContainerTypes';
-import { createAction, ActionTypes } from '@actions/index';
+import { RootContainerProps } from '@src/models/ContainerTypes';
+import globalStyle from '@src/styles/global';
 
-class RootContainer extends React.Component<RootContainer.Props, {}> {
-  componentDidMount() {
+class RootContainer extends React.Component<RootContainerProps, {}> {
+  public componentDidMount() {
     this.props.dispatch(createAction(ActionTypes.GET_LOCALE, {
-      locale: 'ko'
+      locale: 'ko',
     }));
   }
 
-  render() {
+  public render() {
     return (
       <Root>
         {this.props.children}

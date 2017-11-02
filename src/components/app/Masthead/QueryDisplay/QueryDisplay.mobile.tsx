@@ -27,11 +27,11 @@ const QueryDisplay = (props) => {
         {props.searchRequested}
       </span>
     </StyledQueryDisplay>
-  )
+  );
 };
 
 const mapStateToProps = (state) => ({
-  locale: selectLocale(state) 
+  locale: selectLocale(state),
 });
 
 export default connect(mapStateToProps)(QueryDisplay);

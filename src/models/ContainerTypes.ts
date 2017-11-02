@@ -1,46 +1,38 @@
-namespace ContainerBase {
-  export interface Props {
-    dispatch?: Function,
-    match?: any;
-    history?: any;
-    location?: any;
-  }
+interface ContainerBaseProps {
+  dispatch?: (any) => any;
+  match?: any;
+  history?: any;
+  location?: any;
 }
 
-export namespace DefinitionListContainer {
-  export interface Props extends ContainerBase.Props {
-    definitions: any;
-  }
+export interface DefinitionListContainerProps extends ContainerBaseProps {
+  definitions: any;
 }
 
-export namespace RootContainer {
-  export interface Props extends ContainerBase.Props {
-  }
+export interface RootContainerProps extends ContainerBaseProps {
+  someProps?: any;
 }
 
-export namespace MastheadContainer {
-  export interface Props extends ContainerBase.Props {
-    handleClickAddTerm: any;
-    masthead: any;
-    searchRequested?: string;
-  }
-
-  export interface State {
-    displayName: string;
-    query: string;
-    modalIsVisible: boolean;
-  }
+export interface MastheadContainerProps extends ContainerBaseProps {
+  handleClickAddTerm: any;
+  masthead: any;
+  searchRequested?: string;
 }
 
-export namespace DefaultModalContainer {
-  export interface Props {
-    handleClickBackdrop: any;
-  }
+export interface MastheadContainerState {
+  displayName: string;
+  query: string;
+  modalIsVisible: boolean;
 }
 
-export namespace GlobalMenuModalContainer {
-  export interface Props extends DefaultModalContainer.Props, ContainerBase.Props {
-    handleClickHamburgerIcon: any;
-    handleClickBackdrop: any;
-  }
+export interface DefaultModalContainerProps {
+  handleClickBackdrop: any;
+}
+
+export interface GlobalMenuModalContainerProps extends
+  DefaultModalContainerProps,
+  ContainerBaseProps {
+    
+  handleClickHamburgerIcon: any;
+  handleClickBackdrop: any;
 }

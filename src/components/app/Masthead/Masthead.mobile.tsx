@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { Colors, styles } from '@styles/index';
-import { Masthead } from '@src/models/ComponentTypes'; 
+import { Masthead } from '@src/models/ComponentTypes';
 import DefaultMasthead from './DefaultMasthead/DefaultMasthead';
 import SearchMasthead from './SearchMasthead/SearchMasthead';
 
@@ -20,7 +20,7 @@ const Masthead = (props) => {
       );
 
     case '/':
-    default: 
+    default:
       return (
         <DefaultMasthead
           searchRequested={props.searchRequested}

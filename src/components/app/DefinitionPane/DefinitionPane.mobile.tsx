@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { styles, Colors } from '@styles/index';
-import { DefinitionPane } from '@src/models/ComponentTypes';
-import Upper from './Upper/Upper';
-import Lower from './Lower/Lower';
 import Locale from '@containers/LocaleContainer/LocaleContainer';
+import { DefinitionPane } from '@src/models/ComponentTypes';
+import { resolveNames, withProps } from '@src/styles/styleUtils';
+import { Colors, styles } from '@styles/index';
+import Lower from './Lower/Lower';
+import Upper from './Upper/Upper';
 
 const Label = styled.div``;
 const Usage = styled.div``;
@@ -25,17 +25,17 @@ const Body = styled.div`
   padding: 9px 12px;
 `;
 
-const renderUsages = (Usages) => {
-  return Usages.map(usage => {
-    return <Usage key={usage.id}>{usage.label}</Usage>
+const renderUsages = (usages) => {
+  return usages.map((usage) => {
+    return <Usage key={usage.id}>{usage.label}</Usage>;
  });
-}
+};
 
-const renderPoss = (Poss) => {
-  return Poss.map((pos, idx) => {
-    return <Pos key={idx}>{pos.label}</Pos>
+const renderPoss = (poss) => {
+  return poss.map((pos, idx) => {
+    return <Pos key={idx}>{pos.label}</Pos>;
   });
-}
+};
 
 const DefinitionPane = (props) => {
   const { Definition } = props;
@@ -44,20 +44,20 @@ const DefinitionPane = (props) => {
       <Upper
         defId={Definition.get('id')}
         badges={''}
-        User={Definition.get('$User')}
-        Term={Definition.get('$Term')}
+        user={Definition.get('$user')}
+        term={Definition.get('$term')}
         handleClickTerm={props.handleClickTerm}/>
       <Body>
-        <div>{renderPoss(Definition.get('Poss'))}</div>
+        <div>{renderPoss(Definition.get('poss'))}</div>
         <Label>
           <span>{Definition.get('label')}</span>
         </Label>
         <div>
-          {renderUsages(Definition.get('Usages'))}
+          {renderUsages(Definition.get('usages'))}
         </div>
         <ExtResource>{''}</ExtResource>
       </Body>
-      <Lower 
+      <Lower
         upvote={''}
         downvote={''}/>
     </StyledDefinitionPane>

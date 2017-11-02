@@ -36,7 +36,7 @@ const Entry = (props) => {
       </span>
     </StyledEntry>
   );
-}
+};
 
 const GlobalMenuModal = (props) => {
   return (
