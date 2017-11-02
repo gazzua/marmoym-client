@@ -6,7 +6,7 @@ export interface DefinitionType {
   media?: string;
   origin?: string;
   badges?: string[];
-};
+}
 
 export interface TermType {
   id?: number;
@@ -17,11 +17,11 @@ export interface TermType {
 }
 
 export interface UserType {
-  id? : number;
-  username? : string;
-  password? : string;
-  email? : string;
-  karma? : number;
-  created_at? : number;
-  updated_at? : number;
+  id?: number;
+  username?: string;
+  password?: string;
+  email?: string;
+  karma?: number;
+  created_at?: number;
+  updated_at?: number;
 }

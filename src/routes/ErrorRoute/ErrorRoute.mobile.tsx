@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 const ErrorLayout = (props) => {
   return (
-    <div onClick={() => {props.history.push('/')}}>
+    <div onClick={() => { props.history.push('/'); }}>
       1
     </div>
   );

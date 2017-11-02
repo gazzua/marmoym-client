@@ -8,10 +8,10 @@ import rootSaga from './sagas/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const configureStore = (state = {}) => {
+export function configureStore(state = {}) {
   const store = createStore(
     reducers,
-    applyMiddleware(logger, sagaMiddleware)
+    applyMiddleware(logger, sagaMiddleware),
   );
   sagaMiddleware.run(rootSaga);
 
@@ -19,7 +19,7 @@ export const configureStore = (state = {}) => {
     module.hot.accept('./reducers', () => {
       const nextReducer = require('./reducers').default;
       store.replaceReducer(nextReducer);
-    })
+    });
   }
 
   return store;

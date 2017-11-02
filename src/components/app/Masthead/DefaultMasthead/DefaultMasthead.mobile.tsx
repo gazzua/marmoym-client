@@ -9,6 +9,7 @@ import QueryDisplay from '../QueryDisplay/QueryDisplay';
 import SearchIcon from '@src/components/icons/SearchIcon/SearchIcon';
 import PencilIcon from '@src/components/icons/PencilIcon/PencilIcon';
 import HamburgerIcon from '@src/components/icons/HamburgerIcon/HamburgerIcon';
+// tslint:disable-next-line:max-line-length
 import GlobalMenuModalContainer from '@containers/modals/GlobalMenuModalContainer/GlobalMenuModalContainer';
 
 const RightButtonGroup = styled.div`
@@ -21,7 +22,7 @@ const RightButtonGroup = styled.div`
       font-size: 20px;
       &:active {
         transform: translate(1px, 1px);
-      }  
+      }
     }
   }
 `;
@@ -36,7 +37,7 @@ const renderGlobalMenuModal = (props) => {
   } else {
     return null;
   }
-}
+};
 
 const DefaultMasthead = (props) => {
   return (
@@ -57,9 +58,9 @@ const DefaultMasthead = (props) => {
         <button>
           <HamburgerIcon onClick={props.handleClickHamburgerIcon}/>
         </button>
-      </RightButtonGroup>      
+      </RightButtonGroup>
     </MastheadBase>
   );
-}
+};
 
 export default DefaultMasthead;

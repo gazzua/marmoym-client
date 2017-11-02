@@ -2,49 +2,49 @@ import * as Immutable from 'immutable';
 import { TermType } from './ModelTypes';
 
 const TermRecord = Immutable.Record({
+  created_at: 0,
   id: 0,
   label: 'label',
   roman: 'roman',
-  created_at: 0,
-  updated_at: 0
+  updated_at: 0,
 });
 
-const Term = (function() {
+const Term = (() => {
   function ofMany(terms) {
     let newTerms = Immutable.Map();
     for (const id in terms) {
       newTerms = newTerms.set(
-        id.toString(), 
+        id.toString(),
         of(terms[id]));
     }
     return newTerms;
   }
-  
+
   function of(term) {
     return new TermRecord({
-      ...term
-    })
+      ...term,
+    });
   }
 
   function hardMerge(terms) {
     return {
-      into: function(Terms) {
+      into(Terms) {
         let newTerms = Terms;
-        terms.map(term => {
+        terms.map((term) => {
           newTerms = newTerms.set(
-            term.id.toString(), 
+            term.id.toString(),
             of(term));
         });
         return newTerms;
-      }
-    }
+      },
+    };
   }
 
   return {
+    hardMerge,
     of,
     ofMany,
-    hardMerge
-  }
+  };
 })();
 
 export default Term;

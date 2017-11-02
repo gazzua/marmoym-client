@@ -4,7 +4,7 @@ import styled, { StyledFunction } from 'styled-components';
 import { withProps } from '@src/styles/styleUtils';
 
 const StyledDefine = styled.div`
-  padding : 10px;  
+  padding : 10px;
 `;
 const Usage = styled.div``;
 const UsageInput = styled.input`
@@ -37,7 +37,7 @@ const renderUsage = (props) => {
       <UsageLabel>쓰임새</UsageLabel>
       {UsageList}
       <UsageAddButton onClick={props.handleClickAddUsage}>+ 쓰임새 추가하기</UsageAddButton>
-    </Usage>  
+    </Usage>
   );
 };
 
@@ -56,7 +56,6 @@ const DefinitionInput = styled.input`
   height: 40px;
   border : 1px solid black;
 `;
-
 
 const Define = (props) => {
   return (

@@ -1,5 +1,5 @@
 const KeyCode = {
-  'RETURN': 13
+  RETURN: 13,
 };
 
 export default KeyCode;

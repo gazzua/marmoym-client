@@ -10,7 +10,7 @@ const StyledPage = styled.div`
 
 const Page = (props) => {
   const Content = props.content;
-  return props.content ? 
+  return props.content ?
     <StyledPage>
       <Content/>
     </StyledPage>

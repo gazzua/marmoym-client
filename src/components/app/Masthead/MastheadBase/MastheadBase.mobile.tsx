@@ -21,7 +21,7 @@ const MastheadBase = (props) => {
     <StyledMastheadBase className={props.className}>
       {props.children}
     </StyledMastheadBase>
-  )
-}
+  );
+};
 
 export default MastheadBase;

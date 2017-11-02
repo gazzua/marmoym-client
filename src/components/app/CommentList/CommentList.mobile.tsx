@@ -5,7 +5,7 @@ import { styles } from '@styles/index';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
 import Comment from '@src/components/app/Comment/Comment';
 
-const renderComments = (comments) => {
+function renderComments(comments) {
   if (!comments) {
     return null;
   }
@@ -15,7 +15,7 @@ const renderComments = (comments) => {
   ));
 }
 
-const StyledCommentList = styled.div`
+const StyledCommentList = styled.div`fo
   ${styles.border('black')}
 `;
 

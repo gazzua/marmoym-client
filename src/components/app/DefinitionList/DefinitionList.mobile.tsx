@@ -5,10 +5,10 @@ import { styles } from '@styles/index';
 import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
 
-const renderDefinitions = (props) => {
+function renderDefinitions(props) {
   return props.definitions.map((Definition, idx) => {
     return (
-      <DefinitionPane 
+      <DefinitionPane
         key={Definition.get('id')}
         Definition={Definition}
         handleClickTerm={props.handleClickTerm}/>

@@ -2,36 +2,36 @@ import * as Immutable from 'immutable';
 import { DefinitionType } from './ModelTypes';
 
 const DefinitionRecord = Immutable.Record({
+  created_at: 0,
+  downvote: 0,
   id: 0,
   label: 'label',
+  origins: Immutable.List(),
+  poss: Immutable.List(),
   term_id: 0,
+  updated_at: 0,
+  upvote: 0,
+  usages: Immutable.List(),
   user_id: 0,
   username: 'username',
-  Poss: Immutable.List(),
-  Usages: Immutable.List(),
-  Origins: Immutable.List(),
-  upvote: 0,
-  downvote: 0,
-  created_at: 0,
-  updated_at: 0,
 
   /**
    * ...
    */
-  $Term: {},
+  $term: {},
 
   /**
    * ...
    */
-  $User: {}
+  $user: {},
 });
 
-const Definition = (function() {
+const Definition = (() => {
   function ofMany(definitions) {
     let newDefinitions = Immutable.Map();
     for (const id in definitions) {
       newDefinitions = newDefinitions.set(
-        id.toString(), 
+        id.toString(),
         of(definitions[id]));
     }
     return newDefinitions;
@@ -41,31 +41,31 @@ const Definition = (function() {
     const { poss, usages, origins, ...rest } = definition;
     return new DefinitionRecord({
       ...rest,
-      Poss: Immutable.List(poss),
-      Usages: Immutable.List(usages),
-      Origins: Immutable.List(origins),
-    })
+      origins: Immutable.List(origins),
+      poss: Immutable.List(poss),
+      usages: Immutable.List(usages),
+    });
   }
 
   function hardMerge(definitions) {
     return {
-      into: function(Definitions) {
+      into(Definitions) {
         let newDefinitions = Definitions;
-        definitions.map(definition => {
+        definitions.map((definition) => {
           newDefinitions = newDefinitions.set(
-            definition.id.toString(), 
+            definition.id.toString(),
             of(definition));
         });
         return newDefinitions;
-      }
-    }
+      },
+    };
   }
 
   return {
+    hardMerge,
     of,
     ofMany,
-    hardMerge
-  }
+  };
 })();
 
 export default Definition;

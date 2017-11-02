@@ -3,17 +3,11 @@ import styled, { StyledFunction } from 'styled-components';
 
 import Page from '@src/components/app/Page/Page';
 
-export namespace PageContainer {
-  export interface Props {
-    content: any;
-  }
-}
-
-class PageContainer extends React.Component<PageContainer.Props> {
-  render() {
+class PageContainer extends React.Component<any> {
+  public render() {
     return (
       <Page content={this.props.content}/>
-    )
+    );
   }
 }
 

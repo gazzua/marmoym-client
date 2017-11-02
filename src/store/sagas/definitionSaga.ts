@@ -6,14 +6,14 @@ import { selectFetchNeeded } from '@selectors/definitionSelector';
 
 export function* getDefinitionIds(action) {
   try {
-    const data = yield MarmoymApis.getDefinitionIds(action.payload)
+    const data = yield MarmoymApis.getDefinitionIds(action.payload);
     yield put(createAction(ActionTypes.GET_DEFINITION_IDS_SUCCESS, {
-      defIds: data.defIds
+      defIds: data.defIds,
     }));
-    
+
     const fetchNeeded = yield select(selectFetchNeeded);
     yield put(createAction(ActionTypes.GET_DEFINITIONS, {
-      fetchNeeded
+      fetchNeeded,
     }));
   } catch (err) {
     // todo
@@ -24,11 +24,11 @@ export function* getDefinitions(action) {
   try {
     const { fetchNeeded } = action.payload;
     const data = yield MarmoymApis.getDefinitions({
-      defIds: fetchNeeded.toJS()
+      defIds: fetchNeeded.toJS(),
     });
 
     yield put(createAction(ActionTypes.GET_DEFINITIONS_SUCCESS, {
-      ...data
+      ...data,
     }));
   } catch (err) {
     // todos
@@ -39,26 +39,26 @@ export function* search(action) {
   try {
     const { query } = action.payload;
     const data = yield MarmoymApis.search({
-      query
+      query,
     });
 
     yield put(createAction(ActionTypes.GET_DEFINITION_IDS_SUCCESS, {
-      defIds: data.defIds
+      defIds: data.defIds,
     }));
 
     const fetchNeeded = yield select(selectFetchNeeded);
     yield put(createAction(ActionTypes.GET_DEFINITIONS, {
-      fetchNeeded
+      fetchNeeded,
     }));
   } catch (err) {
     //
   }
 }
 
-export default function* definitionSaga () {  
+export default function* definitionSaga() {
   yield all([
     takeEvery(ActionTypes.GET_DEFINITION_IDS, getDefinitionIds),
     takeEvery(ActionTypes.GET_DEFINITIONS, getDefinitions),
-    takeEvery(ActionTypes.SEARCH, search)
+    takeEvery(ActionTypes.SEARCH, search),
   ]);
 }

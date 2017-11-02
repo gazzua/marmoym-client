@@ -7,23 +7,21 @@ import { ThemedStyledFunction } from 'styled-components';
  * <P, T, O>(
  *     fn: ThemedStyledFunction<P, T, O>
  * ):
- */  
+ */
 export const withProps = <U>() => {
-  return function<P, T, O>(fn: ThemedStyledFunction<P, T, O>): ThemedStyledFunction<P & U, T, O & U> {
-    return fn;
-  }
+  return <P, T, O>(fn: ThemedStyledFunction<P, T, O>): ThemedStyledFunction<P & U, T, O & U> => fn;
 };
 
 /**
  * ...
- * @param names 
+ * @param names
  */
-export const resolveNames = (names: Array<string>) => {
+export const resolveNames = (names: string[]) => {
   const obj = {};
   let name: string;
   names.forEach((elem) => {
     name = elem;
     obj[elem] = name;
-  })
+  });
   return obj;
 };

@@ -10,7 +10,7 @@ import FontAwesomeIcon from '@components/icons/FontAwesomeIcon/FontAwesomeIcon';
 
 const RemoveIcon = (props) => {
   return props.query.length ? <FontAwesomeIcon icon={'fa-times'}/> : null;
-}
+};
 
 const LeftArrowIcon = styleUtils.withProps<any>()(styled(FontAwesomeIcon))`
   cursor: pointer;
@@ -25,7 +25,7 @@ const ExtendedMastheadBase = styled(MastheadBase)`
     margin-left: auto;
     font-size: 17px;
   }
-`
+`;
 
 const SearchMasthead = (props) => {
   return (
@@ -40,6 +40,6 @@ const SearchMasthead = (props) => {
       <RemoveIcon query={props.query}/>
     </ExtendedMastheadBase>
   );
-}
+};
 
 export default SearchMasthead;

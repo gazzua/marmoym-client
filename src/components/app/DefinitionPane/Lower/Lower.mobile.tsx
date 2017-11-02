@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { styles, styleUtils } from '@styles/index';
-import UpvoteIcon from '@src/components/icons/Upvote/Upvote';
+import Balloon from '@src/components/icons/Balloon/Balloon';
 import _DownvoteIcon from '@src/components/icons/Downvote/Downvote';
 import _SeparatorIcon from '@src/components/icons/SeparatorIcon/SeparatorIcon';
 import ThreeDot from '@src/components/icons/ThreeDot/ThreeDot';
-import Balloon from '@src/components/icons/Balloon/Balloon';
+import UpvoteIcon from '@src/components/icons/Upvote/Upvote';
+import { styles, styleUtils } from '@styles/index';
 
 const StyledLower = styled.div`
   padding: 4px 12px 0;
@@ -20,7 +20,7 @@ const LowerRight = styled.div`
   align-items: center;`;
 
 const VoteCount = styled.span`
-  margin-left: 4px;`
+  margin-left: 4px;`;
 
 const UpvoteCount = styled(VoteCount)``;
 

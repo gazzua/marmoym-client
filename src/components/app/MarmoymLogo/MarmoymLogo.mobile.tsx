@@ -17,14 +17,12 @@ const StyledMarmoymLogo = styled.div`
   }
 `;
 
-const MarmoymLogo= (props) => {
+const MarmoymLogo = (props) => {
   return (
     <StyledMarmoymLogo>
       <span onClick={props.handleClickMarmoymLogo}>말모음</span>
     </StyledMarmoymLogo>
-  )
+  );
 };
 
-
 export default MarmoymLogo;
-

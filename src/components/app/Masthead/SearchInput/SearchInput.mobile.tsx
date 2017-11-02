@@ -29,11 +29,11 @@ const QueryDisplay = (props) => {
         onKeyDown={props.handleKeyDown}
         placeholder={props.locale['queryDisplay.placeholder']}/>
     </StyledSearchInput>
-  )
+  );
 };
 
 const mapStateToProps = (state) => ({
-  locale: selectLocale(state) 
+  locale: selectLocale(state),
 });
 
 export default connect(mapStateToProps)(QueryDisplay);

@@ -3,5 +3,5 @@ import createAction from './createAction';
 
 export {
   ActionTypes,
-  createAction
-}
+  createAction,
+};
