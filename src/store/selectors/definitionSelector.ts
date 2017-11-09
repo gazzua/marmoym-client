@@ -1,15 +1,25 @@
 import * as Immutable from 'immutable';
 import { createSelector } from 'reselect';
 
-export const selectDefinitions = (state) => state.definitionReducer.definitions;
+export function selectDefinitions(state) {
+  return state.definitionReducer.definitions;
+}
 
-export const selectFetchNeeded = (state) => state.definitionReducer.fetchNeeded;
+export function selectFetchNeeded(state) {
+  return state.definitionReducer.fetchNeeded;
+}
 
-export const selectTerms = (state) => state.definitionReducer.terms;
+export function selectTerms(state) {
+  return state.definitionReducer.terms;
+}
 
-export const selectUsers = (state) => state.userReducer.users;
+export function selectUsers(state) {
+  return state.userReducer.users;
+}
 
-export const selectDefinitionsInDisplay = (state) => state.definitionReducer.inDisplay;
+export function selectDefinitionsInDisplay(state) {
+  return state.definitionReducer.inDisplay;
+}
 
 export function selectDefIds(state) {
   return state.definitionReducer.definitions.map((elem) => {
