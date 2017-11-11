@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Masthead from '@src/components/app/Masthead/Masthead';
 import { MastheadContainerProps, MastheadContainerState } from '@src/models/ContainerTypes';
 import KeyCode from '@src/models/KeyCode';
-import { createAction, ActionTypes } from '@actions/index';
 import DefaultMasthead from '@components/app/Masthead/DefaultMasthead/DefaultMasthead';
 import SearchMasthead from '@components/app/Masthead/SearchMasthead/SearchMasthead';
 

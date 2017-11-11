@@ -8,7 +8,6 @@ import {
   selectCombinedDefinitionsInDisplay,
   selectDefinitionsInDisplay,
 } from '@src/store/selectors/definitionSelector';
-import { createAction, ActionTypes } from '@actions/index';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainerProps> {
   constructor(...props) {

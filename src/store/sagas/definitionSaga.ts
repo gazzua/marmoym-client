@@ -1,18 +1,19 @@
 import { all, put, call, take, takeEvery, select } from 'redux-saga/effects';
 
-import { ActionTypes, createAction } from '@actions/index';
+import Action from '@actions/Action';
+import ActionType from '@actions/ActionType';
 import * as MarmoymApis from '@src/apis/MarmoymApis';
 import { selectFetchNeeded } from '@selectors/definitionSelector';
 
 export function* getDefinitionIds(action) {
   try {
     const data = yield MarmoymApis.getDefinitionIds(action.payload);
-    yield put(createAction(ActionTypes.GET_DEFINITION_IDS_SUCCESS, {
+    yield put(Action.GET_DEFINITION_IDS_SUCCESS({
       defIds: data.defIds,
     }));
 
     const fetchNeeded = yield select(selectFetchNeeded);
-    yield put(createAction(ActionTypes.GET_DEFINITIONS, {
+    yield put(Action.GET_DEFINITIONS({
       fetchNeeded,
     }));
   } catch (err) {
@@ -27,7 +28,7 @@ export function* getDefinitions(action) {
       defIds: fetchNeeded.toJS(),
     });
 
-    yield put(createAction(ActionTypes.GET_DEFINITIONS_SUCCESS, {
+    yield put(Action.GET_DEFINITIONS_SUCCESS({
       ...data,
     }));
   } catch (err) {
@@ -42,12 +43,12 @@ export function* search(action) {
       query,
     });
 
-    yield put(createAction(ActionTypes.GET_DEFINITION_IDS_SUCCESS, {
+    yield put(Action.GET_DEFINITION_IDS_SUCCESS({
       defIds: data.defIds,
     }));
 
     const fetchNeeded = yield select(selectFetchNeeded);
-    yield put(createAction(ActionTypes.GET_DEFINITIONS, {
+    yield put(Action.GET_DEFINITIONS({
       fetchNeeded,
     }));
   } catch (err) {
@@ -57,8 +58,8 @@ export function* search(action) {
 
 export default function* definitionSaga() {
   yield all([
-    takeEvery(ActionTypes.GET_DEFINITION_IDS, getDefinitionIds),
-    takeEvery(ActionTypes.GET_DEFINITIONS, getDefinitions),
-    takeEvery(ActionTypes.SEARCH, search),
+    takeEvery(ActionType.GET_DEFINITION_IDS, getDefinitionIds),
+    takeEvery(ActionType.GET_DEFINITIONS, getDefinitions),
+    takeEvery(ActionType.SEARCH, search),
   ]);
 }
