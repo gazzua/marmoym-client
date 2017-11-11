@@ -8,17 +8,6 @@ const i18n = require('marmoym-i18n');
 const logger = require('./logger');
 const getConfig = require('./getConfig');
 
-/**
- * Marmoym-i18n sanity check.
- * On error, logs into console.
- */
-const I18N_VERSION = '0.0.1';
-if (i18n.version !== I18N_VERSION) {
-  logger.warn(
-    `marmoym-i18n is an incompatible version. Check the version or 'npm install'.`);
-  process.exit(-1);
-}
-
 const app = express();
 const config = require(getConfig(process.env.PLATFORM, process.env.NODE_ENV));
 const compiler = webpack(config);
