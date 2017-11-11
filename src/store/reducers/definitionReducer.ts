@@ -1,8 +1,9 @@
 import * as Immutable from 'immutable';
 
-import ActionTypes from '@src/store/actions/ActionTypes';
+import ActionTypes from '@src/store/actions/ActionType';
 import Definition from '@src/models/Definition';
 import Term from '@src/models/Term';
+import { DefinitionStateType } from '@customTypes/StateType';
 
 const _terms = {
   1: {

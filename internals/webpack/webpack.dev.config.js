@@ -1,5 +1,7 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+
+const SRC_PATH = path.resolve(__dirname, '..', '..', 'src');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -101,12 +103,13 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@actions': path.resolve('./src', 'store', 'actions'),
-      '@components': path.resolve('./src', 'components'),
-      '@containers': path.resolve('./src', 'containers'),
-      '@selectors': path.resolve('./src', 'store', 'selectors'),
-      '@src': path.resolve('./src'),
-      '@styles': path.resolve('./src', 'styles'),
+      '@actions': path.resolve(SRC_PATH, 'store', 'actions'),
+      '@components': path.resolve(SRC_PATH, 'components'),
+      '@containers': path.resolve(SRC_PATH, 'containers'),
+      '@selectors': path.resolve(SRC_PATH, 'store', 'selectors'),
+      '@src': path.resolve(SRC_PATH),
+      '@styles': path.resolve(SRC_PATH, 'styles'),
+      '@types': path.resolve(SRC_PATH, 'types'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     modules: [

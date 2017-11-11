@@ -1,4 +1,4 @@
-import ActionTypes from '@actions/ActionTypes';
+import ActionType from '@actions/ActionType';
 
 const initialState = {
   locale: {},
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.GET_LOCALE_SUCCESS:
+    case ActionType.GET_LOCALE_SUCCESS:
       return {
         ...state,
         locale: action.payload.locale,

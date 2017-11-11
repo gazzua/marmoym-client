@@ -4,7 +4,7 @@ import styled, { StyledFunction } from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { createAction, ActionTypes } from '@actions/index';
+import Action from '@actions/Action';
 // tslint:disable-next-line:max-line-length
 import DefinitionListContainer from '@src/containers/DefinitionListContainer/DefinitionListContainer';
 import MastheadContainer from '@src/containers/MastheadContainer/MastheadContainer';
@@ -25,15 +25,16 @@ const DefaultRoute = (_props) => {
         <Route exact path={AppURL.ROOT}
           render={(props) => {
             const { termLabel } = props.match.params;
-            dispatch(createAction(ActionTypes.GET_DEFINITION_IDS, {
+            dispatch(Action.GET_DEFINITION_IDS({
               termLabel,
             }));
+            
             return <DefinitionListContainer/>;
           }}/>
 
         <Route exact path={AppURL.SEARCH}
           render={(props) => {
-            dispatch(createAction(ActionTypes.SEARCH, {
+            dispatch(Action.SEARCH({
               query,
             }));
             return <DefinitionListContainer/>;

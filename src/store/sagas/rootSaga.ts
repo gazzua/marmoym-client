@@ -1,6 +1,6 @@
 import { all, put, call, take, takeEvery } from 'redux-saga/effects';
 
-import ActionTypes from '@src/store/actions/ActionTypes';
+import ActionType from '@src/store/actions/ActionType';
 import definitionSaga from './definitionSaga';
 import localeSaga from './localeSaga';
 

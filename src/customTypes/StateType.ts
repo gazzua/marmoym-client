@@ -7,3 +7,7 @@ export interface DefinitionType {
 export interface TermType {
   terms?: any;
 }
+
+export interface DefinitionStateType {
+  
+}

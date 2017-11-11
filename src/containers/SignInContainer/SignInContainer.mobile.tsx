@@ -2,7 +2,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import SignIn from '@src/components/app/SignIn/SignIn';
-import { createAction, ActionTypes } from '@actions/index';
 
 class SignInContainer extends React.Component<any> {
   constructor(...props) {

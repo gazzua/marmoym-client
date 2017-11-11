@@ -1,8 +1,8 @@
 import * as Immutable from 'immutable';
 
-import { ActionTypes } from '@actions/index';
 import Definition from '@src/models/Definition';
 import User from '@src/models/User';
+import ActionType from '@actions/ActionType';
 
 const _users = {
   0: {
@@ -22,7 +22,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.GET_DEFINITIONS_SUCCESS:
+    case ActionType.GET_DEFINITIONS_SUCCESS:
       return getDefinitionDidSucceed(state, action);
     default:
       return state;
