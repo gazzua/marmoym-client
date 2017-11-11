@@ -2691,9 +2691,9 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-"marmoym-i18n@git+ssh://git@github.com:tymsai/marmoym-i18n.git#dev":
-  version "0.0.1"
-  resolved "git+ssh://git@github.com:tymsai/marmoym-i18n.git#a1dac5d422b77196bd7209b79761b4ecebd4b31c"
+"marmoym-i18n@git+https://tymsai-github-bot@github.com/tymsai/marmoym-i18n.git#dev":
+  version "0.0.2"
+  resolved "git+https://tymsai-github-bot@github.com/tymsai/marmoym-i18n.git#15d1d35dfb22a801a1947ef3e3b76f36ad990d02"
   dependencies:
     typescript "^2.5.3"
 
