@@ -1,6 +1,6 @@
 import * as Immutable from 'immutable';
 
-import ActionTypes from '@src/store/actions/ActionType';
+import ActionType from '@actions/ActionType';
 import Definition from '@src/models/Definition';
 import Term from '@src/models/Term';
 import { DefinitionStateType } from '@customTypes/StateType';
@@ -63,21 +63,21 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.GET_DEFINITION_IDS_SUCCESS:
+    case ActionType.GET_DEFINITION_IDS_SUCCESS:
       return getDefinitionIdsDidSucceed(state, action);
-    case ActionTypes.GET_DEFINITIONS_SUCCESS:
+    case ActionType.GET_DEFINITIONS_SUCCESS:
       return getDefinitionsDidSucceed(state, action);
-    case ActionTypes.ADD_DEFINITION:
+    case ActionType.ADD_DEFINITION:
       return {
         ...state,
         termAdded: action.payload,
       };
-    case ActionTypes.ADD_DEFINITION_SUCCESS:
+    case ActionType.ADD_DEFINITION_SUCCESS:
       return {
         ...state,
         termAdded: action.payload,
       };
-    case ActionTypes.REMOVE_DEFINITION:
+    case ActionType.REMOVE_DEFINITION:
       return {
         ...state,
       };

@@ -1,4 +1,4 @@
-const ActionTypes = {
+const ActionType = {
   GET_DEFINITION_IDS: 'GET_DEFINITION_IDS',
   GET_DEFINITION_IDS_SUCCESS: 'GET_DEFINITION_IDS_SUCCESS',
   GET_DEFINITION_IDS_ERROR: 'GET_DEFINITION_IDS_ERROR',
@@ -24,4 +24,4 @@ const ActionTypes = {
   TEMP: '',
 }
 
-export default ActionTypes;
+export default ActionType;
