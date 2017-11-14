@@ -17,6 +17,14 @@ export function getDefinitionIds(args) {
     .then(getPayload);
 }
 
+export function signInUser(email, password) {
+  return axios.post(URL.USERS_SIGNEDIN, {
+    email,
+    password
+  })
+    .then(getPayload);
+}
+
 export function search(args) {
   return axios.get(URL.SEARCH, {
     params: {

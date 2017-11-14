@@ -44,4 +44,16 @@ export default {
       payload,
     };
   },
+  'SIGN_IN_USER': (payload) => {
+    return {
+      type: ActionType.SIGN_IN_USER,
+      payload,
+    };
+  },
+  'SIGN_IN_USER_SUCCESS': (payload) => {
+    return {
+      type: ActionType.SIGN_IN_USER_SUCCESS,
+      payload,
+    };
+  },
 }

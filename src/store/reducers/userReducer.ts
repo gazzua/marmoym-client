@@ -24,6 +24,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ActionType.GET_DEFINITIONS_SUCCESS:
       return getDefinitionDidSucceed(state, action);
+    case ActionType.SIGN_IN_USER_SUCCESS:
+      return signInUserDidSucceed(state, action);
     default:
       return state;
   }
@@ -34,5 +36,12 @@ function getDefinitionDidSucceed(state, action) {
   return {
     ...state,
     users: User.hardMerge(users).into(state.users),  // todo implement softMerge needed
+  };
+}
+
+function signInUserDidSucceed(state, action) {
+  const { users } = action.payload;
+  return {
+    // todo
   };
 }
