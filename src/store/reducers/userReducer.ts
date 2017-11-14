@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
     case ActionType.GET_DEFINITIONS_SUCCESS:
       return getDefinitionDidSucceed(state, action);
     case ActionType.SIGN_IN_USER_SUCCESS:
-      return usersSignedInDidSucceed(state, action);
+      return signInUserDidSucceed(state, action);
     default:
       return state;
   }
@@ -39,7 +39,7 @@ function getDefinitionDidSucceed(state, action) {
   };
 }
 
-function usersSignedInDidSucceed(state, action) {
+function signInUserDidSucceed(state, action) {
   const { users } = action.payload;
   return {
     // todo

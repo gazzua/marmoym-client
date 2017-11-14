@@ -17,7 +17,7 @@ export function getDefinitionIds(args) {
     .then(getPayload);
 }
 
-export function usersSignedIn(email, password) {
+export function signInUser(email, password) {
   return axios.post(URL.USERS_SIGNEDIN, {
     email,
     password

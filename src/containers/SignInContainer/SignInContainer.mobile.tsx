@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import SignIn from '@src/components/app/SignIn/SignIn';
 import { SignInContainer } from '@src/containers/ContainerTypes';
 import KeyCode from '@src/models/KeyCode';
+import MouseEvent from '@src/models/MouseEvent';
 import Action from '@actions/Action';
 
 class SignInContainer extends React.Component<any, any> {
@@ -40,9 +41,6 @@ class SignInContainer extends React.Component<any, any> {
   }
 
   handleKeyDown(e) {  
-    /**
-     * 로그인 with Return key
-     */
     if (e.keyCode === KeyCode.RETURN) {
       this.props.dispatch(Action.SIGN_IN_USER({
         email: this.state.email, 
@@ -52,10 +50,7 @@ class SignInContainer extends React.Component<any, any> {
   }
 
   handleClick(e) {
-    /**
-     * 로그인 버튼 left click
-     */
-    if (e.nativeEvent.which === 1) {
+    if (e.nativeEvent.which === MouseEvent.LEFT_CLICK) {
       this.props.dispatch(Action.SIGN_IN_USER({
         email: this.state.email, 
         password: this.state.password 

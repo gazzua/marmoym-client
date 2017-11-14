@@ -6,7 +6,7 @@ import Action from '@actions/Action';
 export function* signInUser(action) {
   try {
     const { email, password } = action.payload;
-    const data = yield MarmoymApis.usersSignedIn(email, password);
+    const data = yield MarmoymApis.signInUser(email, password);
 
     yield put(Action.SIGN_IN_USER_SUCCESS({
       ...data
