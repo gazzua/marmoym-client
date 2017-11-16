@@ -2,6 +2,7 @@ import { all, put, call, take, takeEvery, select } from 'redux-saga/effects';
 
 import * as MarmoymApis from '@src/apis/MarmoymApis';
 import Action from '@actions/Action';
+import ActionType from '@actions/ActionType';
 
 export function* signInUser(action) {
   try {
@@ -19,6 +20,6 @@ export function* signInUser(action) {
 
 export default function* userSaga() {  
   yield all([
-    takeEvery(Action.SIGN_IN_USER, signInUser),
+    takeEvery(ActionType.SIGN_IN_USER, signInUser),
   ]);
 }
