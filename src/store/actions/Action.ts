@@ -34,7 +34,7 @@ export default {
   },
   'GET_LOCALE_SUCCESS': (payload) => {
     return {  
-      type: ActionType.GET_LOCALE,
+      type: ActionType.GET_LOCALE_SUCCESS,
       payload,
     };
   },
