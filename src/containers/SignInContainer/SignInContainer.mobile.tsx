@@ -25,7 +25,7 @@ class SignInContainer extends React.Component<any, any> {
     this.setState((state, props) => {
       return {
         ...state,
-        email: {email},
+        email,
       };
     });
   }
@@ -35,7 +35,7 @@ class SignInContainer extends React.Component<any, any> {
     this.setState((state, props) => {
       return {
         ...state,
-        password: {password},
+        password,
       };
     });
   }
