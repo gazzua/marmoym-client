@@ -41,7 +41,7 @@ const SignIn = (props) => (
     <Body>
       비밀번호
     </Body>
-    <Input type = 'password'
+    <Input type="password"
       value={props.password}
       onChange={props.handleChangePassword}
       onKeyDown={props.handleKeyDown}/>
