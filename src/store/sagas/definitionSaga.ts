@@ -3,7 +3,7 @@ import { all, put, call, take, takeEvery, select } from 'redux-saga/effects';
 import Action from '@actions/Action';
 import ActionType from '@actions/ActionType';
 import * as MarmoymApis from '@src/apis/MarmoymApis';
-import { selectFetchNeeded } from '@selectors/definitionSelector';
+import { selectToFetch } from '@selectors/definitionSelector';
 
 export function* getDefinitionIds(action) {
   try {
@@ -12,9 +12,9 @@ export function* getDefinitionIds(action) {
       defIds: data.defIds,
     }));
 
-    const fetchNeeded = yield select(selectFetchNeeded);
+    const toFetch = yield select(selectToFetch);
     yield put(Action.GET_DEFINITIONS({
-      fetchNeeded,
+      toFetch,
     }));
   } catch (err) {
     // todo
@@ -23,9 +23,9 @@ export function* getDefinitionIds(action) {
 
 export function* getDefinitions(action) {
   try {
-    const { fetchNeeded } = action.payload;
+    const { toFetch } = action.payload;
     const data = yield MarmoymApis.getDefinitions({
-      defIds: fetchNeeded.toJS(),
+      defIds: toFetch,
     });
 
     yield put(Action.GET_DEFINITIONS_SUCCESS({
@@ -47,9 +47,9 @@ export function* search(action) {
       defIds: data.defIds,
     }));
 
-    const fetchNeeded = yield select(selectFetchNeeded);
+    const toFetch = yield select(selectToFetch);
     yield put(Action.GET_DEFINITIONS({
-      fetchNeeded,
+      toFetch,
     }));
   } catch (err) {
     //

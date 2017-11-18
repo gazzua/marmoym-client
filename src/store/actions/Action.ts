@@ -2,7 +2,7 @@ import ActionType from './ActionType';
 import * as ActionPayloadType from '@customTypes/ActionPayloadType';
 
 export default {
-  'GET_DEFINITIONS': (payload) => {
+  'GET_DEFINITIONS': (payload: ActionPayloadType.GetDefinitions) => {
     return {
       type: ActionType.GET_DEFINITIONS,
       payload,
@@ -56,4 +56,10 @@ export default {
       payload,
     };
   },
+  'TEMP': (payload) => {
+    return {
+      type: 'TEMP',
+      payload,
+    };
+  }
 }

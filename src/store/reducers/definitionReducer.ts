@@ -55,9 +55,9 @@ const _definitions = {
 
 const initialState = {
   definitions: Definition.ofMany(_definitions),
-  fetchNeeded: Immutable.List<number>(),
+  toFetch: [],
   inDisplay: Immutable.List<number>(),
-  renderRequested: Immutable.List<number>(),
+  renderRequested: [],
   terms: Term.ofMany(_terms),
 };
 
@@ -91,8 +91,8 @@ export default (state = initialState, action) => {
  */
 function getDefinitionIdsDidSucceed(state, action) {
   const { defIds } = action.payload;
-  const fetchNeeded: number[] = [];
-  let newRenderRequested = Immutable.List();
+  const toFetch: number[] = [];
+  let renderRequested: number[] = [];
 
   // todo Refactor needed
   defIds.forEach((defId) => {
@@ -100,15 +100,15 @@ function getDefinitionIdsDidSucceed(state, action) {
     if (definition && definition.get('updated_at') >= defId.updated_at) {
       //
     } else {
-      fetchNeeded.push(defId.id);
+      toFetch.push(defId.id);
     }
-    newRenderRequested = newRenderRequested.push(defId.id);
+    renderRequested.push(defId.id);
   });
 
   return {
     ...state,
-    fetchNeeded: Immutable.List(fetchNeeded),
-    renderRequested: newRenderRequested,
+    toFetch,
+    renderRequested,
   };
 }
 
@@ -121,9 +121,9 @@ function getDefinitionsDidSucceed(state, action) {
   return {
     ...state,
     definitions: Definition.hardMerge(definitions).into(state.definitions),
-    fetchNeeded: state.fetchNeeded.clear(),
-    inDisplay: state.renderRequested,
-    renderRequested: state.renderRequested.clear(),
+    toFetch: [],
+    inDisplay: Immutable.List(state.renderRequested),
+    renderRequested: [],
     terms: Term.hardMerge(terms).into(state.terms),  // todo implement softMerge needed
   };
 }

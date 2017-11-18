@@ -4,9 +4,9 @@ import * as ServerSideApi from '@src/apis/ServerSideApi';
 import ActionType from '@actions/ActionType';
 import Action from '@actions/Action';
 
-export function* getTranslate(action) {
+export function* getLocale(action) {
   try {
-    const data = yield ServerSideApi.getTranslate(action.payload.locale);
+    const data = yield ServerSideApi.getLocale(action.payload.locale);
     yield put(Action.GET_LOCALE_SUCCESS({
       locale: data.locale,
     }));
@@ -15,8 +15,8 @@ export function* getTranslate(action) {
   }
 }
 
-export default function* translateSaga() {
+export default function* localeSaga() {
   yield all([
-    takeEvery(ActionType.GET_LOCALE, getTranslate),
+    takeEvery(ActionType.GET_LOCALE, getLocale),
   ]);
 }
