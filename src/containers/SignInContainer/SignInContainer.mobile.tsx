@@ -20,7 +20,7 @@ class SignInContainer extends React.Component<any, any> {
     };
   }
 
-  public handleChangeEmail(event) {
+  private handleChangeEmail(event) {
     const email = event.target.value;
     this.setState((state, props) => {
       return {
@@ -30,7 +30,7 @@ class SignInContainer extends React.Component<any, any> {
     });
   }
 
-  public handleChangePassword(event) {
+  private handleChangePassword(event) {
     const password = event.target.value;
     this.setState((state, props) => {
       return {
@@ -40,15 +40,15 @@ class SignInContainer extends React.Component<any, any> {
     });
   }
 
-  public handleKeyDown(e) {
+  private handleKeyDown(e) {
     if (e.keyCode === KeyCode.RETURN) {
-      this.handleSignInEvent();
+      this.props.signInUser(this.state);
     }
   }
 
-  public handleClick(e) {
+  private handleClick(e) {
     if (e.nativeEvent.which === MouseEvent.LEFT_CLICK) {
-      this.handleSignInEvent();
+      this.props.signInUser(this.state);
     }
   }
 
@@ -72,4 +72,15 @@ class SignInContainer extends React.Component<any, any> {
   }
 }
 
-export default connect()(SignInContainer);
+function mapDispatchToProps(dispatch) {
+  return({
+    signInUser: (state) => {
+      dispatch(Action.SIGN_IN_USER({
+        email: state.email,
+        password: state.password,
+      }));
+    },
+  });
+}
+
+export default connect(null, mapDispatchToProps)(SignInContainer);

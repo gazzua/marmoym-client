@@ -5,6 +5,6 @@ export const GET_DEFINITIONS_IDS = `${API_ROOT}/definitions/ids`;
 export const GET_DEFINITIONS = `${API_ROOT}/definitions`;
 export const ADD_DEFINITION = `${API_ROOT}/newdefinitions`;
 
-export const USERS_SIGNEDIN = `${API_ROOT}/users/signedIn`;
+export const USERS_SIGNEDIN = `${API_ROOT}/session/new`;
 
 export const SEARCH = `${API_ROOT}/search`;
