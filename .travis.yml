@@ -3,4 +3,6 @@ node_js:
   - "7"
 notifications:
   slack: tymsai:gJkPag7RXfZ3fwUKpRzbNiE3
-  
+script:
+  - npm run lint
+  - npm run test
