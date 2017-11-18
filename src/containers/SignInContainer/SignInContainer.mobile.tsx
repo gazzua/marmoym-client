@@ -52,13 +52,6 @@ class SignInContainer extends React.Component<any, any> {
     }
   }
 
-  public handleSignInEvent() {
-    this.props.dispatch(Action.SIGN_IN_USER({
-      email: this.state.email,
-      password: this.state.password,
-    }));
-  }
-
   public render() {
     return (
       <SignIn
