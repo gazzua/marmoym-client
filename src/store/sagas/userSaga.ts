@@ -10,15 +10,15 @@ export function* signInUser(action) {
     const data = yield MarmoymApis.signInUser(email, password);
 
     yield put(Action.SIGN_IN_USER_SUCCESS({
-      ...data
+      ...data,
     }));
 
-  } catch (err){
-    // todos 
+  } catch (err) {
+    // todos
   }
 }
 
-export default function* userSaga() {  
+export default function* userSaga() {
   yield all([
     takeEvery(ActionType.SIGN_IN_USER, signInUser),
   ]);

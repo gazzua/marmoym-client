@@ -16,46 +16,47 @@ class SignInContainer extends React.Component<any, any> {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       email: '',
-      password: ''
-    }
+      password: '',
+    };
   }
 
-  handleChangeEmail(event) {
-    const email = event.target.value
+  public handleChangeEmail(event) {
+    const email = event.target.value;
     this.setState((state, props) => {
       return {
         ...state,
-        email: email
-      }
-    })
+        email: {email},
+      };
+    });
   }
 
-  handleChangePassword(event) {
-    const password = event.target.value
+  public handleChangePassword(event) {
+    const password = event.target.value;
     this.setState((state, props) => {
       return {
         ...state,
-        password: password
-      }
-    })
+        password: {password},
+      };
+    });
   }
 
-  handleKeyDown(e) {  
+  public handleKeyDown(e) {
     if (e.keyCode === KeyCode.RETURN) {
-      this.props.dispatch(Action.SIGN_IN_USER({
-        email: this.state.email, 
-        password: this.state.password 
-      }));  
+      this.handleSignInEvent();
     }
   }
 
-  handleClick(e) {
+  public handleClick(e) {
     if (e.nativeEvent.which === MouseEvent.LEFT_CLICK) {
-      this.props.dispatch(Action.SIGN_IN_USER({
-        email: this.state.email, 
-        password: this.state.password 
-      }));  
+      this.handleSignInEvent();
     }
+  }
+
+  public handleSignInEvent() {
+    this.props.dispatch(Action.SIGN_IN_USER({
+      email: this.state.email,
+      password: this.state.password,
+    }));
   }
 
   public render() {
