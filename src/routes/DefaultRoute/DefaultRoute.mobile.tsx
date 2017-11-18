@@ -40,9 +40,13 @@ const DefaultRoute = (_props) => {
             return <DefinitionListContainer/>;
           }}/>
 
-        <Route exact path={AppURL.DEFINITIONS_ID}
+        <Route path={AppURL.DEFINITIONS_ID}
           render={(props) => {
-            return <div>1</div>;
+            dispatch(Action.GET_DEFINITION_IDS({
+              defIds: props.match.params.defId,
+            }));
+
+            return <DefinitionListContainer/>;
           }}/>
 
         <Route path={AppURL.TERMS} exact component={DefinitionListContainer}/>

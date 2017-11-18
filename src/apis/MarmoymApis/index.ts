@@ -12,7 +12,9 @@ export function getDefinitions(args) {
 
 export function getDefinitionIds(args) {
   return axios.get(URL.GET_DEFINITIONS_IDS, {
-    params: {},
+    params: {
+      ...args
+    },
   })
     .then(getPayload);
 }

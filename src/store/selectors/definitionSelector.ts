@@ -5,8 +5,8 @@ export function selectDefinitions(state) {
   return state.definitionReducer.definitions;
 }
 
-export function selectFetchNeeded(state) {
-  return state.definitionReducer.fetchNeeded;
+export function selectToFetch(state) {
+  return state.definitionReducer.toFetch;
 }
 
 export function selectTerms(state) {
