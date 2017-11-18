@@ -106,6 +106,7 @@ module.exports = {
       '@actions': path.resolve(SRC_PATH, 'store', 'actions'),
       '@components': path.resolve(SRC_PATH, 'components'),
       '@containers': path.resolve(SRC_PATH, 'containers'),
+      '@models': path.resolve(SRC_PATH, 'models'),
       '@selectors': path.resolve(SRC_PATH, 'store', 'selectors'),
       '@src': path.resolve(SRC_PATH),
       '@styles': path.resolve(SRC_PATH, 'styles'),

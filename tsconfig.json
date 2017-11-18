@@ -17,8 +17,8 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@src/*": [
-        "src/*"
+      "@actions/*": [
+        "src/store/actions/*"
       ],
       "@components/*": [
         "src/components/*"
@@ -26,11 +26,14 @@
       "@containers/*": [
         "src/containers/*"
       ],
-      "@actions/*": [
-        "src/store/actions/*"
+      "@models/*": [
+        "src/models/*"
       ],
       "@selectors/*": [
         "src/store/selectors/*"
+      ],
+      "@src/*": [
+        "src/*"
       ],
       "@styles/*": [
         "src/styles/*"
