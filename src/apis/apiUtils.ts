@@ -4,10 +4,10 @@ export function getData(res) {
   return res.data;
 }
 
-export function createPayloadSelector(Error: typeof ErrorBase) {
+export function createPayloadSelector(ErrorObj: typeof ErrorBase) {
   return (res) => {
     if (res.data.code !== 200000) {
-      throw new Error({
+      throw new ErrorObj({
         code: res.data.code,
         msg: res.data.msg,
       });
