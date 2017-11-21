@@ -14,6 +14,7 @@ class SignInContainer extends React.Component<any, any> {
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickSignUp = this.handleClickSignUp.bind(this);
     this.state = {
       email: '',
       password: '',
@@ -52,6 +53,10 @@ class SignInContainer extends React.Component<any, any> {
     }
   }
 
+  private handleClickSignUp() {
+    this.props.history.push('/signup');
+  }
+
   public render() {
     return (
       <SignIn
@@ -59,6 +64,7 @@ class SignInContainer extends React.Component<any, any> {
         member={this.props.member}
         handleChangeEmail={this.handleChangeEmail}
         handleChangePassword={this.handleChangePassword}
+        handleClickSignUp={this.handleClickSignUp}
         handleKeyDown={this.handleKeyDown}
         handleClick={this.handleClick}/>
     );

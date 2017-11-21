@@ -7,64 +7,95 @@ import SignInContainer from '@src/containers/SignInContainer/SignInContainer';
 const Email = styled.div``;
 const Password = styled.div``;
 
-const Input = styled.input``;
-
-const Body = styled.div`
-  margin-top: 3px;
-  padding: 9px 12px;
+const Input = styled.input`
+  width: 100%;
+  height: 40px;
+  padding: 5px;
   border: 1px solid #c5b9ce;
+  border-radius: 3px;
+  margin-bottom: 10px;
+
+  ::placeholder {
+    color: ${Colors.BLACK5};
+    opacity: 1;
+  }
 `;
 
-const CheckBoxText = styled.div`
+const Button = styled.button`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
   margin-top: 3px;
-  padding: 9px 12px;
   border: 1px solid #c5b9ce;
+  border-radius: 5px;
+  background-color: ${Colors.GRAY5};
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+    background-color: ${Colors.BLACK6};
+    box-shadow: inset 1px 1px 3px 0px rgba(0,0,0,0.75);
+  }
 `;
 
-const ThirdPartyLogin = styled.div`
-  margin-top: 5px;
+const Checkbox = styled.input`
+  margin-top: 3px;
   padding: 9px 12px;
-  border: 1px solid #c5b9ce;
+`;
+
+const CheckboxText = styled.div`
+  margin-top: 3px;
+  padding: 9px 12px;
+  display: inline;
+`;
+
+const Text = styled.span`
+  color: ${Colors.GRAY4};
+`;
+
+const TextIcon = styled.span``;
+
+const BottomMenuGroup = styled.div`
+  text-align: center;
+  margin-top: 3px;
+  padding: 9px 12px;
+
+  > span:not(:nth-child(2)) {
+    cursor: pointer;
+    &:hover {
+      color: black;
+    }
+  }
+  
+  > span:not(:last-child) {
+    margin-right: 4px;
+  }
 `;
 
 const StyledSignIn = styled.div`
+  background-color: white;
+  padding: 10px;
 `;
 
 const SignIn = (props) => (
   <StyledSignIn>
-    <Body>
-      이메일
-    </Body>
-    <Input
+    <Input placeholder="이메일"
       value={props.username}
       onChange={props.handleChangeEmail}/>
-    <Body>
-      비밀번호
-    </Body>
-    <Input type="password"
+    <Input type="password" placeholder="비밀번호"
       value={props.password}
       onChange={props.handleChangePassword}
       onKeyDown={props.handleKeyDown}/>
-    <Body onClick={props.handleClick}>
+    <Button onClick={props.handleClick}>
       로그인
-    </Body>
-    <CheckBoxText>
-      <div>
-        아이디 저장
-      </div>
-      <div>
-        로그인상태 유지
-      </div>
-    </CheckBoxText>
-    <ThirdPartyLogin>
-      구글 계정으로 로그인
-    </ThirdPartyLogin>
-    <ThirdPartyLogin>
-      페이스북 계정으로 로그인
-    </ThirdPartyLogin>
-    <ThirdPartyLogin>
-      카카오 계정으로 로그인
-    </ThirdPartyLogin>
+    </Button>
+    <BottomMenuGroup>
+      <Text onClick={props.handleClickSignUp}>회원가입</Text>
+      <Text>|</Text>
+      <Text>로그인에 문제가 있으신가요?</Text>
+    </BottomMenuGroup>
   </StyledSignIn>
 );
 
