@@ -14,7 +14,8 @@ export function* signInUser(action) {
     }));
 
   } catch (err) {
-    // todos
+    console.error(err);
+    return err;
   }
 }
 

@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-import { getPayload } from '../apiUtils';
+import { createPayloadSelector } from '../apiUtils';
 import * as URL from './MarmoymApiURL';
+import MarmoymApiError from '@models/Error/MarmoymApiError';
 
 export function getDefinitions(args) {
   return axios.post(URL.GET_DEFINITIONS, {
     ...args,
   })
-    .then(getPayload);
+    .then(createPayloadSelector(MarmoymApiError));
 }
 
 export function getDefinitionIds(args) {
@@ -16,7 +17,7 @@ export function getDefinitionIds(args) {
       ...args
     },
   })
-    .then(getPayload);
+    .then(createPayloadSelector(MarmoymApiError));
 }
 
 export function signInUser(email, password) {
@@ -24,7 +25,7 @@ export function signInUser(email, password) {
     email,
     password
   })
-    .then(getPayload);
+    .then(createPayloadSelector(MarmoymApiError));
 }
 
 export function search(args) {
@@ -33,5 +34,5 @@ export function search(args) {
       query: args.query,
     },
   })
-    .then(getPayload);
+    .then(createPayloadSelector(MarmoymApiError));
 }
