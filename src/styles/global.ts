@@ -52,5 +52,11 @@ export default () => {
         color: ${Colors.BLUISH5};
       }
     }
+
+    input {
+      &:focus {
+        outline: none;
+      }
+    }
   `;
 };
