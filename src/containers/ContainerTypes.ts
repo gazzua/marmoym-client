@@ -40,3 +40,14 @@ export namespace MastheadContainer {
     query: string;
   }
 }
+
+export namespace DefineContainer {
+  export interface Props {
+    // handleChangeUsage: Function;
+    // handleClickAddUsage: Function;
+    // handleDeleteUsage: Function;
+  }
+  export interface State {
+    usages : any
+  }
+}
