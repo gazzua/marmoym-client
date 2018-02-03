@@ -56,6 +56,18 @@ export default {
       payload,
     };
   },
+  'SIGN_UP_USER': (payload) => {
+    return {
+      type: ActionType.SIGN_UP_USER,
+      payload,
+    };
+  },
+  'SIGN_UP_USER_SUCCESS': (payload) => {
+    return {
+      type: ActionType.SIGN_UP_USER_SUCCESS,
+      payload,
+    };
+  },
   'TEMP': (payload) => {
     return {
       type: 'TEMP',

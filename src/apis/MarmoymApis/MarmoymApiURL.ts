@@ -6,5 +6,6 @@ export const GET_DEFINITIONS = `${API_ROOT}/definitions`;
 export const ADD_DEFINITION = `${API_ROOT}/newdefinitions`;
 
 export const USERS_SIGNEDIN = `${API_ROOT}/session/new`;
+export const USERS_SIGNEDUP = `${API_ROOT}/users/new`;
 
 export const SEARCH = `${API_ROOT}/search`;

@@ -19,8 +19,23 @@ export function* signInUser(action) {
   }
 }
 
+export function* signUpUser(action) {
+  try {
+    const { email, password, username } = action.payload;
+    const data = yield MarmoymApis.signUpUser(email, password, username);
+
+    yield put(Action.SIGN_UP_USER_SUCCESS({
+      ...data,
+    }));
+  } catch (err) {
+    console.error(err);
+    return err;
+  }
+}
+
 export default function* userSaga() {
   yield all([
     takeEvery(ActionType.SIGN_IN_USER, signInUser),
+    takeEvery(ActionType.SIGN_UP_USER, signUpUser),
   ]);
 }
