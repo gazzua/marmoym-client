@@ -93,16 +93,16 @@ function getDefinitionIdsDidSucceed(state, action) {
   const { defIds } = action.payload;
   const toFetch: number[] = [];
   let renderRequested: number[] = [];
-
+  console.log("whati s defids : ", defIds);
   // todo Refactor needed
-  defIds.forEach((defId) => {
-    const definition = state.definitions.get(defId.id.toString());
-    if (definition && definition.get('updated_at') >= defId.updated_at) {
+  Object.keys(defIds).forEach((defKey) => {
+    const definition = state.definitions.get(defKey);
+    if (definition && definition.get('updated_at') >= defIds.defKey) {
       //
     } else {
-      toFetch.push(defId.id);
+      toFetch.push(parseInt(defKey));
     }
-    renderRequested.push(defId.id);
+    renderRequested.push(parseInt(defKey));
   });
 
   return {
