@@ -20,6 +20,18 @@ export namespace SignInContainer {
   }
 }
 
+export namespace SignUpContainer {
+  export interface Props extends ContainerPropsBase {
+    member: any;
+  }
+
+  export interface State {
+    email: string;
+    password: string;
+    passwordDoubleCheck: string;
+  }
+}
+
 export namespace RootContainer {
   export interface Props extends ContainerPropsBase {
   }

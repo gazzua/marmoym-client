@@ -28,6 +28,14 @@ export function signInUser(email, password) {
     .then(createPayloadSelector(MarmoymApiError));
 }
 
+export function signUpUser(email, password, username) {
+  return axios.post(URL.USERS_SIGNEDUP, {
+    email,
+    password, 
+    username,
+  })
+}
+
 export function search(args) {
   return axios.get(URL.SEARCH, {
     params: {

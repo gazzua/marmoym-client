@@ -10,6 +10,7 @@ import DefinitionListContainer from '@src/containers/DefinitionListContainer/Def
 import MastheadContainer from '@src/containers/MastheadContainer/MastheadContainer';
 import DefineContainer from '@src/containers/DefineContainer/DefineContainer';
 import SignInContaienr from '@src/containers/SignInContainer/SignInContainer';
+import SignUpContainer from '@src/containers/SignUpContainer/SignUpContainer';
 import * as AppURL from '@src/models/AppURL';
 
 const DefaultRoute = (_props) => {
@@ -54,6 +55,7 @@ const DefaultRoute = (_props) => {
         <Route path="/term/:termLabel/defId/:defId" component={DefinitionListContainer}/>
         <Route path={AppURL.DEFINE} component={DefineContainer}/>
         <Route path={AppURL.SIGNIN} component={SignInContaienr}/>
+        <Route path={AppURL.SIGNUP} component={SignUpContainer}/>
 
       </Switch>
     </div>

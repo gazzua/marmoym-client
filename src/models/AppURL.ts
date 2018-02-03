@@ -4,6 +4,7 @@ export const TERMS = `/terms`;
 export const DEFINITIONS_ID = `/definitions/:defId`;
 export const DEFINE = `/define`;
 export const SIGNIN = `/signin`;
+export const SIGNUP = '/signup';
 
 export function build(URL: string, ...tokens: string[]) {
   switch (URL) {
