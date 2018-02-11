@@ -9,7 +9,7 @@ module.exports = {
     'babel-polyfill',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    './src/app.tsx',
+    './src/app.jsx',
   ],
   module: {
     rules: [
@@ -85,6 +85,7 @@ module.exports = {
   node: {
     __dirname: true,
     __filename: true,
+    fs: 'empty',
   },
   output: {
     filename: 'bundle.js',
