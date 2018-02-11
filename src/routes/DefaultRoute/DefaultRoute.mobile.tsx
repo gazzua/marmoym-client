@@ -11,6 +11,7 @@ import MastheadContainer from '@src/containers/MastheadContainer/MastheadContain
 import DefineContainer from '@src/containers/DefineContainer/DefineContainer';
 import SignInContaienr from '@src/containers/SignInContainer/SignInContainer';
 import SignUpContainer from '@src/containers/SignUpContainer/SignUpContainer';
+import UserContainer from '@src/containers/UserContainer/UserContainer';
 import * as AppURL from '@src/models/AppURL';
 
 const DefaultRoute = (_props) => {

@@ -93,7 +93,6 @@ function getDefinitionIdsDidSucceed(state, action) {
   const { defIds } = action.payload;
   const toFetch: number[] = [];
   let renderRequested: number[] = [];
-  console.log("whati s defids : ", defIds);
   // todo Refactor needed
   Object.keys(defIds).forEach((defKey) => {
     const definition = state.definitions.get(defKey);

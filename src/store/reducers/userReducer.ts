@@ -40,8 +40,9 @@ function getDefinitionDidSucceed(state, action) {
 }
 
 function signInUserDidSucceed(state, action) {
-  const { users } = action.payload;
+  const currentUser = action.payload;
   return {
-    // todo
+    ...state,
+    currentUser : currentUser,
   };
 }
