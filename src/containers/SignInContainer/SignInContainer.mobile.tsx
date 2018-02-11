@@ -15,6 +15,7 @@ class SignInContainer extends React.Component<any, any> {
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleClickSignUp = this.handleClickSignUp.bind(this);
+    this.navigateToMainPage = this.navigateToMainPage.bind(this);
     this.state = {
       email: '',
       password: '',
@@ -43,18 +44,30 @@ class SignInContainer extends React.Component<any, any> {
 
   private handleKeyDown(e) {
     if (e.keyCode === KeyCode.RETURN) {
-      this.props.signInUser(this.state);
+      this.dispatchSignIn();
     }
   }
 
   private handleClick(e) {
     if (e.nativeEvent.which === MouseEvent.LEFT_CLICK) {
-      this.props.signInUser(this.state);
+      this.dispatchSignIn();
     }
+  }
+
+  private dispatchSignIn() {
+    this.props.dispatch(Action.SIGN_IN_USER({
+      email: this.state.email,
+      password: this.state.password,
+      successCallback: this.navigateToMainPage,
+    }));
   }
 
   private handleClickSignUp() {
     this.props.history.push('/signup');
+  }
+
+  public navigateToMainPage(){
+    this.props.history.push('/');
   }
 
   public render() {
@@ -71,15 +84,4 @@ class SignInContainer extends React.Component<any, any> {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return({
-    signInUser: (state) => {
-      dispatch(Action.SIGN_IN_USER({
-        email: state.email,
-        password: state.password,
-      }));
-    },
-  });
-}
-
-export default connect(null, mapDispatchToProps)(SignInContainer);
+export default connect()(SignInContainer);

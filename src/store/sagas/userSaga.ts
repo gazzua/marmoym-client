@@ -1,17 +1,20 @@
 import { all, put, call, take, takeEvery, select } from 'redux-saga/effects';
 
 import * as MarmoymApis from '@src/apis/MarmoymApis';
+import * as SignInContainer from '@src/containers/SignInContainer/SignInContainer';
 import Action from '@actions/Action';
 import ActionType from '@actions/ActionType';
 
 export function* signInUser(action) {
   try {
-    const { email, password } = action.payload;
+    const { email, password, successCallback } = action.payload;
     const data = yield MarmoymApis.signInUser(email, password);
 
     yield put(Action.SIGN_IN_USER_SUCCESS({
       ...data,
     }));
+
+    successCallback();
 
   } catch (err) {
     console.error(err);
