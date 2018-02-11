@@ -2,7 +2,7 @@ import * as Immutable from 'immutable';
 
 import Definition from '@src/models/Definition';
 import User from '@src/models/User';
-import ActionType from '@actions/ActionType';
+import ActionType from '@constants/ActionType';
 
 const _users = {
   0: {
@@ -24,6 +24,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ActionType.GET_DEFINITIONS_SUCCESS:
       return getDefinitionDidSucceed(state, action);
+    case ActionType.REQUEST_SIGN_IN_USER_SUCCESS:
+      console.log(123, 1);
+      // ...
+      return state;
     case ActionType.SIGN_IN_USER_SUCCESS:
       return signInUserDidSucceed(state, action);
     default:

@@ -1,4 +1,4 @@
-import ActionType from './ActionType';
+import ActionType from '@constants/ActionType';
 
 export default {
   'GET_DEFINITIONS': (payload) => {

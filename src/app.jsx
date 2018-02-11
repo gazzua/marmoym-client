@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { configureStore } from '@src/store';
+import { configureStore } from '@src/state';
 import Routes from '@src/routes/Routes.mobile';
 
 const rootEl = document.getElementById('marmoym-app');

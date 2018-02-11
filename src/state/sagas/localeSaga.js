@@ -1,7 +1,7 @@
 import { all, put, call, take, takeEvery } from 'redux-saga/effects';
 
 import * as ServerSideApi from '@src/apis/ServerSideApi';
-import ActionType from '@actions/ActionType';
+import ActionType from '@constants/ActionType';
 import Action from '@actions/Action';
 
 export function* getLocale(action) {
