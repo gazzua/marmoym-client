@@ -5,6 +5,7 @@ import SignUp from '@src/components/app/SignUp/SignUp.mobile';
 import Terms from '@src/components/app/Terms/Terms.mobile';
 import Action from '@actions/Action';
 import MouseEvent from '@src/models/MouseEvent';
+import { requestSignUpUser } from '@actions/userActions'
 
 class SignUpContainer extends React.Component {
   constructor(...props) {
@@ -65,7 +66,11 @@ class SignUpContainer extends React.Component {
 
   handleClickSignUp(event) {
     if (event.nativeEvent.which === MouseEvent.LEFT_CLICK && checkPassword(this.state.password, this.state.passwordDoubleCheck)) {
-      this.props.signUpUser(this.state);
+      this.props.dispatch(requestSignUpUser({
+        email: this.state.email,
+        password: this.state.password,
+        username: this.state.username,
+      }));
     }
   }
 
@@ -97,17 +102,17 @@ class SignUpContainer extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return({
-    signUpUser: (state) => {
-      dispatch(Action.SIGN_UP_USER({
-        email: state.email,
-        password: state.password,
-        username: state.username,
-      }));
-    },
-  });
-}
+// function mapDispatchToProps(dispatch) {
+//   return({
+//     signUpUser: (state) => {
+//       dispatch(Action.SIGN_UP_USER({
+//         email: state.email,
+//         password: state.password,
+//         username: state.username,
+//       }));
+//     },
+//   });
+// }
 
 function checkPassword(password, passwordDoubleCheck) {
   if(password === passwordDoubleCheck) {
@@ -117,4 +122,4 @@ function checkPassword(password, passwordDoubleCheck) {
   return false;
 }
 
-export default connect(null, mapDispatchToProps)(SignUpContainer);
+export default connect()(SignUpContainer);

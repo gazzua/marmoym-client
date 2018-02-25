@@ -28,8 +28,8 @@ export default (state = initialState, action) => {
       console.log(123, 1);
       // ...
       return state;
-    case ActionType.SIGN_IN_USER_SUCCESS:
-      return signInUserDidSucceed(state, action);
+    case ActionType.REQUEST_SIGN_UP_USER_SUCCESS:
+      return signUpUserDidSucceed(state, action);
     default:
       return state;
   }
@@ -48,5 +48,12 @@ function signInUserDidSucceed(state, action) {
   return {
     ...state,
     currentUser : currentUser,
+  };
+}
+
+function signUpUserDidSucceed(state, action) {
+  return {
+    // todo
+    ...state,
   };
 }
