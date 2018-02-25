@@ -6,6 +6,12 @@ const UserSignInParam = {
   password: '',
 }
 
+const UserSignUpParam = {
+  email: '',
+  password: '',
+  username: '',
+}
+
 export const requestSignInUser = (userSignInParam) => {
   return (dispatch, getState) => {
     dispatch({
@@ -41,5 +47,28 @@ export const requestSignInUser = (userSignInParam) => {
     //       type: ActionTypes.REQUEST_GET_IMPRESSIONS_ERROR,
     //     });
     //   });
+  }
+};
+
+export const requestSignUpUser = (userSignUpParam) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: ActionType.REQUEST_SIGN_UP_USER,
+    });
+
+    return MarmoymApis.signUpUser(userSignUpParam.email, userSignUpParam.password, userSignUpParam.username)
+      .then((res) => {
+        console.log(123, res);
+        dispatch({
+          type: ActionType.REQUEST_SIGN_UP_USER_SUCCESS,
+        });
+      })
+      .catch((err) => {
+        console.log(123, err);
+        dispatch({
+          type: ActionType.REQUEST_SIGN_UP_USER_ERROR,
+          payload: '',
+        });
+      });
   }
 };
