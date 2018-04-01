@@ -13,6 +13,7 @@ import SignInContaienr from '@src/containers/SignInContainer/SignInContainer.mob
 import SignUpContainer from '@src/containers/SignUpContainer/SignUpContainer.mobile';
 import UserContainer from '@src/containers/UserContainer/UserContainer.mobile';
 import * as AppURL from '@src/models/AppURL';
+import { getDefinitionIds, search } from '@actions/definitionActions'
 
 const DefaultRoute = (_props) => {
   const { dispatch } = _props;
@@ -27,7 +28,7 @@ const DefaultRoute = (_props) => {
         <Route exact path={AppURL.ROOT}
           render={(props) => {
             const { termLabel } = props.match.params;
-            dispatch(Action.GET_DEFINITION_IDS({
+            dispatch(getDefinitionIds({
               termLabel,
             }));
             
@@ -36,7 +37,7 @@ const DefaultRoute = (_props) => {
 
         <Route exact path={AppURL.SEARCH}
           render={(props) => {
-            dispatch(Action.SEARCH({
+            dispatch(search({
               query,
             }));
             return <DefinitionListContainer/>;
@@ -44,7 +45,7 @@ const DefaultRoute = (_props) => {
 
         <Route path={AppURL.DEFINITIONS_ID}
           render={(props) => {
-            dispatch(Action.GET_DEFINITION_IDS({
+            dispatch(getDefinitionIds({
               defIds: props.match.params.defId,
             }));
 

@@ -3,7 +3,7 @@ import { all, put, call, take, takeEvery, select } from 'redux-saga/effects';
 import * as MarmoymApis from '@src/apis/MarmoymApis';
 import * as SignInContainer from '@src/containers/SignInContainer/SignInContainer.mobile';
 import Action from '@actions/Action';
-import ActionType from '@actions/ActionType';
+import ActionType from '@constants/ActionType';
 
 export function* signInUser(action) {
   try {

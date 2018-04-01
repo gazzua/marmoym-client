@@ -1,4 +1,4 @@
-import ActionType from '@actions/ActionType';
+import ActionType from '@constants/ActionType';
 
 const initialState = {
   locale: {},

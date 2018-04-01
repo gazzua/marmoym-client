@@ -6,14 +6,15 @@ import logger from 'redux-logger';
 import reducers from './reducers';
 import rootSaga from './sagas/rootSaga';
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
 export function configureStore(state = {}) {
   const store = createStore(
     reducers,
-    applyMiddleware(logger, sagaMiddleware),
+    // applyMiddleware(logger, sagaMiddleware),
+    applyMiddleware(thunk, logger),
   );
-  sagaMiddleware.run(rootSaga);
+  // sagaMiddleware.run(rootSaga);
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {

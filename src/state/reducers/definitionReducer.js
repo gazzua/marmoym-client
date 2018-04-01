@@ -1,6 +1,6 @@
 import * as Immutable from 'immutable';
 
-import ActionType from '@actions/ActionType';
+import ActionType from '@constants/ActionType';
 import Definition from '@src/models/Definition';
 import Term from '@src/models/Term';
 

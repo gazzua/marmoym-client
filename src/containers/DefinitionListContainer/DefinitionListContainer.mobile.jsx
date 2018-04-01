@@ -7,7 +7,7 @@ import DefinitionList from '@src/components/app/DefinitionList/DefinitionList.mo
 import {
   selectCombinedDefinitionsInDisplay,
   selectDefinitionsInDisplay,
-} from '@src/store/selectors/definitionSelector';
+} from '@selectors/definitionSelector';
 
 class DefinitionListContainer extends React.Component {
   constructor(...props) {

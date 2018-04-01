@@ -5,6 +5,7 @@ import SignIn from '@src/components/app/SignIn/SignIn.mobile';
 import KeyCode from '@src/models/KeyCode';
 import MouseEvent from '@src/models/MouseEvent';
 import Action from '@actions/Action';
+import { requestSignInUser } from '@actions/userActions'
 
 class SignInContainer extends React.Component {
   constructor(...props) {
@@ -54,10 +55,14 @@ class SignInContainer extends React.Component {
   }
 
   dispatchSignIn() {
-    this.props.dispatch(Action.SIGN_IN_USER({
+    // this.props.dispatch(Action.SIGN_IN_USER({
+    //   email: this.state.email,
+    //   password: this.state.password,
+    //   successCallback: this.navigateToMainPage,
+    // }));
+    this.props.dispatch(requestSignInUser({
       email: this.state.email,
       password: this.state.password,
-      successCallback: this.navigateToMainPage,
     }));
   }
 

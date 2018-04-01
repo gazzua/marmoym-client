@@ -104,11 +104,12 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@actions': path.resolve(SRC_PATH, 'store', 'actions'),
+      '@actions': path.resolve(SRC_PATH, 'state', 'actions'),
       '@components': path.resolve(SRC_PATH, 'components'),
+      '@constants': path.resolve(SRC_PATH, 'constants'),
       '@containers': path.resolve(SRC_PATH, 'containers'),
       '@models': path.resolve(SRC_PATH, 'models'),
-      '@selectors': path.resolve(SRC_PATH, 'store', 'selectors'),
+      '@selectors': path.resolve(SRC_PATH, 'state', 'selectors'),
       '@src': path.resolve(SRC_PATH),
       '@styles': path.resolve(SRC_PATH, 'styles'),
       '@types': path.resolve(SRC_PATH, 'types'),

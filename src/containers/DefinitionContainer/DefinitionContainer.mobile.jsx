@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList.mobile';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane.mobile';
-import { selectDefinition } from '@src/store/selectors/definitionSelector';
+import { selectDefinition } from '@selectors/definitionSelector';
 
 class DefinitionContainer extends React.Component {
   componentDidMount() {
