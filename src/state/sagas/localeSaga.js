@@ -4,19 +4,20 @@ import * as ServerSideApi from '@src/apis/ServerSideApi';
 import ActionType from '@constants/ActionType';
 import Action from '@actions/Action';
 
-export function* getLocale(action) {
-  try {
-    const data = yield ServerSideApi.getLocale(action.payload.locale);
-    yield put(Action.GET_LOCALE_SUCCESS({
-      locale: data.locale,
-    }));
-  } catch (err) {
-    // todos
-  }
-}
+// deprecated =============================================
+// export function* getLocale(action) {
+//   try {
+//     const data = yield ServerSideApi.getLocale(action.payload.locale);
+//     yield put(Action.GET_LOCALE_SUCCESS({
+//       locale: data.locale,
+//     }));
+//   } catch (err) {
+//     // todos
+//   }
+// }
 
-export default function* localeSaga() {
-  yield all([
-    takeEvery(ActionType.GET_LOCALE, getLocale),
-  ]);
-}
+// export default function* localeSaga() {
+//   yield all([
+//     takeEvery(ActionType.GET_LOCALE, getLocale),
+//   ]);
+// }
