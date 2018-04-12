@@ -1,71 +1,60 @@
 import ActionType from '@constants/ActionType';
 import * as MarmoymApis from '@src/apis/MarmoymApis';
 import { selectToFetch } from '@selectors/definitionSelector';
+import * as Immutable from 'immutable';
 
-const getDefinitionIdsParam = {
-  defIds: [],
-}
+const dummyDef = {
+  created_at: 20,
+  downvote: 10,
+  id: 1,
+  label: '기모찌',
+  origins: ['power', '111origin'],
+  poss: ['동사'],
+  term_id: 2,
+  updated_at: Date.now(),
+  upvote: 2,
+  usages: ['blabla', 'bleble'],
+  user_id: 3,
+  username: 'username123123',
+};
 
-const getDefinitionsParam = {
-  toFetch: [],
-}
+const TermRecord = {
+  created_at: 0,
+  id: 0,
+  label: 'label',
+  roman: 'roman',
+  updated_at: 0,
+};
 
 const searchParam = {
   query: '',
 }
 
-export const getDefinitionIds = (getDefinitionIdsParam) => {
+export function getDefinitions ({
+  page,
+}) {
   return (dispatch, getState) => {
     dispatch({
-      type: ActionType.GET_DEFINITION_IDS,
-    });
-
-    return MarmoymApis.getDefinitionIds({
-      defIds: getDefinitionIdsParam.defIds,
-    })
-      .then((res) => {
-        dispatch({
-          defIds: res.defIds,
-          type: ActionType.GET_DEFINITION_IDS_SUCCESS,
-        });
-
-        // todo : dispatch next action
-        const toFetch = select(selectToFetch);
-        return () => {
-          dispatch({
-            payload: toFetch,
-            type: ActionType.GET_DEFINITIONS,
-          });
-        };
-      })
-      .catch((res) => {
-        dispatch({
-          type: ActionType.GET_DEFINITION_IDS_ERROR,
-        });
-      });
-
-  }
-};
-
-export const getDefinitions = (getDefinitionsParam) => {
-  return (dispatch, getState) => {
-    dispatch({
+      payload: arguments[0],
       type: ActionType.GET_DEFINITIONS,
-    });
+    })
 
     return MarmoymApis.getDefinitions({
-      defIds: getDefinitionIdsParam.toFetch,
+      page,
     })
       .then((res) => {
         dispatch({
+          payload: {
+            definitions: [ dummyDef ],
+          },
           type: ActionType.GET_DEFINITIONS_SUCCESS,
-        });
+        })
       })
       .catch((res) => {
         dispatch({
           type: ActionType.GET_DEFINITIONS_ERROR,
         });
-      });
+      })
   }
 }
 

@@ -4,18 +4,11 @@ import { createPayloadSelector } from '../apiUtils';
 import * as URL from './MarmoymApiURL';
 import MarmoymApiError from '@models/Error/MarmoymApiError';
 
-export function getDefinitions(args) {
+export function getDefinitions({
+  page,
+}) {
   return axios.post(URL.GET_DEFINITIONS, {
-    ...args,
-  })
-    .then(createPayloadSelector(MarmoymApiError));
-}
-
-export function getDefinitionIds(args) {
-  return axios.get(URL.GET_DEFINITIONS_IDS, {
-    params: {
-      ...args
-    },
+    ...arguments[0],
   })
     .then(createPayloadSelector(MarmoymApiError));
 }

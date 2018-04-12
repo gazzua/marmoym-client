@@ -36,10 +36,20 @@ export default (state = initialState, action) => {
 };
 
 function getDefinitionDidSucceed(state, action) {
-  const { users } = action.payload;
+  //const { users } = action.payload;
+  const users = [{
+    created_at: 0,
+    email: 'email',
+    id: 0,
+    karma: 0,
+    password: 'password',
+    updated_at: 0,
+    username: 'username',
+  }];
   return {
     ...state,
-    users: User.hardMerge(users).into(state.users),  // todo implement softMerge needed
+    //users: User.hardMerge(users).into(state.users),  // todo implement softMerge needed
+    users,
   };
 }
 
