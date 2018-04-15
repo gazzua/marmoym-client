@@ -25,6 +25,7 @@ class DefinitionListContainer extends React.Component {
   }
 
   render() {
+    console.log(1232323, this.props.definitions);
     return (
       <DefinitionList
         definitions={this.props.definitions}
@@ -35,7 +36,7 @@ class DefinitionListContainer extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    definitions: selectCombinedDefinitionsInDisplay(state),
+    definitions: state.definitionReducer.definitions,
   };
 };
 

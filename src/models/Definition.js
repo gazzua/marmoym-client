@@ -49,8 +49,10 @@ const Definition = (() => {
   function hardMerge(definitions) {
     return {
       into(Definitions) {
+        console.log(4444444, definitions)
         let newDefinitions = Definitions;
         definitions.map((definition) => {
+          console.log(3333333333, definition)
           newDefinitions = newDefinitions.set(
             definition.id.toString(),
             of(definition));

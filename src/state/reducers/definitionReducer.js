@@ -53,7 +53,7 @@ const _definitions = {
 };
 
 const initialState = {
-  definitions: Definition.ofMany(_definitions),
+  definitions: [],
   toFetch: [],
   inDisplay: Immutable.List(),
   renderRequested: [],
@@ -87,6 +87,7 @@ export default (state = initialState, action) => {
 
 /**
  * ...
+ * @deprecated
  */
 function getDefinitionIdsDidSucceed(state, action) {
   const { defIds } = action.payload;
@@ -114,14 +115,16 @@ function getDefinitionIdsDidSucceed(state, action) {
  * ...
  */
 function getDefinitionsDidSucceed(state, action) {
-  const { terms, definitions } = action.payload;
+  const { definitions } = action.payload;
+  console.log(1, definitions)
+  const n = Object.assign([], definitions);
 
   return {
     ...state,
-    definitions: Definition.hardMerge(definitions).into(state.definitions),
+    definitions: n,
     toFetch: [],
     inDisplay: Immutable.List(state.renderRequested),
     renderRequested: [],
-    terms: Term.hardMerge(terms).into(state.terms),  // todo implement softMerge needed
+    // terms: Term.hardMerge(terms).into(state.terms),  // todo implement softMerge needed
   };
 }

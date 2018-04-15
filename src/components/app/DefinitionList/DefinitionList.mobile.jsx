@@ -5,15 +5,18 @@ import { styles } from '@styles/index';
 import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer.mobile';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane.mobile';
 
-function renderDefinitions(props) {
+const Definitions = (props) => {
+  console.log(123, props);
   return props.definitions.map((Definition, idx) => {
-    return (
-      <DefinitionPane
-        key={Definition.get('id')}
-        Definition={Definition}
-        handleClickTerm={props.handleClickTerm}/>
-    );
-  }).toArray();
+    console.log(1, Definition);
+    return 0;
+    // return (
+    //   <DefinitionPane
+    //     key={Definition.get('id')}
+    //     Definition={Definition}
+    //     handleClickTerm={props.handleClickTerm}/>
+    // );
+  });
 }
 
 const StyledDefinitionList = styled.div`
@@ -21,7 +24,7 @@ const StyledDefinitionList = styled.div`
 
 const DefinitionList = (props) => (
   <StyledDefinitionList>
-    {renderDefinitions(props)}
+    <Definitions {...props}/>
   </StyledDefinitionList>
 );
 
