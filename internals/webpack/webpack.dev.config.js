@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const SRC_PATH = path.resolve(__dirname, '..', '..', 'src');
+const APP_PATH = path.resolve(__dirname, '../../src/app');
+const OUTPUT_PATH = path.resolve(__dirname, '../../dist');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -9,7 +10,7 @@ module.exports = {
     'babel-polyfill',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    './src/app.jsx',
+    path.join(APP_PATH, 'app.jsx'),
   ],
   module: {
     rules: [
@@ -89,7 +90,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '..', '..', 'dist', 'bundle'),
+    path: OUTPUT_PATH,
     publicPath: '/',
   },
   plugins: [
@@ -104,15 +105,15 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      '@actions': path.resolve(SRC_PATH, 'state', 'actions'),
-      '@components': path.resolve(SRC_PATH, 'components'),
-      '@constants': path.resolve(SRC_PATH, 'constants'),
-      '@containers': path.resolve(SRC_PATH, 'containers'),
-      '@models': path.resolve(SRC_PATH, 'models'),
-      '@selectors': path.resolve(SRC_PATH, 'state', 'selectors'),
-      '@src': path.resolve(SRC_PATH),
-      '@styles': path.resolve(SRC_PATH, 'styles'),
-      '@types': path.resolve(SRC_PATH, 'types'),
+      '@actions': path.resolve(APP_PATH, 'state', 'actions'),
+      '@components': path.resolve(APP_PATH, 'components'),
+      '@constants': path.resolve(APP_PATH, 'constants'),
+      '@containers': path.resolve(APP_PATH, 'containers'),
+      '@models': path.resolve(APP_PATH, 'models'),
+      '@selectors': path.resolve(APP_PATH, 'state', 'selectors'),
+      '@src': path.resolve(APP_PATH),
+      '@styles': path.resolve(APP_PATH, 'styles'),
+      '@types': path.resolve(APP_PATH, 'types'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     modules: [
