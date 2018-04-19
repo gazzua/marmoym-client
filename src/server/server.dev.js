@@ -12,6 +12,8 @@ const app = express();
 const config = require(getConfig(process.env.PLATFORM, process.env.NODE_ENV));
 const compiler = webpack(config);
 
+const DIST_PATH = path.resolve(__dirname, '../../dist');
+
 app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
   stats: {
@@ -38,7 +40,7 @@ app.get('/ss/i18n/:locale', function(req, res) {
 });
 
 app.use('/', function(req, res) {
-  var file = path.resolve(__dirname, '..', 'dist', 'index.html');
+  var file = path.join(DIST_PATH, 'index.html');
   res.sendFile(file);
 });
 
@@ -59,9 +61,11 @@ app.use('/', function(req, res) {
 //   });
 // });
 
-app.listen(3001, function(err) {
-  if (err) {
-    return logger.error(err);
-  }
-  logger.debug('Listening at http://localhost:3001/');
-});
+// app.listen(3001, function(err) {
+//   if (err) {
+//     return logger.error(err);
+//   }
+//   logger.debug('Listening at http://localhost:3001/');
+// });
+
+module.exports = app;
