@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { Colors, styles } from '@styles/index';
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 import DefaultMasthead from './DefaultMasthead/DefaultMasthead.mobile';
 import SearchMasthead from './SearchMasthead/SearchMasthead.mobile';
 

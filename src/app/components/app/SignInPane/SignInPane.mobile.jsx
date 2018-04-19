@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { styles, Colors } from '@styles/index';
+import { styles, Colors } from '@styles/styles';
 // import Upper from './Upper/Upper';
 // import Lower from './Lower/Lower';
 import Locale from '@src/components/app/Locale/Locale';

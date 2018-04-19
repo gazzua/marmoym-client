@@ -9,34 +9,34 @@
     "outDir": "tsc_out",
     "paths": {
       "@actions/*": [
-        "src/state/actions/*"
+        "src/app/state/actions/*"
       ],
       "@apis/*": [
-        "src/apis/*"
+        "src/app/apis/*"
       ],
       "@components/*": [
-        "src/components/*"
+        "src/app/components/*"
       ],
       "@constants/*": [
-        "src/constants/*"
+        "src/app/constants/*"
       ],
       "@containers/*": [
-        "src/containers/*"
+        "src/app/containers/*"
       ],
       "@models/*": [
-        "src/models/*"
+        "src/app/models/*"
       ],
       "@selectors/*": [
-        "src/state/selectors/*"
+        "src/app/state/selectors/*"
       ],
       "@src/*": [
-        "src/*"
+        "src/app/*"
       ],
       "@styles/*": [
-        "src/styles/*"
+        "src/app/styles/*"
       ],
       "@utils/*": [
-        "src/utils/*"
+        "src/app/utils/*"
       ],
     },
     "target": "es6"

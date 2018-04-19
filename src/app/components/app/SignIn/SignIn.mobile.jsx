@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { styles, Colors } from '@styles/index';
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 import SignInContainer from '@src/containers/SignInContainer/SignInContainer.mobile';
 
 const Email = styled.div``;
@@ -16,7 +17,7 @@ const Input = styled.input`
   margin-bottom: 10px;
 
   ::placeholder {
-    color: ${Colors.BLACK5};
+    color: ${Color.BLACK5};
     opacity: 1;
   }
 `;
@@ -30,12 +31,12 @@ const Button = styled.button`
   margin-top: 3px;
   border: 1px solid #c5b9ce;
   border-radius: 5px;
-  background-color: ${Colors.GRAY5};
+  background-color: ${Color.GRAY5};
   cursor: pointer;
 
   &:hover {
     color: black;
-    background-color: ${Colors.BLACK6};
+    background-color: ${Color.BLACK6};
     box-shadow: inset 1px 1px 3px 0px rgba(0,0,0,0.75);
   }
 `;
@@ -46,21 +47,21 @@ const Checkbox = styled.input`
 `;
 
 const CheckboxText = styled.div`
+  display: inline;
   margin-top: 3px;
   padding: 9px 12px;
-  display: inline;
 `;
 
 const Text = styled.span`
-  color: ${Colors.GRAY4};
+  color: ${Color.GRAY4};
 `;
 
 const TextIcon = styled.span``;
 
 const BottomMenuGroup = styled.div`
-  text-align: center;
   margin-top: 3px;
   padding: 9px 12px;
+  text-align: center;
 
   > span:not(:nth-child(2)) {
     cursor: pointer;

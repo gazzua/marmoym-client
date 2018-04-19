@@ -1,18 +1,20 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 import { withProps } from '@src/styles/styleUtils';
-import { Colors, styles } from '@styles/index';
 
 const StyledMarmoymLogo = styled.div`
   width: 55px;
   display: flex;
   align-items: center;
   padding-left: 5px;
+  
   span {
     font-size: 16px;
     font-weight: bold;
-    color: ${Colors.BLACK5};
+    color: ${Color.BLACK5};
     cursor: pointer;
   }
 `;

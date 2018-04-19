@@ -5,7 +5,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { configureStore } from '@src/state';
-import Routes from '@src/routes/Routes.mobile';
+import RouterContainer from '@containers/RouterContainer/RouterContainer.mobile';
 
 const rootEl = document.getElementById('marmoym-app');
 const store = configureStore();
@@ -21,12 +21,12 @@ const render = (Component) => {
   );
 };
 
-render(Routes);
+render(RouterContainer);
 
 if (module.hot) {
-  module.hot.accept('./routes/Routes.mobile', () => {
-    require('./routes/Routes.mobile');
+  module.hot.accept('./containers/RouterContainer/RouterContainer.mobile', () => {
+    const newRoutes = require('./containers/RouterContainer/RouterContainer.mobile').default;
     console.log('hot replace');
-    render(Routes);
+    render(newRoutes);
   });
 }

@@ -6,7 +6,7 @@ import _DownvoteIcon from '@src/components/icons/Downvote/Downvote.mobile';
 import _SeparatorIcon from '@src/components/icons/SeparatorIcon/SeparatorIcon.mobile';
 import ThreeDot from '@src/components/icons/ThreeDot/ThreeDot.mobile';
 import UpvoteIcon from '@src/components/icons/Upvote/Upvote.mobile';
-import { styles, styleUtils } from '@styles/index';
+import { styles, styleUtils } from '@styles/styles';
 
 const StyledLower = styled.div`
   padding: 4px 12px 0;
