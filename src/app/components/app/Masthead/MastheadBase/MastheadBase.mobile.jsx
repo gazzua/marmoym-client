@@ -2,14 +2,16 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
 
-import { Colors } from '@styles/index';
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 
 const StyledMastheadBase = styled.div`
-  padding: 0 3px;
-  height: 46px;
+  align-items: center;
+  background-color: ${Color.WHITE4};
   display: flex;
-  align-items: center;gpba
-  background-color: ${Colors.WHITE4};
+  height: 46px;
+  padding: 0 3px;
+  ${border('blue')}
 
   i {
     font-size: 20px;

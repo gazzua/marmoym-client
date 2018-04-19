@@ -1,25 +1,25 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
+import { border } from '@styles/styles';
+import Media from '@styles/media';
+import Color from '@constants/Color';
 import globalStyle from '@src/styles/global';
-import { media, styles } from '@styles/index';
 
 const StyledRoot = styled.div`
   position: absolute;
   min-height: 100%;
-  ${media.w320`
+
+  ${Media.w320`
     min-width: 320px;
     width: 100%;
   `};
 
-  ${media.w480`
+  ${Media.w480`
     opacity: 0.5;
   `}
 `;
 
-/**
- * ...
- */
 globalStyle();
 
 const Root = (props) => {

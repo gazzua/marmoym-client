@@ -1,10 +1,11 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 import Locale from '@containers/LocaleContainer/LocaleContainer';
-import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { Colors, styles } from '@styles/index';
 import Lower from './Lower/Lower.mobile';
+import { resolveNames, withProps } from '@src/styles/styleUtils';
 import Upper from './Upper/Upper.mobile';
 
 const Label = styled.div``;
@@ -15,8 +16,8 @@ const ExtResource = styled.div``;
 const StyledDefinitionPane = styled.div`
   margin-top: 5px;
   padding: 8px 0px;
-  color: ${Colors.BLACK5};
-  background-color: ${Colors.WHITE3};
+  color: ${Color.BLACK5};
+  background-color: ${Color.WHITE3};
   border: 1px solid #c5b9ce;
 `;
 

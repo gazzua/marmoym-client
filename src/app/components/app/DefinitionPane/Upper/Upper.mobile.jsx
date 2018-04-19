@@ -1,14 +1,15 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import StarIcon from '@src/components/icons/Star/Star.mobile';
-import * as AppURL from '@src/models/AppURL';
+import AppURL from '@src/models/AppURL';
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 import { resolveNames, withProps } from '@src/styles/styleUtils';
-import { Colors, styles } from '@styles/index';
+import StarIcon from '@src/components/icons/Star/Star.mobile';
 
 const StyledUpper = styled.div`
   padding: 0 12px;
-  border-bottom: 1px solid ${Colors.GRAY4};
+  border-bottom: 1px solid ${Color.GRAY4};
 `;
 
 const UpperTop = styled.div`
@@ -17,20 +18,26 @@ const UpperTop = styled.div`
   justify-content: space-between;
 `;
 
-const Meta = styled.div``;
-const Author = styled.span``;
+const Meta = styled.div`
+`;
+
+const Author = styled.span`
+`;
+
 const Time = styled.span`
-  margin-left: 5px;`;
+  margin-left: 5px;
+`;
 
 const UpperBottom = styled.div`
- padding: 3px 0px 4px`;
+ padding: 3px 0px 4px;
+`;
 
 const StyledTerm = styled.span`
   font-size: 16px;
   font-weight: bold;
-  color: ${Colors.BLACK4};
+  color: ${Color.BLACK4};
   overflow-wrap: break-word;
-  `;
+`;
 
 const Term = (props) => {
   return (
@@ -47,7 +54,7 @@ const Term = (props) => {
 const Roman = styled.span`
   margin-left: 3px;
   font-size: 12px;
-  color: ${Colors.BLACK6};`;
+  color: ${Color.BLACK6};`;
 
 const StyledStarIcon = styled(StarIcon)``;
 const Pos = styled.span``;

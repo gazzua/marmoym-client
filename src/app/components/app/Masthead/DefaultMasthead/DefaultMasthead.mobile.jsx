@@ -2,14 +2,13 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
 
-import { Colors } from '@styles/index';
+import { Colors } from '@styles/styles';
 import MastheadBase from '../MastheadBase/MastheadBase.mobile';
 import MarmoymLogo from '@src/components/app/MarmoymLogo/MarmoymLogo.mobile';
 import QueryDisplay from '../QueryDisplay/QueryDisplay.mobile';
 import SearchIcon from '@src/components/icons/SearchIcon/SearchIcon.mobile';
 import PencilIcon from '@src/components/icons/PencilIcon/PencilIcon.mobile';
 import HamburgerIcon from '@src/components/icons/HamburgerIcon/HamburgerIcon.mobile';
-// tslint:disable-next-line:max-line-length
 import GlobalMenuModalContainer from '@containers/modals/GlobalMenuModalContainer/GlobalMenuModalContainer.mobile';
 
 const RightButtonGroup = styled.div`

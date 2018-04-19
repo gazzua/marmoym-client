@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { styles, Colors } from '@styles/index';
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 
 const StyledTerms = styled.div`
 background-color: white;
@@ -17,12 +18,12 @@ height: 40px;
 margin-top: 3px;
 border: 1px solid #c5b9ce;
 border-radius: 5px;
-background-color: ${Colors.GRAY5};
+background-color: ${Color.GRAY5};
 cursor: pointer;
 
 &:hover {
   color: black;
-  background-color: ${Colors.BLACK6};
+  background-color: ${Color.BLACK6};
   box-shadow: inset 1px 1px 3px 0px rgba(0,0,0,0.75);
 }
 `;

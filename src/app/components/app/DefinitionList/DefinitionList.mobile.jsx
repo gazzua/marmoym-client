@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { styles } from '@styles/index';
+import { border } from '@styles/styles';
 import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer.mobile';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane.mobile';
 

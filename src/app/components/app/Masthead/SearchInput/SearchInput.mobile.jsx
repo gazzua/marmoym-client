@@ -2,8 +2,9 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 import { connect } from 'react-redux';
 
+import { border } from '@styles/styles';
+import Color from '@constants/Color';
 import { selectLocale } from '@selectors/localeSelector';
-import { Colors, styles } from '@styles/index';
 import FontAwesomeIcon from '@components/icons/FontAwesomeIcon/FontAwesomeIcon.mobile';
 
 const StyledSearchInput = styled.div`
@@ -17,7 +18,7 @@ const Input = styled.input`
   background-color: transparent;
   outline: none;
   border: none;
-  color: ${Colors.BLACK5};
+  color: ${Color.BLACK5};
 `;
 
 const QueryDisplay = (props) => {
