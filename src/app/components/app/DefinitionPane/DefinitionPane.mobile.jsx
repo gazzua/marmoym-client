@@ -3,9 +3,7 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@styles/styles';
 import Color from '@constants/Color';
-import Locale from '@containers/LocaleContainer/LocaleContainer';
 import Lower from './Lower/Lower.mobile';
-import { resolveNames, withProps } from '@src/styles/styleUtils';
 import Upper from './Upper/Upper.mobile';
 
 const Label = styled.div``;
@@ -22,7 +20,7 @@ const StyledDefinitionPane = styled.div`
 `;
 
 const Body = styled.div`
-  padding: 9px 12px;a
+  padding: 9px 12px;
 `;
 
 const renderUsages = (usages) => {

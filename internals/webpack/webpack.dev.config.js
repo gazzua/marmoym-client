@@ -106,12 +106,15 @@ module.exports = {
   resolve: {
     alias: {
       '@actions': path.resolve(APP_PATH, 'state', 'actions'),
+      '@apis': path.resolve(APP_PATH, 'apis'),
       '@components': path.resolve(APP_PATH, 'components'),
       '@constants': path.resolve(APP_PATH, 'constants'),
       '@containers': path.resolve(APP_PATH, 'containers'),
       '@models': path.resolve(APP_PATH, 'models'),
+      '@modules': path.resolve(APP_PATH, 'modules'),
       '@selectors': path.resolve(APP_PATH, 'state', 'selectors'),
       '@src': path.resolve(APP_PATH),
+      '@state': path.resolve(APP_PATH, 'state'),
       '@styles': path.resolve(APP_PATH, 'styles'),
       '@types': path.resolve(APP_PATH, 'types'),
     },

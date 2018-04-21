@@ -1,5 +1,5 @@
 import ActionType from '@constants/ActionType';
-import * as MarmoymApis from '@src/apis/MarmoymApis';
+import MarmoymAPI from '@apis/MarmoymAPI/MarmoymAPI';
 
 const UserSignInParam = {
   email: '',

@@ -4,11 +4,17 @@ import styled from 'styled-components';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { configureStore } from '@src/state';
+import configureStore from '@state/configureStore';
+import globalStyle from '@src/styles/global';
 import RouterContainer from '@containers/RouterContainer/RouterContainer.mobile';
 
 const rootEl = document.getElementById('marmoym-app');
 const store = configureStore();
+
+/**
+ * ...
+ */
+globalStyle();
 
 const render = (Component) => {
   ReactDOM.render(

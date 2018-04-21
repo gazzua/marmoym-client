@@ -17,12 +17,3 @@ export default class AppURL {
     }
   }
 };
-
-// export function build(URL, ...tokens) {
-//   switch (URL) {
-//     case DEFINITIONS_ID:
-//     return `/definitions/${tokens[0]}`;
-//     default:
-//     return null;
-//   }
-// }

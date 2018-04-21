@@ -1,8 +1,6 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { withProps } from '@src/styles/styleUtils';
-
 const StyledDefine = styled.div`
   padding : 10px;
 `;

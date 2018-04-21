@@ -4,7 +4,6 @@ import styled, { StyledFunction } from 'styled-components';
 import AppURL from '@src/models/AppURL';
 import { border } from '@styles/styles';
 import Color from '@constants/Color';
-import { resolveNames, withProps } from '@src/styles/styleUtils';
 import StarIcon from '@src/components/icons/Star/Star.mobile';
 
 const StyledUpper = styled.div`

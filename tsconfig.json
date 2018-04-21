@@ -26,11 +26,17 @@
       "@models/*": [
         "src/app/models/*"
       ],
+      "@modules/*": [
+        "src/app/modules/*"
+      ],
       "@selectors/*": [
         "src/app/state/selectors/*"
       ],
       "@src/*": [
         "src/app/*"
+      ],
+      "@state/*": [
+        "src/app/state/*"
       ],
       "@styles/*": [
         "src/app/styles/*"

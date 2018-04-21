@@ -1,8 +1,6 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
-import { resolveNames, withProps } from '@src/styles/styleUtils';
-
 const StyledBackdrop = styled.div`
   position: absolute;
   top: 0;

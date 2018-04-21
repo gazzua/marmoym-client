@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { border } from '@styles/styles';
 import Color from '@constants/Color';
-import { withProps } from '@src/styles/styleUtils';
 import { selectLocale } from '@selectors/localeSelector';
 
 const StyledQueryDisplay = styled.div`

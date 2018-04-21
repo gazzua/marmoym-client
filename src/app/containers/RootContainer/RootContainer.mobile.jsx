@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 import Action from '@actions/Action';
 import Root from '@src/components/app/Root/Root.mobile';
-import globalStyle from '@src/styles/global';
 import { getLocale } from '@actions/localeAction'
 
 class RootContainer extends React.Component {
