@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@styles/styles';
-import Media from '@styles/media';
+import Media from '@styles/Media';
 import Color from '@constants/Color';
 import globalStyle from '@src/styles/global';
 

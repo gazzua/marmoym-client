@@ -1,7 +1,6 @@
 import ActionType from '@constants/ActionType';
-import * as MarmoymApis from '@src/apis/MarmoymApis';
+import MarmoymApis from '@apis/MarmoymAPI/MarmoymAPI';
 import { selectToFetch } from '@selectors/definitionSelector';
-import * as Immutable from 'immutable';
 
 const dummyDef = {
   created_at: 20,

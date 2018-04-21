@@ -3,7 +3,6 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@styles/styles';
 import Color from '@constants/Color';
-import { withProps } from '@src/styles/styleUtils';
 
 const StyledMarmoymLogo = styled.div`
   width: 55px;
