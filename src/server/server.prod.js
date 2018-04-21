@@ -5,7 +5,6 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const i18n = require('marmoym-i18n');
 
-const logger = require('./logger');
 const getConfig = require('./getConfig');
 
 /**
@@ -14,7 +13,7 @@ const getConfig = require('./getConfig');
  */
 const I18N_VERSION = '0.0.1';
 if (i18n.version !== I18N_VERSION) {
-  logger.warn(
+  console.warn(
     `marmoym-i18n is an incompatible version. Check the version or 'npm install'.`);
   process.exit(-1);
 }
@@ -35,7 +34,7 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 app.get('/ss/i18n/:locale', function(req, res) {
-  logger.debug('Returning i18n', req.params.locale);
+  console.log('Returning i18n %s', req.params.locale);
   const ret = {
     code: 200000,
     payload: {
@@ -72,7 +71,7 @@ app.use('/', function(req, res) {
 
 app.listen(3001, function(err) {
   if (err) {
-    return logger.error(err);
+    return console.error(err);
   }
-  logger.debug('Listening at http://localhost:3001/');
+  console.log('Listening at http://localhost:3001/');
 });

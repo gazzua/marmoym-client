@@ -5,7 +5,6 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const i18n = require('marmoym-i18n');
 
-const logger = require('./logger');
 const getConfig = require('./getConfig');
 
 const app = express();
@@ -26,7 +25,7 @@ app.use(webpackHotMiddleware(compiler, {
 }));
 
 app.get('/ss/i18n/:locale', function(req, res) {
-  logger.debug('Returning i18n', req.params.locale);
+  console.log('Returning i18n %s', req.params.locale);
   const ret = {
     code: 200000,
     payload: {

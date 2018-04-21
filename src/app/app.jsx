@@ -12,6 +12,14 @@ const rootEl = document.getElementById('marmoym-app');
 const store = configureStore();
 
 /**
+ * Polyfills
+ */
+if ((typeof window !== 'undefined' && !window._babelPolyfill) 
+  || (typeof global !== 'undefined' && !global._babelPolyfill)) {
+  require('@babel/polyfill');
+}
+
+/**
  * ...
  */
 globalStyle();

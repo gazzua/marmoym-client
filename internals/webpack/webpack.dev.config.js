@@ -7,8 +7,6 @@ const OUTPUT_PATH = path.resolve(__dirname, '../../dist');
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    'babel-polyfill',
-    'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     path.join(APP_PATH, 'app.jsx'),
   ],
@@ -19,30 +17,12 @@ module.exports = {
         test: /\.jsx?$/,
         use: [
           {
-            loader: 'react-hot-loader/webpack',
-          },
-          {
             loader: 'babel-loader',
           },
         ],
       },
       {
-        exclude: [/node_modules/],
-        test: /\.tsx?$/,
-        use: [
-          {
-            loader: 'react-hot-loader/webpack',
-          },
-          {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'awesome-typescript-loader',
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
+        test: /\.s?css$/,
         use: [
           {
             loader: 'style-loader',
@@ -52,24 +32,24 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.scss/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              localIdentName: '[name]-[local]-[hash:base64:4]',
-              modules: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
-      },
+      // {
+      //   test: /\.scss/,
+      //   use: [
+      //     {
+      //       loader: 'style-loader',
+      //     },
+      //     {
+      //       loader: 'css-loader',
+      //       options: {
+      //         localIdentName: '[name]-[local]-[hash:base64:4]',
+      //         modules: true,
+      //       },
+      //     },
+      //     {
+      //       loader: 'sass-loader',
+      //     },
+      //   ],
+      // },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
