@@ -29,7 +29,7 @@ module.exports = {
       'post-setup': 'git fetch origin',
       'post-deploy': 'yarn install && yarn run pm2:start:prod',
     },
-    development: {
+    production: {
       user: 'ubuntu',
       host: '52.79.188.113',
       ref: 'origin/dev',
