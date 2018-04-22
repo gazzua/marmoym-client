@@ -8,18 +8,34 @@ import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane.mo
 
 const StyledDefinition = styled.div``;
 
+const Low = styled.div`
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+`;
+const StyledDefinitionPane = styled.div`
+  margin-top: 5px;
+  padding: 8px 0px;
+  ${border('black')};
+`;
+
 const Definition = ({
   definition,
 }) => {
   return (
-    <div>
-      <div>
-        {definition['term_label']}
-      </div>
-      <div>
+    <StyledDefinitionPane>
+      <Low>
+        <div>
+          {definition['term_label']}
+        </div>
+        <div>
+          {definition['pos']}
+        </div>
+      </Low>
+      <Low>
         {definition['definition_label']}
-      </div>
-    </div>
+      </Low>
+    </StyledDefinitionPane>
   )
 }
 
