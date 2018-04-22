@@ -1,6 +1,6 @@
 const path = require('path');
 
-const APP_PATH = path.resolve(__dirname, '../../src/server.js');
+const APP_PATH = path.resolve(__dirname, '../../src/server/server.js');
 
 module.exports = {
   // http://pm2.keymetrics.io/docs/usage/application-declaration/

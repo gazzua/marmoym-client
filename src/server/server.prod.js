@@ -8,15 +8,17 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const createServer = require('./createServer');
-const getWebpackConfig = require('../../internals/webpack/getWebpackConfig');
-const webpackConfig = require(getWebpackConfig(process.env.PLATFORM, process.env.NODE_ENV));
 const pJson = require('../../package.json');
 
 const DIST_PATH = path.resolve(__dirname, '../../dist');
+const WEBPACK_CONFIG_PATH = process.env.NODE_ENV === 'production' 
+  ? path.resolve(__dirname, '../../internals/webpack/webpack.prod.config.js')
+  : path.resolve(__dirname, '../../internals/webpack/webpack.dev.config.js');
 
-const git_fetch_head = fs.readFileSync(path.resolve(__dirname, '../../.git/FETCH_HEAD'))
-  .toString();
+const webpackConfig = require(WEBPACK_CONFIG_PATH);
 const webpackCompiler = webpack(webpackConfig);
+const gitFetchHead = fs.readFileSync(path.resolve(__dirname, '../../.git/FETCH_HEAD'))
+  .toString();
 
 module.exports = createServer((app) => {
   // The state changes according to the status of compilation
@@ -57,7 +59,7 @@ module.exports = createServer((app) => {
       app_start_time: this.now,
       app_version: pJson.version,
       distFiles: state.distFiles,
-      git_fetch_head,
+      git_fetch_head: gitFetchHead,
       node_env: process.env.NODE_ENV,
       status: state.status,
     });
@@ -69,8 +71,14 @@ module.exports = createServer((app) => {
       res.send('App is being launched. Reload after 15 seconds');
     } else {
       res.set('content-type','text/html');
-      res.send(state.indexFile);
-      res.end();
+
+      // todo: platform conditional
+      if (true /* mobile */) {
+        res.send(state.indexFile);
+        res.end();
+      } else {
+        // ...
+      }
     }
   });
 });
