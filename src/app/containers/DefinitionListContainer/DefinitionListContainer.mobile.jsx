@@ -1,43 +1,52 @@
-import * as React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 import { withRouter } from 'react-router';
 
+import Definition from '@models/data/Definition';
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList.mobile';
-//import { DefinitionListContainerProps } from '@src/models/ContainerTypes';
+import { requestGetDefinitions } from '@actions/definitionActions';
 import {
   selectCombinedDefinitionsInDisplay,
   selectDefinitionsInDisplay,
 } from '@selectors/definitionSelector';
+import withUuid from '@hocs/withUuid';
 
 class DefinitionListContainer extends React.Component {
   constructor(...props) {
     super(...props);
     this.handleClickTerm = this.handleClickTerm.bind(this);
+    // this.id = Math.random()
   }
 
   componentDidMount() {
-    //
+    this.props.dispatch(requestGetDefinitions({
+      componentId: this.props.componentId,
+    }));
   }
 
   handleClickTerm(e, url) {
-    e.preventDefault();
-    this.props.history.push(url);
+    // e.preventDefault();
+    // this.props.history.push(url);
   }
 
   render() {
-    console.log(1232323, this.props.definitions);
     return (
       <DefinitionList
-        definitions={this.props.definitions}
-        handleClickTerm={this.handleClickTerm}/>
+        definitions={this.props.definitions}/>
     );
   }
 }
 
+DefinitionListContainer.propTypes = {
+  componentId: PropTypes.string.isRequired,
+  definitions: PropTypes.arrayOf(PropTypes.instanceOf(Definition)),
+};
+
 const mapStateToProps = (state, props) => {
   return {
-    definitions: state.definitionReducer.definitions,
+    definitions: state.definitionReducer.definitions[props.componentId],
   };
 };
 
-export default withRouter(connect(mapStateToProps)(DefinitionListContainer));
+export default withUuid(withRouter(connect(mapStateToProps)(DefinitionListContainer)));

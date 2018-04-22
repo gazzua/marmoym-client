@@ -1,6 +1,5 @@
 import * as Immutable from 'immutable';
 
-import Definition from '@src/models/Definition';
 import User from '@src/models/User';
 import ActionType from '@constants/ActionType';
 
@@ -22,48 +21,45 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.GET_DEFINITIONS_SUCCESS:
-      return getDefinitionDidSucceed(state, action);
     case ActionType.REQUEST_SIGN_IN_USER_SUCCESS:
-      console.log(123, 1);
-      // ...
       return state;
     case ActionType.REQUEST_SIGN_UP_USER_SUCCESS:
-      return signUpUserDidSucceed(state, action);
+      return state;
+      // return signUpUserDidSucceed(state, action);
     default:
       return state;
   }
 };
 
-function getDefinitionDidSucceed(state, action) {
-  //const { users } = action.payload;
-  const users = [{
-    created_at: 0,
-    email: 'email',
-    id: 0,
-    karma: 0,
-    password: 'password',
-    updated_at: 0,
-    username: 'username',
-  }];
-  return {
-    ...state,
-    //users: User.hardMerge(users).into(state.users),  // todo implement softMerge needed
-    users,
-  };
-}
+// function getDefinitionDidSucceed(state, action) {
+//   //const { users } = action.payload;
+//   const users = [{
+//     created_at: 0,
+//     email: 'email',
+//     id: 0,
+//     karma: 0,
+//     password: 'password',
+//     updated_at: 0,
+//     username: 'username',
+//   }];
+//   return {
+//     ...state,
+//     //users: User.hardMerge(users).into(state.users),  // todo implement softMerge needed
+//     users,
+//   };
+// }
 
-function signInUserDidSucceed(state, action) {
-  const currentUser = action.payload;
-  return {
-    ...state,
-    currentUser : currentUser,
-  };
-}
+// function signInUserDidSucceed(state, action) {
+//   const currentUser = action.payload;
+//   return {
+//     ...state,
+//     currentUser : currentUser,
+//   };
+// }
 
-function signUpUserDidSucceed(state, action) {
-  return {
-    // todo
-    ...state,
-  };
-}
+// function signUpUserDidSucceed(state, action) {
+//   return {
+//     // todo
+//     ...state,
+//   };
+// }

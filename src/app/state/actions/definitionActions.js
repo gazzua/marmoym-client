@@ -1,61 +1,57 @@
+import { selectAxiosPayload, selectAxiosError } from '@modules/Axios';
 import ActionType from '@constants/ActionType';
-import MarmoymApis from '@apis/MarmoymAPI/MarmoymAPI';
+import MarmoymAPI from '@apis/MarmoymAPI/MarmoymAPI';
 import { selectToFetch } from '@selectors/definitionSelector';
+import Logger from '@modules/Logger';
 
-const dummyDef = {
-  created_at: 20,
-  downvote: 10,
-  id: 1,
-  label: '기모찌',
-  origins: ['power', '111origin'],
-  poss: ['동사'],
-  term_id: 2,
-  updated_at: Date.now(),
-  upvote: 2,
-  usages: ['blabla', 'bleble'],
-  user_id: 3,
-  username: 'username123123',
-};
+const logger = new Logger('action');
 
-const TermRecord = {
-  created_at: 0,
-  id: 0,
-  label: 'label',
-  roman: 'roman',
-  updated_at: 0,
-};
+// const dummyDef = {
+//   created_at: 20,
+//   downvote: 10,
+//   id: 1,
+//   label: '기모찌',
+//   origins: ['power', '111origin'],
+//   poss: ['동사'],
+//   term_id: 2,
+//   updated_at: Date.now(),
+//   upvote: 2,
+//   usages: ['blabla', 'bleble'],
+//   user_id: 3,
+//   username: 'username123123',
+// };
 
-const searchParam = {
-  query: '',
-}
-
-export function getDefinitions ({
+export function requestGetDefinitions({
+  componentId,
   page,
 }) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     dispatch({
       payload: arguments[0],
-      type: ActionType.GET_DEFINITIONS,
+      type: ActionType.REQUEST_GET_DEFINITIONS,
     })
 
-    return MarmoymApis.getDefinitions({
-      page,
-    })
-      .then((res) => {
-        dispatch({
-          payload: {
-            definitions: [ dummyDef ],
-          },
-          type: ActionType.GET_DEFINITIONS_SUCCESS,
-        })
-      })
-      .catch((res) => {
-        dispatch({
-          type: ActionType.GET_DEFINITIONS_ERROR,
-        });
-      })
+    try {
+      const result = await MarmoymAPI.getDefinitions({
+        page,
+      });
+
+      dispatch({
+        payload: {
+          componentId,
+          definitions: selectAxiosPayload(result),
+        },
+        type: ActionType.REQUEST_GET_DEFINITIONS_SUCCESS,
+      });
+    } catch (err) {
+      Logger.error(err);
+      dispatch({
+        error: selectAxiosError(err),
+        type: ActionType.REQUEST_GET_DEFINITIONS_ERROR,
+      });
+    }
   }
-}
+};
 
 export const search = (searchParam) => {
   return (dispatch, getState) => {
