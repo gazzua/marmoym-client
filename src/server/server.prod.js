@@ -1,3 +1,4 @@
+const del = require('del');
 const express = require('express');
 const fs = require('fs');
 const i18n = require('marmoym-i18n');
@@ -25,21 +26,26 @@ module.exports = createServer((app) => {
     indexFile: undefined,
   };
 
-  webpackCompiler.run((err, stats) => {
-    const info = stats.toJson('errors-only');
+  del(`${DIST_PATH}/*`).then(() => {
+    console.log(`[info] Remove contents in ${DIST_PATH}`);
+    console.log(`[info] Compile with webpack`);
 
-    if (err || stats.hasErrors()) {
-      console.error(info.errors);  
-      state.status = 'error';
-    } else {
-      console.log(stats.toString({
-        colors: true,
-      }));
-
-      state.status = "launched";
-      state.index = fs.readFileSync(path.join(DIST_PATH, 'index.html'));
-      state.distFiles = fs.readdirSync(DIST_PATH);
-    }
+    webpackCompiler.run((err, stats) => {
+      const info = stats.toJson('errors-only');
+  
+      if (err || stats.hasErrors()) {
+        console.error(info.errors);  
+        state.status = 'error';
+      } else {
+        console.log(stats.toString({
+          colors: true,
+        }));
+  
+        state.status = "launched";
+        state.indexFile = fs.readFileSync(path.join(DIST_PATH, 'index.html'));
+        state.distFiles = fs.readdirSync(DIST_PATH);
+      }
+    });
   });
 
   // Serve static files, e.g. [bundle].js
@@ -59,11 +65,11 @@ module.exports = createServer((app) => {
 
   // Serve compiled output only when present
   app.use('*', (req, res, next) => {
-    if (!state.index) {
+    if (!state.indexFile) {
       res.send('App is being launched. Reload after 15 seconds');
     } else {
       res.set('content-type','text/html');
-      res.send(state.index);
+      res.send(state.indexFile);
       res.end();
     }
   });

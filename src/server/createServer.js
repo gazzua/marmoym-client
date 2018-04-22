@@ -8,7 +8,7 @@ const app = express();
 
 module.exports = function createServer(fn) {
   this.now = Date();
-  console.log('[info] NOD_ENV at server: %s', process.env.NODE_ENV)
+  console.log('[info] NODE_ENV at server: %s', process.env.NODE_ENV)
   console.log('[info] App is launching. Loading the server configuration at server time:', now);
 
   // General logging
