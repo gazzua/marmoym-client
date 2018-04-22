@@ -11,10 +11,9 @@
     "url": "git://github.com/tymsai/marmoym-client.git"
   },
   "scripts": {
-    "start:dev:mobile": "cross-env PLATFORM=mobile NODE_ENV=development node ./src/server/server.js",
-    "start:dev:web": "cross-env PLATFORM=web NODE_ENV=development node ./src/server/server.js",
-    "start:prod:mobile": "cross-env PLATFORM=mobile NODE_ENV=production node ./src/server/server.js",
-    "pm2:start:prod:web": "pm2 startOrRestart ./internals/pm2/ecosystem.config.js --env production",
+    "start:dev": "cross-env NODE_ENV=development node ./src/server/server.js",
+    "start:prod": "cross-env NODE_ENV=production node ./src/server/server.js",
+    "pm2:start:prod": "pm2 startOrRestart ./internals/pm2/ecosystem.config.js --env production",
     "pm2:deploy": "pm2 deploy ./internals/pm2/ecosystem.config.js production",
     "test": ""
   },
@@ -23,7 +22,6 @@
     "express": "^4.15.0",
     "font-awesome": "^4.7.0",
     "immutable": "^3.8.2",
-    "lodash": "^4.17.4",
     "marmoym-i18n": "git+https://tymsai-github-bot@github.com/tymsai/marmoym-i18n.git#dev",
     "morgan": "^1.9.0",
     "react": "^16.3.2",

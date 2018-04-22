@@ -7,7 +7,7 @@ const DIST_PATH = path.resolve(__dirname, '../../dist');
 
 module.exports = {
   entry: {
-    app: path.join(APP_PATH, 'app.jsx'),
+    mobile: [ path.resolve(APP_PATH, 'app.mobile.jsx') ],
     react: ['react', 'redux', 'react-redux'],
   },
   module: {
@@ -51,6 +51,13 @@ module.exports = {
         ],
       },
     ],
+  },
+  optimization: {
+    runtimeChunk: false,
+    minimize: true,
+    splitChunks: {
+      chunks: 'all',
+    }
   },
   output: {
     path: DIST_PATH,

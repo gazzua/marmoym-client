@@ -8,10 +8,10 @@ const APP_PATH = path.resolve(__dirname, '../../src/app');
 
 const devConfig = {
   entry: {
-    app: [
+    mobile: [
       'webpack-hot-middleware/client', 
-      path.resolve(APP_PATH, 'app.jsx'),
-    ]
+      path.resolve(APP_PATH, 'app.mobile.jsx'),
+    ],
   },
   mode: 'development',
   optimization: {
