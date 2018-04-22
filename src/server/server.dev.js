@@ -14,6 +14,8 @@ const DIST_PATH = path.resolve(__dirname, '../../dist');
 const webpackCompiler = webpack(webpackConfig);
 
 module.exports = createServer((app) => {
+  console.log('[info] configuring development server');
+
   app.use(webpackDevMiddleware(webpackCompiler, {
     publicPath: webpackConfig.output.publicPath,
     stats: {
@@ -24,20 +26,6 @@ module.exports = createServer((app) => {
   app.use(webpackHotMiddleware(webpackCompiler, {
     heartbeat: 2000,
   }));
-
-  // app.get('/ss/i18n/:locale', function(req, res) {
-  //   console.log('Returning i18n %s', req.params.locale);
-  //   const result = {
-  //     code: 200000,
-  //     payload: {
-  //       locale: i18n[req.params.locale],
-  //     },
-  //   };
-  
-  //   // todo: validation
-  //   res.status(200)
-  //     .send(result);
-  // });
 
   app.use('*', (req, res, next) => {
     var filename = path.resolve(webpackCompiler.outputPath, 'index.html');
