@@ -1,11 +1,11 @@
-var merge = require('webpack-merge');
+const merge = require('webpack-merge');
+const path = require('path');
+const webpack = require('webpack');
 
-var config = require('./webpack.prod.config.js');
+const config = require('./webpack.base.config.js');
 
-var _config = {
-  resolve: {
-    extensions: ['.mobile.ts', '.mobile.tsx'],
-  },
+const prodConfig = {
+  mode: 'production',
 };
 
-module.exports = merge(config, _config);
+module.exports = merge(config, prodConfig);

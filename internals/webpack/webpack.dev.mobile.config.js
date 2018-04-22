@@ -1,11 +1,29 @@
-var merge = require('webpack-merge');
+const merge = require('webpack-merge');
+const path = require('path');
+const webpack = require('webpack');
 
-var config = require('./webpack.dev.config.js');
+const config = require('./webpack.base.config.js');
 
-var _config = {
-  resolve: {
-    extensions: ['.mobile.ts', '.mobile.tsx'],
+const APP_PATH = path.resolve(__dirname, '../../src/app');
+
+const devConfig = {
+  entry: {
+    app: [
+      'webpack-hot-middleware/client', 
+      path.resolve(APP_PATH, 'app.jsx'),
+    ]
   },
+  mode: 'development',
+  optimization: {
+    minimize: false,
+  },
+  output: {
+    filename: '[name].[hash].js',
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+  ],
 };
 
-module.exports = merge(config, _config);
+module.exports = merge(config, devConfig);
