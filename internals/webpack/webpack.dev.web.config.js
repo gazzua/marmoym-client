@@ -1,7 +1,3 @@
-var config = require('./webpack.dev.config.js');
-
-var EXT = ['.web.ts', '.web.tsx'];
-
-config.resolve.extensions = config.resolve.extensions.concat(EXT);
+var config = require('./webpack.base.config.js');
 
 module.exports = config;

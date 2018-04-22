@@ -1,15 +1,15 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack');
 
 const APP_PATH = path.resolve(__dirname, '../../src/app');
-const OUTPUT_PATH = path.resolve(__dirname, '../../dist');
+const DIST_PATH = path.resolve(__dirname, '../../dist');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    path.join(APP_PATH, 'app.jsx'),
-  ],
+  entry: {
+    app: path.join(APP_PATH, 'app.jsx'),
+    react: ['react', 'redux', 'react-redux'],
+  },
   module: {
     rules: [
       {
@@ -22,34 +22,23 @@ module.exports = {
         ],
       },
       {
-        test: /\.s?css$/,
+        test: /\.s?css/,
         use: [
           {
             loader: 'style-loader',
           },
           {
             loader: 'css-loader',
+            options: {
+              localIdentName: '[name]-[local]-[hash:base64:4]',
+              modules: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
           },
         ],
       },
-      // {
-      //   test: /\.scss/,
-      //   use: [
-      //     {
-      //       loader: 'style-loader',
-      //     },
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         localIdentName: '[name]-[local]-[hash:base64:4]',
-      //         modules: true,
-      //       },
-      //     },
-      //     {
-      //       loader: 'sass-loader',
-      //     },
-      //   ],
-      // },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
@@ -63,25 +52,18 @@ module.exports = {
       },
     ],
   },
-  node: {
-    __dirname: true,
-    __filename: true,
-    fs: 'empty',
-  },
   output: {
-    filename: 'bundle.js',
-    path: OUTPUT_PATH,
+    path: DIST_PATH,
+    filename: '[name].[chunkhash].js',
+    chunkFilename: 'chunk.[chunkhash].js',
     publicPath: '/',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'index.html'),
+    }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'PLATFORM': '"MOBILE"',
-      },
-    }),
   ],
   resolve: {
     alias: {
@@ -98,7 +80,7 @@ module.exports = {
       '@styles': path.resolve(APP_PATH, 'styles'),
       '@types': path.resolve(APP_PATH, 'types'),
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx'],
     modules: [
       path.resolve('./node_modules'),
     ],

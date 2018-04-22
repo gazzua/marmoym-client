@@ -11,13 +11,9 @@
     "url": "git://github.com/tymsai/marmoym-client.git"
   },
   "scripts": {
-    "setup:dev": "./internals/shell/setup.sh",
-    "dev:mobile": "./node_modules/.bin/webpack --progress --config internals/webpack/webpack.mobile.dev.config.js",
-    "start:dev:mobile": "cross-env PLATFORM=mobile NODE_ENV=development node ./bin/www",
-    "start:dev:web": "cross-env PLATFORM=web NODE_ENV=development node ./server/server.dev.js",
-    "start:prod:mobile": "cross-env PLATFORM=mobile NODE_ENV=production node ./server/server.prod.js",
-    "build:prod:mobile": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --config internals/webpack/webpack.prod.mobile.config.js --color -p --progress",
-    "lint": " ./node_modules/.bin/tslint -t stylish -p ./tsconfig.json",
+    "start:dev:mobile": "cross-env PLATFORM=mobile NODE_ENV=development node ./src/server/server.dev.js",
+    "start:dev:web": "cross-env PLATFORM=web NODE_ENV=development node ./src/server/server.dev.js",
+    "start:prod:mobile": "cross-env PLATFORM=mobile NODE_ENV=production node ./src/server/server.prod.js",
     "test": ""
   },
   "dependencies": {
@@ -27,6 +23,7 @@
     "immutable": "^3.8.2",
     "lodash": "^4.17.4",
     "marmoym-i18n": "git+https://tymsai-github-bot@github.com/tymsai/marmoym-i18n.git#dev",
+    "morgan": "^1.9.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
@@ -51,6 +48,7 @@
     "css-loader": "^0.28.9",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.8.3",
     "react-hot-loader": "^4.1.1",
     "sass-loader": "^6.0.6",
