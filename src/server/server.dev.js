@@ -9,8 +9,8 @@ const createServer = require('./createServer');
 
 const DIST_PATH = path.resolve(__dirname, '../../dist');
 const WEBPACK_CONFIG_PATH = process.env.NODE_ENV === 'production' 
-  ? path.resolve(__dirname, '../../internals/webpack/webpack.dev.config.js')
-  : path.resolve(__dirname, '../../internals/webpack/webpack.prod.config.js');
+  ? path.resolve(__dirname, '../../internals/webpack/webpack.prod.config.js')
+  : path.resolve(__dirname, '../../internals/webpack/webpack.dev.config.js');
 
 const webpackConfig = require(WEBPACK_CONFIG_PATH);
 const webpackCompiler = webpack(webpackConfig);

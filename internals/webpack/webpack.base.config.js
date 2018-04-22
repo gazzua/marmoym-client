@@ -7,7 +7,7 @@ const DIST_PATH = path.resolve(__dirname, '../../dist');
 
 module.exports = {
   entry: {
-    mobile: [ path.resolve(APP_PATH, 'app.mobile.jsx') ],
+    mobile: path.resolve(APP_PATH, 'app.mobile.jsx'),
     react: ['react', 'redux', 'react-redux'],
   },
   module: {
