@@ -39,7 +39,7 @@ export function requestGetDefinitions({
       dispatch({
         payload: {
           componentId,
-          definitions: selectAxiosPayload(result),
+          ...selectAxiosPayload(result),
         },
         type: ActionType.REQUEST_GET_DEFINITIONS_SUCCESS,
       });
