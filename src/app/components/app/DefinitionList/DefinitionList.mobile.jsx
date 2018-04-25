@@ -6,14 +6,12 @@ import { border } from '@styles/styles';
 import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer.mobile';
 import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane.mobile';
 
-const StyledDefinition = styled.div``;
-
-const Low = styled.div`
+const Row = styled.div`
   display: flex;
   font-size: 12px;
   justify-content: space-between;
 `;
-const StyledDefinitionPane = styled.div`
+const StyledDefinition = styled.div`
   margin-top: 5px;
   padding: 8px 0px;
   ${border('black')};
@@ -23,19 +21,19 @@ const Definition = ({
   definition,
 }) => {
   return (
-    <StyledDefinitionPane>
-      <Low>
+    <StyledDefinition>
+      <Row>
         <div>
           {definition['term_label']}
         </div>
         <div>
           {definition['pos']}
         </div>
-      </Low>
-      <Low>
+      </Row>
+      <Row>
         {definition['definition_label']}
-      </Low>
-    </StyledDefinitionPane>
+      </Row>
+    </StyledDefinition>
   )
 }
 

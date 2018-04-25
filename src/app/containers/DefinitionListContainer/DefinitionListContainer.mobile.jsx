@@ -16,7 +16,6 @@ class DefinitionListContainer extends React.Component {
   constructor(...props) {
     super(...props);
     this.handleClickTerm = this.handleClickTerm.bind(this);
-    // this.id = Math.random()
   }
 
   componentDidMount() {

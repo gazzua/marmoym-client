@@ -1,4 +1,3 @@
-// import * as Immutable from 'immutable';
 import Record from '@models/Record';
 
 export default class Definition extends Record({

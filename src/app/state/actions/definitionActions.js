@@ -29,7 +29,7 @@ export function requestGetDefinitions({
     dispatch({
       payload: arguments[0],
       type: ActionType.REQUEST_GET_DEFINITIONS,
-    })
+    });
 
     try {
       const result = await MarmoymAPI.getDefinitions({

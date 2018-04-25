@@ -25,8 +25,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ActionType.REQUEST_GET_DEFINITIONS_SUCCESS:
       return onSucceed({
-        action, 
-        factory: Definition.ofMany, 
+        action,
+        factory: Definition.ofMany,
         state,
       });
     case ActionType.ADD_DEFINITION:
