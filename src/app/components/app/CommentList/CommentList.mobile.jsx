@@ -15,7 +15,7 @@ function renderComments(comments) {
   ));
 }
 
-const StyledCommentList = styled.div`fo
+const StyledCommentList = styled.div`
   ${border('black')}
 `;
 

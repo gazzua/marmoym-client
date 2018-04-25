@@ -1,6 +1,7 @@
 import { sprintf } from 'sprintf-js';
 
-// import appConfig from '@config/appConfig';
+import appConfig from '@config/appConfig';
+import { DEV_ENV, PROD_ENV } from '@utils/envUtils';
 
 const BLUE_BOLD = 'color: blue; font-weight: bold;';
 const GREEN_BOLD = 'color: green; font-weight: bold;';
@@ -69,8 +70,7 @@ export default class Logger {
   }
 
   shouldLog() {
-    return process.env.NODE_ENV !== 'production';
-    // return DEV_ENV && appConfig.logNames[this.name];
+    return !PROD_ENV && appConfig.logNames[this.name];
   }
 
   navigation(url, ...args) {

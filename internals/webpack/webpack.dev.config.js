@@ -7,6 +7,7 @@ const config = require('./webpack.base.config.js');
 const APP_PATH = path.resolve(__dirname, '../../src/app');
 
 const devConfig = {
+  devtool: 'source-map',
   entry: {
     mobile: [
       'webpack-hot-middleware/client', 

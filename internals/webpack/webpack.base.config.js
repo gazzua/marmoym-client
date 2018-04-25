@@ -77,8 +77,10 @@ module.exports = {
       '@actions': path.resolve(APP_PATH, 'state', 'actions'),
       '@apis': path.resolve(APP_PATH, 'apis'),
       '@components': path.resolve(APP_PATH, 'components'),
+      '@config': path.resolve(APP_PATH, 'config'),
       '@constants': path.resolve(APP_PATH, 'constants'),
       '@containers': path.resolve(APP_PATH, 'containers'),
+      '@hocs': path.resolve(APP_PATH, 'hocs'),
       '@models': path.resolve(APP_PATH, 'models'),
       '@modules': path.resolve(APP_PATH, 'modules'),
       '@selectors': path.resolve(APP_PATH, 'state', 'selectors'),
@@ -86,6 +88,7 @@ module.exports = {
       '@state': path.resolve(APP_PATH, 'state'),
       '@styles': path.resolve(APP_PATH, 'styles'),
       '@types': path.resolve(APP_PATH, 'types'),
+      '@utils': path.resolve(APP_PATH, 'utils'),
     },
     extensions: ['.js', '.jsx'],
     modules: [
