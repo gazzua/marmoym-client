@@ -1,4 +1,6 @@
-const ROOT = 'http://localhost:4001/api/v1/';
+const ROOT = process.env.NODE_ENV === 'development' 
+  ? `http://${window.location.hostname}:4001/api/v1`
+  : `http://api.marmoym.com/api/v1`;
 
 const MarmoymURL = {
   ADD_DEFINITION: `${ROOT}/newdefinitions`,
