@@ -38,10 +38,9 @@ const render = (Component) => {
 render(RouterContainer);
 
 if (module.hot) {
-  const url = '@containers/RouterContainer/RouterContainer.mobile';
-  module.hot.accept(url, () => {
-    const newRoutes = require('@containers/RouterContainer/RouterContainer.mobile').default;
-    console.log('hot replace: %s', '@containers/RouterContainer/RouterContainer.mobile');
+  module.hot.accept('./containers/RouterContainer/RouterContainer.mobile', () => {
+    const newRoutes = require('./containers/RouterContainer/RouterContainer.mobile').default;
+    console.log('hot replace');
     render(newRoutes);
   });
 }

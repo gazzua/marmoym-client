@@ -6,13 +6,13 @@ import { withRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 import AppURL from '@src/models/AppURL';
 import { border } from '@styles/styles';
 import Color from '@constants/Color';
+import DefinitionContainer from '@containers/DefinitionContainer/DefinitionContainer.mobile';
 import DefinitionListContainer from '@src/containers/DefinitionListContainer/DefinitionListContainer.mobile';
 import MastheadContainer from '@src/containers/MastheadContainer/MastheadContainer.mobile';
 import DefineContainer from '@src/containers/DefineContainer/DefineContainer.mobile';
 import SignInContaienr from '@src/containers/SignInContainer/SignInContainer.mobile';
 import SignUpContainer from '@src/containers/SignUpContainer/SignUpContainer.mobile';
 import UserContainer from '@src/containers/UserContainer/UserContainer.mobile';
-import { getDefinitions, search } from '@actions/definitionActions';
 
 const StyledHomeLayout = styled.div`
   ${border('black')}
@@ -35,9 +35,14 @@ const HomeLayout = (props) => {
             }}/>
 
           <Route 
-            path={AppURL.DEFINITIONS_ID}
+            path={AppURL.DEFINITIONS_DEFID}
             render={(props) => {
-              return <DefinitionListContainer/>;
+              return (
+                <div>
+                  <DefinitionContainer/>
+                  <div>comment111</div>
+                </div>
+              );
             }}/>
 
           <Route
