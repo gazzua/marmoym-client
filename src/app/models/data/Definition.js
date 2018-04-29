@@ -14,20 +14,16 @@ export default class Definition extends Record({
   }
   
   static ofMany(data) {
-    if (data && data.map) {
-      return data.map((d) => {
-        return new Definition({
-          created_at: d.created_at,
-          definition_id: d.definition_id,
-          definition_label: d.definition_label,
-          pos: d.pos,
-          term_id: d.term_id,
-          term_label: d.term_label,
-          updated_at: d.updated_at,
-        });
+    return data && data.map && data.map((d) => {
+      return new Definition({
+        created_at: d.created_at,
+        definition_id: d.definition_id,
+        definition_label: d.definition_label,
+        pos: d.pos,
+        term_id: d.term_id,
+        term_label: d.term_label,
+        updated_at: d.updated_at,
       });
-    } else {
-      throw Error('definition error'); 
-    }
+    });
   }
 };

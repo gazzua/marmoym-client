@@ -24,14 +24,14 @@ const Definition = ({
     <StyledDefinition>
       <Row>
         <div>
-          {definition['term_label']}
+          {definition.get('term_label')}
         </div>
         <div>
-          {definition['pos']}
+          {definition.get('pos')}
         </div>
       </Row>
       <Row>
-        {definition['definition_label']}
+        {definition.get('definition_label')}
       </Row>
     </StyledDefinition>
   )
