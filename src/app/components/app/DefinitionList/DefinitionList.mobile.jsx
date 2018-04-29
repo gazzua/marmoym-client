@@ -4,7 +4,6 @@ import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@styles/styles';
 import DefinitionContainer from '@src/containers/DefinitionContainer/DefinitionContainer.mobile';
-import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane.mobile';
 
 const Row = styled.div`
   display: flex;
