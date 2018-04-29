@@ -6,21 +6,6 @@ import Logger from '@modules/Logger';
 
 const logger = new Logger('action');
 
-// const dummyDef = {
-//   created_at: 20,
-//   downvote: 10,
-//   id: 1,
-//   label: '기모찌',
-//   origins: ['power', '111origin'],
-//   poss: ['동사'],
-//   term_id: 2,
-//   updated_at: Date.now(),
-//   upvote: 2,
-//   usages: ['blabla', 'bleble'],
-//   user_id: 3,
-//   username: 'username123123',
-// };
-
 export function requestGetDefinitions({
   componentId,
   page,
