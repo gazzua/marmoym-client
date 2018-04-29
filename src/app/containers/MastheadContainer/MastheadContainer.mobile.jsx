@@ -112,7 +112,6 @@ class MastheadContainer extends React.Component {
         modalIsVisible={this.state.modalIsVisible}
         handleClickSearchIcon={this.handleClickSearchIcon}
         handleClickMarmoymLogo={this.handleClickMarmoymLogo}
-        handleClickDefinition={this.handleClickDefinition}
         handleClickPencilIcon={this.handleClickPencilIcon}
         handleClickHamburgerIcon={this.handleClickHamburgerIcon}
         handleClickBackdrop={this.handleClickBackdrop}/>
