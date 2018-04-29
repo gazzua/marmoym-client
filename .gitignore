@@ -155,3 +155,4 @@ dist/*
 .yarnclean
 marmoym-config/
 .vscode/
+./package-lock.json
