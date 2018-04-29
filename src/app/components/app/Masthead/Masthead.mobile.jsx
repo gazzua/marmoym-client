@@ -29,7 +29,8 @@ const Masthead = (props) => {
           handleClickPencilIcon={props.handleClickPencilIcon}
           handleClickHamburgerIcon={props.handleClickHamburgerIcon}
           handleClickSearchIcon={props.handleClickSearchIcon}
-          handleClickBackdrop={props.handleClickBackdrop}/>
+          handleClickBackdrop={props.handleClickBackdrop}
+          handleClickDefinition={props.handleClickDefinition}/>
       );
   }
 };

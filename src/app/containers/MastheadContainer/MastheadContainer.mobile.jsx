@@ -33,6 +33,10 @@ class MastheadContainer extends React.Component {
     this.props.history.push('/define');
   }
 
+  handleClickDefinition() {
+    this.props.history.push('definitions/1');
+  }
+
   handleClickSearchIcon() {
     this.setState((state, props) => {
       return {
@@ -108,6 +112,7 @@ class MastheadContainer extends React.Component {
         modalIsVisible={this.state.modalIsVisible}
         handleClickSearchIcon={this.handleClickSearchIcon}
         handleClickMarmoymLogo={this.handleClickMarmoymLogo}
+        handleClickDefinition={this.handleClickDefinition}
         handleClickPencilIcon={this.handleClickPencilIcon}
         handleClickHamburgerIcon={this.handleClickHamburgerIcon}
         handleClickBackdrop={this.handleClickBackdrop}/>

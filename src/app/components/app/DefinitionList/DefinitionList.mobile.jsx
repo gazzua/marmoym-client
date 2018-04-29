@@ -18,9 +18,11 @@ const StyledDefinition = styled.div`
 
 const Definition = ({
   definition,
+  handleClick,
 }) => {
   return (
-    <StyledDefinition>
+    <StyledDefinition
+      onClick={handleClick}>
       <Row>
         <div>
           {definition.get('term_label')}
@@ -36,13 +38,12 @@ const Definition = ({
   )
 }
 
-const Definitions = ({
-  definitions,
-}) => {
-  return (definitions && definitions.map) 
-    ? definitions.map((definition, idx) => {
+const Definitions = (props) => {
+  return (props.definitions && props.definitions.map) 
+    ? props.definitions.map((definition, idx) => {
       return (
         <Definition
+          handleClick={props.handleClickDefinition}
           key={idx}
           definition={definition}/>
       );
@@ -61,15 +62,18 @@ const StyledDefinitionList = styled.div`
 
 const DefinitionList = ({
   definitions,
+  handleClickDefinition,
 }) => (
   <StyledDefinitionList>
     <Definitions 
-      definitions={definitions}/>
+      definitions={definitions}
+      handleClickDefinition={handleClickDefinition}/>
   </StyledDefinitionList>
 );
 
 DefinitionList.propTypes = {
   definitions: PropTypes.array,
+  handleClickDefinition: PropTypes.func.isRequired,
 }
 
 export default DefinitionList;
