@@ -1,7 +1,7 @@
 export default class AppURL {
   static __ROOT = `/`;
   static DEFINE = `/define`;
-  static DEFINITIONS_ID = `/definitions/:defId`;
+  static DEFINITIONS_DEFID = `/definitions/:defId`;
   static ERROR = '/error';
   static SEARCH = `/search`;
   static SIGNIN = `/signin`;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import DefinitionList from '@src/components/app/DefinitionList/DefinitionList.mobile';
-import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane.mobile';
+import Definition from '@src/components/app/Definition/Definition.mobile';
 import { selectDefinition } from '@selectors/definitionSelector';
 
 class DefinitionContainer extends React.Component {
@@ -12,7 +12,7 @@ class DefinitionContainer extends React.Component {
 
   render() {
     return (
-      <DefinitionPane/>
+      <Definition/>
     );
   }
 }
