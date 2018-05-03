@@ -1,8 +1,8 @@
 {
-  "name": "tymsai-web",
-  "version": "0.0.1",
-  "description": "initial",
-  "main": "index.js",
+  "name": "marmoym-client",
+  "version": "0.0.2",
+  "description": "marmoym-client",
+  "main": "",
   "directories": {
     "doc": "docs"
   },
