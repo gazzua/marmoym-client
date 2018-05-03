@@ -33,6 +33,10 @@ class MastheadContainer extends React.Component {
     this.props.history.push('/define');
   }
 
+  handleClickDefinition() {
+    this.props.history.push('definitions/1');
+  }
+
   handleClickSearchIcon() {
     this.setState((state, props) => {
       return {

@@ -16,6 +16,7 @@ class DefinitionListContainer extends React.Component {
   constructor(...props) {
     super(...props);
     this.handleClickTerm = this.handleClickTerm.bind(this);
+    this.handleClickDefinition = this.handleClickDefinition.bind(this);
   }
 
   componentDidMount() {
@@ -29,10 +30,16 @@ class DefinitionListContainer extends React.Component {
     // this.props.history.push(url);
   }
 
+  handleClickDefinition(e, definitionId) {
+    e.stopPropagation();
+    this.props.history.push(`/definitions/${definitionId}`);
+  }
+
   render() {
     return (
       <DefinitionList
-        definitions={this.props.definitions}/>
+        definitions={this.props.definitions}
+        handleClickDefinition={this.handleClickDefinition}/>
     );
   }
 }
