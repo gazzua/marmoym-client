@@ -30,8 +30,9 @@ class DefinitionListContainer extends React.Component {
     // this.props.history.push(url);
   }
 
-  handleClickDefinition() {
-    this.props.history.push('definitions/1');
+  handleClickDefinition(e, definitionId) {
+    e.stopPropagation();
+    this.props.history.push(`/definitions/${definitionId}`);
   }
 
   render() {
