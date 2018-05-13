@@ -39,6 +39,11 @@ export default (state = initialState, action) => {
         ...state,
         termAdded: action.payload,
       };
+    case ActionType.REQUEST_GET_DEFINITIONS_BY_ID_SUCCESS:
+      return {
+        ...state,
+        definition: action.payload.definition,
+      };
     case ActionType.REMOVE_DEFINITION:
       return {
         ...state,

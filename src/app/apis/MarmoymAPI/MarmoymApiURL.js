@@ -6,6 +6,7 @@ const MarmoymURL = {
   ADD_DEFINITION: `${ROOT}/newdefinitions`,
   GET_DEFINITIONS_IDS: `${ROOT}/definitions/ids`,
   GET_DEFINITIONS: `${ROOT}/definitions`,
+  GET_DEFINITIONS_BY_ID: `${ROOT}/definitions/`,
 
   USERS_SIGNEDIN: `${ROOT}/session/new`,
   USERS_SIGNEDUP: `${ROOT}/users/new`,
