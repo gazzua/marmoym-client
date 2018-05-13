@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import SignIn from '@src/components/app/SignIn/SignIn.mobile';
 import KeyCode from '@src/models/KeyCode';
@@ -55,15 +56,14 @@ class SignInContainer extends React.Component {
   }
 
   dispatchSignIn() {
-    // this.props.dispatch(Action.SIGN_IN_USER({
-    //   email: this.state.email,
-    //   password: this.state.password,
-    //   successCallback: this.navigateToMainPage,
-    // }));
     this.props.dispatch(requestSignInUser({
       email: this.state.email,
       password: this.state.password,
-    }));
+    })).then((res) => {
+      if (res.msg === "success") {
+        this.props.history.push(`/`);
+      }
+    });
   }
 
   handleClickSignUp() {
@@ -88,4 +88,10 @@ class SignInContainer extends React.Component {
   }
 }
 
-export default connect()(SignInContainer);
+const mapStateToProps = (state, props) => {
+  return {
+    ...state
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(SignInContainer));

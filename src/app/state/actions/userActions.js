@@ -1,5 +1,7 @@
+import { selectAxiosPayload, selectAxiosError } from '@modules/Axios';
 import ActionType from '@constants/ActionType';
 import MarmoymAPI from '@apis/MarmoymAPI/MarmoymAPI';
+import Logger from '@modules/Logger';
 
 const UserSignInParam = {
   email: '',
@@ -12,63 +14,72 @@ const UserSignUpParam = {
   username: '',
 }
 
-export const requestSignInUser = (userSignInParam) => {
-  return (dispatch, getState) => {
+export function requestSignInUser({
+  email,
+  password,
+}) {
+  return async (dispatch, getState) => {
     dispatch({
       type: ActionType.REQUEST_SIGN_IN_USER,
     });
 
-    return MarmoymApis.signInUser(userSignInParam.email, userSignInParam.password)
-      .then((res) => {
-        console.log(123, res);
-        dispatch({
-          type: ActionType.REQUEST_SIGN_IN_USER_SUCCESS,
-        });
-      })
-      .catch((err) => {
-        console.log(123, err);
-        dispatch({
-          type: ActionType.REQUEST_SIGN_IN_USER_ERROR,
-          payload: '',
-        });
+    try {
+      const result = await MarmoymAPI.signInUser({
+        email,
+        password,
       });
 
-    // return MemenetApis.requestGetImpressions(brand)
-    //   .then((res) => {
-    //     dispatch({
-    //       payload: selectData(res),
-    //       type: ActionTypes.REQUEST_GET_IMPRESSIONS_SUCCESS,
-    //     });
-    //   })
-    //   .catch(err => {
-    //     Logger.error(err);
-    //     dispatch({
-    //       payload: {},
-    //       type: ActionTypes.REQUEST_GET_IMPRESSIONS_ERROR,
-    //     });
-    //   });
+      dispatch({
+        payload: {
+          ...selectAxiosPayload(result),
+        },
+        type: ActionType.REQUEST_SIGN_IN_USER_SUCCESS,
+      });
+
+      return {
+        msg: 'success',
+      };
+    } catch (err) {
+      Logger.error(err);
+      dispatch({
+        error: selectAxiosError(err),
+        type: ActionType.REQUEST_SIGN_IN_USER_ERROR,
+      });
+    }
   }
 };
 
-export const requestSignUpUser = (userSignUpParam) => {
-  return (dispatch, getState) => {
+export function requestSignUpUser({
+  email,
+  password,
+  username,
+}) {
+  return async (dispatch, getState) => {
     dispatch({
-      type: ActionType.REQUEST_SIGN_UP_USER,
+      type: ActionType.REQUEST_SIGN_UP_USER
     });
 
-    return MarmoymApis.signUpUser(userSignUpParam.email, userSignUpParam.password, userSignUpParam.username)
-      .then((res) => {
-        console.log(123, res);
-        dispatch({
-          type: ActionType.REQUEST_SIGN_UP_USER_SUCCESS,
-        });
-      })
-      .catch((err) => {
-        console.log(123, err);
-        dispatch({
-          type: ActionType.REQUEST_SIGN_UP_USER_ERROR,
-          payload: '',
-        });
+    try {
+      const result = await MarmoymAPI.signUpUser({
+        email, password, username,
       });
+
+      dispatch({
+        payload: {
+          ...selectAxiosPayload(result),
+        },
+        type: ActionType.REQUEST_SIGN_UP_USER_SUCCESS,
+      });
+
+      return {
+        msg: 'success',
+      };
+    } catch (err) {
+      Logger.error(err);
+      dispatch({
+        error: selectAxiosError(err),
+        type: ActionType.REQUEST_SIGN_UP_USER_ERROR,
+      });
+    }
   }
 };

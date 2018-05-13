@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import SignUp from '@src/components/app/SignUp/SignUp.mobile';
 import Terms from '@src/components/app/Terms/Terms.mobile';
@@ -23,6 +24,12 @@ class SignUpContainer extends React.Component {
       userDidAgree: false,
     };
   }
+
+  // onSignUpSucceed({
+  //   state
+  // }) {
+  //   this.props.history.push('/');
+  // }
 
   handleChangeEmail(event) {
     const email = event.target.value;
@@ -70,7 +77,11 @@ class SignUpContainer extends React.Component {
         email: this.state.email,
         password: this.state.password,
         username: this.state.username,
-      }));
+      })).then((res) => {
+        if (res.msg === "success") {
+          this.props.history.push(`/`);
+        }
+      });
     }
   }
 
@@ -122,4 +133,10 @@ function checkPassword(password, passwordDoubleCheck) {
   return false;
 }
 
-export default connect()(SignUpContainer);
+const mapStateToProps = (state, props) => {
+  return {
+    ...state
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(SignUpContainer));
