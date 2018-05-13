@@ -46,7 +46,9 @@ const StyledDefinition = styled.div`
 //   });
 // };
 
-const Definition = () => {
+const Definition = ({
+  definition,
+}) => {
   return (
     <StyledDefinition>
       <Row>

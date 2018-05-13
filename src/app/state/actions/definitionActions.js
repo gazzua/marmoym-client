@@ -6,6 +6,35 @@ import Logger from '@modules/Logger';
 
 const logger = new Logger('action');
 
+export function requestGetDefinitionsById({
+  defId,
+}) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: ActionType.REQUEST_GET_DEFINITIONS_BY_ID,
+    });
+
+    try {
+      const result = await MarmoymAPI.getDefinitionsById({
+        defId,
+      });
+
+      dispatch({
+        payload: {
+          ...selectAxiosPayload(result),
+        },
+        type: ActionType.REQUEST_GET_DEFINITIONS_BY_ID_SUCCESS,
+      });
+    } catch (err) {
+      Logger.error(err);
+      dispatch({
+        error: selectAxiosError(err),
+        type: ActionType.REQUEST_GET_DEFINITIONS_BY_ID_ERROR,
+      });
+    }
+  }
+};
+
 export function requestGetDefinitions({
   componentId,
   page,
@@ -57,4 +86,4 @@ export const search = (searchParam) => {
         // todo
       })
   }
-}
+};

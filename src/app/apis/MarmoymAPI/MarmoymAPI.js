@@ -25,6 +25,17 @@ export default {
       withCredential: true,
     });
   },
+  
+  getDefinitionsById: function ({
+    defId,
+  }) {
+    return Axios({
+      data: arguments[0],
+      method: HttpMethod.POST,
+      url: URL.GET_DEFINITIONS_BY_ID+defId,
+      withCredential: true,
+    });
+  },
 
   signUpUser: function ({
     email, password, username
