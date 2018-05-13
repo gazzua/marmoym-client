@@ -46,6 +46,14 @@ const HomeLayout = (props) => {
             }}/>
 
           <Route
+            path={AppURL.SIGNIN}
+            component={SignInContaienr}/>
+
+          <Route
+            path={AppURL.SIGNUP}
+            component={SignUpContainer}/>
+                  
+          <Route
             render={(props) => (
               <DefinitionListContainer/>
             )}/>

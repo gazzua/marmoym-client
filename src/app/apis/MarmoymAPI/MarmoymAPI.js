@@ -15,22 +15,28 @@ export default {
     });
   },
 
-  signInUser: function (email, password) {
-    return axios.post(URL.USERS_SIGNEDIN, {
-      email,
-      password
-    })
-      .then(createPayloadSelector(MarmoymApiError));
+  signInUser: function ({
+    email, password
+  }) {
+    return Axios({
+      data: { email: arguments[0].email, password: arguments[0].password },
+      method: HttpMethod.POST,
+      url: URL.USERS_SIGNEDIN,
+      withCredential: true,
+    });
   },
 
-  signUpUser(email, password, username) {
-    return axios.post(URL.USERS_SIGNEDUP, {
-      email,
-      password, 
-      username,
-    })
+  signUpUser: function ({
+    email, password, username
+  }) {
+    return Axios({
+      data: { email: arguments[0].email, password: arguments[0].password, username: arguments[0].username },
+      method: HttpMethod.POST,
+      url: URL.USERS_SIGNEDUP,
+      withCredential: true,
+    });
   },
-  
+
   search(args) {
     return axios.get(URL.SEARCH, {
       params: {
