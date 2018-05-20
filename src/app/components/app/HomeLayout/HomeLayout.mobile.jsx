@@ -6,6 +6,7 @@ import { withRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 import AppURL from '@src/models/AppURL';
 import { border } from '@styles/styles';
 import Color from '@constants/Color';
+import CommentlistContainer from '@src/containers/CommentListContainer/CommentListContainer.mobile';
 import DefinitionContainer from '@containers/DefinitionContainer/DefinitionContainer.mobile';
 import DefinitionListContainer from '@src/containers/DefinitionListContainer/DefinitionListContainer.mobile';
 import MastheadContainer from '@src/containers/MastheadContainer/MastheadContainer.mobile';
@@ -40,7 +41,7 @@ const HomeLayout = (props) => {
               return (
                 <div>
                   <DefinitionContainer/>
-                  <div>comment111</div>
+                  <CommentlistContainer/>
                 </div>
               );
             }}/>

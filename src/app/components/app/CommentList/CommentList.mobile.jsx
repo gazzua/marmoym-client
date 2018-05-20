@@ -2,8 +2,7 @@ import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
 
 import { border } from '@styles/styles';
-import DefinitionPane from '@src/components/app/DefinitionPane/DefinitionPane';
-import Comment from '@src/components/app/Comment/Comment';
+import Comment from '@src/components/app/Comment/Comment.mobile';
 
 function renderComments(comments) {
   if (!comments) {
@@ -21,7 +20,7 @@ const StyledCommentList = styled.div`
 
 const CommentList = (props) => (
   <StyledCommentList>
-    {renderComments(props.comments)}
+    <Comment comments={props.comments}/>
   </StyledCommentList>
 );
 
