@@ -14,6 +14,11 @@ export default (state = initialState, action) => {
         ...state,
         termAdded: action.payload,
       };
+    case ActionType.REQUEST_GET_COMMENTS_SUCCESS:
+      return {
+        ...state,
+        comments: action.payload.comments,
+      }
     default:
       return state;
   }
