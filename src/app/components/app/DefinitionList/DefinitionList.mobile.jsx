@@ -26,20 +26,31 @@ const Definition = ({
       handleClick(e, definition.get('definition_id'));
     }}>
       <Row>
-        <div>
-          {definition.get('term_label')}
-        </div>
-        <div>
-          {definition.get('pos')}
-        </div>
+        {definition.get('term').label}
       </Row>
       <Row>
-        {definition.get('definition_label')}
+        <div>
+          {definition.get('label')}
+        </div>
+      <Poss poss={definition.get('poss')}/>
       </Row>
     </StyledDefinition>
   )
 }
 
+const Poss = ({
+  poss,
+}) => {
+  return (poss && poss.map) 
+    ? poss.map((elem, idx) => {
+      return (
+        <Row key={idx}>
+          {elem.label}
+        </Row>
+      );
+    })
+    : null;
+}
 const Definitions = (props) => {
   return (props.definitions && props.definitions.map) 
     ? props.definitions.map((definition, idx) => {
