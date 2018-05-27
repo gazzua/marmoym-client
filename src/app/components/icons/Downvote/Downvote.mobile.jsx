@@ -3,6 +3,6 @@ import styled, { StyledFunction } from 'styled-components';
 
 import FontAwesomeIcon from '@src/components/icons/FontAwesomeIcon/FontAwesomeIcon.mobile';
 
-const Downvote = (props) => <FontAwesomeIcon {...props} icon="fa-thumbs-down"/>;
+const Downvote = () => <FontAwesomeIcon icon="thumbs-down"/>;
 
 export default Downvote;
