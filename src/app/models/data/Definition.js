@@ -2,11 +2,17 @@ import Record from '@models/Record';
 
 export default class Definition extends Record({
   created_at: new Date(),
-  definition_id: 0,
-  definition_label: '',
-  pos: '',
-  term_id: 0,
-  term_label: '',
+  id: 0,
+  label: '',
+  poss: [],
+  status: '',
+  term: {},
+  termId: '',
+  usages: [],
+  user: {},
+  userId: 0,
+  vote: {},
+  voteId: 0,
   updated_at: new Date(),
 }) {
   constructor(data) {
@@ -19,12 +25,18 @@ export default class Definition extends Record({
         acc.push(
           new Definition({
             created_at: d.created_at,
-            definition_id: d.definition_id,
-            definition_label: d.definition_label,
-            pos: d.pos,
-            term_id: d.term_id,
-            term_label: d.term_label,
+            id: d.id,
+            label: d.label,
+            poss: d.poss,
+            status: d.status,
+            term: d.term,
+            termId: d.termId,
             updated_at: d.updated_at,
+            usages: d.usages,
+            user: d.user,
+            userId: d.userId,
+            vote: d.vote,
+            voteId: d.voteId,
           })
         );
       }
