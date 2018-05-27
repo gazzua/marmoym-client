@@ -3,6 +3,8 @@ const ROOT = process.env.NODE_ENV === 'development'
   : `http://api.marmoym.com/api/v1`;
 
 const MarmoymURL = {
+  GET_COMMENTS: `${ROOT}/comments`,
+  
   ADD_DEFINITION: `${ROOT}/newdefinitions`,
   GET_DEFINITIONS_IDS: `${ROOT}/definitions/ids`,
   GET_DEFINITIONS: `${ROOT}/definitions`,

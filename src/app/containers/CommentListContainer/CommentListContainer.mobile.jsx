@@ -5,6 +5,7 @@ import { withRouter } from 'react-router';
 import { selectComments } from '@selectors/commentSelector';
 import CommentList from '@src/components/app/CommentList/CommentList.mobile';
 import withUuid from '@hocs/withUuid';
+import { requestGetComments } from '@actions/commentActions';
 
 class CommentListContainer extends React.Component {
   constructor(...props) {
@@ -57,13 +58,18 @@ class CommentListContainer extends React.Component {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.dispatch(requestGetComments({
+      defId: this.props.match.params.defId,
+    }));
+  }
 
   render() {
     return (
       <div>
         <CommentList
           comments={this.state.dummy}/>
+          {/* comments={this.props.comments} */}
       </div>
     );
   }

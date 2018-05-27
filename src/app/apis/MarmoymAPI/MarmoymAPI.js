@@ -4,6 +4,17 @@ import MarmoymApiError from '@models/Error/MarmoymApiError';
 import URL from './MarmoymApiURL';
 
 export default {
+  getComments: function({
+    defId,
+  }) {
+    return Axios({
+      data: arguments[0],
+      method: HttpMethod.POST,
+      url: URL.GET_COMMENTS,
+      withCredential: true,
+    });
+  },
+
   getDefinitions: function ({
     page,
   }) {
