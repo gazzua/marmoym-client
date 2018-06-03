@@ -19,6 +19,7 @@ function onSucceed({
 
 const initialState = {
   definitions: {},
+  definition: [],
 };
 
 export default (state = initialState, action) => {
@@ -42,7 +43,7 @@ export default (state = initialState, action) => {
     case ActionType.REQUEST_GET_DEFINITIONS_BY_ID_SUCCESS:
       return {
         ...state,
-        definition: action.payload.definition,
+        definition: Definition.ofMany([action.payload.definitions]),
       };
     case ActionType.REMOVE_DEFINITION:
       return {

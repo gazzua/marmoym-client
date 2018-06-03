@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled, { StyledFunction } from 'styled-components';
+import Usage from '@src/components/app/Definition/usage.mobile'
 
 import { border } from '@styles/styles';
 import Color from '@constants/Color';
@@ -21,28 +22,26 @@ const StyledDefinition = styled.div`
 const Definition = ({
   definition,
 }) => {
-  return (
-    <StyledDefinition>
-      <Row>
-        <div>
-          앙기모띠
-        </div>
-        <div>
-          동사
-        </div>
-      </Row>
-      <Row>
-        기분좋다라고 하는 뜻
-      </Row>
-      <Row>
-        <div>
-        </div>
-        <div>
-          <Vote/>
-        </div>
-      </Row>
-    </StyledDefinition>
+  return (definition && definition.length !== 0)
+  ? (
+    <div>
+      <StyledDefinition>
+        <Row>
+          <div>
+            {definition[0].get('term').label}
+          </div>
+          <div>
+            {definition[0].get('poss')[0].label}
+          </div>
+        </Row>
+        <Row>
+          {definition[0].get('label')}
+        </Row>
+      </StyledDefinition>
+      <Usage usages={definition[0].get('usages')}/>
+    </div>
   )
+  : null;
 }
 
 export default Definition;
