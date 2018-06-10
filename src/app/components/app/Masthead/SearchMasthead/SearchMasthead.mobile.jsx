@@ -34,7 +34,7 @@ const SearchMasthead = (props) => {
   return (
     <ExtendedMastheadBase>
       <LeftArrowIcon
-        icon={'fa-arrow-left'}
+        icon={'arrow-left'}
         onClick={props.handleClickLeftArrowIcon}/>
       <SearchInput
         query={props.query}
