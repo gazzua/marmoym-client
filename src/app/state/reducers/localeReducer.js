@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
     case ActionType.GET_LOCALE_SUCCESS:
       return {
         ...state,
-        locale: action.payload.locale,
+        locale: action.payload,
       };
 
     default:

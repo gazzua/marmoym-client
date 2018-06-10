@@ -33,8 +33,10 @@ const QueryDisplay = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  locale: selectLocale(state),
-});
+const mapStateToProps = (state) => {
+  return {
+    locale: state.localeReducer.locale,
+  };
+};
 
 export default connect(mapStateToProps)(QueryDisplay);
