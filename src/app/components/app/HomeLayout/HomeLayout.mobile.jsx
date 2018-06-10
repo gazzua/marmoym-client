@@ -35,6 +35,12 @@ const HomeLayout = (props) => {
               return <DefinitionListContainer/>;
             }}/>
 
+          <Route
+            path={AppURL.DEFINE}
+            render={(props) => {
+              return <DefineContainer/>;
+            }}/>
+
           <Route 
             path={AppURL.DEFINITIONS_DEFID}
             render={(props) => {
