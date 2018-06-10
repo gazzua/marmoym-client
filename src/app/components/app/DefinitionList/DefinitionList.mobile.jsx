@@ -23,7 +23,7 @@ const Definition = ({
   return (
     <StyledDefinition
     onClick = {(e) => {
-      handleClick(e, definition.get('definition_id'));
+      handleClick(e, definition.get('id'));
     }}>
       <Row>
         {definition.get('term').label}

@@ -15,9 +15,8 @@ const Comment = ({
 }) => {
   return iterCommentObj(comments, getGrandParents(comments), []).map((comment, idx) => {
     return (
-      <StyledComment>
+      <StyledComment key={idx} >
         <div 
-          key={idx} 
           data={comment}
           style={{marginLeft: 20 * (comment.depth - 1)}}
           > {comment.label}, depth: {comment.depth} </div>
