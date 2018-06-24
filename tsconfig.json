@@ -41,15 +41,15 @@
       "@src/*": [
         "src/app/*"
       ],
-      "@state/*": [
-        "src/app/state/*"
-      ],
       "@styles/*": [
         "src/app/styles/*"
       ],
+      "@updaters/*": [
+        "src/app/state/updaters/*"
+      ],
       "@utils/*": [
         "src/app/utils/*"
-      ],
+      ]
     },
     "target": "es6"
   },
@@ -57,6 +57,6 @@
     "src/**/*"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ]
 }
