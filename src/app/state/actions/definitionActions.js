@@ -1,89 +1,131 @@
-import { selectAxiosPayload, selectAxiosError } from '@modules/Axios';
 import ActionType from '@constants/ActionType';
-import MarmoymAPI from '@apis/MarmoymAPI/MarmoymAPI';
-import { selectToFetch } from '@selectors/definitionSelector';
-import Logger from '@modules/Logger';
-
-const logger = new Logger('action');
-
-export function requestGetDefinitionsById({
-  defId,
-}) {
-  return async (dispatch, getState) => {
-    dispatch({
-      type: ActionType.REQUEST_GET_DEFINITIONS_BY_ID,
-    });
-
-    try {
-      const result = await MarmoymAPI.getDefinitionsById({
-        defId,
-      });
-
-      dispatch({
-        payload: {
-          ...selectAxiosPayload(result),
-        },
-        type: ActionType.REQUEST_GET_DEFINITIONS_BY_ID_SUCCESS,
-      });
-    } catch (err) {
-      Logger.error(err);
-      dispatch({
-        error: selectAxiosError(err),
-        type: ActionType.REQUEST_GET_DEFINITIONS_BY_ID_ERROR,
-      });
-    }
-  }
-};
+import Aktion from '@modules/Aktion';
+import LpApis, { URL } from '@apis/LpApis/LpApis';
 
 export function requestGetDefinitions({
   componentId,
   page,
 }) {
   return async (dispatch, getState) => {
-    dispatch({
-      payload: arguments[0],
-      type: ActionType.REQUEST_GET_DEFINITIONS,
-    });
+    return Aktion.of(ActionType.REQUEST_GET_DEFINITIONS)
+      .dispatcher(dispatch)
+      .basePayload(arguments[0])
+      .async(LpApis.post({
+        data: arguments[0],
+        url: URL.DEFINITIONS,
+      }))
+      .fire();
+  };
+};
 
-    try {
-      const result = await MarmoymAPI.getDefinitions({
-        page,
-      });
-
-      dispatch({
-        payload: {
-          componentId,
-          ...selectAxiosPayload(result),
+export function requestDefine({
+  form,
+}) {
+  return async (dispatch, getState) => {
+    const data = {
+      definitions: [
+        {
+          label: form.definition,
+          poss: [
+            {
+              id: 1,
+            },
+          ],
+          term: {
+            label: form.term,
+          },
+          usages: [
+            {
+              label: form.usage,
+            },
+          ],
         },
-        type: ActionType.REQUEST_GET_DEFINITIONS_SUCCESS,
-      });
-    } catch (err) {
-      Logger.error(err);
-      dispatch({
-        error: selectAxiosError(err),
-        type: ActionType.REQUEST_GET_DEFINITIONS_ERROR,
-      });
-    }
-  }
+      ],
+    };
+
+    return Aktion.of(ActionType.REQUEST_DEFINE)
+      .dispatcher(dispatch)
+      .basePayload(arguments[0])
+      .async(LpApis.post({
+        data,
+        url: [URL.DEFINITION_NEW],
+      }))
+      .fire();
+  };
 };
 
-export const search = (searchParam) => {
-  return (dispatch, getState) => {
-    dispatch({
-      type:ActionType.SEARCH,
-    });
-
-    return MarmoymApis.search(searchParam.query)
-      .then((res) => {
-        dispatch({
-          type: ActionType.GET_DEFINITION_IDS_SUCCESS({
-            defIds: res.defIds
-          })
-        })
-        // todo : dispatch next action
-      })
-      .catch((res) => {
-        // todo
-      })
+export function requestGetDefinitionsById({
+  componentId,
+  defId,
+}) {
+  return async (dispatch, getState) => {
+    return Aktion.of(ActionType.REQUEST_GET_DEFINITIONS_BY_ID)
+      .dispatcher(dispatch)
+      .basePayload(arguments[0])
+      .async(LpApis.post({
+        data: arguments[0],
+        param: {
+          defId,
+        },
+        url: URL.DEFINITIONS_BY_ID,
+      }))
+      .fire();
   }
-};
+}
+
+export function requestDownVoteDefinition({
+  componentId,
+  targetId,
+  targetType,
+  userId,
+}) {
+  return async (dispatch, getsState) => {
+    return Aktion.of(ActionType.REQUEST_DOWNVOTE_DEFINITIONS)
+      .dispatcher(dispatch)
+      .basePayload(arguments[0])
+      .async(LpApis.post({
+        data: arguments[0],
+        url: URL.DOWNVOTE_DEFINITIONS,
+      }))
+      .fire();
+  }
+}
+
+export function requestUpVoteDefinition({
+  componentId,
+  targetId,
+  targetType,
+  userId,
+}) {
+  return async (dispatch, getsState) => {
+    return Aktion.of(ActionType.REQUEST_UPVOTE_DEFINITIONS)
+      .dispatcher(dispatch)
+      .basePayload(arguments[0])
+      .async(LpApis.post({
+        data: arguments[0],
+        url: URL.UPVOTE_DEFINITIONS,
+      }))
+      .fire();
+  }
+}
+
+// export const search = (searchParam) => {
+//   return (dispatch, getState) => {
+//     dispatch({
+//       type:ActionType.SEARCH,
+//     });
+
+//     return MarmoymApis.search(searchParam.query)
+//       .then((res) => {
+//         dispatch({
+//           type: ActionType.GET_DEFINITION_IDS_SUCCESS({
+//             defIds: res.defIds
+//           })
+//         })
+//         // todo : dispatch next action
+//       })
+//       .catch((res) => {
+//         // todo
+//       })
+//   }
+// };

@@ -6,6 +6,9 @@ import Logger from '@modules/Logger';
 
 const logger = new Logger('axios');
 
+/**
+ * ...
+ */
 const axiosInstance = (function configureAxios() {
   const axiosInstance = axios.create();
   axiosInstance.defaults.timeout = 7000;
@@ -26,24 +29,14 @@ const axiosInstance = (function configureAxios() {
 
 export default axiosInstance;
 
-export function send({
-  data,
-  method,
-  options,
-  url,
-}) {
-  return axiosInstance({
-    data,
-    method,
-    url,
-    withCredentials: true,
-  });
-};
-
 export function selectAxiosPayload(res) {
-  return res.data.payload;
+  return res && res.data 
+    ? res.data.payload
+    : {};
 };
 
 export function selectAxiosError(err) {
   return err.response ? err.response.data : err.response;
 };
+
+// export const NETWORK = '__network';
