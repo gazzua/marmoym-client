@@ -1,7 +1,5 @@
-import { sprintf } from 'sprintf-js';
-
 import appConfig from '@config/appConfig';
-import { DEV_ENV, PROD_ENV } from '@utils/envUtils';
+import { DEV_ENV } from '@utils/envUtils';
 
 const BLUE_BOLD = 'color: blue; font-weight: bold;';
 const GREEN_BOLD = 'color: green; font-weight: bold;';
@@ -11,8 +9,6 @@ const YELLOW_BOLD = 'color: #fab93b; font-weight: bold;';
 const PINK_BOLD = 'color: #ec45b9; font-weight: bold;';
 
 export default class Logger {
-  static __version = '0.0.1';
-
   constructor(name = '') {
     this.name = name;
   }
@@ -70,7 +66,7 @@ export default class Logger {
   }
 
   shouldLog() {
-    return !PROD_ENV && appConfig.logNames[this.name];
+    return DEV_ENV && appConfig.logNames[this.name];
   }
 
   navigation(url, ...args) {

@@ -1,13 +1,9 @@
 import { combineReducers } from 'redux';
 
-import definitionReducer from './definitionReducer';
-import localeReducer from './localeReducer';
-import commentReducer from './commentReducer';
-import userReducer from './userReducer';
+import authReducer from './authReducer';
+import networkReducer from './networkReducer';
 
 export default combineReducers({
-  commentReducer,
-  definitionReducer,
-  localeReducer,
-  userReducer,
+  authReducer,
+  networkReducer,
 });
