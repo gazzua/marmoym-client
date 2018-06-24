@@ -1,6 +1,5 @@
 const express = require('express');
 const fs = require('fs');
-const i18n = require('marmoym-i18n');
 const morgan = require('morgan');
 const path = require('path');
 
@@ -18,20 +17,6 @@ module.exports = function createServer(fn) {
   app.use('/assets', (req, res) => {
     const file = path.join(serverConfig.assetPath, req.url);
     res.sendFile(file);
-  });
-
-  app.get('/ss/i18n/:locale', (req, res) => {
-    console.log('Returning i18n %s', req.params.locale);
-    const result = {
-      code: 200000,
-      payload: {
-        locale: i18n[req.params.locale],
-      },
-    };
-  
-    // todo: validation
-    res.status(200)
-      .send(result);
   });
 
   // extend the server

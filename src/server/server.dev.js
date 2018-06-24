@@ -1,9 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const i18n = require('marmoym-i18n');
 
 const createServer = require('./createServer');
 
