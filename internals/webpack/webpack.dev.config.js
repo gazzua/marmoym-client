@@ -4,14 +4,14 @@ const webpack = require('webpack');
 
 const config = require('./webpack.base.config.js');
 
-const APP_PATH = path.resolve(__dirname, '../../src/app');
+const APP_PATH = path.resolve(__dirname, '../../src/client');
 
 const devConfig = {
   devtool: 'source-map',
   entry: {
     mobile: [
       'webpack-hot-middleware/client', 
-      path.resolve(APP_PATH, 'app.mobile.jsx'),
+      app: path.resolve(paths.srcClient, 'client.tsx'),
     ],
   },
   mode: 'development',

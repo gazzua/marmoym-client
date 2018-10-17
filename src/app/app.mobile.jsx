@@ -23,15 +23,15 @@ if ((typeof window !== 'undefined' && !window._babelPolyfill)
  * importing other modules.
  */
 (async () => {
-  const configureStore = (await import('@src/state/configureStore')).default;
-  const RouterContainer = (await import('@src/containers/app/RouterContainer/RouterContainer.mobile')).default;
-  const globalStyle = (await import('@styles/globalStyle')).default();
+  const configureStore = (await import('@universal/state/configureStore')).default;
+  const RouterContainer = (await import('@containers/app/RouterContainer/RouterContainer.mobile')).default;
+  const globalStyle = (await import('@universal/styles/globalStyle')).default();
 
   const rootEl = document.getElementById(ROOT_ID);
   const store = configureStore();
 
   const render = (Component) => {
-    ReactDOM.render(
+    ReactDOM.hydrate(
       <AppContainer warnings={false}>
         <Provider store={store}>
           <Component/>

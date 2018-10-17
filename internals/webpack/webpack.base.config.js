@@ -2,12 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack');
 
-const APP_PATH = path.resolve(__dirname, '../../src/app');
+const APP_PATH = path.resolve(__dirname, '../../src/client');
 const DIST_PATH = path.resolve(__dirname, '../../dist');
 
 module.exports = {
   entry: {
-    mobile: path.resolve(APP_PATH, 'app.mobile.jsx'),
+    app: path.resolve(paths.srcClient, 'client.tsx'),
     react: ['react', 'redux', 'react-redux'],
   },
   module: {
