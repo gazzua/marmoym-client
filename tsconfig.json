@@ -5,50 +5,56 @@
     "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
+    "noEmit": true,
     "noImplicitAny": false,
-    "outDir": "tsc_out",
     "paths": {
       "@actions/*": [
-        "src/app/state/actions/*"
+        "src/universal/state/actions/*"
       ],
       "@apis/*": [
-        "src/app/apis/*"
+        "src/universal/apis/*"
       ],
       "@components/*": [
-        "src/app/components/*"
+        "src/universal/components/*"
       ],
       "@config/*": [
-        "src/app/config/*"
+        "src/universal/config/*"
       ],
       "@constants/*": [
-        "src/app/constants/*"
+        "src/universal/constants/*"
       ],
       "@containers/*": [
-        "src/app/containers/*"
+        "src/universal/containers/*"
       ],
       "@hocs/*": [
-        "src/app/hocs/*"
+        "src/universal/hocs/*"
       ],
       "@models/*": [
-        "src/app/models/*"
+        "src/universal/models/*"
       ],
       "@modules/*": [
-        "src/app/modules/*"
+        "src/universal/modules/*"
       ],
       "@selectors/*": [
-        "src/app/state/selectors/*"
+        "src/universal/state/selectors/*"
+      ],
+      "@server/*": [
+        "src/server/*"
       ],
       "@src/*": [
-        "src/app/*"
+        "src/universal/*"
       ],
       "@styles/*": [
-        "src/app/styles/*"
+        "src/universal/styles/*"
       ],
       "@updaters/*": [
-        "src/app/state/updaters/*"
+        "src/universal/state/updaters/*"
+      ],
+      "@universal/*": [
+        "src/universal/*"
       ],
       "@utils/*": [
-        "src/app/utils/*"
+        "src/universal/utils/*"
       ]
     },
     "target": "es6"
