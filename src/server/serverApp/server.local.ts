@@ -15,7 +15,12 @@ const webpackConfigClientLocalWeb = require(paths.webpackConfigClientLocalWeb)
 
 export default createExpress({
   enhance: (app, state) => {
-    webpackLog.info('enhance(), webpackConfigClientLocalWeb', webpackConfigClientLocalWeb);
+    webpackLog.info(
+      'enhance(), webpackConfigClientLocalWeb at path: %s, config: %o', 
+      paths.webpackConfigClientLocalWeb,
+      webpackConfigClientLocalWeb
+    );
+
     const clientWebpackCompiler = webpack(webpackConfigClientLocalWeb);
 
     const devMiddleware = webpackDevMiddleware(clientWebpackCompiler, {
