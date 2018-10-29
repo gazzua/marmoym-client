@@ -50,8 +50,9 @@ const Entry = ({
 }
 
 const RelatedTerm = ({
+  relatedTerms
 }) => {
-  const relatedTerms = RELATED_TERM_DUMMY.map((r, idx) => {
+  relatedTerms = RELATED_TERM_DUMMY.map((r, idx) => {
     return (
       <Entry
         degree={r.degree}

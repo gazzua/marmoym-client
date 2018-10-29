@@ -57,7 +57,8 @@
         "src/universal/utils/*"
       ]
     },
-    "target": "es6"
+    "target": "es6",
+    "lib": ["es2017", "dom"]
   },
   "include": [
     "src/**/*"
