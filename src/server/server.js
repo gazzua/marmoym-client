@@ -73,11 +73,11 @@ function launchLocalServer() {
 }
 
 function launchProdServer() {
-  const server = require('@server/serverApp/server.prod').default;
-  server.update({
-    rootContainerPath: '@containers/app/RootContainer/RootContainer.mobile',
-  });
-  runHttpServer(server.app);
+  const { app, state } = require('@server/serverApp/server.prod').default;
+  // state.update({
+  //   rootContainerPath: '@containers/app/RootContainer/RootContainer.mobile',
+  // });
+  runHttpServer(app);
 }
 
 function runHttpServer(app) {

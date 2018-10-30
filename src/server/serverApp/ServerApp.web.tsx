@@ -4,19 +4,21 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from 'react-router-dom';
 import { Store } from 'redux';
 
+import RootContainerFallback from '@containers/app/RootContainer/RootContainer.mobile';
 import Log from '@server/modules/Log';
-import { Container } from "winston";
 
 const ServerApp: React.SFC<ServerAppProps> = ({
   requestUrl,
-  rootContainerPath = '',
+  rootContainerPath,
   store,
 }) => {
-  Log.info('<ServerApp/> with rootContainerPath: %s, with localServer: %s', rootContainerPath);
+  Log.info('<ServerApp/> with rootContainerPath: %s', rootContainerPath);
 
   let RootContainerComponent;
   try {
-    RootContainerComponent = require(rootContainerPath).default;
+    RootContainerComponent = rootContainerPath 
+      ? require(rootContainerPath).default
+      : RootContainerFallback;
   } catch (err) {
     Log.error('<App/> cannot find rootContainer at: %s', rootContainerPath, err);
     return <div>RootContainer not found</div>;
