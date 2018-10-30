@@ -37,8 +37,6 @@ export default function createServer({
     if (state.launchStatus !== LaunchStatus.LAUNCH_SUCCESS) {
       res.writeHead(500);
       res.end(util.format('server is not successfully launched, launch_status: %s', state.launchStatus));
-    } else if (state.rootContainerPath === undefined) {
-      res.end("RootContainer path is not defined yet. Are you running on local environment?");
     } else {
       res.writeHead(200, { "Content-Type": "text/html" });
       const html = makeHtml({
