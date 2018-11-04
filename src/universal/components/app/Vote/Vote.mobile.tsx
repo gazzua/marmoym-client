@@ -33,19 +33,19 @@ const Vote = ({
   return (
     <StyledVote {...restProps}>
       <div>
-        <Facon label='ellipsis-h'/>
+        <Facon label='ellipsis-h' />
       </div>
       <div>
         {upVote}
       </div>
-      <div>
-        <Facon label='thumbs-up' onClick={(e) => handleClickUpvote(e, targetId, 17)}/>
+      <div onClick={(e) => handleClickUpvote(e, targetId, 17)}>
+        <Facon label='thumbs-up' />
       </div>
       <div>
         {downVote}
       </div>
-      <div>
-        <Facon label='thumbs-down' onClick={(e) => handleClickDownvote(e, targetId, 17)}/>
+      <div onClick={(e) => handleClickDownvote(e, targetId, 17)}>
+        <Facon label='thumbs-down' />
       </div>
     </StyledVote>
   );

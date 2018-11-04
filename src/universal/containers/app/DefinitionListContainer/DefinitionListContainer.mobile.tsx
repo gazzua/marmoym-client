@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 
 import ActionType from '@universal/constants/ActionType';
 import { ConnectedReduxProps } from '@universal/state/configureStore';
+import Definition from '@models/data/Definition';
 import DefinitionList from '@universal/components/app/DefinitionList/DefinitionList.mobile';
 import { requestDownVoteDefinition, requestGetDefinitions, requestUpVoteDefinition } from '@actions/definitionActions';
 import { makeReselectDefinitionList } from '@selectors/definitionSelector';
@@ -17,6 +18,39 @@ class DefinitionListContainer extends React.Component<DefinitionListContainerPro
     this.handleClickDownvote = this.handleClickDownvote.bind(this);
     this.handleClickUpvote = this.handleClickUpvote.bind(this);
   }
+
+  dummy = [
+    new Definition({
+      id: 1,
+      label: 'label',
+      poss: [],
+      status: 'status',
+      term: {label: 'termLabel', created_at: new Date()},
+      termId: 'termId',
+      usages: ['usage1'],
+      user: {username: 'username'},
+      userId: 1,
+      vote: {downVoteCount: 3, upVoteCount: 6},
+      voteId: 1,
+      created_at: new Date(),
+      updated_at: new Date(),
+    }),
+    new Definition({
+      id: 2,
+      label: 'label2',
+      poss: [],
+      status: 'status2',
+      term: {label: 'termLabel2', created_at: new Date()},
+      termId: 'termId2',
+      usages: ['usage2'],
+      user: {username: 'username2'},
+      userId: 2,
+      vote: {downVoteCount: 4, upVoteCount: 5},
+      voteId: 2,
+      created_at: new Date(),
+      updated_at: new Date(),
+    })
+  ];
 
   componentDidMount() {
     this.props.dispatch(requestGetDefinitions({
@@ -52,7 +86,7 @@ class DefinitionListContainer extends React.Component<DefinitionListContainerPro
   render() {
     return (
       <DefinitionList
-        definitions={this.props.definitions}
+        definitions={this.dummy}
         downVoted={this.props.downVoted}
         handleClickDefinition={this.handleClickDefinition}
         handleClickDownvote={this.handleClickDownvote}

@@ -1,10 +1,8 @@
-import Record from '@models/Record';
+export default class Credential {
+  email: string;
 
-export default class Credential extends Record({
-  email: '',
-}, '') {
-  constructor(data) {
-    super(data);
+  constructor(props: CredentialConstructorProps) {
+    this.email = props.email;
   }
   
   static of(data) {
@@ -15,3 +13,7 @@ export default class Credential extends Record({
     }
   }
 };
+
+interface CredentialConstructorProps {
+  email: string,
+}

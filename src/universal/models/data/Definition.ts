@@ -1,22 +1,40 @@
-import Record from '@models/Record';
-
-export default class Definition extends Record({
-  created_at: new Date(),
-  id: 0,
-  label: '',
-  poss: [],
-  status: '',
-  term: {},
-  termId: '',
-  usages: [],
-  user: {},
-  userId: 0,
-  vote: {},
-  voteId: 0,
-  updated_at: new Date(),
-}, '') {
-  constructor(data) {
-    super(data);
+export default class Definition  {
+  created_at: Date;
+  id: number;
+  label: string;
+  poss: Array<any>;
+  status: string;
+  term: {
+    created_at: Date,
+    label: string,
+  };
+  termId: string;
+  updated_at: Date;
+  usages: Array<any>
+  user: {
+    username: string,
+  };
+  userId: number;
+  vote: {
+    downVoteCount: number,
+    upVoteCount: number,
+  };
+  voteId: number;
+  
+  constructor(props: DefinitionConstructorProps) {
+    this.created_at = props.created_at;
+    this.id = props.id
+    this.label = props.label
+    this.poss = props.poss
+    this.status = props.status
+    this.term = props.term
+    this.termId = props.termId
+    this.updated_at = props.updated_at
+    this.usages = props.usages
+    this.user = props.user
+    this.userId = props.userId
+    this.vote = props.vote
+    this.voteId = props.voteId
   }
   
   static ofMany(data) {
@@ -44,3 +62,19 @@ export default class Definition extends Record({
     }, []);
   }
 };
+
+interface DefinitionConstructorProps {
+  created_at: Date;
+  id: number;
+  label: string;
+  poss: Array<any>;
+  status: string;
+  term: any;
+  termId: string;
+  updated_at: Date;
+  usages: Array<any>
+  user: any;
+  userId: number;
+  vote: any;
+  voteId: number;
+}

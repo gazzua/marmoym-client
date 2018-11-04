@@ -1,4 +1,3 @@
-import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { 
   Route, 
@@ -59,10 +58,6 @@ const HomeLayout = ({
       </Page>
     </StyledHomeLayout>
   );
-};
-
-HomeLayout.propTypes = {
-  credential: PropTypes.any,
 };
 
 export default compose<any>(withRouter)(HomeLayout);

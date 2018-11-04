@@ -36,10 +36,8 @@ const DefineMasthead = ({
   return (
     <MastheadBase>
       <ButtonGroup>
-        <Button>
-          <Facon
-            label="close"
-            onClick={handleClickClose}/>
+        <Button onClick={handleClickClose}>
+          <Facon label="close" />
         </Button>
       </ButtonGroup>
       <Title>Define</Title>
