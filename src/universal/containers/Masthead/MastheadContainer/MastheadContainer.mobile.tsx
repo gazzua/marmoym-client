@@ -133,7 +133,7 @@ const makeMapStateToProps = () => {
 }
 
 interface MastheadContainerProps extends ConnectedReduxProps, RouteComponentProps {
-
+  searchRequested: Boolean;
 }
 
 interface MastheadContainerStates {

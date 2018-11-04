@@ -26,4 +26,4 @@ const Masthead = ({
   );
 };
 
-export default withRouter(Masthead);
+export default withRouter<any>(Masthead);
