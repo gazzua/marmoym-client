@@ -6,7 +6,7 @@ import { border } from '@universal/styles/styles';
 import Color from '@universal/constants/Color';
 import MastheadBase from '@universal/components/Masthead/MastheadBase/MastheadBase.mobile';
 import SearchIcon from '@universal/components/icons/SearchIcon/SearchIcon.mobile';
-import SearchInput from '../SearchInput/SearchInput.mobile';
+import SearchInput from '@components/Masthead/SearchInput/SearchInput.mobile';
 import FontAwesomeIcon from '@components/icons/FontAwesomeIcon/FontAwesomeIcon.mobile';
 
 const RemoveIcon = (props) => {
@@ -17,8 +17,9 @@ const LeftArrowIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
 `;
 
-const ExtendedMastheadBase = styled(MastheadBase)`
+const StyledSearchMasthead = styled(MastheadBase)`
   padding: 0 10px;
+  position: relative;
 
   div {
     margin-left: 7px;
@@ -27,21 +28,21 @@ const ExtendedMastheadBase = styled(MastheadBase)`
   .remove {
     margin-left: auto;
     font-size: 17px;
-  }
+  }  
 `;
 
 const SearchMasthead = (props) => {
   return (
-    <ExtendedMastheadBase>
+    <StyledSearchMasthead>
       <LeftArrowIcon
         icon={'arrow-left'}
-        onClick={props.handleClickLeftArrowIcon}/>
+        onClick={props.handleClickLeftArrow}/>
       <SearchInput
         query={props.query}
         handleChangeQuery={props.handleChangeQuery}
         handleKeyDown={props.handleKeyDown}/>
       <RemoveIcon query={props.query}/>
-    </ExtendedMastheadBase>
+    </StyledSearchMasthead>
   );
 };
 

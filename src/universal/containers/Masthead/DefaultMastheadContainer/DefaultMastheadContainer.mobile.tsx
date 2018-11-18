@@ -13,17 +13,39 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
   constructor(props) {
     super(props);
     this.handleClickHamburger = this.handleClickHamburger.bind(this);
+    this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
     this.handleClickPencil = this.handleClickPencil.bind(this);
     this.handleClickMarmoymLogo = this.handleClickMarmoymLogo.bind(this);
-    this.handleClickSearch = this.handleClickSearch.bind(this);
     this.handleChangeQuery = this.handleChangeQuery.bind(this);
+    this.handleClickSearch = this.handleClickSearch.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
     this.state = {
       displayName: '',
+      isSearching: false,
       modalIsVisible: false,
       query: '',
     };
+  }
+
+  handleChangeQuery(e) {
+    const query = e.target.value;
+    this.setState((state, props) => {
+      return {
+        ...state,
+        query,
+      };
+    });
+  }
+
+  handleClickLeftArrow() {
+    this.setState((state, props) => {
+      return {
+        ...state,
+        displayName: '',
+        isSearching: false,
+        query: '',
+      };
+    });
   }
 
   handleClickMarmoymLogo() {
@@ -39,16 +61,16 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
       return {
         ...state,
         displayName: 'SEARCH',
+        isSearching: true,
       };
     });
   }
 
-  handleChangeQuery(e) {
-    const query = e.target.value;
+  handleClickHamburger(e) {
     this.setState((state, props) => {
       return {
         ...state,
-        query,
+        modalIsVisible: true,
       };
     });
   }
@@ -57,7 +79,9 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
     if (e.keyCode === KeyCode.RETURN) {
       this.setState((state, props) => {
         return {
+          ...state,
           displayName: '',
+          isSearching: false,
           query: '',
         };
       });
@@ -65,36 +89,21 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
     }
   }
 
-  handleClickLeftArrow() {
-    this.setState((state, props) => {
-      return {
-        ...state,
-        displayName: '',
-      };
-    });
-  }
-
-  handleClickHamburger(e) {
-    this.setState((state, props) => {
-      return {
-        modalIsVisible: true,
-      };
-    });
-  }
-
   render() {
     return (
       <DefaultMasthead
-        query={this.state.query}
         handleChangeQuery={this.handleChangeQuery}
+        handleClickHamburger={this.handleClickHamburger}
         handleClickLeftArrow={this.handleClickLeftArrow}
-        handleKeyDown={this.handleKeyDown}
-        searchRequested={this.props.searchRequested}
-        modalIsVisible={this.state.modalIsVisible}
-        handleClickSearch={this.handleClickSearch}
         handleClickMarmoymLogo={this.handleClickMarmoymLogo}
         handleClickPencil={this.handleClickPencil}
-        handleClickHamburger={this.handleClickHamburger}/>
+        handleClickSearch={this.handleClickSearch}
+        handleKeyDown={this.handleKeyDown}
+        isSearching={this.state.isSearching}
+        modalIsVisible={this.state.modalIsVisible}
+        query={this.state.query}
+        searchRequested={this.props.searchRequested}
+      />
     );
   }
 }
@@ -102,6 +111,7 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
 const makeMapStateToProps = () => {
   return (state, props) => {
     return {
+      ...state
     };
   };
 };
@@ -110,11 +120,11 @@ interface DefaultMastheadContainerProps extends ConnectedReduxProps, RouteCompon
   history: any,
   componentId: String,
   searchRequested: any,
-
 }
 
 interface DefaultMastheadContainerStates {
   displayName: String,
+  isSearching: Boolean,
   modalIsVisible: Boolean,
   query: String,
 }

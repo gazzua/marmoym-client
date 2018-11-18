@@ -14,7 +14,8 @@ import CommentlistContainer from '@containers/app/CommentListContainer/CommentLi
 import DefineContainer from '@containers/app/DefineContainer/DefineContainer.mobile';
 import DefinitionContainer from '@containers/app/DefinitionContainer/DefinitionContainer.mobile';
 import DefinitionListContainer from '@containers/app/DefinitionListContainer/DefinitionListContainer.mobile';
-import Masthead, { MASTHEAD_HEIGHT } from '@components/Masthead/Masthead/Masthead.mobile';
+import { MASTHEAD_HEIGHT } from '@components/Masthead/Masthead/Masthead.mobile';
+import MastheadContainer from '@containers/Masthead/MastheadContainer/MastheadContainer.mobile'
 import SignInContainer from '@containers/app/SignInContainer/SignInContainer.mobile';
 
 const StyledHomeLayout = styled.div`
@@ -31,7 +32,7 @@ const HomeLayout = ({
 }) => {
   return (
     <StyledHomeLayout>
-      <Masthead/>
+      <MastheadContainer />
       <Page>
         <Switch>
           <Route

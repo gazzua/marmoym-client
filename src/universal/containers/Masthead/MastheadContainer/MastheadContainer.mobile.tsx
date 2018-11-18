@@ -16,40 +16,15 @@ import KeyCode from '@universal/constants/KeyCode';
 class MastheadContainer extends React.Component<MastheadContainerProps, MastheadContainerStates> {
   constructor(props) {
     super(props);
-    this.handleClickHamburgerIcon = this.handleClickHamburgerIcon.bind(this);
-    this.handleClickPencilIcon = this.handleClickPencilIcon.bind(this);
-    this.handleClickMarmoymLogo = this.handleClickMarmoymLogo.bind(this);
-    this.handleClickSearchIcon = this.handleClickSearchIcon.bind(this);
     this.handleChangeQuery = this.handleChangeQuery.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleClickLeftArrowIcon = this.handleClickLeftArrowIcon.bind(this);
     this.handleClickBackdrop = this.handleClickBackdrop.bind(this);
+    this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.state = {
       displayName: '',
       modalIsVisible: false,
       query: '',
     };
-  }
-
-  handleClickMarmoymLogo() {
-    this.props.history.push('/');
-  }
-
-  handleClickPencilIcon() {
-    this.props.history.push('/define');
-  }
-
-  handleClickDefinition() {
-    this.props.history.push('definitions/1');
-  }
-
-  handleClickSearchIcon() {
-    this.setState((state, props) => {
-      return {
-        ...state,
-        displayName: 'SEARCH',
-      };
-    });
   }
 
   handleChangeQuery(e) {
@@ -58,6 +33,15 @@ class MastheadContainer extends React.Component<MastheadContainerProps, Masthead
       return {
         ...state,
         query,
+      };
+    });
+  }
+
+  handleClickLeftArrow() {
+    this.setState((state, props) => {
+      return {
+        ...state,
+        displayName: '',
       };
     });
   }
@@ -72,24 +56,6 @@ class MastheadContainer extends React.Component<MastheadContainerProps, Masthead
       });
       this.props.history.push(`/search?q=${this.state.query}`);
     }
-  }
-
-  handleClickLeftArrowIcon() {
-    this.setState((state, props) => {
-      return {
-        ...state,
-        displayName: '',
-      };
-    });
-  }
-
-  handleClickHamburgerIcon(e) {
-    this.setState((state, props) => {
-      return {
-        ...state,
-        modalIsVisible: true,
-      };
-    });
   }
 
   handleClickBackdrop(e) {
@@ -107,30 +73,26 @@ class MastheadContainer extends React.Component<MastheadContainerProps, Masthead
 
   render() {
     const displayName = this.resolveName(this.props.location.pathname, this.state.displayName);
-  
 
     return (
-      <Masthead/>
-        // displayName={displayName}
-        // query={this.state.query}
-        // handleChangeQuery={this.handleChangeQuery}
-        // handleClickLeftArrowIcon={this.handleClickLeftArrowIcon}
-        // handleKeyDown={this.handleKeyDown}
-        // searchRequested={this.props.searchRequested}
-        // modalIsVisible={this.state.modalIsVisible}
-        // handleClickSearchIcon={this.handleClickSearchIcon}
-        // handleClickMarmoymLogo={this.handleClickMarmoymLogo}
-        // handleClickPencilIcon={this.handleClickPencilIcon}
-        // handleClickHamburgerIcon={this.handleClickHamburgerIcon}
-        // handleClickBackdrop={this.handleClickBackdrop}/>
+      <Masthead
+        displayName={displayName}
+        handleChangeQuery={this.handleChangeQuery}
+        handleClickBackdrop={this.handleClickBackdrop}
+        handleClickLeftArrow={this.handleClickLeftArrow}
+        handleKeyDown={this.handleKeyDown}
+        modalIsVisible={this.state.modalIsVisible}
+        query={this.state.query}
+        searchRequested={this.props.searchRequested}
+      />
     );
   }
 }
 
 const makeMapStateToProps = () => {
-  return (state, props) => {    
-  };
-}
+  return (state, props) => ({
+  });
+};
 
 interface MastheadContainerProps extends ConnectedReduxProps, RouteComponentProps {
   searchRequested: Boolean;

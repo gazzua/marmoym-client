@@ -27,14 +27,15 @@ const QueryDisplay = (props) => {
         value={props.query}
         onChange={props.handleChangeQuery}
         onKeyDown={props.handleKeyDown}
-        placeholder={props.locale['queryDisplay.placeholder']}/>
+        placeholder="query"
+      />
     </StyledSearchInput>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    locale: state.localeReducer.locale,
+    // locale: state.localeReducer.locale,
   };
 };
 

@@ -24,12 +24,22 @@ const StyledMastheadBase = styled.div`
   }
 `;
 
-const MastheadBase = (props) => {
+const MastheadBase: React.SFC<MastheadBaseProps> = ({
+  children,
+  className,
+}) => {
   return (
-    <StyledMastheadBase>
-      {props.children}
+    <StyledMastheadBase
+      className={className}
+    >
+      {children}
     </StyledMastheadBase>
   );
 };
 
 export default MastheadBase;
+
+interface MastheadBaseProps {
+  children: React.ReactNode[],
+  className: string;
+}
