@@ -13,8 +13,9 @@ import DefaultMastheadContainer from '@containers/Masthead/DefaultMastheadContai
 import DefineMastheadContainer from '@containers/Masthead/DefineMastheadContainer/DefineMastheadContainer.mobile';
 export { MASTHEAD_HEIGHT } from '@components/Masthead/MastheadBase/MastheadBase.mobile';
 
-const Masthead = ({
-}) => {
+import SearchMasthead from '@components/Masthead/SearchMasthead/SearchMasthead.mobile'
+
+const Masthead = () => {
   return (
     <Switch>
       <Route
@@ -25,5 +26,6 @@ const Masthead = ({
     </Switch>
   );
 };
+
 
 export default withRouter<any>(Masthead);

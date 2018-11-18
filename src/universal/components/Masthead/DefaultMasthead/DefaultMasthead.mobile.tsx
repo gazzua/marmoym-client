@@ -5,6 +5,7 @@ import { border } from '@universal/styles/styles';
 import Color from '@universal/constants/Color';
 import Facon from '@components/common/Facon/Facon.mobile';
 import MastheadBase from '@components/Masthead/MastheadBase/MastheadBase.mobile';
+import SearchMasthead from '@components/Masthead/SearchMasthead/SearchMasthead.mobile';
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -25,21 +26,31 @@ const Logo = styled.span`
 const DefaultMasthead = ({
   query,
   handleChangeQuery,
-  handleClickLeftArrow,
   handleClickHamburger,
+  handleClickLeftArrow,
   handleClickMarmoymLogo,
   handleClickPencil,
   handleClickSearch,
   handleKeyDown,
+  isSearching,
   modalIsVisible,
   searchRequested,
 }) => {
   return (
     <MastheadBase>
       <ButtonGroup>
-        <Button onClick={handleClickMarmoymLogo}>
+        {isSearching ? (
+          <SearchMasthead 
+            handleChangeQuery={handleChangeQuery}
+            handleClickLeftArrow={handleClickLeftArrow}
+            handleKeyDown={handleKeyDown}
+            query={query}
+          />
+        ): (
+          <Button onClick={handleClickMarmoymLogo}>
           <Logo>Language Project</Logo>
-        </Button>
+          </Button>
+        )}
       </ButtonGroup>
       <ButtonGroup>
         <Button onClick={handleClickSearch}>
