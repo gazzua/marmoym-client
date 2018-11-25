@@ -108,16 +108,15 @@ const SearchOptionDropDown = (props) => {
   );
 };
 
-interface SearchOptionContainerProps {
+export default compose(
+  withUuid,
+  withRouter,
+)(SearchOptionContainer);
 
+interface SearchOptionContainerProps {
 }
 
 interface SearchOptionContainerStates {
   listOpen: Boolean,
   selectedOption: any,
 }
-
-export default compose(
-  withUuid,
-  withRouter,
-)(SearchOptionContainer);

@@ -102,6 +102,11 @@ const makeMapStateToProps = () => {
   };
 };
 
+export default compose<any>(
+  withRouter,
+  connect(makeMapStateToProps),
+)(SignInContainer);
+
 interface SignInContainerProps extends ConnectedReduxProps, RouteComponentProps {
   member: any,
   credential: any,
@@ -111,8 +116,3 @@ interface SignInContainerStates {
   email: String,
   password: String,
 }
-
-export default compose<any>(
-  withRouter,
-  connect(makeMapStateToProps),
-)(SignInContainer);

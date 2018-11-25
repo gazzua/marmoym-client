@@ -80,6 +80,12 @@ const makeMapStateToProps = (state, props) => {
   };
 };
 
+export default compose<any>(
+  withUuid,
+  withRouter,
+  connect(makeMapStateToProps),
+)(DefinitionContainer);
+
 interface DefinitionContainerProps extends ConnectedReduxProps, RouteComponentProps {
   componentId: any,
   match: any,
@@ -87,9 +93,3 @@ interface DefinitionContainerProps extends ConnectedReduxProps, RouteComponentPr
   downVoted: Array<any>,
   upVoted: Array<any>,
 }
-
-export default compose<any>(
-  withUuid,
-  withRouter,
-  connect(makeMapStateToProps),
-)(DefinitionContainer);

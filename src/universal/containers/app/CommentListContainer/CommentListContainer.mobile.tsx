@@ -94,6 +94,12 @@ const makeMapStateToProps = (state, props) => {
   };
 };
 
+export default compose<any>(
+  withUuid,
+  withRouter,
+  connect(makeMapStateToProps),
+)(CommentListContainer);
+
 interface CommentListContainerProps extends ConnectedReduxProps, RouteComponentProps {
   componentId,
   comments: any,
@@ -104,9 +110,3 @@ interface CommentListContainerStates {
   showReplyForm: boolean,
   replyContent: String,
 }
-
-export default compose<any>(
-  withUuid,
-  withRouter,
-  connect(makeMapStateToProps),
-)(CommentListContainer);

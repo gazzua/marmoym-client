@@ -121,15 +121,15 @@ const selectUpVote: Function = makeReselectDefinitionList({
   };
 };
 
+export default compose<any>(
+  withUuid,
+  withRouter,
+  connect(makeMapStateToProps),
+)(DefinitionListContainer);
+
 interface DefinitionListContainerProps extends ConnectedReduxProps, RouteComponentProps {
   componentId: any,
   definitions: Array<any>,
   downVoted: Array<any>,
   upVoted: Array<any>,
 }
-
-export default compose<any>(
-  withUuid,
-  withRouter,
-  connect(makeMapStateToProps),
-)(DefinitionListContainer);

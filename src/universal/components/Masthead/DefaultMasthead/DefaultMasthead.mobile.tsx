@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { border } from '@universal/styles/styles';
 import Color from '@universal/constants/Color';
 import Facon from '@components/common/Facon/Facon.mobile';
+import GlobalMenuModalContainer from '@components/modals/GlobalMenuModalContainer/GlobalMenuModalContainer.mobile'
 import MastheadBase from '@components/Masthead/MastheadBase/MastheadBase.mobile';
 import SearchMasthead from '@components/Masthead/SearchMasthead/SearchMasthead.mobile';
 
@@ -23,14 +24,30 @@ const Logo = styled.span`
   font-weight: 600;
 `;
 
+const renderGlobalMenuModal = (props) => props.modalIsVisible 
+  && <GlobalMenuModalContainer
+      handleClickBackdrop={props.handleClickBackdrop}
+      handleClickSignIn={props.handleClickSignIn}
+    />
+
+const testRender = (props) => 
+  {
+  <GlobalMenuModalContainer
+    handleClickBackdrop={props.handleClickBackdrop}
+    handleClickSignIn={props.handleClickSignIn}
+  />
+}
+
 const DefaultMasthead = ({
   query,
   handleChangeQuery,
+  handleClickBackdrop,
   handleClickHamburger,
   handleClickLeftArrow,
   handleClickMarmoymLogo,
   handleClickPencil,
   handleClickSearch,
+  handleClickSignIn,
   handleKeyDown,
   isSearching,
   modalIsVisible,
@@ -38,6 +55,11 @@ const DefaultMasthead = ({
 }) => {
   return (
     <MastheadBase>
+      <GlobalMenuModalContainer
+        handleClickBackdrop={handleClickBackdrop}
+        handleClickSignIn={handleClickSignIn}
+        show={modalIsVisible}
+      />
       <ButtonGroup>
         {isSearching ? (
           <SearchMasthead 

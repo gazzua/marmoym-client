@@ -55,12 +55,12 @@ const makeMapStateToProps = () => {
   };
 };
 
-interface DefineMastheadContainerProps extends ConnectedReduxProps, RouteComponentProps{
-  componentId: String,
-}
-
 export default compose<any>(
   withRouter,
   withUuid,
   connect(makeMapStateToProps),
 )(DefineMastheadContainer);
+
+interface DefineMastheadContainerProps extends ConnectedReduxProps, RouteComponentProps {
+  componentId: String;
+}
