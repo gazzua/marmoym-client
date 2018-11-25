@@ -9,7 +9,6 @@ import CommentListContainer from '@containers/app/CommentListContainer/CommentLi
 import Definition from '@universal/components/app/Definition/Definition.mobile';
 import { makeReselectDefinition } from '@selectors/definitionSelector';
 import { requestDownVoteDefinition, requestGetDefinitionsById, requestUpVoteDefinition } from '@actions/definitionActions';
-import withUuid from '@hocs/withUuid';
 
 class DefinitionContainer extends React.Component<DefinitionContainerProps> {
   constructor(props) {
@@ -80,6 +79,11 @@ const makeMapStateToProps = (state, props) => {
   };
 };
 
+export default compose<any>(
+  withRouter,
+  connect(makeMapStateToProps),
+)(DefinitionContainer);
+
 interface DefinitionContainerProps extends ConnectedReduxProps, RouteComponentProps {
   componentId: any,
   match: any,
@@ -87,9 +91,3 @@ interface DefinitionContainerProps extends ConnectedReduxProps, RouteComponentPr
   downVoted: Array<any>,
   upVoted: Array<any>,
 }
-
-export default compose<any>(
-  withUuid,
-  withRouter,
-  connect(makeMapStateToProps),
-)(DefinitionContainer);

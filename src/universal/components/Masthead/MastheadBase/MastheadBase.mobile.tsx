@@ -24,7 +24,7 @@ const StyledMastheadBase = styled.div`
   }
 `;
 
-const MastheadBase: React.SFC<MastheadBaseProps> = ({
+const MastheadBase: React.SFC<MastheadBaseProps | any> = ({
   children,
   className,
 }) => {

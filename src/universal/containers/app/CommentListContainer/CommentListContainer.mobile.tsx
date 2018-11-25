@@ -9,7 +9,6 @@ import CommentList from '@components/app/CommentList/CommentList.mobile';
 import { ConnectedReduxProps } from '@universal/state/configureStore';
 import { makeReselectComments } from '@selectors/definitionSelector';
 import { requestGetComments, requestNewComment } from '@actions/commentActions';
-import withUuid from '@hocs/withUuid';
 import ActionType from '@universal/constants/ActionType';
 
 const Term = styled.input`
@@ -94,6 +93,11 @@ const makeMapStateToProps = (state, props) => {
   };
 };
 
+export default compose<any>(
+  withRouter,
+  connect(makeMapStateToProps),
+)(CommentListContainer);
+
 interface CommentListContainerProps extends ConnectedReduxProps, RouteComponentProps {
   componentId,
   comments: any,
@@ -104,9 +108,3 @@ interface CommentListContainerStates {
   showReplyForm: boolean,
   replyContent: String,
 }
-
-export default compose<any>(
-  withUuid,
-  withRouter,
-  connect(makeMapStateToProps),
-)(CommentListContainer);

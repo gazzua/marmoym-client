@@ -11,7 +11,6 @@ import {
 import { ConnectedReduxProps } from '@universal/state/configureStore';
 import DefineMasthead from '@components/Masthead/DefineMasthead/DefineMasthead.mobile';
 import { requestDefine } from '@actions/definitionActions';
-import withUuid from '@hocs/withUuid';
 
 class DefineMastheadContainer extends React.Component<DefineMastheadContainerProps> {
   constructor(props) {
@@ -55,12 +54,11 @@ const makeMapStateToProps = () => {
   };
 };
 
-interface DefineMastheadContainerProps extends ConnectedReduxProps, RouteComponentProps{
-  componentId: String,
-}
-
 export default compose<any>(
   withRouter,
-  withUuid,
   connect(makeMapStateToProps),
 )(DefineMastheadContainer);
+
+interface DefineMastheadContainerProps extends ConnectedReduxProps, RouteComponentProps {
+  componentId: String;
+}
