@@ -17,7 +17,6 @@ class MastheadContainer extends React.Component<MastheadContainerProps, Masthead
   constructor(props) {
     super(props);
     this.handleChangeQuery = this.handleChangeQuery.bind(this);
-    this.handleClickBackdrop = this.handleClickBackdrop.bind(this);
     this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.state = {
@@ -36,7 +35,7 @@ class MastheadContainer extends React.Component<MastheadContainerProps, Masthead
       };
     });
   }
-
+  
   handleClickLeftArrow() {
     this.setState((state, props) => {
       return {
@@ -58,15 +57,6 @@ class MastheadContainer extends React.Component<MastheadContainerProps, Masthead
     }
   }
 
-  handleClickBackdrop(e) {
-    this.setState((state, props) => {
-      return {
-        ...state,
-        modalIsVisible: false,
-      };
-    });
-  }
-
   resolveName(pathname, displayName) {
     return displayName.length ? displayName : pathname;
   }
@@ -78,7 +68,6 @@ class MastheadContainer extends React.Component<MastheadContainerProps, Masthead
       <Masthead
         displayName={displayName}
         handleChangeQuery={this.handleChangeQuery}
-        handleClickBackdrop={this.handleClickBackdrop}
         handleClickLeftArrow={this.handleClickLeftArrow}
         handleKeyDown={this.handleKeyDown}
         modalIsVisible={this.state.modalIsVisible}
@@ -94,6 +83,11 @@ const makeMapStateToProps = () => {
   });
 };
 
+export default compose<any>(
+  withRouter,
+  connect(makeMapStateToProps),
+)(MastheadContainer);
+
 interface MastheadContainerProps extends ConnectedReduxProps, RouteComponentProps {
   searchRequested: Boolean;
 }
@@ -103,8 +97,3 @@ interface MastheadContainerStates {
   modalIsVisible: Boolean,
   query: String,
 }
-
-export default compose<any>(
-  withRouter,
-  connect(makeMapStateToProps),
-)(MastheadContainer);

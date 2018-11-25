@@ -43,10 +43,10 @@ const makeMapStateToProps = () => {
   };
 };
 
-interface DefineContainerProps {
-}
-
 export default compose<any>(
   withRouter,
   connect(makeMapStateToProps),
 )(DefineContainer);
+
+interface DefineContainerProps {
+}

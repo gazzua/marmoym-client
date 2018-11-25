@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 import { border } from '@universal/styles/styles';
 import Facon from '@components/common/Facon/Facon.mobile';
-import withUuid from '@hocs/withUuid';
 
 const searchOptionList = [
   'newest',
@@ -108,16 +107,14 @@ const SearchOptionDropDown = (props) => {
   );
 };
 
-interface SearchOptionContainerProps {
+export default compose(
+  withRouter,
+)(SearchOptionContainer);
 
+interface SearchOptionContainerProps {
 }
 
 interface SearchOptionContainerStates {
   listOpen: Boolean,
   selectedOption: any,
 }
-
-export default compose(
-  withUuid,
-  withRouter,
-)(SearchOptionContainer);

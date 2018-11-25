@@ -7,15 +7,16 @@ import AppURL from '@universal/constants/AppURL';
 import { ConnectedReduxProps } from '@universal/state/configureStore';
 import DefaultMasthead from '@components/Masthead/DefaultMasthead/DefaultMasthead.mobile';
 import KeyCode from '@constants/KeyCode';
-import withUuid from '@hocs/withUuid';
 
 class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerProps, DefaultMastheadContainerStates> {
   constructor(props) {
     super(props);
+    this.handleClickBackdrop = this.handleClickBackdrop.bind(this);
     this.handleClickHamburger = this.handleClickHamburger.bind(this);
     this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
     this.handleClickPencil = this.handleClickPencil.bind(this);
     this.handleClickMarmoymLogo = this.handleClickMarmoymLogo.bind(this);
+    this.handleClickSignIn = this.handleClickSignIn.bind(this);
     this.handleChangeQuery = this.handleChangeQuery.bind(this);
     this.handleClickSearch = this.handleClickSearch.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -33,6 +34,15 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
       return {
         ...state,
         query,
+      };
+    });
+  }
+
+  handleClickBackdrop(e) {
+    this.setState((state, props) => {
+      return {
+        ...state,
+        modalIsVisible: false,
       };
     });
   }
@@ -75,6 +85,11 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
     });
   }
 
+  handleClickSignIn(e) {
+    this.props.history.push('/signin');
+    this.handleClickBackdrop(e);
+  }
+
   handleKeyDown(e) {
     if (e.keyCode === KeyCode.RETURN) {
       this.setState((state, props) => {
@@ -93,11 +108,13 @@ class DefaultMastheadContainer extends React.Component<DefaultMastheadContainerP
     return (
       <DefaultMasthead
         handleChangeQuery={this.handleChangeQuery}
+        handleClickBackdrop={this.handleClickBackdrop}
         handleClickHamburger={this.handleClickHamburger}
         handleClickLeftArrow={this.handleClickLeftArrow}
         handleClickMarmoymLogo={this.handleClickMarmoymLogo}
         handleClickPencil={this.handleClickPencil}
         handleClickSearch={this.handleClickSearch}
+        handleClickSignIn={this.handleClickSignIn}
         handleKeyDown={this.handleKeyDown}
         isSearching={this.state.isSearching}
         modalIsVisible={this.state.modalIsVisible}
@@ -116,8 +133,12 @@ const makeMapStateToProps = () => {
   };
 };
 
+export default compose<any>(
+  withRouter,
+  connect(makeMapStateToProps),
+)(DefaultMastheadContainer);
+
 interface DefaultMastheadContainerProps extends ConnectedReduxProps, RouteComponentProps {
-  history: any,
   componentId: String,
   searchRequested: any,
 }
@@ -128,9 +149,3 @@ interface DefaultMastheadContainerStates {
   modalIsVisible: Boolean,
   query: String,
 }
-
-export default compose<any>(
-  withRouter,
-  withUuid,
-  connect(makeMapStateToProps),
-)(DefaultMastheadContainer);

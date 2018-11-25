@@ -9,7 +9,6 @@ import Definition from '@models/data/Definition';
 import DefinitionList from '@universal/components/app/DefinitionList/DefinitionList.mobile';
 import { requestDownVoteDefinition, requestGetDefinitions, requestUpVoteDefinition } from '@actions/definitionActions';
 import { makeReselectDefinitionList } from '@selectors/definitionSelector';
-import withUuid from '@hocs/withUuid';
 
 class DefinitionListContainer extends React.Component<DefinitionListContainerProps> {
   constructor(props) {
@@ -121,15 +120,14 @@ const selectUpVote: Function = makeReselectDefinitionList({
   };
 };
 
+export default compose<any>(
+  withRouter,
+  connect(makeMapStateToProps),
+)(DefinitionListContainer);
+
 interface DefinitionListContainerProps extends ConnectedReduxProps, RouteComponentProps {
   componentId: any,
   definitions: Array<any>,
   downVoted: Array<any>,
   upVoted: Array<any>,
 }
-
-export default compose<any>(
-  withUuid,
-  withRouter,
-  connect(makeMapStateToProps),
-)(DefinitionListContainer);
