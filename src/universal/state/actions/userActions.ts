@@ -55,10 +55,16 @@ export function requestSignUpUser({
   username,
 }) {
   return async (dispatch, getState) => {
-    dispatch({
-      type: ActionType.REQUEST_SIGN_UP_USER
-    });
-
+    return Aktion.of(ActionType.REQUEST_SIGN_UP_USER)
+      .dispatcher(dispatch)
+      .basePayload(arguments[0])
+      .async(LpApis.post({
+        data: arguments[0],
+        param: '',
+        url: URL.USERS_NEW,
+      }))
+      .fire();
+      
     // try {
     //   const result = await MarmoymAPI.signUpUser({
     //     email, password, username,
