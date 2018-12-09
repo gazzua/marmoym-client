@@ -94,6 +94,16 @@ export default {
       url: URL.UPVOTE_DEFINITIONS,
     },
   },
+  [URL.USERS_NEW]: {
+    post: {
+      data: {
+        email: Maybe,
+        password: Maybe,
+        username: Maybe,
+      },
+      url: URL.USERS_NEW,
+    },
+  },
   // getDefinitions: function ({
   //   page,
   // }) {

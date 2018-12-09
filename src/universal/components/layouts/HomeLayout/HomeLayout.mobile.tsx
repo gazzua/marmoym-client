@@ -17,6 +17,7 @@ import DefinitionListContainer from '@containers/app/DefinitionListContainer/Def
 import { MASTHEAD_HEIGHT } from '@components/Masthead/Masthead/Masthead.mobile';
 import MastheadContainer from '@containers/Masthead/MastheadContainer/MastheadContainer.mobile'
 import SignInContainer from '@containers/app/SignInContainer/SignInContainer.mobile';
+import SignUpContaienr from '@containers/app/SignUpContainer/SignUpContainer.mobile'
 
 const StyledHomeLayout = styled.div`
   background-color: ${Color.GRAY9};
@@ -38,23 +39,33 @@ const HomeLayout = ({
           <Route
             component={DefinitionListContainer}
             exact
-            path={AppURL._}/>
-          <Route
-            component={DefinitionListContainer}
-            path={AppURL.SEARCH}/>
-          <Route
-            component={SignInContainer}
-            path={AppURL.SIGNIN}/>
+            path={AppURL._}
+          />
           <Route
             component={DefineContainer}
-            path={AppURL.DEFINE}/>
+            path={AppURL.DEFINE}
+          />
           <Route 
             component={DefinitionContainer}
-            path={AppURL.DEFINITIONS_DEFID}/>
+            path={AppURL.DEFINITIONS_DEFID}
+          />
+          <Route
+            component={DefinitionListContainer}
+            path={AppURL.SEARCH}
+          />
+          <Route
+            component={SignInContainer}
+            path={AppURL.SIGNIN}
+          />
+          <Route
+            component={SignUpContaienr}
+            path={AppURL.SIGNUP}
+          />
           <Route
             render={(props) => {
               return <div>no route defined</div>
-            }}/>
+            }}
+          />
         </Switch>
       </Page>
     </StyledHomeLayout>

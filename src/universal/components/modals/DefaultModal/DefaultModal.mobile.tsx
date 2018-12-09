@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import styled, { StyledFunction } from 'styled-components';
+import styled from 'styled-components';
 
 import Backdrop from '@components/modals/Backdrop/Backdrop.mobile';
 
